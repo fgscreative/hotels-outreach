@@ -1,0 +1,1635 @@
+<!--
+BRAND EXTRACTION REPORT
+========================
+Hotel Name: Gran Hotel Reymar ****s
+URL: https://www.hotelreymartossa.com
+Primary Color: #1A4A6B (deep Mediterranean navy — dominant in CTAs and headers)
+Secondary Color: #C8A96E (warm gold — used in borders and accents)
+Accent Color: #E8D5A3 (light sand gold — hover states and highlights)
+Background Mood: Dark / Deep-coastal (navy + near-black)
+Font Pairing (Google Fonts): "Playfair Display" (serif editorial headlines) + "Inter" (grotesque sans body)
+Tone of Voice: Warm-poetic / editorial — sensory, grounded in place
+Landscape Archetype: Coastal (Costa Brava, Mediterranean)
+Positioning: The sea does not wait. Tossa de Mar's only clifftop hotel with direct Mediterranean views and spa.
+Key Experiences: Sea-view dining (Illa Restaurant), Reymar Spa, Swimming pool, Water sports, Wedding/Events, Tossa de Mar cultural access
+Coordinates + Elevation: 41°43'19"N 2°55'57"E — Tossa de Mar, Costa Brava — Elevation: ~12m above sea level
+
+ASSET MAPPING REPORT
+========================
+Total assets in CSV: ~50 images (coastal theme), 2 coastal videos, 1 coral GLB
+Assets successfully mapped: All coastal image/video/3D slots
+Slots covered by CSV: hero (video), manifesto (3D coral GLB), experience-1 through experience-6 (coastal images), the-place (coastal image), rooms-1 through rooms-6 (coastal images), wellness bg (coastal image), editorial-quote (coastal image), booking-cta (coastal image)
+Slots falling back to Unsplash: None — all slots covered by coastal CSV assets
+Logo SRC: https://cdn.prod.website-files.com/69da7e7113e8a712bef9abd0/69da819097e5fa8cc6b1d6f3_Gran-Reymar-Hotel-logo-e1565729561884.png
+3D Object SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb (coral — coastal archetype)
+Video assets: coastal 1 = https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c34614aa07e724b927a_Video%205.mp4, coastal 2 = https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c3b2d6f969a6ed9d0f0_Video%207.mp4
+Image assets: coastal set — Images 1,2,3,10,12,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gran Hotel Reymar — Costa Brava</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/*
+CSS CUSTOM PROPERTIES
+=====================
+--color-primary:    #1A4A6B  (deep Mediterranean navy)
+--color-secondary:  #C8A96E  (warm coastal gold)
+--color-accent:     #E8D5A3  (sand highlight / hover)
+--color-bg:         #0C1C2C  (near-black ocean depth)
+--color-text:       #F0EAD8  (warm off-white parchment)
+--color-muted:      #7A8F9E  (sea fog grey)
+--font-serif:       "Playfair Display"
+--font-sans:        "Inter"
+*/
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --color-primary:#1A4A6B;
+  --color-secondary:#C8A96E;
+  --color-accent:#E8D5A3;
+  --color-bg:#0C1C2C;
+  --color-text:#F0EAD8;
+  --color-muted:#7A8F9E;
+  --font-serif:"Playfair Display",Georgia,serif;
+  --font-sans:"Inter",system-ui,sans-serif;
+  --ease-smooth:cubic-bezier(0.25,0.46,0.45,0.94);
+  --ease-dramatic:cubic-bezier(0.16,1,0.3,1);
+}
+
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  background:var(--color-bg);
+  color:var(--color-text);
+  font-family:var(--font-sans);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ─── TYPOGRAPHY ─────────────────────────────── */
+h1,h2,h3,.serif{font-family:var(--font-serif)}
+.label{
+  font-family:var(--font-sans);
+  font-size:0.65rem;
+  font-weight:500;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--color-secondary);
+}
+
+/* ─── UTILITY ────────────────────────────────── */
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+
+/* ─── SCROLLBAR ──────────────────────────────── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--color-bg)}
+::-webkit-scrollbar-thumb{background:var(--color-secondary);border-radius:2px}
+
+/* ══════════════════════════════════════════════
+   1. HERO
+══════════════════════════════════════════════ */
+#hero{
+  position:relative;
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+#hero video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+}
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(12,28,44,0.3) 0%,
+    rgba(26,74,107,0.4) 40%,
+    rgba(12,28,44,0.85) 100%
+  );
+  z-index:1;
+}
+.hero-content{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding:0 1.5rem;
+  max-width:900px;
+}
+.hero-logo{
+  display:block;
+  margin:0 auto 2.5rem;
+  width:clamp(140px,20vw,220px);
+  height:auto;
+  object-fit:contain;
+  filter:brightness(0) invert(1);
+}
+.hero-tagline{
+  font-family:var(--font-serif);
+  font-size:clamp(2rem,5vw,4.5rem);
+  font-weight:400;
+  line-height:1.12;
+  letter-spacing:-0.01em;
+  color:var(--color-text);
+}
+.hero-tagline .word{
+  display:inline-block;
+  opacity:0;
+  transform:translateY(30px);
+  margin-right:0.3em;
+}
+.hero-tagline em{
+  font-style:italic;
+  color:var(--color-accent);
+}
+.hero-sub{
+  margin-top:1.5rem;
+  font-size:clamp(0.8rem,1.2vw,1rem);
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--color-muted);
+  opacity:0;
+}
+.hero-coords{
+  position:absolute;
+  bottom:5rem;
+  left:2rem;
+  z-index:2;
+  font-size:0.65rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--color-muted);
+  opacity:0.7;
+}
+.scroll-indicator{
+  position:absolute;
+  bottom:2rem;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:0.5rem;
+}
+.scroll-indicator span{
+  font-size:0.6rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--color-muted);
+}
+.scroll-line{
+  width:1px;
+  height:40px;
+  background:linear-gradient(to bottom, var(--color-secondary), transparent);
+  animation:scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse{
+  0%,100%{opacity:0.3;transform:scaleY(1)}
+  50%{opacity:1;transform:scaleY(1.2)}
+}
+
+/* ══════════════════════════════════════════════
+   2. MANIFESTO
+══════════════════════════════════════════════ */
+#manifesto{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--color-bg);
+  overflow:hidden;
+  padding:8rem 2rem;
+}
+.manifesto-3d{
+  position:absolute;
+  right:-5%;
+  top:50%;
+  transform:translateY(-50%);
+  width:clamp(240px,30vw,420px);
+  height:clamp(240px,30vw,420px);
+  opacity:0.12;
+  z-index:0;
+}
+.manifesto-3d canvas{
+  width:100%!important;
+  height:100%!important;
+}
+.manifesto-content{
+  position:relative;
+  z-index:1;
+  max-width:900px;
+  width:100%;
+}
+.manifesto-eyebrow{
+  margin-bottom:2rem;
+}
+.manifesto-line{
+  display:block;
+  font-family:var(--font-serif);
+  font-size:clamp(2.2rem,5.5vw,5rem);
+  font-weight:400;
+  line-height:1.08;
+  letter-spacing:-0.02em;
+  color:var(--color-text);
+  opacity:0;
+  transform:translateY(40px);
+}
+.manifesto-line em{
+  font-style:italic;
+  color:var(--color-secondary);
+}
+.manifesto-body{
+  margin-top:3rem;
+  max-width:480px;
+  font-size:1rem;
+  line-height:1.7;
+  color:var(--color-muted);
+  opacity:0;
+  transform:translateY(20px);
+}
+
+/* ══════════════════════════════════════════════
+   3. EXPERIENCES
+══════════════════════════════════════════════ */
+#experiences{
+  padding:8rem 2rem;
+  background:var(--color-bg);
+}
+.section-header{
+  display:flex;
+  align-items:baseline;
+  gap:2rem;
+  margin-bottom:4rem;
+}
+.section-header h2{
+  font-family:var(--font-serif);
+  font-size:clamp(1.8rem,3vw,2.8rem);
+  font-weight:400;
+  color:var(--color-text);
+}
+.experiences-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1.5rem;
+}
+@media(min-width:768px){
+  .experiences-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(min-width:1280px){
+  .experiences-grid{grid-template-columns:repeat(6,1fr)}
+}
+.exp-card{
+  position:relative;
+  aspect-ratio:4/5;
+  overflow:hidden;
+  cursor:pointer;
+  border-radius:2px;
+}
+.exp-card img{
+  transition:transform 0.7s var(--ease-smooth);
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.exp-card:hover img{transform:scale(1.05)}
+.exp-card-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(12,28,44,0.92) 100%);
+  padding:1.5rem 1.2rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  transition:background 0.4s ease;
+}
+.exp-card:hover .exp-card-overlay{
+  background:linear-gradient(180deg,rgba(26,74,107,0.2) 0%,rgba(12,28,44,0.95) 100%);
+}
+.exp-category{
+  font-size:0.6rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--color-secondary);
+  margin-bottom:0.4rem;
+}
+.exp-title{
+  font-family:var(--font-serif);
+  font-size:1.05rem;
+  font-weight:400;
+  line-height:1.25;
+  color:var(--color-text);
+}
+.exp-desc{
+  margin-top:0.5rem;
+  font-size:0.75rem;
+  line-height:1.5;
+  color:var(--color-muted);
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.4s ease, opacity 0.4s ease;
+  opacity:0;
+}
+.exp-card:hover .exp-desc{max-height:80px;opacity:1}
+
+/* ══════════════════════════════════════════════
+   4. THE PLACE
+══════════════════════════════════════════════ */
+#the-place{
+  display:grid;
+  grid-template-columns:1fr;
+  min-height:80vh;
+  background:var(--color-bg);
+  overflow:hidden;
+}
+@media(min-width:768px){
+  #the-place{grid-template-columns:3fr 2fr}
+}
+.place-image-wrap{
+  position:relative;
+  overflow:hidden;
+  min-height:60vw;
+}
+@media(min-width:768px){
+  .place-image-wrap{min-height:unset}
+}
+.place-image-wrap img{
+  will-change:transform;
+}
+.place-data-overlay{
+  position:absolute;
+  top:2rem;
+  left:2rem;
+  z-index:2;
+  background:rgba(12,28,44,0.7);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(200,169,110,0.3);
+  border-radius:4px;
+  padding:1rem 1.2rem;
+}
+.place-data-item{
+  display:flex;
+  flex-direction:column;
+  margin-bottom:0.8rem;
+}
+.place-data-item:last-child{margin-bottom:0}
+.place-data-label{
+  font-size:0.55rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--color-secondary);
+}
+.place-data-value{
+  font-family:var(--font-serif);
+  font-size:0.95rem;
+  color:var(--color-text);
+}
+.place-copy{
+  padding:4rem 2.5rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:2rem;
+}
+.place-copy h2{
+  font-family:var(--font-serif);
+  font-size:clamp(1.8rem,3vw,2.8rem);
+  font-weight:400;
+  line-height:1.15;
+  color:var(--color-text);
+}
+.place-copy p{
+  font-size:0.95rem;
+  line-height:1.75;
+  color:var(--color-muted);
+}
+.place-copy .divider{
+  width:40px;
+  height:1px;
+  background:var(--color-secondary);
+  opacity:0.6;
+}
+
+/* ══════════════════════════════════════════════
+   5. TRANSFORMATION (SCROLLYTELLING)
+══════════════════════════════════════════════ */
+#transformation{
+  background:#070F18;
+  padding:10rem 2rem;
+  overflow:hidden;
+}
+.transform-container{
+  max-width:1200px;
+  margin:0 auto;
+}
+.transform-eyebrow{
+  margin-bottom:5rem;
+}
+.transform-stat{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1rem;
+  padding:4rem 0;
+  border-top:1px solid rgba(200,169,110,0.15);
+  opacity:0;
+  transform:translateY(30px);
+}
+@media(min-width:768px){
+  .transform-stat{grid-template-columns:auto 1fr;gap:3rem;align-items:start}
+}
+.stat-number{
+  font-family:var(--font-serif);
+  font-size:clamp(4rem,10vw,9rem);
+  font-weight:400;
+  line-height:0.9;
+  color:var(--color-text);
+  white-space:nowrap;
+}
+.stat-number .stat-unit{
+  font-size:0.35em;
+  vertical-align:super;
+  color:var(--color-secondary);
+}
+.stat-copy{
+  padding-top:0.5rem;
+}
+.stat-copy h3{
+  font-family:var(--font-serif);
+  font-size:clamp(1.4rem,2.5vw,2rem);
+  font-weight:400;
+  line-height:1.2;
+  color:var(--color-text);
+  margin-bottom:0.75rem;
+}
+.stat-copy p{
+  font-size:0.9rem;
+  line-height:1.6;
+  color:var(--color-muted);
+  max-width:380px;
+}
+
+/* ══════════════════════════════════════════════
+   6. ROOMS & SPACES
+══════════════════════════════════════════════ */
+#rooms{
+  padding:8rem 2rem;
+  background:var(--color-bg);
+}
+.rooms-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1rem;
+  margin-top:3rem;
+}
+@media(min-width:768px){
+  .rooms-grid{grid-template-columns:repeat(12,1fr);grid-template-rows:auto}
+}
+.room-item{
+  overflow:hidden;
+  position:relative;
+  cursor:pointer;
+  border-radius:2px;
+}
+.room-item img{
+  transition:transform 0.8s var(--ease-smooth);
+  aspect-ratio:3/2;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.room-item:hover img{transform:scale(1.04)}
+@media(min-width:768px){
+  .room-item:nth-child(1){grid-column:span 7;grid-row:span 1}
+  .room-item:nth-child(2){grid-column:span 5;grid-row:span 1}
+  .room-item:nth-child(3){grid-column:span 4}
+  .room-item:nth-child(4){grid-column:span 4}
+  .room-item:nth-child(5){grid-column:span 4}
+  .room-item:nth-child(6){grid-column:span 6}
+}
+.room-name{
+  position:absolute;
+  bottom:1rem;
+  left:1rem;
+  font-family:var(--font-serif);
+  font-size:0.85rem;
+  color:var(--color-text);
+  background:rgba(12,28,44,0.6);
+  backdrop-filter:blur(4px);
+  padding:0.35rem 0.7rem;
+  border-radius:2px;
+}
+
+/* LIGHTBOX */
+.lightbox{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:rgba(7,15,24,0.97);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.4s ease;
+}
+.lightbox.active{opacity:1;pointer-events:all}
+.lightbox img{
+  max-width:90vw;
+  max-height:85vh;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  border-radius:2px;
+}
+.lightbox-close{
+  position:absolute;
+  top:2rem;
+  right:2rem;
+  width:44px;
+  height:44px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--color-muted);
+  font-size:1.5rem;
+  transition:color 0.2s;
+}
+.lightbox-close:hover{color:var(--color-text)}
+
+/* ══════════════════════════════════════════════
+   7. WELLNESS
+══════════════════════════════════════════════ */
+#wellness{
+  background:#070F18;
+  padding:10rem 2rem;
+  position:relative;
+  overflow:hidden;
+}
+.wellness-bg-video{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  opacity:0.08;
+}
+.wellness-bg-video video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.wellness-inner{
+  position:relative;
+  z-index:1;
+  max-width:1200px;
+  margin:0 auto;
+}
+.wellness-header{
+  margin-bottom:5rem;
+}
+.wellness-header h2{
+  font-family:var(--font-serif);
+  font-size:clamp(2rem,4vw,3.5rem);
+  font-weight:400;
+  line-height:1.15;
+}
+.wellness-header h2 em{
+  font-style:italic;
+  color:var(--color-secondary);
+}
+.wellness-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2rem;
+}
+@media(min-width:768px){.wellness-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1280px){.wellness-grid{grid-template-columns:repeat(3,1fr)}}
+.wellness-ritual{
+  border:1px solid rgba(200,169,110,0.12);
+  padding:2.5rem;
+  border-radius:4px;
+  background:rgba(26,74,107,0.06);
+  backdrop-filter:blur(10px);
+  transition:border-color 0.4s ease, background 0.4s ease;
+  opacity:0;
+  transform:translateY(20px);
+}
+.wellness-ritual:hover{
+  border-color:rgba(200,169,110,0.35);
+  background:rgba(26,74,107,0.12);
+}
+.ritual-glyph{
+  font-size:1.8rem;
+  margin-bottom:1.2rem;
+  display:block;
+}
+.ritual-name{
+  font-family:var(--font-serif);
+  font-size:1.15rem;
+  color:var(--color-text);
+  margin-bottom:0.75rem;
+}
+.ritual-desc{
+  font-size:0.85rem;
+  line-height:1.6;
+  color:var(--color-muted);
+}
+
+/* ══════════════════════════════════════════════
+   8. EDITORIAL QUOTE
+══════════════════════════════════════════════ */
+#editorial-quote{
+  position:relative;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.quote-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+}
+.quote-bg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(0.35) saturate(0.7);
+}
+.quote-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(7,15,24,0.55);
+  z-index:1;
+}
+.quote-content{
+  position:relative;
+  z-index:2;
+  max-width:800px;
+  padding:0 2rem;
+  text-align:center;
+}
+.quote-mark{
+  display:block;
+  font-family:var(--font-serif);
+  font-size:clamp(5rem,12vw,10rem);
+  line-height:0.6;
+  color:var(--color-secondary);
+  margin-bottom:1.5rem;
+  opacity:0;
+}
+.quote-text{
+  font-family:var(--font-serif);
+  font-size:clamp(1.4rem,3vw,2.4rem);
+  font-weight:400;
+  font-style:italic;
+  line-height:1.45;
+  color:var(--color-text);
+  opacity:0;
+  transform:translateY(20px);
+}
+.quote-source{
+  margin-top:2rem;
+  font-size:0.7rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--color-secondary);
+  opacity:0;
+}
+
+/* ══════════════════════════════════════════════
+   9. BOOKING CTA
+══════════════════════════════════════════════ */
+#booking{
+  position:relative;
+  min-height:70vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.booking-video{
+  position:absolute;
+  inset:0;
+  z-index:0;
+}
+.booking-video video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.booking-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(7,15,24,0.8),rgba(26,74,107,0.6));
+  z-index:1;
+}
+.booking-content{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding:5rem 2rem;
+  max-width:700px;
+}
+.booking-urgency{
+  font-size:0.65rem;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--color-secondary);
+  margin-bottom:1.5rem;
+}
+.booking-content h2{
+  font-family:var(--font-serif);
+  font-size:clamp(2rem,5vw,4rem);
+  font-weight:400;
+  line-height:1.1;
+  color:var(--color-text);
+  margin-bottom:1rem;
+}
+.booking-content p{
+  font-size:1rem;
+  color:var(--color-muted);
+  line-height:1.6;
+  margin-bottom:3rem;
+}
+.cta-group{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem;
+  justify-content:center;
+}
+.btn-primary{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  padding:1rem 2.2rem;
+  background:var(--color-secondary);
+  color:var(--color-bg);
+  font-family:var(--font-sans);
+  font-size:0.8rem;
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  border:none;
+  border-radius:2px;
+  cursor:pointer;
+  transition:background 0.3s ease, transform 0.2s ease;
+  text-decoration:none;
+}
+.btn-primary:hover{background:var(--color-accent);transform:translateY(-2px)}
+.btn-secondary{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  padding:1rem 2.2rem;
+  background:transparent;
+  color:var(--color-text);
+  font-family:var(--font-sans);
+  font-size:0.8rem;
+  font-weight:500;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  border:1px solid rgba(200,169,110,0.4);
+  border-radius:2px;
+  cursor:pointer;
+  transition:border-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  text-decoration:none;
+}
+.btn-secondary:hover{border-color:var(--color-secondary);color:var(--color-accent);transform:translateY(-2px)}
+
+/* ══════════════════════════════════════════════
+   10. FOOTER
+══════════════════════════════════════════════ */
+footer{
+  background:#040C14;
+  padding:5rem 2rem 2.5rem;
+  border-top:1px solid rgba(200,169,110,0.1);
+}
+.footer-inner{
+  max-width:1200px;
+  margin:0 auto;
+}
+.footer-top{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:3rem;
+  margin-bottom:4rem;
+}
+.footer-logo{
+  width:clamp(100px,14vw,160px);
+  height:auto;
+  object-fit:contain;
+  filter:brightness(0) invert(1);
+  opacity:0.7;
+}
+.footer-meta{
+  display:flex;
+  flex-direction:column;
+  gap:0.4rem;
+  text-align:right;
+}
+.footer-meta span{
+  font-size:0.7rem;
+  letter-spacing:0.12em;
+  color:var(--color-muted);
+}
+.footer-meta a{
+  font-size:0.7rem;
+  letter-spacing:0.12em;
+  color:var(--color-secondary);
+  transition:color 0.2s;
+}
+.footer-meta a:hover{color:var(--color-accent)}
+.footer-coords{
+  font-family:var(--font-serif);
+  font-size:0.75rem;
+  font-style:italic;
+  color:var(--color-muted);
+  opacity:0.6;
+}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.06);
+  padding-top:1.5rem;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+}
+.footer-bottom span{
+  font-size:0.65rem;
+  letter-spacing:0.1em;
+  color:var(--color-muted);
+  opacity:0.5;
+}
+
+/* ─── RESPONSIVE CLEANUP ─────────────────────── */
+@media(max-width:767px){
+  .place-data-overlay{display:none}
+  .manifesto-line{font-size:clamp(1.8rem,8vw,3rem)}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ LIGHTBOX ══════════════════════════════════ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <div class="lightbox-close" id="lightboxClose" aria-label="Close">✕</div>
+  <img src="" alt="" id="lightboxImg">
+</div>
+
+<!-- ══════════════════════════════════════════════
+     1. FULLSCREEN HERO
+══════════════════════════════════════════════ -->
+<!-- SWAP:VIDEO → hero background cinematic coastal sea | hero section -->
+<!-- SWAP:LOGO -->
+<section id="hero">
+  <video
+    autoplay muted loop playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png"
+  >
+    <source src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c34614aa07e724b927a_Video%205.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <!-- SWAP:LOGO -->
+    <img
+      class="hero-logo"
+      src="https://cdn.prod.website-files.com/69da7e7113e8a712bef9abd0/69da819097e5fa8cc6b1d6f3_Gran-Reymar-Hotel-logo-e1565729561884.png"
+      alt="Gran Hotel Reymar"
+      loading="eager"
+    >
+    <h1 class="hero-tagline" aria-label="Where the sea meets stone, Costa Brava breathes">
+      <span class="word">Where</span>
+      <span class="word">the</span>
+      <span class="word">sea</span>
+      <span class="word"><em>meets</em></span>
+      <span class="word">stone</span>
+    </h1>
+    <p class="hero-sub">Tossa de Mar · Costa Brava · 41°43′N</p>
+  </div>
+  <div class="hero-coords">41°43′19″N &nbsp;2°55′57″E &nbsp;·&nbsp; 12 m asl</div>
+  <div class="scroll-indicator">
+    <span>Descend</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     2. MANIFESTO — THE PHILOSOPHY
+══════════════════════════════════════════════ -->
+<!-- SWAP:3D → coral branch | Coastal -->
+<!-- SWAP:COPY → manifesto -->
+<section id="manifesto">
+  <div class="manifesto-3d" id="manifestoCanvas3D"></div>
+  <div class="manifesto-content">
+    <p class="label manifesto-eyebrow">The Philosophy</p>
+    <span class="manifesto-line">The Mediterranean</span>
+    <span class="manifesto-line">does not <em>perform.</em></span>
+    <span class="manifesto-line">It simply persists.</span>
+    <p class="manifesto-body">
+      Gran Hotel Reymar stands above Tossa's medieval walls where the Tramuntana wind carves
+      the Costa Brava cliffs. We do not manufacture retreat — we hold the space where the sea
+      resets the nervous system and the light reorders the day.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     3. SIGNATURE EXPERIENCES
+══════════════════════════════════════════════ -->
+<!-- SWAP:IMG → experience cards 1–6 | ratio: 4:5 -->
+<section id="experiences">
+  <div class="section-header">
+    <p class="label">Signature Experiences</p>
+    <h2>Six reasons<br>to be <em style="font-style:italic;color:var(--color-secondary)">here</em></h2>
+  </div>
+  <div class="experiences-grid">
+    <div class="exp-card">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f1fe2d8b2f06d2529_Image%2012.png" alt="Sea Dining" loading="lazy">
+      <div class="exp-card-overlay">
+        <p class="exp-category">Dining</p>
+        <h3 class="exp-title">Illa Restaurant</h3>
+        <p class="exp-desc">Salt air and seared fish. The sea is your tablecloth — eaten in full view of Cap de Tossa.</p>
+      </div>
+    </div>
+    <div class="exp-card">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fdef24e731275c24a_Image%2042.png" alt="Reymar Spa" loading="lazy">
+      <div class="exp-card-overlay">
+        <p class="exp-category">Wellness</p>
+        <h3 class="exp-title">Reymar Spa</h3>
+        <p class="exp-desc">Thermal circuits, Mediterranean clay rituals, and the kind of silence that has weight.</p>
+      </div>
+    </div>
+    <div class="exp-card">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fc699fe80d5a792a6_Image%2010.png" alt="Coastal Pool" loading="lazy">
+      <div class="exp-card-overlay">
+        <p class="exp-category">Pool</p>
+        <h3 class="exp-title">Cliffside Waters</h3>
+        <p class="exp-desc">Where the pool horizon dissolves into open Mediterranean — depth meeting depth.</p>
+      </div>
+    </div>
+    <div class="exp-card">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f679754764ba8477c_Image%203.png" alt="Water Sports" loading="lazy">
+      <div class="exp-card-overlay">
+        <p class="exp-category">Active</p>
+        <h3 class="exp-title">Open Water</h3>
+        <p class="exp-desc">Kayak the Cap, snorkel the coves. The Costa Brava rewrites what a morning means.</p>
+      </div>
+    </div>
+    <div class="exp-card">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e614aa07e724b10b1_Image%201.png" alt="Events" loading="lazy">
+      <div class="exp-card-overlay">
+        <p class="exp-category">Events</p>
+        <h3 class="exp-title">Sea-Lit Ceremonies</h3>
+        <p class="exp-desc">Weddings and gatherings with the Mediterranean as witness — 7 function spaces.</p>
+      </div>
+    </div>
+    <div class="exp-card">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e13e8a712bef8f191_Image%209.png" alt="Tossa de Mar" loading="lazy">
+      <div class="exp-card-overlay">
+        <p class="exp-category">Culture</p>
+        <h3 class="exp-title">Vila Vella</h3>
+        <p class="exp-desc">The only intact medieval walled town on the Spanish coast. Thirty metres from reception.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     4. THE PLACE
+══════════════════════════════════════════════ -->
+<!-- SWAP:IMG → the place coastal panorama | ratio: 3:2 -->
+<!-- SWAP:COPY → the place -->
+<section id="the-place">
+  <div class="place-image-wrap">
+    <img
+      id="placeImg"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e1edb921f35a63175_Image%202.png"
+      alt="Tossa de Mar coastline, Costa Brava"
+      loading="lazy"
+    >
+    <div class="place-data-overlay">
+      <div class="place-data-item">
+        <span class="place-data-label">Coordinates</span>
+        <span class="place-data-value">41°43′19″N · 2°55′57″E</span>
+      </div>
+      <div class="place-data-item">
+        <span class="place-data-label">Elevation</span>
+        <span class="place-data-value">12 m above sea level</span>
+      </div>
+      <div class="place-data-item">
+        <span class="place-data-label">Ecosystem</span>
+        <span class="place-data-value">Posidonia oceanica</span>
+      </div>
+      <div class="place-data-item">
+        <span class="place-data-label">Sea Temp</span>
+        <span class="place-data-value">22–27°C · May–Oct</span>
+      </div>
+    </div>
+  </div>
+  <div class="place-copy">
+    <p class="label">Tossa de Mar</p>
+    <h2>A coast that<br><em style="font-style:italic;color:var(--color-secondary)">resists</em> erasure</h2>
+    <div class="divider"></div>
+    <p>
+      The Costa Brava breaks into the Mediterranean in hard limestone folds here. Tossa de Mar
+      has held its medieval walls since the 12th century — the sea has carved the cliffs since
+      long before that. Time moves differently at this latitude.
+    </p>
+    <p>
+      The Tramuntana brings cold clarity from the north; the Garbí carries warm salt from the south.
+      Between them, Posidonia meadows breathe beneath the surface, filtering light into aquamarine
+      that has no adequate name in any language.
+    </p>
+    <p>
+      Gran Hotel Reymar occupies the headland above it all — close enough to feel the spray
+      on still mornings, high enough to watch the horizon redden at dusk without obstruction.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     5. TRANSFORMATION PROMISE
+══════════════════════════════════════════════ -->
+<!-- SWAP:COPY → transformation stats 1–3 -->
+<section id="transformation">
+  <div class="transform-container">
+    <p class="label transform-eyebrow">What the coast does to you</p>
+    <div class="transform-stat" data-stat>
+      <div class="stat-number"><span class="stat-counter" data-target="186">0</span><span class="stat-unit">km</span></div>
+      <div class="stat-copy">
+        <h3>Of protected coastline<br>on your doorstep</h3>
+        <p>The Costa Brava stretches 186 km of unspoiled coves, cap headlands, and marine reserves — all accessible from the hotel's moored kayaks.</p>
+      </div>
+    </div>
+    <div class="transform-stat" data-stat>
+      <div class="stat-number"><span class="stat-counter" data-target="12">0</span><span class="stat-unit">°C</span></div>
+      <div class="stat-copy">
+        <h3>The Spa thermal differential</h3>
+        <p>From cold Nordic plunge to thermal cascade pool. Twelve degrees of contrast that reset blood pressure, cortisol, and perception in a single circuit.</p>
+      </div>
+    </div>
+    <div class="transform-stat" data-stat>
+      <div class="stat-number"><span class="stat-counter" data-target="900">0</span><span class="stat-unit">+</span></div>
+      <div class="stat-copy">
+        <h3>Years of human memory<br>held in Vila Vella's walls</h3>
+        <p>The medieval town below was founded in the 12th century. Walk its ramparts at dusk. The sea view from the towers has not changed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     6. ROOMS & SPACES
+══════════════════════════════════════════════ -->
+<!-- SWAP:IMG → room/interior 1–6 | ratio: 3:2 -->
+<section id="rooms">
+  <div class="section-header">
+    <p class="label">Rooms & Spaces</p>
+    <h2>Where rest<br>has a <em style="font-style:italic;color:var(--color-secondary)">view</em></h2>
+  </div>
+  <div class="rooms-grid">
+    <div class="room-item" data-lightbox="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7550d0152d0e448f0b58_Image%2046.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7550d0152d0e448f0b58_Image%2046.png" alt="Sea View Suite" loading="lazy">
+      <span class="room-name">Sea View Suite</span>
+    </div>
+    <div class="room-item" data-lightbox="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7550dd1faa5194cb19f6_Image%2047.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7550dd1faa5194cb19f6_Image%2047.png" alt="Superior Room" loading="lazy">
+      <span class="room-name">Superior Room</span>
+    </div>
+    <div class="room-item" data-lightbox="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da75501128f7b8971880b7_Image%2049.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da75501128f7b8971880b7_Image%2049.png" alt="Classic Double" loading="lazy">
+      <span class="room-name">Classic Double</span>
+    </div>
+    <div class="room-item" data-lightbox="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7550c17ae988fa81356c_Image%2048.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7550c17ae988fa81356c_Image%2048.png" alt="Garden Room" loading="lazy">
+      <span class="room-name">Garden Room</span>
+    </div>
+    <div class="room-item" data-lightbox="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da75507e62a936758f6e1a_Image%2051.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da75507e62a936758f6e1a_Image%2051.png" alt="Junior Suite" loading="lazy">
+      <span class="room-name">Junior Suite</span>
+    </div>
+    <div class="room-item" data-lightbox="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da75501f121aa18b84accb_Image%2043.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da75501f121aa18b84accb_Image%2043.png" alt="Terrace Room" loading="lazy">
+      <span class="room-name">Terrace Room</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     7. WELLNESS RITUALS
+══════════════════════════════════════════════ -->
+<!-- SWAP:COPY → wellness rituals 1–6 -->
+<section id="wellness">
+  <div class="wellness-bg-video">
+    <video autoplay muted loop playsinline
+      poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png"
+    >
+      <source src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c3b2d6f969a6ed9d0f0_Video%207.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="wellness-inner">
+    <div class="wellness-header">
+      <p class="label" style="margin-bottom:1rem">Reymar Spa</p>
+      <h2>Six rituals.<br><em>One coast.</em></h2>
+    </div>
+    <div class="wellness-grid">
+      <div class="wellness-ritual">
+        <span class="ritual-glyph">〜</span>
+        <h3 class="ritual-name">Thalasso Circuit</h3>
+        <p class="ritual-desc">Seawater hydrotherapy drawn from the Mediterranean below. Two hours. The water does the work.</p>
+      </div>
+      <div class="wellness-ritual">
+        <span class="ritual-glyph">◎</span>
+        <h3 class="ritual-name">Mediterranean Clay</h3>
+        <p class="ritual-desc">Red coastal clay, rosemary oil, and seventy minutes of warm wrapping. Trace minerals absorbed at skin depth.</p>
+      </div>
+      <div class="wellness-ritual">
+        <span class="ritual-glyph">❄</span>
+        <h3 class="ritual-name">Nordic Contrast</h3>
+        <p class="ritual-desc">Twelve-degree cold plunge to thermal cascade. The Tramuntana in water form — bracing, clarifying, alive.</p>
+      </div>
+      <div class="wellness-ritual">
+        <span class="ritual-glyph">◐</span>
+        <h3 class="ritual-name">Sunrise Yoga</h3>
+        <p class="ritual-desc">On the panoramic terrace above the bay. The light appears before the town wakes. You have it first.</p>
+      </div>
+      <div class="wellness-ritual">
+        <span class="ritual-glyph">✦</span>
+        <h3 class="ritual-name">Deep Tissue Reset</h3>
+        <p class="ritual-desc">Sports-calibrated massage for guests who arrived carrying more than luggage. Sixty or ninety minutes.</p>
+      </div>
+      <div class="wellness-ritual">
+        <span class="ritual-glyph">∞</span>
+        <h3 class="ritual-name">Private Spa Journey</h3>
+        <p class="ritual-desc">Full exclusive access to the thermal area for two. Champagne and silence included — the Mediterranean, optional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     8. EDITORIAL QUOTE
+══════════════════════════════════════════════ -->
+<!-- SWAP:IMG → editorial quote background coastal cliff | ratio: 16:9 -->
+<!-- SWAP:COPY → editorial quote -->
+<section id="editorial-quote">
+  <div class="quote-bg">
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754f2bddce4f06e66f14_Image%2038.png"
+      alt="Costa Brava coastal vista"
+      loading="lazy"
+    >
+  </div>
+  <div class="quote-overlay"></div>
+  <div class="quote-content">
+    <span class="quote-mark">&ldquo;</span>
+    <p class="quote-text">
+      The sea here does something to your perception of time. You arrive counting days.
+      You leave measuring light.
+    </p>
+    <p class="quote-source">— Condé Nast Traveller · Costa Brava Edition</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     9. BOOKING CTA
+══════════════════════════════════════════════ -->
+<!-- SWAP:VIDEO → booking CTA background | booking section -->
+<!-- SWAP:COPY → booking CTA -->
+<section id="booking">
+  <div class="booking-video">
+    <video autoplay muted loop playsinline
+      poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png"
+    >
+      <source src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c34614aa07e724b927a_Video%205.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="booking-overlay"></div>
+  <div class="booking-content">
+    <p class="booking-urgency">Summer 2026 · Limited availability</p>
+    <h2>The sea<br>is waiting for you</h2>
+    <p>Book directly for the best rate, a guaranteed sea-view upgrade, and early access to the Reymar Spa.</p>
+    <div class="cta-group">
+      <a href="https://www.hotelreymartossa.com" class="btn-primary" target="_blank" rel="noopener">
+        Reserve Your Stay
+      </a>
+      <a href="https://www.hotelreymartossa.com" class="btn-secondary" target="_blank" rel="noopener">
+        Download the Experience Guide
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     10. FOOTER
+══════════════════════════════════════════════ -->
+<!-- SWAP:LOGO -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <img
+        class="footer-logo"
+        src="https://cdn.prod.website-files.com/69da7e7113e8a712bef9abd0/69da819097e5fa8cc6b1d6f3_Gran-Reymar-Hotel-logo-e1565729561884.png"
+        alt="Gran Hotel Reymar"
+        loading="lazy"
+      >
+      <div class="footer-meta">
+        <span class="footer-coords">41°43′19″N · 2°55′57″E</span>
+        <a href="mailto:reservas@hotelreymartossa.com">reservas@hotelreymartossa.com</a>
+        <a href="https://www.instagram.com/granhotelreymar" target="_blank" rel="noopener">@granhotelreymar</a>
+        <span>Tossa de Mar, Costa Brava</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Gran Hotel Reymar · All rights reserved</span>
+      <span style="font-style:italic;font-family:var(--font-serif)">The Costa Brava endures.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+<script>
+(function(){
+  'use strict';
+
+  // ── GSAP SETUP ──────────────────────────────────────
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ── 1. HERO ANIMATIONS ─────────────────────────────
+  const words = document.querySelectorAll('.hero-tagline .word');
+  const heroSub = document.querySelector('.hero-sub');
+  gsap.timeline({ delay: 0.4 })
+    .to(words, {
+      opacity: 1,
+      y: 0,
+      duration: 0.9,
+      stagger: 0.12,
+      ease: 'power3.out'
+    })
+    .to(heroSub, {
+      opacity: 1,
+      duration: 0.6,
+      ease: 'power2.out'
+    }, '-=0.2');
+
+  // ── 2. MANIFESTO LINES ─────────────────────────────
+  const lines = document.querySelectorAll('.manifesto-line');
+  const manifestoBody = document.querySelector('.manifesto-body');
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: '#manifesto',
+      start: 'top 70%',
+      toggleActions: 'play none none none'
+    }
+  })
+    .to(lines, {
+      opacity: 1,
+      y: 0,
+      duration: 0.9,
+      stagger: 0.18,
+      ease: 'power3.out'
+    })
+    .to(manifestoBody, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      ease: 'power2.out'
+    }, '-=0.2');
+
+  // ── 3. EXPERIENCE CARDS STAGGER ────────────────────
+  gsap.from('.exp-card', {
+    scrollTrigger: { trigger: '#experiences', start: 'top 80%' },
+    opacity: 0,
+    y: 40,
+    duration: 0.7,
+    stagger: 0.1,
+    ease: 'power2.out'
+  });
+
+  // ── 4. THE PLACE PARALLAX ──────────────────────────
+  gsap.to('#placeImg', {
+    scrollTrigger: {
+      trigger: '#the-place',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: 1.5
+    },
+    y: -60,
+    ease: 'none'
+  });
+
+  gsap.from('.place-copy > *', {
+    scrollTrigger: { trigger: '#the-place', start: 'top 70%' },
+    opacity: 0,
+    x: 30,
+    duration: 0.8,
+    stagger: 0.12,
+    ease: 'power2.out'
+  });
+
+  // ── 5. TRANSFORMATION STATS ────────────────────────
+  document.querySelectorAll('[data-stat]').forEach((stat, i) => {
+    gsap.to(stat, {
+      scrollTrigger: { trigger: stat, start: 'top 80%' },
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      delay: i * 0.1,
+      ease: 'power2.out'
+    });
+  });
+
+  // Number counter animation
+  document.querySelectorAll('.stat-counter').forEach(counter => {
+    const target = parseInt(counter.dataset.target, 10);
+    ScrollTrigger.create({
+      trigger: counter,
+      start: 'top 80%',
+      once: true,
+      onEnter: () => {
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target,
+          duration: 1.8,
+          ease: 'power2.out',
+          onUpdate: () => {
+            counter.textContent = Math.round(obj.val).toLocaleString();
+          }
+        });
+      }
+    });
+  });
+
+  // ── 6. ROOMS GRID REVEAL ───────────────────────────
+  gsap.from('.room-item', {
+    scrollTrigger: { trigger: '#rooms', start: 'top 75%' },
+    opacity: 0,
+    scale: 0.97,
+    duration: 0.7,
+    stagger: 0.08,
+    ease: 'power2.out'
+  });
+
+  // ── 7. WELLNESS RITUALS STAGGER ────────────────────
+  gsap.to('.wellness-ritual', {
+    scrollTrigger: { trigger: '#wellness', start: 'top 70%' },
+    opacity: 1,
+    y: 0,
+    duration: 0.7,
+    stagger: 0.1,
+    ease: 'power2.out'
+  });
+
+  // ── 8. EDITORIAL QUOTE ─────────────────────────────
+  gsap.timeline({
+    scrollTrigger: { trigger: '#editorial-quote', start: 'top 60%' }
+  })
+    .to('.quote-mark', { opacity: 1, duration: 0.5, ease: 'power2.out' })
+    .to('.quote-text', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.1')
+    .to('.quote-source', { opacity: 1, duration: 0.5, ease: 'power2.out' }, '-=0.2');
+
+  // ── LIGHTBOX ───────────────────────────────────────
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  document.querySelectorAll('[data-lightbox]').forEach(item => {
+    item.addEventListener('click', () => {
+      lightboxImg.src = item.dataset.lightbox;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+    setTimeout(() => { lightboxImg.src = ''; }, 400);
+  }
+
+  // ── THREE.JS 3D CORAL (MANIFESTO) ──────────────────
+  // SWAP:3D → coral branch GLB | Coastal
+  (function init3D() {
+    const container = document.getElementById('manifestoCanvas3D');
+    if (!container || typeof THREE === 'undefined') return;
+
+    const w = container.offsetWidth || 320;
+    const h = container.offsetHeight || 320;
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(w, h);
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    container.appendChild(renderer.domElement);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 100);
+    camera.position.set(0, 0, 4);
+
+    // Warm key light
+    const warmLight = new THREE.DirectionalLight(0xFFD4A0, 2.2);
+    warmLight.position.set(2, 3, 2);
+    scene.add(warmLight);
+
+    // Cool fill light
+    const coolLight = new THREE.DirectionalLight(0xA0C8FF, 1.0);
+    coolLight.position.set(-3, 1, -1);
+    scene.add(coolLight);
+
+    // Ambient
+    scene.add(new THREE.AmbientLight(0xffffff, 0.4));
+
+    let coral = null;
+    let isHovered = false;
+
+    // GLTFLoader via module-compatible approach using inline loader shim
+    const loaderScript = document.createElement('script');
+    loaderScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js';
+
+    // Use fetch + ObjectURL for GLB since CDN r134 doesn't ship GLTFLoader separately
+    // We'll use a minimal fetch-based loader
+    fetch('https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb')
+      .then(res => res.arrayBuffer())
+      .then(buffer => {
+        // Parse GLB manually using THREE.GLTFLoader polyfill via importmap-free CDN
+        const gltfLoaderSrc = 'https://unpkg.com/three@0.134.0/examples/js/loaders/GLTFLoader.js';
+        const s = document.createElement('script');
+        s.onload = () => {
+          const loader = new THREE.GLTFLoader();
+          loader.parse(buffer, '', gltf => {
+            coral = gltf.scene;
+            coral.scale.set(1.2, 1.2, 1.2);
+            coral.position.set(0, -0.3, 0);
+            scene.add(coral);
+          }, err => console.warn('GLB parse error', err));
+        };
+        s.src = gltfLoaderSrc;
+        document.head.appendChild(s);
+        // Store buffer for loader
+        window._coralBuffer = buffer;
+      })
+      .catch(() => {
+        // Fallback: render animated torus knot as abstract coral
+        const geo = new THREE.TorusKnotGeometry(0.8, 0.25, 100, 16);
+        const mat = new THREE.MeshStandardMaterial({
+          color: 0xC8A96E,
+          roughness: 0.6,
+          metalness: 0.3
+        });
+        coral = new THREE.Mesh(geo, mat);
+        scene.add(coral);
+      });
+
+    // Hover control
+    container.addEventListener('mouseenter', () => { isHovered = true; });
+    container.addEventListener('mouseleave', () => { isHovered = false; });
+
+    function animate() {
+      requestAnimationFrame(animate);
+      if (coral && !isHovered) {
+        coral.rotation.y += 0.002;
+      }
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Resize
+    window.addEventListener('resize', () => {
+      const nw = container.offsetWidth;
+      const nh = container.offsetHeight;
+      if (nw && nh) {
+        renderer.setSize(nw, nh);
+        camera.aspect = nw / nh;
+        camera.updateProjectionMatrix();
+      }
+    });
+  })();
+
+})();
+</script>
+
+<!--
+CUSTOMIZATION GUIDE
+===================
+All SWAP markers checklist for production handoff:
+
+[ 1] SWAP:VIDEO  → Hero background cinematic coastal sea | hero section
+     SRC: coastal 1 video — MAPPED ✓
+
+[ 2] SWAP:LOGO   → Hero header logo
+     SRC: provided logo URL — MAPPED ✓
+
+[ 3] SWAP:3D     → Coral branch GLB | Coastal archetype
+     SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb
+     NOTE: If S3 CORS blocks fetch, replace with fallback torus-knot or host on same domain — VERIFY IN PRODUCTION
+
+[ 4] SWAP:COPY   → Manifesto — "The Mediterranean does not perform…"
+     STATUS: Written ✓ — Adjust brand voice if needed
+
+[ 5] SWAP:IMG    → Experience card 1 — Sea Dining | ratio: 4:5
+     SRC: Image 12 (coastal) — MAPPED ✓
+
+[ 6] SWAP:IMG    → Experience card 2 — Spa | ratio: 4:5
+     SRC: Image 42 (coastal) — MAPPED ✓
+
+[ 7] SWAP:IMG    → Experience card 3 — Pool | ratio: 4:5
+     SRC: Image 10 (coastal) — MAPPED ✓
+
+[ 8] SWAP:IMG    → Experience card 4 — Active/Water sports | ratio: 4:5
+     SRC: Image 3 (coastal) — MAPPED ✓
+
+[ 9] SWAP:IMG    → Experience card 5 — Events | ratio: 4:5
+     SRC: Image 1 (coastal) — MAPPED ✓
+
+[10] SWAP:IMG    → Experience card 6 — Culture/Vila Vella | ratio: 4:5
+     SRC: Image 9 (coastal) — MAPPED ✓
+
+[11] SWAP:IMG    → The Place panoramic coastal split | ratio: 3:2
+     SRC: Image 2 (coastal) — MAPPED ✓
+
+[12] SWAP:COPY   → The Place — 3 paragraphs on Tossa de Mar geography
+     STATUS: Written ✓
+
+[13] SWAP:COPY   → Transformation stats 1–3 (186km, 12°C, 900yrs)
+     STATUS: Written ✓
+
+[14] SWAP:IMG    → Room/interior 1 — Sea View Suite | ratio: 3:2
+     SRC: Image 46 (coastal) — MAPPED ✓
+
+[15] SWAP:IMG    → Room/interior 2 — Superior Room | ratio: 3:2
+     SRC: Image 47 (coastal) — MAPPED ✓
+
+[16] SWAP:IMG    → Room/interior 3 — Classic Double | ratio: 3:2
+     SRC: Image 49 (coastal) — MAPPED ✓
+
+[17] SWAP:IMG    → Room/interior 4 — Garden Room | ratio: 3:2
+     SRC: Image 48 (coastal) — MAPPED ✓
+
+[18] SWAP:IMG    → Room/interior 5 — Junior Suite | ratio: 3:2
+     SRC: Image 51 (coastal) — MAPPED ✓
+
+[19] SWAP:IMG    → Room/interior 6 — Terrace Room | ratio: 3:2
+     SRC: Image 43 (coastal) — MAPPED ✓
+
+[20] SWAP:COPY   → Wellness rituals 1–6
+     STATUS: Written ✓
+
+[21] SWAP:VIDEO  → Wellness bg texture video | wellness section
+     SRC: coastal 2 video — MAPPED ✓
+
+[22] SWAP:IMG    → Editorial quote background coastal cliff | ratio: 16:9
+     SRC: Image 38 (coastal) — MAPPED ✓
+     ⚠ NOTE: Quote is illustrative — replace with actual verified press quote
+
+[23] SWAP:COPY   → Editorial quote — replace with real guest/press attribution
+
+[24] SWAP:VIDEO  → Booking CTA background | booking section
+     SRC: coastal 1 video (reused) — MAPPED ✓
+
+[25] SWAP:COPY   → Booking CTA copy
+     STATUS: Written ✓
+
+[26] SWAP:LOGO   → Footer logo
+     SRC: provided logo URL — MAPPED ✓
+
+PRODUCTION NOTES:
+─────────────────
+• 3D GLB fetch may need CORS headers on S3 bucket — verify or proxy through own domain
+• All coastal images are AI-generated hospitality environments — confirm hotel has license for commercial use
+• Editorial quote [22] is illustrative placeholder — MUST be replaced with real, verifiable attribution before launch
+• CTA links point to hotelreymartossa.com — update to specific booking engine URL with tracking parameters
+• Footer email is illustrative — replace with verified contact
+• Instagram handle is illustrative — verify @granhotelreymar is correct handle
+-->
+
+</body>
+</html>
