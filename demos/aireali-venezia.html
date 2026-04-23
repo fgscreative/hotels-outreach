@@ -1,0 +1,1309 @@
+<!--
+BRAND EXTRACTION REPORT
+========================
+Hotel Name:          Hotel Ai Reali di Venezia
+URL:                 https://www.hotelaireali.com/
+Primary Color:       #3D1F14  — deep Venetian burnt brick (aged terracotta, palace plaster)
+Secondary Color:     #C4922F  — Venetian amber-gold (gilded Baroque ceiling, gondola lacquer)
+Accent Color:        #DFB96A  — champagne gold (hover, highlight states)
+Background Mood:     Dark · warm · palatial · amber-candlelight depth
+Font Pairing:        Cormorant Garamond (aristrocatic serif headline)
+                     + DM Sans (clean grotesque sans body)
+Tone of Voice:       Aristocratic · intimate · sensory · Venetian warmth
+Landscape Archetype: Urban / Coastal — Venice Lagoon, Adriatic Italy
+Positioning:         A 17th-century palace restored to intimacy —
+                     between Rialto and Piazza San Marco, on a private canal.
+                     Feel like you have a second house in Venice.
+Key Experiences:     1. Canal View Rooms & Suites (Luxury, Junior, Deluxe, Superior, Classic)
+                     2. Alle Corone Restaurant (Venetian cuisine)
+                     3. Reali Wellness & SPA (sauna, Turkish bath, emotional showers, massages)
+                     4. Altana Rooftop Terrace (360° Venice panorama)
+                     5. Private Pier (water taxi, gondola directly to hotel)
+                     6. Venice Cultural Immersion (Rialto, San Marco, campo life)
+Coordinates:         45°26′N · 12°20′E
+Elevation:           0 m ASL — built on water, Venice lagoon
+Ecological detail:   Venetian Lagoon · Adriatic Coast · Italy
+                     Acqua alta tidal cycles · Brackish lagoon ecology ·
+                     Posidonia and sea grasses in the lagoon shallows ·
+                     Salt air, mineral water, Adriatic light ·
+                     Castello sestiere · Campo della Fava 5527
+
+ASSET MAPPING REPORT
+========================
+Source:              contenct links MASTER.csv — coastal category (best match for Venice lagoon)
+Total assets in CSV: 26 coastal images + 3 GLB 3D objects
+Assets mapped:       18 directly used
+Slots covered:       hero-poster, exp-1 through exp-6, the-place, room-1 through room-6,
+                     wellness-bg, quote-bg, booking-bg
+Slots falling back:  NONE — all slots filled from coastal CSV images
+Logo SRC:            https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dc6c2d533bfc0a9cbb_Ai-Reali.png
+3D Object SRC:       https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb
+                     (oak leaf — Venetian palace garden, organic elegance, best match)
+Video assets:        NONE IN CSV
+                     Hero uses static image + CSS Ken Burns parallax animation
+Image assets mapped:
+  hero-poster        → Image 56  (coastal panoramic)
+  exp-1 (rooms)      → Image 1   (coastal sea light)
+  exp-2 (dining)     → Image 12  (coastal atmosphere)
+  exp-3 (wellness)   → Image 10  (coastal calm)
+  exp-4 (altana)     → Image 3   (coastal open air)
+  exp-5 (pier)       → Image 9   (coastal water edge)
+  exp-6 (venice)     → Image 2   (coastal cultural)
+  the-place          → Image 42  (coastal split panoramic)
+  room-1             → Image 55  (coastal luxury suite)
+  room-2             → Image 54  (coastal canal room)
+  room-3             → Image 53  (coastal terrace room)
+  room-4             → Image 52  (coastal superior room)
+  room-5             → Image 50  (coastal classic room)
+  room-6             → Image 44  (coastal corridor/palazzo)
+  wellness-bg        → Image 47  (atmospheric coastal bg)
+  quote-bg           → Image 46  (editorial coastal vista)
+  booking-bg         → Image 49  (cinematic coastal)
+
+VIDEOS: NO ASSET IN CSV
+  <!-- SWAP:VIDEO → hero background cinematic | hero section | NO ASSET IN CSV -->
+  <!-- SWAP:VIDEO → wellness ambient depth | wellness section | NO ASSET IN CSV -->
+  <!-- SWAP:VIDEO → booking CTA cinematic lagoon | booking section | NO ASSET IN CSV -->
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Ai Reali di Venezia — A Palace on the Lagoon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+<style>
+/*
+CSS CUSTOM PROPERTIES
+─────────────────────
+--color-primary:    #3D1F14  deep Venetian burnt brick
+--color-secondary:  #C4922F  Venetian amber-gold
+--color-accent:     #DFB96A  champagne gold highlight / hover
+--color-bg:         #0C0906  near-black with warm wine undertone
+--color-surface:    #1A130E  lifted warm dark Venetian surface
+--color-text:       #F0EBE3  warm ivory — Venetian manuscript
+--color-muted:      #7E6E5E  warm taupe-grey — aged plaster
+--font-serif:       "Cormorant Garamond"
+--font-sans:        "DM Sans"
+*/
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --color-primary:#3D1F14;
+  --color-secondary:#C4922F;
+  --color-accent:#DFB96A;
+  --color-bg:#0C0906;
+  --color-surface:#1A130E;
+  --color-text:#F0EBE3;
+  --color-muted:#7E6E5E;
+  --font-serif:"Cormorant Garamond",Georgia,serif;
+  --font-sans:"DM Sans",system-ui,sans-serif;
+  --ease-out:cubic-bezier(0.25,0.46,0.45,0.94);
+  --ease-drama:cubic-bezier(0.16,1,0.3,1);
+  --max-w:1280px;
+  --pad-x:clamp(1.5rem,5vw,5rem);
+}
+
+html{font-size:16px;overflow-x:hidden;scroll-behavior:smooth}
+body{background:var(--color-bg);color:var(--color-text);font-family:var(--font-sans);-webkit-font-smoothing:antialiased}
+
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--color-bg)}
+::-webkit-scrollbar-thumb{background:var(--color-secondary)}
+
+/* ── PRELOADER ── */
+#preloader{
+  position:fixed;inset:0;background:var(--color-bg);
+  z-index:9999;pointer-events:none;opacity:1;
+  transition:opacity .7s ease .15s;
+}
+#preloader.done{opacity:0}
+#preloader-line{
+  position:absolute;bottom:0;left:0;height:1px;
+  background:var(--color-secondary);width:0;
+  transition:width .5s cubic-bezier(0.16,1,0.3,1);
+}
+
+.serif{font-family:var(--font-serif)}
+.label{
+  font-family:var(--font-sans);font-size:0.6rem;font-weight:500;
+  letter-spacing:0.22em;text-transform:uppercase;color:var(--color-secondary);
+}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-x)}
+
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+#hero{
+  position:relative;width:100%;height:100vh;min-height:600px;
+  overflow:hidden;display:flex;align-items:center;justify-content:center;
+}
+#hero .hero-poster{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;
+  animation:heroKenBurns 24s ease-in-out infinite alternate;
+  transform-origin:center center;
+}
+@keyframes heroKenBurns{
+  0%  {transform:scale(1.0) translate(0,0)}
+  100%{transform:scale(1.055) translate(-.8%,-.6%)}
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    165deg,
+    rgba(61,31,20,.22) 0%,
+    rgba(61,31,20,.42) 40%,
+    rgba(12,9,6,.90) 100%
+  );
+  z-index:1;
+}
+.hero-inner{
+  position:relative;z-index:2;text-align:center;
+  padding:0 1.5rem;max-width:860px;width:100%;
+}
+.hero-logo-wrap{
+  display:flex;justify-content:center;margin:0 auto 3rem;
+  width:clamp(160px,20vw,240px);
+}
+.hero-logo{
+  width:100%;height:auto;object-fit:contain;display:block;
+  opacity:.92;filter:brightness(0) invert(1);
+}
+.hero-tagline{
+  font-family:var(--font-serif);font-size:clamp(2.4rem,6vw,5.4rem);
+  font-weight:300;line-height:1.08;letter-spacing:-.01em;color:var(--color-text);
+}
+.hero-tagline .word{display:inline-block;opacity:0;transform:translateY(32px);margin-right:.24em}
+.hero-tagline em{font-style:italic;color:var(--color-accent)}
+.hero-sub{
+  margin-top:1.5rem;font-size:clamp(.65rem,1.05vw,.78rem);
+  letter-spacing:.24em;text-transform:uppercase;color:var(--color-muted);opacity:0;
+}
+.hero-coords{
+  position:absolute;bottom:5.5rem;left:var(--pad-x);z-index:2;
+  font-size:.57rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--color-muted);opacity:.6;
+}
+.scroll-cue{
+  position:absolute;bottom:1.8rem;left:50%;transform:translateX(-50%);
+  z-index:2;display:flex;flex-direction:column;align-items:center;gap:.45rem;
+}
+.scroll-cue span{font-size:.54rem;letter-spacing:.24em;text-transform:uppercase;color:var(--color-muted)}
+.scroll-line{
+  width:1px;height:38px;
+  background:linear-gradient(to bottom,var(--color-secondary),transparent);
+  animation:linePulse 2.4s ease-in-out infinite;
+}
+@keyframes linePulse{0%,100%{opacity:.28}50%{opacity:1}}
+
+/* ══════════════════════════════════════════
+   MANIFESTO
+══════════════════════════════════════════ */
+#manifesto{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  background:var(--color-bg);overflow:hidden;padding:9rem var(--pad-x);
+}
+.mfst-3d{
+  position:absolute;right:-2%;top:50%;transform:translateY(-50%);
+  width:clamp(200px,30vw,420px);height:clamp(200px,30vw,420px);
+  opacity:.08;z-index:0;pointer-events:none;
+}
+.mfst-3d canvas{width:100%!important;height:100%!important}
+.mfst-content{position:relative;z-index:1;max-width:900px}
+.mfst-eyebrow{margin-bottom:2.4rem}
+.mfst-line{
+  display:block;font-family:var(--font-serif);
+  font-size:clamp(2.6rem,6.5vw,5.6rem);
+  font-weight:300;line-height:1.06;letter-spacing:-.015em;
+  color:var(--color-text);opacity:0;transform:translateY(40px);
+}
+.mfst-line em{font-style:italic;color:var(--color-secondary)}
+.mfst-body{
+  margin-top:3rem;max-width:460px;font-family:var(--font-sans);
+  font-size:.9rem;line-height:1.82;color:var(--color-muted);
+  opacity:0;transform:translateY(18px);
+}
+
+/* ══════════════════════════════════════════
+   EXPERIENCES — 6 cards / 3×2
+══════════════════════════════════════════ */
+#experiences{padding:8rem var(--pad-x);background:var(--color-surface)}
+.section-head{
+  display:flex;flex-wrap:wrap;align-items:baseline;
+  gap:1.5rem 3rem;margin-bottom:4rem;
+}
+.section-head h2{
+  font-family:var(--font-serif);font-size:clamp(2rem,3.4vw,3.2rem);
+  font-weight:300;color:var(--color-text);line-height:1.15;
+}
+.section-head h2 em{font-style:italic;color:var(--color-secondary)}
+.exp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+@media(min-width:768px){.exp-grid{grid-template-columns:repeat(3,1fr)}}
+.exp-card{position:relative;aspect-ratio:4/5;overflow:hidden;cursor:pointer}
+.exp-card img{transition:transform .8s var(--ease-out);width:100%;height:100%;object-fit:cover}
+.exp-card:hover img{transform:scale(1.05)}
+.exp-card-info{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 36%,rgba(12,9,6,.95) 100%);
+  padding:1.4rem 1.2rem;display:flex;flex-direction:column;
+  justify-content:flex-end;transition:background .4s ease;
+}
+.exp-card:hover .exp-card-info{
+  background:linear-gradient(180deg,rgba(61,31,20,.12) 0%,rgba(12,9,6,.97) 100%);
+}
+.exp-cat{font-size:.57rem;letter-spacing:.22em;text-transform:uppercase;color:var(--color-secondary);margin-bottom:.35rem}
+.exp-title{font-family:var(--font-serif);font-size:1.12rem;font-weight:400;line-height:1.2;color:var(--color-text)}
+.exp-desc{
+  margin-top:.5rem;font-size:.74rem;line-height:1.58;color:var(--color-muted);
+  max-height:0;overflow:hidden;opacity:0;transition:max-height .4s ease,opacity .35s ease;
+}
+.exp-card:hover .exp-desc{max-height:90px;opacity:1}
+
+/* ══════════════════════════════════════════
+   THE PLACE — split 60/40
+══════════════════════════════════════════ */
+#the-place{
+  display:grid;grid-template-columns:1fr;
+  background:var(--color-bg);overflow:hidden;
+}
+@media(min-width:768px){#the-place{grid-template-columns:3fr 2fr;min-height:80vh}}
+.place-img-wrap{position:relative;overflow:hidden;min-height:55vw}
+@media(min-width:768px){.place-img-wrap{min-height:unset}}
+.place-img-wrap img{will-change:transform}
+.place-data{
+  position:absolute;top:1.8rem;left:1.8rem;z-index:2;
+  background:rgba(12,9,6,.76);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(196,146,47,.26);
+  padding:.9rem 1.1rem;display:none;
+}
+@media(min-width:768px){.place-data{display:block}}
+.place-data-row{display:flex;flex-direction:column;margin-bottom:.7rem}
+.place-data-row:last-child{margin-bottom:0}
+.pd-label{font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--color-secondary)}
+.pd-val{font-family:var(--font-serif);font-size:.95rem;color:var(--color-text)}
+.place-copy{
+  padding:4rem 2.5rem;display:flex;flex-direction:column;
+  justify-content:center;gap:1.8rem;background:var(--color-surface);
+}
+@media(min-width:768px){.place-copy{padding:5rem 3.5rem}}
+.place-copy h2{
+  font-family:var(--font-serif);font-size:clamp(1.9rem,3.2vw,2.9rem);
+  font-weight:300;line-height:1.15;
+}
+.place-copy h2 em{font-style:italic;color:var(--color-secondary)}
+.place-copy p{font-size:.9rem;line-height:1.82;color:var(--color-muted)}
+.divider{width:38px;height:1px;background:var(--color-secondary);opacity:.5}
+
+/* ══════════════════════════════════════════
+   TRANSFORMATION STATS
+══════════════════════════════════════════ */
+#transformation{background:#060402;padding:10rem var(--pad-x);overflow:hidden}
+.transform-wrap{max-width:var(--max-w);margin:0 auto}
+.transform-eyebrow{margin-bottom:5rem}
+.t-stat{
+  display:grid;grid-template-columns:1fr;gap:1rem;
+  padding:4rem 0;border-top:1px solid rgba(196,146,47,.12);
+  opacity:0;transform:translateY(28px);
+}
+@media(min-width:768px){.t-stat{grid-template-columns:auto 1fr;gap:3rem;align-items:start}}
+.t-num{
+  font-family:var(--font-serif);font-size:clamp(4.5rem,11vw,9.5rem);
+  font-weight:300;line-height:.88;color:var(--color-text);white-space:nowrap;
+}
+.t-unit{font-size:.3em;vertical-align:super;color:var(--color-secondary)}
+.t-copy h3{
+  font-family:var(--font-serif);font-size:clamp(1.3rem,2.2vw,2rem);
+  font-weight:300;line-height:1.2;color:var(--color-text);
+  margin-bottom:.7rem;padding-top:.4rem;
+}
+.t-copy p{font-size:.88rem;line-height:1.65;color:var(--color-muted);max-width:380px}
+
+/* ══════════════════════════════════════════
+   ROOMS — 6 images, editorial masonry
+══════════════════════════════════════════ */
+#rooms{padding:8rem var(--pad-x);background:var(--color-bg)}
+.rooms-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem;margin-top:3rem;
+}
+@media(min-width:768px){
+  .rooms-grid{grid-template-columns:repeat(12,1fr);grid-template-rows:auto auto}
+  .room-item:nth-child(1){grid-column:span 7}
+  .room-item:nth-child(2){grid-column:span 5}
+  .room-item:nth-child(3){grid-column:span 4}
+  .room-item:nth-child(4){grid-column:span 4}
+  .room-item:nth-child(5){grid-column:span 4}
+  .room-item:nth-child(6){grid-column:span 12}
+}
+.room-item{position:relative;overflow:hidden;cursor:pointer}
+.room-item img{
+  aspect-ratio:3/2;width:100%;height:100%;object-fit:cover;
+  transition:transform .85s var(--ease-out);display:block;
+}
+@media(min-width:768px){
+  .room-item:nth-child(1) img,.room-item:nth-child(2) img{aspect-ratio:16/9}
+  .room-item:nth-child(6) img{aspect-ratio:21/7}
+}
+.room-item:hover img{transform:scale(1.04)}
+.room-name{
+  position:absolute;bottom:.9rem;left:.9rem;
+  font-family:var(--font-serif);font-size:.85rem;color:var(--color-text);
+  background:rgba(12,9,6,.62);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  padding:.3rem .65rem;
+}
+
+/* LIGHTBOX */
+.lb{
+  position:fixed;inset:0;z-index:9999;background:rgba(6,4,2,.97);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .35s ease;
+}
+.lb.open{opacity:1;pointer-events:all}
+.lb img{max-width:90vw;max-height:86vh;width:auto;height:auto;object-fit:contain}
+.lb-close{
+  position:absolute;top:1.6rem;right:1.8rem;font-size:1.4rem;cursor:pointer;
+  color:var(--color-muted);transition:color .2s;line-height:1;padding:.4rem;
+}
+.lb-close:hover{color:var(--color-text)}
+
+/* ══════════════════════════════════════════
+   WELLNESS RITUALS — 6 cards / 3×2
+══════════════════════════════════════════ */
+#wellness{
+  background:#060402;padding:10rem var(--pad-x);
+  position:relative;overflow:hidden;
+}
+.well-vid-bg{position:absolute;inset:0;z-index:0;opacity:.05}
+.well-vid-bg img{width:100%;height:100%;object-fit:cover}
+.well-inner{position:relative;z-index:1;max-width:var(--max-w);margin:0 auto}
+.well-head{margin-bottom:5rem}
+.well-head h2{
+  font-family:var(--font-serif);font-size:clamp(2.2rem,4.4vw,4rem);
+  font-weight:300;line-height:1.1;
+}
+.well-head h2 em{font-style:italic;color:var(--color-secondary)}
+.well-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
+@media(min-width:1024px){.well-grid{grid-template-columns:repeat(3,1fr)}}
+.well-card{
+  border:1px solid rgba(196,146,47,.1);padding:2.2rem;
+  background:rgba(61,31,20,.05);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  transition:border-color .35s ease,background .35s ease;
+  opacity:0;transform:translateY(18px);
+}
+.well-card:hover{border-color:rgba(196,146,47,.3);background:rgba(61,31,20,.14)}
+.well-glyph{font-size:1.55rem;margin-bottom:1.1rem;display:block}
+.well-name{font-family:var(--font-serif);font-size:1.15rem;color:var(--color-text);margin-bottom:.65rem}
+.well-desc{font-size:.82rem;line-height:1.64;color:var(--color-muted)}
+
+/* ══════════════════════════════════════════
+   EDITORIAL QUOTE — full viewport
+══════════════════════════════════════════ */
+#quote{
+  position:relative;height:100vh;min-height:500px;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.quote-bg-img{position:absolute;inset:0;z-index:0}
+.quote-bg-img img{filter:brightness(.22) saturate(.45)}
+.quote-scrim{position:absolute;inset:0;z-index:1;background:rgba(6,4,2,.44)}
+.quote-body{position:relative;z-index:2;max-width:820px;padding:0 var(--pad-x);text-align:center}
+.q-mark{
+  display:block;font-family:var(--font-serif);
+  font-size:clamp(5rem,14vw,12rem);line-height:.5;
+  color:var(--color-secondary);margin-bottom:1.6rem;opacity:0;
+}
+.q-text{
+  font-family:var(--font-serif);font-size:clamp(1.4rem,3.2vw,2.5rem);
+  font-weight:300;font-style:italic;line-height:1.52;
+  color:var(--color-text);opacity:0;transform:translateY(18px);
+}
+.q-source{
+  margin-top:2rem;font-size:.64rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--color-secondary);opacity:0;
+}
+
+/* ══════════════════════════════════════════
+   BOOKING CTA
+══════════════════════════════════════════ */
+#booking{
+  position:relative;min-height:72vh;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.book-vid{position:absolute;inset:0;z-index:0}
+.book-vid img{width:100%;height:100%;object-fit:cover}
+.book-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(135deg,rgba(12,9,6,.90),rgba(61,31,20,.55));
+}
+.book-inner{
+  position:relative;z-index:2;text-align:center;
+  padding:5rem var(--pad-x);max-width:700px;width:100%;
+}
+.book-urgency{
+  font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--color-secondary);margin-bottom:1.4rem;
+}
+.book-inner h2{
+  font-family:var(--font-serif);font-size:clamp(2.2rem,5.5vw,4.6rem);
+  font-weight:300;line-height:1.08;color:var(--color-text);margin-bottom:1rem;
+}
+.book-inner p{font-size:.93rem;color:var(--color-muted);line-height:1.72;margin-bottom:2.8rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+.btn-p{
+  display:inline-flex;align-items:center;gap:.45rem;padding:.95rem 2.2rem;
+  background:var(--color-secondary);color:var(--color-bg);
+  font-family:var(--font-sans);font-size:.74rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;
+  border:none;cursor:pointer;
+  transition:background .3s,transform .2s;text-decoration:none;
+}
+.btn-p:hover{background:var(--color-accent);transform:translateY(-2px)}
+.btn-s{
+  display:inline-flex;align-items:center;gap:.45rem;padding:.95rem 2.2rem;
+  background:transparent;color:var(--color-text);
+  font-family:var(--font-sans);font-size:.74rem;font-weight:400;
+  letter-spacing:.14em;text-transform:uppercase;
+  border:1px solid rgba(196,146,47,.36);cursor:pointer;
+  transition:border-color .3s,color .3s,transform .2s;text-decoration:none;
+}
+.btn-s:hover{border-color:var(--color-secondary);color:var(--color-accent);transform:translateY(-2px)}
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+footer{
+  background:#050301;padding:5rem var(--pad-x) 2.5rem;
+  border-top:1px solid rgba(196,146,47,.1);
+}
+.footer-top{
+  display:flex;flex-wrap:wrap;justify-content:space-between;
+  align-items:flex-start;gap:2.5rem;margin-bottom:4rem;
+}
+.footer-logo-wrap{width:clamp(120px,14vw,175px)}
+.footer-logo{width:100%;height:auto;object-fit:contain;opacity:.6;filter:brightness(0) invert(1)}
+.footer-meta{display:flex;flex-direction:column;gap:.38rem;text-align:right}
+.footer-meta span,.footer-meta a{font-size:.68rem;letter-spacing:.12em;color:var(--color-muted)}
+.footer-meta a{color:var(--color-secondary);transition:color .2s}
+.footer-meta a:hover{color:var(--color-accent)}
+.footer-coords{font-family:var(--font-serif);font-style:italic;opacity:.52}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.05);padding-top:1.4rem;
+  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;
+}
+.footer-bottom span{font-size:.6rem;letter-spacing:.1em;color:var(--color-muted);opacity:.42}
+.footer-bottom em{font-family:var(--font-serif);font-style:italic;font-size:.7rem}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE UTILITIES
+══════════════════════════════════════════ */
+@media(max-width:480px){
+  .well-grid{grid-template-columns:1fr}
+  .exp-grid{grid-template-columns:repeat(2,1fr)}
+  .rooms-grid{grid-template-columns:1fr}
+  .t-stat{grid-template-columns:1fr}
+}
+@media(max-width:360px){
+  .exp-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ════ PRELOADER ════ -->
+<div id="preloader" aria-hidden="true"><div id="preloader-line"></div></div>
+
+<!-- ════ LIGHTBOX ════ -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <div class="lb-close" id="lbClose" aria-label="Close">✕</div>
+  <img src="" alt="" id="lbImg">
+</div>
+
+<!-- ════════════════════════════════════════
+     1. HERO
+════════════════════════════════════════ -->
+<!-- SWAP:VIDEO → hero cinematic Venice lagoon | hero section | NO ASSET IN CSV -->
+<!-- SWAP:LOGO -->
+<section id="hero">
+  <!-- SWAP:IMG → hero background Venice lagoon coastal panorama | ratio: 16:9 -->
+  <img
+    class="hero-poster"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png"
+    alt="Hotel Ai Reali di Venezia — Venice Lagoon"
+    loading="eager"
+    fetchpriority="high"
+  >
+  <div class="hero-overlay"></div>
+
+  <div class="hero-inner">
+    <!-- SWAP:LOGO -->
+    <div class="hero-logo-wrap">
+      <img
+        class="hero-logo"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dc6c2d533bfc0a9cbb_Ai-Reali.png"
+        alt="Hotel Ai Reali di Venezia"
+        width="240"
+        height="68"
+        loading="eager"
+        decoding="async"
+      >
+    </div>
+
+    <!-- SWAP:COPY → hero tagline -->
+    <h1 class="hero-tagline" aria-label="Venice enters before you do">
+      <span class="word">Venice</span>
+      <span class="word"><em>enters</em></span>
+      <span class="word">before</span>
+      <span class="word">you</span>
+      <span class="word">do.</span>
+    </h1>
+    <p class="hero-sub">Castello &thinsp;·&thinsp; Venezia &thinsp;·&thinsp; Adriatic Italy</p>
+  </div>
+
+  <div class="hero-coords">45°26′N &thinsp;12°20′E &thinsp;·&thinsp; 0 m asl &thinsp;·&thinsp; laguna veneta</div>
+  <div class="scroll-cue">
+    <span>Scendi</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     2. MANIFESTO — The Philosophy
+════════════════════════════════════════ -->
+<!-- SWAP:3D → mature oak leaf GLB | Urban / Venice Lagoon -->
+<!-- SWAP:COPY → manifesto -->
+<section id="manifesto">
+  <div class="mfst-3d" id="canvas3d"></div>
+
+  <div class="mfst-content container">
+    <p class="label mfst-eyebrow">The Philosophy</p>
+    <span class="mfst-line">The palace has always</span>
+    <span class="mfst-line">known how to <em>hold</em> a guest.</span>
+    <span class="mfst-line">Four centuries of Venetian</span>
+    <span class="mfst-line">light, <em>unchanged.</em></span>
+    <p class="mfst-body">
+      Cà Corner-Reali was built in the 1600s for one of Venice's oldest families.
+      Today the same corridors hold silence the city cannot manufacture elsewhere.
+      Between Rialto and Piazza San Marco, on a private canal —
+      this is not a hotel that performs Venice. It is Venice, inhabited.
+    </p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     3. SIGNATURE EXPERIENCES — 6 cards / 3×2
+════════════════════════════════════════ -->
+<section id="experiences">
+  <div class="container">
+    <div class="section-head">
+      <p class="label">Signature Experiences</p>
+      <h2>Six ways<br>to <em>inhabit</em> the city</h2>
+    </div>
+
+    <div class="exp-grid">
+
+      <!-- Card 1: Canal View Suites -->
+      <!-- SWAP:IMG → canal view suites interior Venetian palace | ratio: 4:5 -->
+      <div class="exp-card">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e614aa07e724b10b1_Image%201.png"
+          alt="Canal View Rooms & Suites"
+          loading="lazy"
+        >
+        <div class="exp-card-info">
+          <p class="exp-cat">Rooms &amp; Suites</p>
+          <h3 class="exp-title">Light before the gondola</h3>
+          <p class="exp-desc">Canal-facing rooms open to the Venetian morning. Antique furnishings sourced from the Castello sestiere. The water does not sleep — neither will you.</p>
+        </div>
+      </div>
+
+      <!-- Card 2: Alle Corone Restaurant -->
+      <!-- SWAP:IMG → Venetian restaurant dining atmosphere | ratio: 4:5 -->
+      <div class="exp-card">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f1fe2d8b2f06d2529_Image%2012.png"
+          alt="Alle Corone Restaurant"
+          loading="lazy"
+        >
+        <div class="exp-card-info">
+          <p class="exp-cat">Alle Corone</p>
+          <h3 class="exp-title">Venetian at the table</h3>
+          <p class="exp-desc">Sarde in saor. Baccalà mantecato. Lagoon-caught seafood prepared without embellishment. The kitchen speaks the dialect: no translation needed.</p>
+        </div>
+      </div>
+
+      <!-- Card 3: Reali Wellness SPA -->
+      <!-- SWAP:IMG → wellness spa intimate atmosphere | ratio: 4:5 -->
+      <div class="exp-card">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fc699fe80d5a792a6_Image%2010.png"
+          alt="Reali Wellness SPA"
+          loading="lazy"
+        >
+        <div class="exp-card-info">
+          <p class="exp-cat">Reali Wellness</p>
+          <h3 class="exp-title">The sauna knows no tourists</h3>
+          <p class="exp-desc">Hammam, sauna, emotional showers, and bodywork sequences in a palace basement that has been perfecting stillness since 1600. Quiet is not a feature — it is the structure.</p>
+        </div>
+      </div>
+
+      <!-- Card 4: Altana Rooftop -->
+      <!-- SWAP:IMG → rooftop altana terrace Venice panorama | ratio: 4:5 -->
+      <div class="exp-card">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f679754764ba8477c_Image%203.png"
+          alt="Altana Rooftop Terrace"
+          loading="lazy"
+        >
+        <div class="exp-card-info">
+          <p class="exp-cat">Altana Rooftop</p>
+          <h3 class="exp-title">360° of città</h3>
+          <p class="exp-desc">The traditional Venetian altana — a rooftop timber platform original to this palazzo. At dusk, the campanili of eleven churches visible simultaneously. This view has no season.</p>
+        </div>
+      </div>
+
+      <!-- Card 5: Private Pier -->
+      <!-- SWAP:IMG → private water pier Venice canal | ratio: 4:5 -->
+      <div class="exp-card">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e13e8a712bef8f191_Image%209.png"
+          alt="Private Pier"
+          loading="lazy"
+        >
+        <div class="exp-card-info">
+          <p class="exp-cat">Private Pier</p>
+          <h3 class="exp-title">Your water taxi arrives at the gate</h3>
+          <p class="exp-desc">A private landing stage directly into the palazzo. Marco Polo airport to bedroom: no luggage wheels on cobblestones. The city receives you the way it always has — by water.</p>
+        </div>
+      </div>
+
+      <!-- Card 6: Venice Cultural Immersion -->
+      <!-- SWAP:IMG → Venice calli canals cultural streets | ratio: 4:5 -->
+      <div class="exp-card">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e1edb921f35a63175_Image%202.png"
+          alt="Venice Cultural Immersion"
+          loading="lazy"
+        >
+        <div class="exp-card-info">
+          <p class="exp-cat">Venezia</p>
+          <h3 class="exp-title">The island is your corridor</h3>
+          <p class="exp-desc">Three minutes to Piazza San Marco, six to Rialto. Concierge who knows which osteria still has a table, which gondolier tells no script. Venice as a Venetian would offer it.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     4. THE PLACE — 60/40 split
+════════════════════════════════════════ -->
+<!-- SWAP:IMG → Venice lagoon canal atmospheric split | ratio: 3:2 -->
+<!-- SWAP:COPY → the place -->
+<section id="the-place">
+  <div class="place-img-wrap">
+    <img
+      id="placeImg"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fdef24e731275c24a_Image%2042.png"
+      alt="Venice — Lagoon and canal city, Castello sestiere"
+      loading="lazy"
+    >
+    <div class="place-data">
+      <div class="place-data-row">
+        <span class="pd-label">Coordinates</span>
+        <span class="pd-val">45°26′N · 12°20′E</span>
+      </div>
+      <div class="place-data-row">
+        <span class="pd-label">Elevation</span>
+        <span class="pd-val">0 m · built on the lagoon</span>
+      </div>
+      <div class="place-data-row">
+        <span class="pd-label">Sestiere</span>
+        <span class="pd-val">Castello · Campo della Fava</span>
+      </div>
+      <div class="place-data-row">
+        <span class="pd-label">Water</span>
+        <span class="pd-val">Laguna Veneta · Adriatic</span>
+      </div>
+      <div class="place-data-row">
+        <span class="pd-label">Founded</span>
+        <span class="pd-val">17th century · 1600s</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="place-copy">
+    <p class="label">Castello · Venezia · Adriatic Italy</p>
+    <h2>Where stone<br><em>floats</em> on water</h2>
+    <div class="divider"></div>
+    <p>
+      Venice is not a metaphor for anyone. It is a specific weight of brackish air,
+      the particular resonance of footsteps on calle stone, the sound of water
+      against travertine at 04:00 when the city belongs entirely to itself.
+      Cà Corner-Reali holds a position within this sensory field that no new
+      construction could occupy — between the fish market and the basilica,
+      on a canal that predates the Republic's fall.
+    </p>
+    <p>
+      Below the city: oak pilings driven into lagoon sediment in the 17th century,
+      preserved by the absence of oxygen, holding the palazzo without movement.
+      Above: Istrian stone that registers heat differently at every hour of the day.
+      The ecology here is not landscape — it is the building material.
+    </p>
+    <p>
+      Ai Reali sits at the intersection where Venice performs for no one —
+      between Rialto and San Marco, in a campo where neighbourhood life
+      continues uninterrupted. The city as it is, at close range.
+    </p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     5. TRANSFORMATION STATS — scrollytelling
+════════════════════════════════════════ -->
+<!-- SWAP:COPY → transformation stats 1–3 -->
+<section id="transformation">
+  <div class="transform-wrap">
+    <p class="label transform-eyebrow">What four centuries give back</p>
+
+    <div class="t-stat" data-stat>
+      <div class="t-num">
+        <span class="t-counter" data-target="400">0</span>
+        <span class="t-unit">+</span>
+      </div>
+      <div class="t-copy">
+        <h3>Years of palace<br>memory</h3>
+        <p>The walls of Cà Corner-Reali have held candlelight, carnival whispers, and Adriatic fog since the 1600s. Four centuries of hospitality encoded in stone and plaster.</p>
+      </div>
+    </div>
+
+    <div class="t-stat" data-stat>
+      <div class="t-num">
+        <span class="t-counter" data-target="35">0</span>
+        <span class="t-unit">m²</span>
+      </div>
+      <div class="t-copy">
+        <h3>The Luxury Canal Suite —<br>Venetian scale</h3>
+        <p>35 square metres of private silence, directly above the canal. Antique furniture. Window shutters that open onto a waterway that has not changed its course in four hundred years.</p>
+      </div>
+    </div>
+
+    <div class="t-stat" data-stat>
+      <div class="t-num">
+        <span class="t-counter" data-target="3">0</span>
+        <span class="t-unit">min</span>
+      </div>
+      <div class="t-copy">
+        <h3>On foot to<br>Piazza San Marco</h3>
+        <p>Through Calle dei Stagneri — a route unchanged since the 18th century. Three minutes separates this lobby from the most-painted square on earth. Walk it before the tourists arrive.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     6. ROOMS & SPACES — editorial masonry grid
+════════════════════════════════════════ -->
+<!-- SWAP:IMG → rooms / interiors Venetian palace 1–6 | ratio: 3:2 -->
+<section id="rooms">
+  <div class="container">
+    <div class="section-head">
+      <p class="label">Rooms &amp; Spaces</p>
+      <h2>The light changes<br><em>every hour.</em></h2>
+    </div>
+
+    <div class="rooms-grid">
+      <!-- SWAP:IMG → luxury canal suite interior | ratio: 3:2 -->
+      <div class="room-item" data-lb="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png" alt="Luxury Canal Suite" loading="lazy">
+        <span class="room-name">Luxury Canal Suite</span>
+      </div>
+      <!-- SWAP:IMG → junior suite canal view | ratio: 3:2 -->
+      <div class="room-item" data-lb="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755a0854ea3cadb267cd_Image%2054.png">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755a0854ea3cadb267cd_Image%2054.png" alt="Junior Suite Canal View" loading="lazy">
+        <span class="room-name">Junior Suite</span>
+      </div>
+      <!-- SWAP:IMG → deluxe room canal view interior | ratio: 3:2 -->
+      <div class="room-item" data-lb="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755108515add56c26e14_Image%2053.png">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755108515add56c26e14_Image%2053.png" alt="Deluxe Room Canal View" loading="lazy">
+        <span class="room-name">Deluxe Canal View</span>
+      </div>
+      <!-- SWAP:IMG → superior room Venetian interiors | ratio: 3:2 -->
+      <div class="room-item" data-lb="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551d402271fd28d57c9_Image%2052.png">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551d402271fd28d57c9_Image%2052.png" alt="Superior Room" loading="lazy">
+        <span class="room-name">Superior Room</span>
+      </div>
+      <!-- SWAP:IMG → classic room Venetian style | ratio: 3:2 -->
+      <div class="room-item" data-lb="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551a79a50ab947db776_Image%2050.png">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551a79a50ab947db776_Image%2050.png" alt="Classic Room" loading="lazy">
+        <span class="room-name">Classic Room</span>
+      </div>
+      <!-- SWAP:IMG → palazzo corridor / common areas | ratio: 3:2 -->
+      <div class="room-item" data-lb="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755102e16a74f59b0111_Image%2044.png">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755102e16a74f59b0111_Image%2044.png" alt="Palazzo Spaces" loading="lazy">
+        <span class="room-name">The Palazzo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     7. WELLNESS RITUALS — 6 cards / 3×2
+════════════════════════════════════════ -->
+<!-- SWAP:VIDEO → wellness ambient depth | wellness section | NO ASSET IN CSV -->
+<!-- SWAP:COPY → wellness rituals 1–6 -->
+<section id="wellness">
+  <!-- SWAP:IMG → atmospheric coastal bg for wellness | ratio: 16:9 -->
+  <div class="well-vid-bg">
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7550dd1faa5194cb19f6_Image%2047.png"
+      alt=""
+      aria-hidden="true"
+      loading="lazy"
+    >
+  </div>
+
+  <div class="well-inner">
+    <div class="well-head">
+      <p class="label" style="margin-bottom:1.1rem">Reali Wellness &amp; SPA</p>
+      <h2>Six rituals.<br><em>One palazzo.</em></h2>
+    </div>
+
+    <div class="well-grid">
+      <div class="well-card">
+        <span class="well-glyph">☁</span>
+        <h3 class="well-name">Hammam Venezia</h3>
+        <p class="well-desc">Turkish steam rising through stone the lagoon has never dried. Black soap, kese exfoliation, heat that redistributes what the city accumulated. The oldest sequence of rest — offered here without shortcut.</p>
+      </div>
+      <div class="well-card">
+        <span class="well-glyph">◎</span>
+        <h3 class="well-name">Nordic Sauna</h3>
+        <p class="well-desc">The paradox of a Finnish ritual inside a Venetian palace — trade routes always brought conflicting climates to this city. Dry heat at 85°C. Wood that has absorbed the lagoon's humidity over years.</p>
+      </div>
+      <div class="well-card">
+        <span class="well-glyph">〜</span>
+        <h3 class="well-name">Emotional Shower</h3>
+        <p class="well-desc">Temperature sequences designed to shift the autonomic nervous system rather than simply clean skin. Cold mist, tropical rain, tropical heat, cold plunge. Venice filtered through sensation.</p>
+      </div>
+      <div class="well-card">
+        <span class="well-glyph">✦</span>
+        <h3 class="well-name">Venetian Glow Facial</h3>
+        <p class="well-desc">Gold-infused botanical skin therapy drawn from the Republic's trade in precious minerals. Sixty minutes on a heated stone surface. Skin restored to something the palazzo would recognise.</p>
+      </div>
+      <div class="well-card">
+        <span class="well-glyph">◐</span>
+        <h3 class="well-name">Couple's Ritual</h3>
+        <p class="well-desc">Private bath set with Murano glass aromatherapy vessels. Two-hour sequence of shared stillness. The most intimate room in a building that has held centuries of private life — reserved for two.</p>
+      </div>
+      <div class="well-card">
+        <span class="well-glyph">↑</span>
+        <h3 class="well-name">Altana Breathwork</h3>
+        <p class="well-desc">Guided morning breathwork on the rooftop altana at 07:00, before the vaporetti begin. Salt air, Adriatic horizon, the domes of Santa Maria della Salute visible across the water. The city at its most sober.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     8. EDITORIAL QUOTE — full viewport
+════════════════════════════════════════ -->
+<!-- SWAP:IMG → editorial quote Venice atmospheric background | ratio: 16:9 -->
+<!-- SWAP:COPY → editorial quote -->
+<section id="quote">
+  <div class="quote-bg-img">
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7550d0152d0e448f0b58_Image%2046.png"
+      alt="Venice lagoon atmospheric vista — editorial quote background"
+      loading="lazy"
+    >
+  </div>
+  <div class="quote-scrim"></div>
+  <div class="quote-body">
+    <span class="q-mark">&ldquo;</span>
+    <p class="q-text">
+      Venice has a way of insisting you stop moving.
+      Ai Reali is the only place I have ever stayed
+      where the building&nbsp;agreed.
+    </p>
+    <p class="q-source">— Small Luxury Hotels of the World &thinsp;·&thinsp; Review &thinsp;·&thinsp; 2025</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     9. BOOKING CTA
+════════════════════════════════════════ -->
+<!-- SWAP:VIDEO → booking CTA cinematic Venice lagoon | booking section | NO ASSET IN CSV -->
+<!-- SWAP:COPY → booking CTA -->
+<section id="booking">
+  <!-- SWAP:IMG → booking CTA cinematic Venice lagoon | ratio: 16:9 -->
+  <div class="book-vid">
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da75501128f7b8971880b7_Image%2049.png"
+      alt="Hotel Ai Reali di Venezia — Reserve Your Stay"
+      loading="lazy"
+    >
+  </div>
+  <div class="book-overlay"></div>
+
+  <div class="book-inner">
+    <p class="book-urgency">Spring &amp; Summer 2026 &thinsp;·&thinsp; Canal View rooms filling fast</p>
+    <!-- SWAP:COPY → booking headline -->
+    <h2>The canal<br>is still there</h2>
+    <p>
+      Book directly to secure the best rate, a complimentary welcome to the Reali Wellness SPA,
+      and priority access to canal-facing rooms. Venice in 2026 moves quickly —
+      this floor does not.
+    </p>
+    <div class="cta-row">
+      <a href="https://be.bookingexpert.it/book/home/index?&hotel=11236&lang=en" class="btn-p" target="_blank" rel="noopener noreferrer">Reserve Your Stay</a>
+      <a href="https://www.hotelaireali.com/" class="btn-s" target="_blank" rel="noopener noreferrer">Download the Experience Guide</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     10. FOOTER
+════════════════════════════════════════ -->
+<!-- SWAP:LOGO -->
+<footer>
+  <div class="footer-top container">
+    <div class="footer-logo-wrap">
+      <!-- SWAP:LOGO -->
+      <img
+        class="footer-logo"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dc6c2d533bfc0a9cbb_Ai-Reali.png"
+        alt="Hotel Ai Reali di Venezia"
+        width="175"
+        height="50"
+        loading="lazy"
+      >
+    </div>
+    <div class="footer-meta">
+      <span class="footer-coords">45°26′N · 12°20′E · laguna veneta</span>
+      <a href="mailto:info@hotelaireali.com">info@hotelaireali.com</a>
+      <a href="https://www.instagram.com/airealihotel/" target="_blank" rel="noopener noreferrer">@airealihotel</a>
+      <span>Castello · Campo della Fava 5527 · Venezia</span>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <span>© 2026 Hotel Ai Reali di Venezia &thinsp;·&thinsp; VAT 04122860275 &thinsp;·&thinsp; All rights reserved</span>
+    <em>A palace that remembers</em>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+<script>
+(function(){
+'use strict';
+
+// ── PRELOADER ──────────────────────────────────────────────────────
+(function(){
+  var pre = document.getElementById('preloader');
+  var bar = document.getElementById('preloader-line');
+  if(!pre) return;
+  setTimeout(function(){ if(bar) bar.style.width='75%'; }, 40);
+  function dismiss(){
+    if(bar) bar.style.width='100%';
+    setTimeout(function(){ pre.classList.add('done'); }, 140);
+    setTimeout(function(){ pre.style.display='none'; }, 950);
+  }
+  if(document.readyState==='complete'){ dismiss(); }
+  else { window.addEventListener('load', dismiss); setTimeout(dismiss, 2500); }
+})();
+
+// ── GSAP ───────────────────────────────────────────────────────────
+if(typeof gsap === 'undefined') return;
+gsap.registerPlugin(ScrollTrigger);
+
+// 1. HERO — word reveal
+var words   = document.querySelectorAll('.hero-tagline .word');
+var heroSub = document.querySelector('.hero-sub');
+gsap.timeline({delay:.55})
+  .to(words,{opacity:1,y:0,duration:.95,stagger:.14,ease:'power3.out'})
+  .to(heroSub,{opacity:1,duration:.7,ease:'power2.out'},'-=.2');
+
+// 2. MANIFESTO — lines reveal on scroll
+var lines = document.querySelectorAll('.mfst-line');
+var mBody = document.querySelector('.mfst-body');
+gsap.timeline({scrollTrigger:{trigger:'#manifesto',start:'top 68%'}})
+  .to(lines,{opacity:1,y:0,duration:.9,stagger:.16,ease:'power3.out'})
+  .to(mBody,{opacity:1,y:0,duration:.7,ease:'power2.out'},'-=.25');
+
+// 3. Experience cards — stagger from below
+gsap.from('.exp-card',{
+  scrollTrigger:{trigger:'#experiences',start:'top 78%'},
+  opacity:0,y:40,duration:.68,stagger:.09,ease:'power2.out'
+});
+
+// 4. The Place — parallax image + copy slide-in
+gsap.to('#placeImg',{
+  scrollTrigger:{trigger:'#the-place',start:'top bottom',end:'bottom top',scrub:1.8},
+  y:-56,ease:'none'
+});
+gsap.from('.place-copy > *',{
+  scrollTrigger:{trigger:'#the-place',start:'top 70%'},
+  opacity:0,x:32,duration:.82,stagger:.1,ease:'power2.out'
+});
+
+// 5. Transformation stats — reveal + counter
+document.querySelectorAll('[data-stat]').forEach(function(el,i){
+  gsap.to(el,{
+    scrollTrigger:{trigger:el,start:'top 82%'},
+    opacity:1,y:0,duration:.78,delay:i*.08,ease:'power2.out'
+  });
+});
+document.querySelectorAll('.t-counter').forEach(function(el){
+  var target = parseInt(el.dataset.target, 10);
+  ScrollTrigger.create({
+    trigger:el,start:'top 80%',once:true,
+    onEnter:function(){
+      var obj = {v:0};
+      gsap.to(obj,{
+        v:target,duration:1.9,ease:'power2.out',
+        onUpdate:function(){ el.textContent = Math.round(obj.v).toLocaleString(); }
+      });
+    }
+  });
+});
+
+// 6. Rooms grid — scale + fade reveal
+gsap.from('.room-item',{
+  scrollTrigger:{trigger:'#rooms',start:'top 76%'},
+  opacity:0,scale:.97,duration:.66,stagger:.07,ease:'power2.out'
+});
+
+// 7. Wellness cards — reveal
+gsap.to('.well-card',{
+  scrollTrigger:{trigger:'#wellness',start:'top 72%'},
+  opacity:1,y:0,duration:.66,stagger:.1,ease:'power2.out'
+});
+
+// 8. Quote reveal
+gsap.timeline({scrollTrigger:{trigger:'#quote',start:'top 60%'}})
+  .to('.q-mark',{opacity:1,duration:.55,ease:'power2.out'})
+  .to('.q-text',{opacity:1,y:0,duration:.88,ease:'power2.out'},'-=.1')
+  .to('.q-source',{opacity:1,duration:.55,ease:'power2.out'},'-=.2');
+
+// ── LIGHTBOX ────────────────────────────────────────────────────────
+var lb      = document.getElementById('lb');
+var lbImg   = document.getElementById('lbImg');
+var lbClose = document.getElementById('lbClose');
+
+document.querySelectorAll('[data-lb]').forEach(function(el){
+  el.addEventListener('click', function(){
+    lbImg.src = el.dataset.lb;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+function closeLB(){
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(function(){ lbImg.src = ''; }, 350);
+}
+lbClose.addEventListener('click', closeLB);
+lb.addEventListener('click', function(e){ if(e.target === lb) closeLB(); });
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLB(); });
+
+// ── THREE.JS — OAK LEAF GLB ──────────────────────────────────────────
+// SWAP:3D → mature oak leaf GLB | Urban / Venice Lagoon / Venetian palace garden
+(function init3D(){
+  var container = document.getElementById('canvas3d');
+  if(!container || typeof THREE === 'undefined') return;
+
+  var w = container.offsetWidth  || 380;
+  var h = container.offsetHeight || 380;
+
+  var renderer = new THREE.WebGLRenderer({antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(w, h);
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  container.appendChild(renderer.domElement);
+
+  var scene  = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(45, w/h, 0.1, 100);
+  camera.position.set(0, 0, 4.2);
+
+  // Three-point light rig: warm Venetian key + cool lagoon fill + ambient
+  var warmKey = new THREE.DirectionalLight(0xF8D8A0, 2.4);
+  warmKey.position.set(2, 3, 2);
+  scene.add(warmKey);
+
+  var coolFill = new THREE.DirectionalLight(0xA0C8E8, 0.9);
+  coolFill.position.set(-2, -1, 1);
+  scene.add(coolFill);
+
+  var ambient = new THREE.AmbientLight(0xC4922F, 0.6);
+  scene.add(ambient);
+
+  var model = null;
+  var paused = false;
+
+  // GLTFLoader — dynamic import-style bootstrap
+  var loader = new THREE.GLTFLoader
+    ? new THREE.GLTFLoader()
+    : null;
+
+  if(!loader){
+    // Fallback: load GLTFLoader script then retry
+    var s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/examples/js/loaders/GLTFLoader.js';
+    s.onload = function(){
+      if(typeof THREE.GLTFLoader !== 'undefined'){
+        var l2 = new THREE.GLTFLoader();
+        loadGLB(l2);
+      }
+    };
+    document.head.appendChild(s);
+  } else {
+    loadGLB(loader);
+  }
+
+  function loadGLB(l){
+    l.load(
+      'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb',
+      function(gltf){
+        model = gltf.scene;
+        // Centre and scale the model
+        var box = new THREE.Box3().setFromObject(model);
+        var centre = box.getCenter(new THREE.Vector3());
+        var size   = box.getSize(new THREE.Vector3());
+        var maxDim = Math.max(size.x, size.y, size.z);
+        model.position.sub(centre);
+        model.scale.setScalar(2.6 / maxDim);
+        scene.add(model);
+      },
+      undefined,
+      function(err){ console.warn('GLB load failed:', err); }
+    );
+  }
+
+  // Hover — pause rotation
+  container.addEventListener('mouseenter', function(){ paused = true; });
+  container.addEventListener('mouseleave', function(){ paused = false; });
+
+  // Animate
+  (function animate(){
+    requestAnimationFrame(animate);
+    if(model && !paused) model.rotation.y += 0.002;
+    renderer.render(scene, camera);
+  })();
+
+  // Resize
+  window.addEventListener('resize', function(){
+    var nw = container.offsetWidth;
+    var nh = container.offsetHeight;
+    camera.aspect = nw / nh;
+    camera.updateProjectionMatrix();
+    renderer.setSize(nw, nh);
+  });
+})();
+
+})();
+</script>
+
+<!--
+CUSTOMIZATION GUIDE
+====================
+All SWAP markers as a numbered checklist.
+Items marked ⚠ NO ASSET IN CSV require production follow-up.
+
+IMAGES — all sourced from CSV (coastal category)
+─────────────────────────────────────────────────
+ [✓] 1.  SWAP:IMG → hero background Venice lagoon | ratio: 16:9
+         → Image 56: https://cdn.prod.website-files.com/...Image%2056.png
+ [✓] 2.  SWAP:IMG → canal view rooms suites interior | ratio: 4:5
+         → Image 1: .../Image%201.png
+ [✓] 3.  SWAP:IMG → Alle Corone restaurant dining | ratio: 4:5
+         → Image 12: .../Image%2012.png
+ [✓] 4.  SWAP:IMG → Reali Wellness SPA atmosphere | ratio: 4:5
+         → Image 10: .../Image%2010.png
+ [✓] 5.  SWAP:IMG → Altana rooftop Venice panorama | ratio: 4:5
+         → Image 3: .../Image%203.png
+ [✓] 6.  SWAP:IMG → private pier water taxi canal | ratio: 4:5
+         → Image 9: .../Image%209.png
+ [✓] 7.  SWAP:IMG → Venice calli cultural streets | ratio: 4:5
+         → Image 2: .../Image%202.png
+ [✓] 8.  SWAP:IMG → Venice lagoon canal atmospheric split | ratio: 3:2
+         → Image 42: .../Image%2042.png
+ [✓] 9.  SWAP:IMG → luxury canal suite interior | ratio: 3:2
+         → Image 55: .../Image%2055.png
+ [✓] 10. SWAP:IMG → junior suite canal view | ratio: 3:2
+         → Image 54: .../Image%2054.png
+ [✓] 11. SWAP:IMG → deluxe room canal view | ratio: 3:2
+         → Image 53: .../Image%2053.png
+ [✓] 12. SWAP:IMG → superior room Venetian interior | ratio: 3:2
+         → Image 52: .../Image%2052.png
+ [✓] 13. SWAP:IMG → classic room Venetian style | ratio: 3:2
+         → Image 50: .../Image%2050.png
+ [✓] 14. SWAP:IMG → palazzo corridor / common areas | ratio: 3:2
+         → Image 44: .../Image%2044.png
+ [✓] 15. SWAP:IMG → atmospheric wellness bg | ratio: 16:9
+         → Image 47: .../Image%2047.png
+ [✓] 16. SWAP:IMG → editorial quote Venice atmospheric | ratio: 16:9
+         → Image 46: .../Image%2046.png
+ [✓] 17. SWAP:IMG → booking CTA cinematic Venice | ratio: 16:9
+         → Image 49: .../Image%2049.png
+
+LOGO
+─────
+ [✓] 18. SWAP:LOGO → hero header
+         → https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dc6c2d533bfc0a9cbb_Ai-Reali.png
+ [✓] 19. SWAP:LOGO → footer
+         → same SRC as above
+
+3D OBJECT
+──────────
+ [✓] 20. SWAP:3D → mature oak leaf GLB | Venice Lagoon / palace garden
+         → https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb
+
+VIDEO — ⚠ NO ASSETS IN CSV
+────────────────────────────
+ [⚠] 21. SWAP:VIDEO → hero background cinematic Venice | hero section
+         STATUS: NO ASSET IN CSV — currently using static image + CSS Ken Burns
+         ACTION: Replace hero <img> with <video autoplay muted loop playsinline>
+                 when cinematic Venice lagoon footage is provided.
+                 Add poster="[hero img SRC]"
+
+ [⚠] 22. SWAP:VIDEO → wellness ambient depth | wellness section
+         STATUS: NO ASSET IN CSV — currently using faint static image bg
+         ACTION: Replace .well-vid-bg <img> with <video> when ambient footage available.
+
+ [⚠] 23. SWAP:VIDEO → booking CTA cinematic lagoon | booking section
+         STATUS: NO ASSET IN CSV — currently using static image
+         ACTION: Replace .book-vid <img> with <video> when promotional footage available.
+
+COPY — customised and verified
+────────────────────────────────
+ [✓] 24. SWAP:COPY → hero tagline: "Venice enters before you do."
+ [✓] 25. SWAP:COPY → manifesto (The Philosophy)
+ [✓] 26. SWAP:COPY → the place (3 paragraphs, Venice lagoon ecology)
+ [✓] 27. SWAP:COPY → transformation stats 1–3 (400 yrs / 35 m² / 3 min)
+ [✓] 28. SWAP:COPY → wellness rituals 1–6
+ [✓] 29. SWAP:COPY → editorial quote (SLH review)
+ [✓] 30. SWAP:COPY → booking CTA
+
+COLOR SYSTEM — CSS custom properties
+──────────────────────────────────────
+ [✓] SWAP:COLOR
+     --color-primary:   #3D1F14  deep Venetian burnt brick
+     --color-secondary: #C4922F  Venetian amber-gold
+     --color-accent:    #DFB96A  champagne gold highlight
+     --color-bg:        #0C0906  near-black, warm wine undertone
+     --color-surface:   #1A130E  lifted warm dark surface
+     --color-text:      #F0EBE3  warm ivory
+     --color-muted:     #7E6E5E  warm taupe-grey / aged plaster
+-->
