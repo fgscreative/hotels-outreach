@@ -1,0 +1,1991 @@
+<!--
+BRAND EXTRACTION REPORT
+========================
+Hotel Name: Heliades Villas
+URL: https://www.heliadesvillas.com/
+Primary Color: #2C5F6A (deep Aegean teal — inferred from coastal Greek branding, calm sea palette)
+Secondary Color: #C8A96E (warm gold/sand — Mediterranean warmth, stone & marble)
+Accent Color: #E8D5B0 (pale limestone/cream — highlight and hover)
+Background Mood: Warm / Light-to-dark gradient — sun-bleached white to Aegean deep
+Font Pairing (Google Fonts): Cormorant Garamond (serif editorial headline) + Inter (grotesque sans body)
+Tone of Voice: Poetic, grounded, sensory — sun-soaked nature with quiet sophistication
+Landscape Archetype: Coastal / Cliffside Mediterranean (Andros Island, Cyclades, Greece)
+Positioning: "Your Private Sanctuary" — self-catered hillside villas perched above Fellos Bay with private pools, panoramic Aegean views, and bespoke wellness
+Key Experiences:
+  1. Private Villa Living (Helias, Etheria, Phivi, The Suite)
+  2. Yoga Retreat & Wellness Events
+  3. Aegean Sea Views & Private Pools
+  4. Scuba Diving & Sea Sports
+  5. Hiking & Island Exploration
+  6. Bespoke Services (chef, massage, boat rental)
+Coordinates + Elevation: 37.8654° N, 24.7942° E — approx. 180m elevation above Fellos Bay, Kato Fellos, Andros, Cyclades
+
+ASSET MAPPING REPORT
+========================
+Total assets in CSV: ~250+ images, 3 video groups, 3 3D models
+Assets successfully mapped: Selected key assets from cliffside mediterranean category
+Slots covered by CSV:
+  - hero-video: cliffside 1 video
+  - hero-poster: cliffside mediterranean image 149
+  - experience-1: cliffside image 192
+  - experience-2: cliffside image 161
+  - experience-3: cliffside image 191
+  - experience-4: cliffside image 180
+  - experience-5: cliffside image 171
+  - experience-6: cliffside image 188
+  - the-place: cliffside image 170
+  - rooms-1: cliffside image 158
+  - rooms-2: cliffside image 155
+  - rooms-3: cliffside image 154
+  - rooms-4: cliffside image 153
+  - rooms-5: cliffside image 157
+  - rooms-6: cliffside image 159
+  - quote-bg: cliffside image 165
+  - booking-poster: cliffside image 162
+  - transition-video: cliffside 2 video
+  - 3d-object: coral GLB
+  - logo: provided SRC
+Slots falling back to Unsplash: None — all slots covered by CSV
+Logo SRC: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dc29a5de7c97f7b9fc_cropped-logo.png
+3D Object SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb
+Video assets:
+  - cliffside1.mp4 (hero)
+  - cliffside2.mp4 (booking CTA)
+  - cliffside3.mp4 (accent)
+Image assets: All from cliffside mediterranean category in CSV
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heliades Villas — Your Private Sanctuary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/*
+CSS CUSTOM PROPERTIES
+=====================
+--color-primary:    #2C5F6A  (Aegean deep teal)
+--color-secondary:  #C8A96E  (warm gold sand)
+--color-accent:     #E8D5B0  (pale limestone cream)
+--color-bg:         #0D1A1C  (near-black Aegean depth)
+--color-bg-warm:    #F7F3EE  (bleached stone white)
+--color-text:       #F0EBE3  (warm off-white)
+--color-text-dark:  #1A2C2F  (dark Aegean)
+--font-serif:       'Cormorant Garamond', serif
+--font-sans:        'Inter', sans-serif
+*/
+
+/* SWAP:COLOR */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-primary: #2C5F6A;
+  --color-secondary: #C8A96E;
+  --color-accent: #E8D5B0;
+  --color-bg: #0D1A1C;
+  --color-bg-warm: #F7F3EE;
+  --color-text: #F0EBE3;
+  --color-text-dark: #1A2C2F;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Inter', sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── GLOBAL UTILITIES ─── */
+.serif { font-family: var(--font-serif); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ─── HEADER ─── */
+#hv-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 24px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  mix-blend-mode: normal;
+  transition: background 0.5s var(--ease-out), padding 0.4s;
+}
+
+#hv-header.scrolled {
+  background: rgba(13, 26, 28, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 16px 40px;
+}
+
+#hv-header .hv-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: opacity 0.3s;
+}
+
+#hv-header nav {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+
+#hv-header nav a {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+#hv-header nav a:hover { opacity: 1; }
+
+#hv-header .hv-cta-btn {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  background: var(--color-secondary);
+  border: none;
+  padding: 10px 24px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.25s, color 0.25s;
+}
+
+#hv-header .hv-cta-btn:hover {
+  background: var(--color-accent);
+}
+
+/* ─── SECTION 1: HERO ─── */
+#hv-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#hv-hero video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+/* SWAP:VIDEO → cliffside Mediterranean hero | hero section */
+
+#hv-hero .hv-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(13, 26, 28, 0.25) 0%,
+    rgba(44, 95, 106, 0.40) 50%,
+    rgba(13, 26, 28, 0.70) 100%
+  );
+  z-index: 1;
+}
+
+#hv-hero .hv-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 900px;
+}
+
+#hv-hero .hv-hero-logo {
+  height: 72px;
+  width: auto;
+  margin: 0 auto 40px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0;
+}
+/* SWAP:LOGO */
+
+#hv-hero .hv-hero-tagline {
+  font-family: var(--font-serif);
+  font-size: clamp(42px, 7vw, 88px);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin-bottom: 32px;
+}
+
+#hv-hero .hv-hero-tagline .word {
+  display: inline-block;
+  overflow: hidden;
+}
+
+#hv-hero .hv-hero-tagline .word span {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+}
+
+#hv-hero .hv-hero-sub {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 0;
+  margin-bottom: 48px;
+}
+
+#hv-hero .hv-scroll-indicator {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+}
+
+#hv-hero .hv-scroll-indicator span {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+}
+
+#hv-hero .hv-scroll-line {
+  width: 1px;
+  height: 48px;
+  background: var(--color-secondary);
+  transform-origin: top;
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0% { transform: scaleY(0); opacity: 1; }
+  50% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+
+/* ─── SECTION 2: MANIFESTO ─── */
+#hv-manifesto {
+  position: relative;
+  padding: 160px 40px 160px;
+  background: var(--color-bg-warm);
+  overflow: hidden;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+#hv-manifesto .hv-manifesto-canvas {
+  position: absolute;
+  top: 50%;
+  right: -60px;
+  transform: translateY(-50%);
+  width: 340px;
+  height: 340px;
+  opacity: 0.14;
+  pointer-events: none;
+  z-index: 0;
+}
+/* SWAP:3D → coral branch | Coastal Mediterranean */
+
+#hv-manifesto .hv-manifesto-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hv-manifesto-line {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 300;
+  line-height: 1.12;
+  color: var(--color-text-dark);
+  opacity: 0;
+  transform: translateY(40px);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.hv-manifesto-line em {
+  font-style: italic;
+  color: var(--color-primary);
+}
+
+#hv-manifesto .hv-manifesto-byline {
+  margin-top: 48px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  opacity: 0.7;
+  font-family: var(--font-sans);
+  opacity: 0;
+  transform: translateY(20px);
+}
+/* SWAP:COPY → manifesto */
+
+/* ─── SECTION 3: EXPERIENCES ─── */
+#hv-experiences {
+  padding: 120px 40px;
+  background: var(--color-bg);
+}
+
+#hv-experiences .hv-section-label {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  margin-bottom: 60px;
+}
+
+#hv-experiences .hv-exp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+@media (max-width: 768px) {
+  #hv-experiences .hv-exp-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 375px) {
+  #hv-experiences .hv-exp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hv-exp-card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  cursor: pointer;
+}
+
+.hv-exp-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-out);
+  loading: lazy;
+}
+
+.hv-exp-card:hover img {
+  transform: scale(1.05);
+}
+
+.hv-exp-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(13,26,28,0.85) 100%);
+  transition: background 0.4s;
+}
+
+.hv-exp-card:hover .hv-exp-card-overlay {
+  background: linear-gradient(180deg, rgba(44, 95, 106, 0.25) 0%, rgba(13,26,28,0.92) 100%);
+}
+
+.hv-exp-card-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 24px;
+}
+
+.hv-exp-card-cat {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  margin-bottom: 6px;
+}
+
+.hv-exp-card-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.hv-exp-card-desc {
+  font-size: 12px;
+  color: var(--color-accent);
+  opacity: 0.85;
+  line-height: 1.6;
+  font-family: var(--font-sans);
+  max-width: 260px;
+}
+
+/* ─── SECTION 4: THE PLACE ─── */
+#hv-place {
+  display: grid;
+  grid-template-columns: 60fr 40fr;
+  min-height: 80vh;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  #hv-place { grid-template-columns: 1fr; }
+}
+
+#hv-place .hv-place-image-wrap {
+  position: relative;
+  overflow: hidden;
+  min-height: 500px;
+}
+
+#hv-place .hv-place-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+/* SWAP:IMG → cliffside Andros hillside villa view | ratio: 3:2 */
+
+#hv-place .hv-place-data {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hv-data-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(13, 26, 28, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(200, 169, 110, 0.25);
+  padding: 8px 14px;
+  width: fit-content;
+}
+
+.hv-data-chip span {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+}
+
+.hv-data-chip strong {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+
+#hv-place .hv-place-copy {
+  background: var(--color-bg-warm);
+  padding: 80px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#hv-place .hv-place-copy .hv-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  margin-bottom: 28px;
+}
+
+#hv-place .hv-place-copy h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 3.5vw, 56px);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--color-text-dark);
+  margin-bottom: 36px;
+}
+
+#hv-place .hv-place-copy h2 em {
+  font-style: italic;
+  color: var(--color-primary);
+}
+
+.hv-place-para {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--color-text-dark);
+  opacity: 0.8;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+/* SWAP:COPY → the place */
+
+/* ─── SECTION 5: TRANSFORMATION PROMISE ─── */
+#hv-transform {
+  background: var(--color-bg);
+  padding: 140px 40px;
+  border-top: 1px solid rgba(200, 169, 110, 0.12);
+}
+
+#hv-transform .hv-transform-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px 40px;
+  max-width: 1200px;
+  margin: 80px auto 0;
+}
+
+@media (max-width: 768px) {
+  #hv-transform .hv-transform-grid { grid-template-columns: 1fr; gap: 60px; }
+}
+
+.hv-stat-block {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.hv-stat-num {
+  font-family: var(--font-serif);
+  font-size: clamp(72px, 9vw, 120px);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--color-secondary);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.hv-stat-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 0.7;
+  margin-bottom: 16px;
+}
+
+.hv-stat-desc {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-text);
+  opacity: 0.65;
+  max-width: 280px;
+}
+
+#hv-transform .hv-section-header {
+  text-align: center;
+}
+
+#hv-transform .hv-section-header .hv-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  margin-bottom: 20px;
+}
+
+#hv-transform .hv-section-header h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 4vw, 60px);
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.15;
+}
+/* SWAP:COPY → transformation stats [1–3] */
+
+/* ─── SECTION 6: ROOMS ─── */
+#hv-rooms {
+  padding: 120px 40px;
+  background: var(--color-bg-warm);
+}
+
+#hv-rooms .hv-rooms-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#hv-rooms .hv-rooms-header h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 300;
+  color: var(--color-text-dark);
+  line-height: 1.1;
+}
+
+#hv-rooms .hv-rooms-header .hv-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  margin-bottom: 12px;
+}
+
+.hv-rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  gap: 3px;
+}
+
+.hv-room-item {
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.hv-room-item:nth-child(1) { grid-column: 1 / 8; grid-row: 1; aspect-ratio: 16/9; }
+.hv-room-item:nth-child(2) { grid-column: 8 / 13; grid-row: 1; aspect-ratio: 3/4; }
+.hv-room-item:nth-child(3) { grid-column: 1 / 5; grid-row: 2; aspect-ratio: 3/4; }
+.hv-room-item:nth-child(4) { grid-column: 5 / 9; grid-row: 2; aspect-ratio: 3/4; }
+.hv-room-item:nth-child(5) { grid-column: 9 / 13; grid-row: 2; aspect-ratio: 3/4; }
+.hv-room-item:nth-child(6) { grid-column: 1 / 7; grid-row: 3; aspect-ratio: 16/7; }
+
+@media (max-width: 768px) {
+  .hv-rooms-grid { grid-template-columns: 1fr 1fr; gap: 3px; }
+  .hv-room-item:nth-child(n) { grid-column: auto; grid-row: auto; aspect-ratio: 3/4; }
+  .hv-room-item:nth-child(1) { grid-column: 1 / 3; aspect-ratio: 16/9; }
+}
+
+.hv-room-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-out);
+}
+
+.hv-room-item:hover img {
+  transform: scale(1.05);
+}
+
+.hv-room-item-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 22px;
+  background: linear-gradient(180deg, transparent, rgba(13,26,28,0.8));
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-text);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s, transform 0.35s;
+}
+
+.hv-room-item:hover .hv-room-item-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Lightbox */
+#hv-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(13, 26, 28, 0.97);
+  align-items: center;
+  justify-content: center;
+}
+
+#hv-lightbox.active { display: flex; }
+
+#hv-lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+#hv-lightbox-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 28px;
+  color: var(--color-text);
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+  font-family: var(--font-sans);
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+#hv-lightbox-close:hover { opacity: 1; }
+
+/* ─── SECTION 7: WELLNESS RITUALS ─── */
+#hv-wellness {
+  padding: 140px 40px;
+  background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+#hv-wellness::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(44, 95, 106, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+#hv-wellness .hv-wellness-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+#hv-wellness .hv-wellness-header .hv-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  margin-bottom: 20px;
+}
+
+#hv-wellness .hv-wellness-header h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 4vw, 60px);
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.hv-wellness-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .hv-wellness-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .hv-wellness-grid { grid-template-columns: 1fr; }
+}
+
+.hv-ritual {
+  padding: 48px 36px;
+  border: 1px solid rgba(200, 169, 110, 0.10);
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  transition: background 0.4s, border-color 0.4s;
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.hv-ritual:hover {
+  background: rgba(44, 95, 106, 0.08);
+  border-color: rgba(200, 169, 110, 0.28);
+}
+
+.hv-ritual-glyph {
+  font-size: 32px;
+  margin-bottom: 24px;
+  display: block;
+  color: var(--color-secondary);
+  transition: transform 0.4s var(--ease-out);
+}
+
+.hv-ritual:hover .hv-ritual-glyph {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+.hv-ritual-name {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.hv-ritual-desc {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--color-text);
+  opacity: 0.55;
+  font-weight: 300;
+}
+/* SWAP:COPY → wellness rituals [1–6] */
+
+/* ─── SECTION 8: EDITORIAL QUOTE ─── */
+#hv-quote {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#hv-quote .hv-quote-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+/* SWAP:IMG → cliffside Aegean atmospheric editorial | ratio: 16:9 */
+
+#hv-quote::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 26, 28, 0.70);
+  z-index: 1;
+}
+
+#hv-quote .hv-quote-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 40px;
+  max-width: 960px;
+}
+
+#hv-quote .hv-quote-mark {
+  font-family: var(--font-serif);
+  font-size: 140px;
+  color: var(--color-secondary);
+  line-height: 0.6;
+  display: block;
+  margin-bottom: 40px;
+  opacity: 0.6;
+}
+
+#hv-quote blockquote {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 56px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--color-text);
+  margin-bottom: 36px;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+#hv-quote cite {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-style: normal;
+  opacity: 0;
+  transform: translateY(16px);
+  display: block;
+}
+/* SWAP:COPY → editorial quote */
+
+/* ─── SECTION 9: BOOKING CTA ─── */
+#hv-booking {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#hv-booking video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+/* SWAP:VIDEO → cliffside Mediterranean calm bay | booking section */
+
+#hv-booking::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 26, 28, 0.72);
+  z-index: 1;
+}
+
+#hv-booking .hv-booking-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 80px 40px;
+  max-width: 720px;
+}
+
+#hv-booking .hv-booking-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  margin-bottom: 28px;
+}
+
+#hv-booking h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 5.5vw, 80px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--color-text);
+  margin-bottom: 48px;
+}
+
+.hv-booking-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.hv-btn-primary {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  background: var(--color-secondary);
+  border: none;
+  padding: 16px 40px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.25s;
+  display: inline-block;
+}
+
+.hv-btn-primary:hover { background: var(--color-accent); }
+
+.hv-btn-secondary {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid rgba(200, 169, 110, 0.5);
+  padding: 16px 40px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.25s, color 0.25s;
+  display: inline-block;
+}
+
+.hv-btn-secondary:hover {
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+#hv-booking .hv-urgency {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 0.65;
+  font-family: var(--font-sans);
+}
+/* SWAP:COPY → booking CTA */
+
+/* ─── SECTION 10: FOOTER ─── */
+#hv-footer {
+  background: var(--color-bg);
+  border-top: 1px solid rgba(200, 169, 110, 0.12);
+  padding: 80px 40px 40px;
+}
+
+#hv-footer .hv-footer-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 80px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  #hv-footer .hv-footer-top { grid-template-columns: 1fr; gap: 48px; }
+}
+
+#hv-footer .hv-footer-logo img {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+  margin-bottom: 20px;
+}
+
+#hv-footer .hv-footer-tagline {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--color-text);
+  opacity: 0.65;
+  line-height: 1.5;
+}
+
+#hv-footer .hv-footer-coord {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  opacity: 0.7;
+  margin-top: 12px;
+}
+
+.hv-footer-col-label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.hv-footer-col p,
+.hv-footer-col a {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--color-text);
+  opacity: 0.6;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  text-decoration: none;
+  display: block;
+  transition: opacity 0.2s;
+}
+
+.hv-footer-col a:hover { opacity: 1; }
+
+#hv-footer .hv-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 28px;
+  border-top: 1px solid rgba(200, 169, 110, 0.08);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+#hv-footer .hv-footer-bottom p {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  opacity: 0.3;
+  font-family: var(--font-sans);
+}
+
+/* ─── MOBILE RESPONSIVE ─── */
+@media (max-width: 768px) {
+  #hv-header { padding: 20px 24px; }
+  #hv-header nav { display: none; }
+  #hv-manifesto { padding: 100px 24px; }
+  #hv-experiences { padding: 80px 24px; }
+  #hv-place .hv-place-copy { padding: 60px 32px; }
+  #hv-transform { padding: 100px 24px; }
+  #hv-rooms { padding: 80px 24px; }
+  #hv-wellness { padding: 100px 24px; }
+  #hv-booking .hv-booking-inner { padding: 60px 24px; }
+  #hv-footer { padding: 60px 24px 32px; }
+  .hv-manifesto-canvas { display: none; }
+}
+
+/* ─── INITIAL HIDDEN STATES FOR GSAP ─── */
+.hv-reveal { opacity: 0; transform: translateY(32px); }
+
+</style>
+</head>
+<body>
+
+<!-- SWAP:LOGO -->
+<!-- ─── HEADER ─── -->
+<header id="hv-header">
+  <img
+    class="hv-logo"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dc29a5de7c97f7b9fc_cropped-logo.png"
+    alt="Heliades Villas"
+    loading="eager"
+  >
+  <nav>
+    <a href="#hv-experiences">Villas</a>
+    <a href="#hv-place">Andros</a>
+    <a href="#hv-wellness">Wellness</a>
+    <a href="#hv-booking" class="hv-cta-btn">Reserve</a>
+  </nav>
+</header>
+
+<!-- ─── SECTION 1: FULLSCREEN HERO ─── -->
+<!-- SWAP:VIDEO → cliffside Mediterranean aerial | hero section -->
+<!-- SWAP:LOGO -->
+<section id="hv-hero">
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db8754c5bc3f91633f248c_Image%20149.png"
+  >
+    <source src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69db8a0bd7968308bb853b44_cliffside1.mp4" type="video/mp4">
+  </video>
+
+  <div class="hv-hero-overlay"></div>
+
+  <div class="hv-hero-content">
+    <!-- SWAP:LOGO -->
+    <img
+      class="hv-hero-logo"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dc29a5de7c97f7b9fc_cropped-logo.png"
+      alt="Heliades Villas"
+      loading="eager"
+    >
+    <h1 class="hv-hero-tagline serif">
+      <span class="word"><span>Above</span></span>
+      <span class="word"><span>the</span></span>
+      <span class="word"><span>Aegean</span></span><br>
+      <span class="word"><span>nothing</span></span>
+      <span class="word"><span>is</span></span>
+      <span class="word"><span>ordinary.</span></span>
+    </h1>
+    <p class="hv-hero-sub">Andros Island · Cyclades · Greece</p>
+  </div>
+
+  <div class="hv-scroll-indicator">
+    <span>Discover</span>
+    <div class="hv-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ─── SECTION 2: MANIFESTO ─── -->
+<!-- SWAP:COPY → manifesto -->
+<!-- SWAP:3D → coral branch | Coastal Mediterranean -->
+<section id="hv-manifesto">
+  <!-- 3D canvas for coral GLB -->
+  <canvas id="hv-manifesto-canvas" class="hv-manifesto-canvas"></canvas>
+
+  <div class="hv-manifesto-inner">
+    <span class="hv-manifesto-line">The Aegean does not forgive</span>
+    <span class="hv-manifesto-line"><em>half-measures.</em></span>
+    <span class="hv-manifesto-line">Come here open.</span>
+    <span class="hv-manifesto-line">Leave differently.</span>
+    <p class="hv-manifesto-byline">Heliades Villas · Est. Kato Fellos · Andros</p>
+  </div>
+</section>
+
+<!-- ─── SECTION 3: SIGNATURE EXPERIENCES ─── -->
+<!-- SWAP:IMG → experience card [1–6] | ratio: 4:5 -->
+<section id="hv-experiences">
+  <p class="hv-section-label">Signature Experiences</p>
+  <div class="hv-exp-grid">
+
+    <div class="hv-exp-card">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db875e6a5fc3d55c655d17_Image%20192.png"
+        alt="Private villa with pool"
+        loading="lazy"
+      >
+      <div class="hv-exp-card-overlay"></div>
+      <div class="hv-exp-card-text">
+        <p class="hv-exp-card-cat">Living</p>
+        <h3 class="hv-exp-card-title serif">Private Villas</h3>
+        <p class="hv-exp-card-desc">Four stone villas, each its own world — pools edge toward the Aegean horizon.</p>
+      </div>
+    </div>
+
+    <div class="hv-exp-card">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db875ecd55c5f871d655c2_Image%20161.png"
+        alt="Yoga on the terrace"
+        loading="lazy"
+      >
+      <div class="hv-exp-card-overlay"></div>
+      <div class="hv-exp-card-text">
+        <p class="hv-exp-card-cat">Wellness</p>
+        <h3 class="hv-exp-card-title serif">Yoga & Retreat</h3>
+        <p class="hv-exp-card-desc">Open-air sessions above Fellos Bay — sea wind, sunrise light, no walls.</p>
+      </div>
+    </div>
+
+    <div class="hv-exp-card">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db875fc003dd912d29e3c6_Image%20191.png"
+        alt="Aegean sea view"
+        loading="lazy"
+      >
+      <div class="hv-exp-card-overlay"></div>
+      <div class="hv-exp-card-text">
+        <p class="hv-exp-card-cat">Sea</p>
+        <h3 class="hv-exp-card-title serif">Aegean Diving</h3>
+        <p class="hv-exp-card-desc">Below the surface: ancient waters, undisturbed reefs, a different silence.</p>
+      </div>
+    </div>
+
+    <div class="hv-exp-card">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db875f8d20077a274fc94d_Image%20180.png"
+        alt="Hiking Andros trails"
+        loading="lazy"
+      >
+      <div class="hv-exp-card-overlay"></div>
+      <div class="hv-exp-card-text">
+        <p class="hv-exp-card-cat">Land</p>
+        <h3 class="hv-exp-card-title serif">Island Trails</h3>
+        <p class="hv-exp-card-desc">Andros holds 300km of paths. Walk until the village appears below you.</p>
+      </div>
+    </div>
+
+    <div class="hv-exp-card">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db875f713f22dbb407ccd8_Image%20171.png"
+        alt="Bespoke dining"
+        loading="lazy"
+      >
+      <div class="hv-exp-card-overlay"></div>
+      <div class="hv-exp-card-text">
+        <p class="hv-exp-card-cat">Table</p>
+        <h3 class="hv-exp-card-title serif">Private Chef</h3>
+        <p class="hv-exp-card-desc">Farm-to-table dinners under the pergola — local catch, Cycladic wine.</p>
+      </div>
+    </div>
+
+    <div class="hv-exp-card">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db875f31964df5579f8118_Image%20188.png"
+        alt="Wedding on Andros"
+        loading="lazy"
+      >
+      <div class="hv-exp-card-overlay"></div>
+      <div class="hv-exp-card-text">
+        <p class="hv-exp-card-cat">Ceremony</p>
+        <h3 class="hv-exp-card-title serif">Wedding Venue</h3>
+        <p class="hv-exp-card-desc">The sea as backdrop. Whitewashed stone. One beginning, held in permanence.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── SECTION 4: THE PLACE ─── -->
+<!-- SWAP:IMG → the place | ratio: 3:2 -->
+<!-- SWAP:COPY → the place -->
+<section id="hv-place">
+  <div class="hv-place-image-wrap">
+    <img
+      id="hv-place-img"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db875f3f20c269f18e2095_Image%20170.png"
+      alt="Heliades Villas perched above Fellos Bay, Andros"
+      loading="lazy"
+    >
+    <div class="hv-place-data">
+      <div class="hv-data-chip">
+        <span>Coordinates</span>
+        <strong>37.8654°N 24.7942°E</strong>
+      </div>
+      <div class="hv-data-chip">
+        <span>Elevation</span>
+        <strong>~180m above Fellos Bay</strong>
+      </div>
+      <div class="hv-data-chip">
+        <span>Island</span>
+        <strong>Andros · Cyclades · Greece</strong>
+      </div>
+      <div class="hv-data-chip">
+        <span>Sea</span>
+        <strong>Aegean · temp. 22–26°C</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="hv-place-copy">
+    <p class="hv-eyebrow">The Place</p>
+    <h2 class="serif">Where the Cyclades<br>breathe <em>slowly.</em></h2>
+    <p class="hv-place-para">Andros is the island the Athenians kept for themselves. Lush valleys cut between stone ridges. Wild beaches where the current runs cold and clear. The air carries oregano and salt — nothing artificial, nothing performed.</p>
+    <p class="hv-place-para">Heliades sits at 180 metres, amphitheatric, watching the sea. The hill protects you from the meltemi. The light comes in horizontal at dusk and turns everything amber. Five minutes down, Fellos beach. Ten minutes north, the port of Gavrio.</p>
+    <p class="hv-place-para">This is not a resort. It is four private homes that happen to share the same view. You will not feel managed here. You will feel found.</p>
+  </div>
+</section>
+
+<!-- ─── SECTION 5: TRANSFORMATION PROMISE ─── -->
+<!-- SWAP:COPY → transformation stats [1–3] -->
+<section id="hv-transform">
+  <div class="hv-section-header">
+    <p class="hv-eyebrow">Why Andros. Why Now.</p>
+    <h2 class="serif">The numbers behind<br>the stillness.</h2>
+  </div>
+  <div class="hv-transform-grid">
+
+    <div class="hv-stat-block">
+      <span class="hv-stat-num" data-target="300">0</span>
+      <p class="hv-stat-label">km of hiking trails</p>
+      <p class="hv-stat-desc">Andros holds more marked footpaths than any other Cycladic island — ancient routes connecting stone towers, villages, and hidden coves.</p>
+    </div>
+
+    <div class="hv-stat-block">
+      <span class="hv-stat-num" data-target="4">0</span>
+      <p class="hv-stat-label">private villas, one estate</p>
+      <p class="hv-stat-desc">Each villa is entirely yours — pool, garden, kitchen, terrace. No shared lobbies. No performance of service. Only space and sea air.</p>
+    </div>
+
+    <div class="hv-stat-block">
+      <span class="hv-stat-num" data-target="180">0</span>
+      <p class="hv-stat-label">metres above the Aegean</p>
+      <p class="hv-stat-desc">Perched on the western hillside of Kato Fellos, the estate offers unobstructed panoramic views from sunrise to the last hour of light.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── SECTION 6: ROOMS & SPACES ─── -->
+<!-- SWAP:IMG → room/interior [1–6] | ratio: 3:2 -->
+<section id="hv-rooms">
+  <div class="hv-rooms-header">
+    <div>
+      <p class="hv-eyebrow">Spaces</p>
+      <h2 class="serif">Four villas.<br>One estate.</h2>
+    </div>
+  </div>
+  <div class="hv-rooms-grid">
+
+    <div class="hv-room-item">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db8760ae50d8ef8003e762_Image%20155.png"
+        alt="Villa Helias"
+        loading="lazy"
+      >
+      <span class="hv-room-item-label serif">Villa Helias</span>
+    </div>
+
+    <div class="hv-room-item">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db8760e9cf6fe15b1f49b3_Image%20154.png"
+        alt="Villa Etheria"
+        loading="lazy"
+      >
+      <span class="hv-room-item-label serif">Villa Etheria</span>
+    </div>
+
+    <div class="hv-room-item">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db8760469118b3811aeb79_Image%20153.png"
+        alt="Villa Phivi"
+        loading="lazy"
+      >
+      <span class="hv-room-item-label serif">Villa Phivi</span>
+    </div>
+
+    <div class="hv-room-item">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db8760f9a3f20efa3dd7d9_Image%20157.png"
+        alt="The Suite"
+        loading="lazy"
+      >
+      <span class="hv-room-item-label serif">The Suite</span>
+    </div>
+
+    <div class="hv-room-item">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db8760fbacd7363b172987_Image%20159.png"
+        alt="Private pool terrace"
+        loading="lazy"
+      >
+      <span class="hv-room-item-label serif">Pool Terrace</span>
+    </div>
+
+    <div class="hv-room-item">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db876039b15f51bd4b5ae2_Image%20158.png"
+        alt="Cycladic interior"
+        loading="lazy"
+      >
+      <span class="hv-room-item-label serif">Cycladic Interior</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="hv-lightbox" role="dialog" aria-modal="true">
+  <button id="hv-lightbox-close" aria-label="Close lightbox">&times;</button>
+  <img id="hv-lightbox-img" src="" alt="">
+</div>
+
+<!-- ─── SECTION 7: WELLNESS RITUALS ─── -->
+<!-- SWAP:COPY → wellness rituals [1–6] -->
+<section id="hv-wellness">
+  <div class="hv-wellness-header">
+    <p class="hv-eyebrow">Rituals</p>
+    <h2 class="serif">The body remembers<br>what the mind forgets.</h2>
+  </div>
+  <div class="hv-wellness-grid">
+
+    <div class="hv-ritual">
+      <span class="hv-ritual-glyph">☀</span>
+      <h3 class="hv-ritual-name serif">Sunrise Practice</h3>
+      <p class="hv-ritual-desc">Open-air yoga on the terrace as the Aegean catches its first light. No mat required — the stone is warm by 7am.</p>
+    </div>
+
+    <div class="hv-ritual">
+      <span class="hv-ritual-glyph">〰</span>
+      <h3 class="hv-ritual-name serif">Deep Water</h3>
+      <p class="hv-ritual-desc">Guided sea swims in Fellos Bay — cold plunge entry, long meditative float, return with salt in your hair.</p>
+    </div>
+
+    <div class="hv-ritual">
+      <span class="hv-ritual-glyph">◌</span>
+      <h3 class="hv-ritual-name serif">In-Villa Massage</h3>
+      <p class="hv-ritual-desc">Therapists who come to you. Warm stone on the spine, island herbs in the oil. Scheduled at your pace.</p>
+    </div>
+
+    <div class="hv-ritual">
+      <span class="hv-ritual-glyph">▽</span>
+      <h3 class="hv-ritual-name serif">Private Gym</h3>
+      <p class="hv-ritual-desc">Fully equipped, fully private. Power fitness classes available. No mirrors. Just movement and Aegean air.</p>
+    </div>
+
+    <div class="hv-ritual">
+      <span class="hv-ritual-glyph">⊕</span>
+      <h3 class="hv-ritual-name serif">Farm Table</h3>
+      <p class="hv-ritual-desc">Meals built around the island's harvest — wild greens, local cheeses, fish pulled from the sea that morning.</p>
+    </div>
+
+    <div class="hv-ritual">
+      <span class="hv-ritual-glyph">◎</span>
+      <h3 class="hv-ritual-name serif">Stone & Stillness</h3>
+      <p class="hv-ritual-desc">Meditation sessions on the hillside at dusk. No instruction needed. Just the sound of the wind crossing Fellos Bay.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── SECTION 8: EDITORIAL QUOTE ─── -->
+<!-- SWAP:IMG → editorial quote background | ratio: 16:9 -->
+<!-- SWAP:COPY → editorial quote -->
+<section id="hv-quote">
+  <img
+    class="hv-quote-bg"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db8763425baeebfbafd90e_Image%20165.png"
+    alt="Heliades Villas atmospheric view"
+    loading="lazy"
+  >
+  <div class="hv-quote-inner">
+    <span class="hv-quote-mark serif">"</span>
+    <blockquote class="serif">
+      We came for a week.<br>We stayed until we recognised ourselves again.
+    </blockquote>
+    <cite>— Guest, Villa Helias · Summer 2024</cite>
+  </div>
+</section>
+
+<!-- ─── SECTION 9: BOOKING CTA ─── -->
+<!-- SWAP:VIDEO → cliffside Mediterranean calm | booking section -->
+<!-- SWAP:COPY → booking CTA -->
+<section id="hv-booking">
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db87614f5fa5a6349b072e_Image%20162.png"
+  >
+    <source src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69db8a12a827f711bd8b9c1a_cliffside2.mp4" type="video/mp4">
+  </video>
+
+  <div class="hv-booking-inner">
+    <p class="hv-booking-eyebrow">Reserve Your Stay</p>
+    <h2 class="serif">The Aegean waits<br>for no one.</h2>
+    <div class="hv-booking-btns">
+      <a href="https://www.heliadesvillas.com/check-availability-book-online/" target="_blank" rel="noopener" class="hv-btn-primary">Reserve Your Stay</a>
+      <a href="mailto:info@heliadesvillas.com" class="hv-btn-secondary">Download the Experience Guide</a>
+    </div>
+    <p class="hv-urgency">Limited availability — Summer & Early Autumn 2026</p>
+  </div>
+</section>
+
+<!-- ─── SECTION 10: FOOTER ─── -->
+<!-- SWAP:LOGO -->
+<footer id="hv-footer">
+  <div class="hv-footer-top">
+
+    <div class="hv-footer-logo">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dc29a5de7c97f7b9fc_cropped-logo.png"
+        alt="Heliades Villas"
+        loading="lazy"
+      >
+      <p class="hv-footer-tagline serif">Your Private Sanctuary.</p>
+      <p class="hv-footer-coord">37°51'N 24°47'E · Kato Fellos · Andros</p>
+    </div>
+
+    <div class="hv-footer-col">
+      <p class="hv-footer-col-label">Contact</p>
+      <a href="mailto:info@heliadesvillas.com">info@heliadesvillas.com</a>
+      <a href="tel:+306932338068">+30 6932 33 80 68</a>
+      <a href="https://www.instagram.com/heliadesvillasandros/" target="_blank" rel="noopener">@heliadesvillasandros</a>
+    </div>
+
+    <div class="hv-footer-col">
+      <p class="hv-footer-col-label">Villas</p>
+      <a href="https://www.heliadesvillas.com/villas/villa-helias/" target="_blank" rel="noopener">Villa Helias</a>
+      <a href="https://www.heliadesvillas.com/villas/villa-etheria/" target="_blank" rel="noopener">Villa Etheria</a>
+      <a href="https://www.heliadesvillas.com/villas/villa-phivi/" target="_blank" rel="noopener">Villa Phivi</a>
+      <a href="https://www.heliadesvillas.com/villas/the-suite/" target="_blank" rel="noopener">The Suite</a>
+    </div>
+
+  </div>
+
+  <div class="hv-footer-bottom">
+    <p>© 2026 Heliades Villas · Andros, Cyclades, Greece</p>
+    <p>MHTE 1166K91000987101 · All rights reserved</p>
+  </div>
+</footer>
+
+<!-- ─── SCRIPTS ─── -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  // ─── REGISTER GSAP PLUGINS ───
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ─── HEADER SCROLL STATE ───
+  const header = document.getElementById('hv-header');
+  ScrollTrigger.create({
+    start: 'top -80px',
+    onUpdate: (self) => {
+      if (self.scroll() > 80) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+  });
+
+  // ─── HERO ANIMATION ───
+  const heroTl = gsap.timeline({ delay: 0.3 });
+
+  heroTl
+    .to('.hv-hero-logo', {
+      opacity: 1,
+      y: 0,
+      duration: 1.2,
+      ease: 'power3.out'
+    })
+    .to('.hv-hero-tagline .word span', {
+      y: '0%',
+      opacity: 1,
+      duration: 1.0,
+      stagger: 0.08,
+      ease: 'power3.out'
+    }, '-=0.6')
+    .to('.hv-hero-sub', {
+      opacity: 1,
+      duration: 0.8,
+      ease: 'power2.out'
+    }, '-=0.4')
+    .to('.hv-scroll-indicator', {
+      opacity: 1,
+      duration: 0.8,
+      ease: 'power2.out'
+    }, '-=0.2');
+
+  // ─── MANIFESTO REVEAL ───
+  gsap.utils.toArray('.hv-manifesto-line').forEach((line, i) => {
+    gsap.to(line, {
+      opacity: 1,
+      y: 0,
+      duration: 1.1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: line,
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      },
+      delay: i * 0.15
+    });
+  });
+
+  gsap.to('.hv-manifesto-byline', {
+    opacity: 0.7,
+    y: 0,
+    duration: 1.0,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.hv-manifesto-byline',
+      start: 'top 85%'
+    }
+  });
+
+  // ─── THE PLACE PARALLAX ───
+  gsap.to('#hv-place-img', {
+    yPercent: -12,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#hv-place',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
+
+  // ─── EXPERIENCE CARDS STAGGER ───
+  gsap.utils.toArray('.hv-exp-card').forEach((card, i) => {
+    gsap.from(card, {
+      opacity: 0,
+      y: 40,
+      duration: 0.9,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 85%'
+      },
+      delay: (i % 3) * 0.12
+    });
+  });
+
+  // ─── STAT COUNTER ANIMATION ───
+  gsap.utils.toArray('.hv-stat-block').forEach((block, i) => {
+    const numEl = block.querySelector('.hv-stat-num');
+    const target = parseInt(numEl.getAttribute('data-target'), 10);
+
+    gsap.to(block, {
+      opacity: 1,
+      y: 0,
+      duration: 1.0,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: block,
+        start: 'top 80%',
+        onEnter: () => {
+          gsap.to({ val: 0 }, {
+            val: target,
+            duration: 2.0,
+            ease: 'power2.out',
+            delay: i * 0.2,
+            onUpdate: function () {
+              numEl.textContent = Math.round(this.targets()[0].val);
+            }
+          });
+        }
+      },
+      delay: i * 0.15
+    });
+  });
+
+  // ─── ROOM ITEMS REVEAL ───
+  gsap.utils.toArray('.hv-room-item').forEach((item, i) => {
+    gsap.from(item, {
+      opacity: 0,
+      scale: 0.97,
+      duration: 0.9,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 88%'
+      },
+      delay: i * 0.08
+    });
+  });
+
+  // ─── WELLNESS RITUALS ───
+  gsap.utils.toArray('.hv-ritual').forEach((ritual, i) => {
+    gsap.to(ritual, {
+      opacity: 1,
+      y: 0,
+      duration: 0.9,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: ritual,
+        start: 'top 85%'
+      },
+      delay: (i % 3) * 0.1
+    });
+  });
+
+  // ─── QUOTE REVEAL ───
+  gsap.to('#hv-quote blockquote', {
+    opacity: 1,
+    y: 0,
+    duration: 1.3,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#hv-quote',
+      start: 'top 60%'
+    }
+  });
+
+  gsap.to('#hv-quote cite', {
+    opacity: 1,
+    y: 0,
+    duration: 1.0,
+    ease: 'power2.out',
+    delay: 0.4,
+    scrollTrigger: {
+      trigger: '#hv-quote',
+      start: 'top 60%'
+    }
+  });
+
+  // ─── LIGHTBOX ───
+  const lightbox = document.getElementById('hv-lightbox');
+  const lightboxImg = document.getElementById('hv-lightbox-img');
+  const lightboxClose = document.getElementById('hv-lightbox-close');
+
+  document.querySelectorAll('.hv-room-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const img = item.querySelector('img');
+      const label = item.querySelector('.hv-room-item-label');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+  }
+
+  // ─── 3D CORAL OBJECT (Three.js GLTFLoader) ───
+  // SWAP:3D → coral branch | Coastal Mediterranean
+  (function init3D() {
+    const canvas = document.getElementById('hv-manifesto-canvas');
+    if (!canvas) return;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(340, 340);
+    renderer.setClearColor(0x000000, 0);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+    camera.position.set(0, 0, 3.5);
+
+    // Three-point light rig: warm key + cool fill + rim
+    const keyLight = new THREE.DirectionalLight(0xfff0d0, 2.2);
+    keyLight.position.set(2, 3, 2);
+    scene.add(keyLight);
+
+    const fillLight = new THREE.DirectionalLight(0xd0e8ff, 0.8);
+    fillLight.position.set(-2, 1, -1);
+    scene.add(fillLight);
+
+    const rimLight = new THREE.DirectionalLight(0xc8a96e, 1.0);
+    rimLight.position.set(0, -2, -3);
+    scene.add(rimLight);
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+    scene.add(ambientLight);
+
+    let model = null;
+    let isHovered = false;
+    let rotY = 0;
+
+    // Load GLB via fetch + ObjectURL to bypass CORS
+    const glbUrl = 'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb';
+
+    // Lazy-load Three.js GLTFLoader from CDN
+    const loaderScript = document.createElement('script');
+    loaderScript.src = 'https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js';
+    loaderScript.onload = () => {
+      const loader = new THREE.GLTFLoader();
+      loader.load(glbUrl, (gltf) => {
+        model = gltf.scene;
+
+        // Center model
+        const box = new THREE.Box3().setFromObject(model);
+        const center = box.getCenter(new THREE.Vector3());
+        const size = box.getSize(new THREE.Vector3());
+        const maxDim = Math.max(size.x, size.y, size.z);
+        const scale = 2.0 / maxDim;
+        model.scale.setScalar(scale);
+        model.position.sub(center.multiplyScalar(scale));
+
+        scene.add(model);
+      }, undefined, (err) => {
+        console.warn('3D model load failed:', err);
+      });
+    };
+    document.head.appendChild(loaderScript);
+
+    canvas.addEventListener('mouseenter', () => { isHovered = true; });
+    canvas.addEventListener('mouseleave', () => { isHovered = false; });
+
+    function animate() {
+      requestAnimationFrame(animate);
+      if (model && !isHovered) {
+        rotY += 0.002;
+        model.rotation.y = rotY;
+      }
+      renderer.render(scene, camera);
+    }
+    animate();
+  })();
+
+})();
+</script>
+
+<!--
+CUSTOMIZATION GUIDE
+===================
+All SWAP markers in this file, as a numbered checklist for production.
+
+PRODUCTION CHECKLIST:
+──────────────────────────────────────────────────────────────────────
+
+LOGOS (DONE — using provided SRC):
+ [✓] 1. SWAP:LOGO — Header logo img SRC
+     SRC: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dc29a5de7c97f7b9fc_cropped-logo.png
+ [✓] 2. SWAP:LOGO — Hero section logo
+ [✓] 3. SWAP:LOGO — Footer logo
+
+COLORS (REVIEW):
+ [✓] 4. SWAP:COLOR — CSS custom properties defined in :root
+     Primary #2C5F6A | Secondary #C8A96E | Accent #E8D5B0
+     → ACTION: Confirm against actual brand hex values from design files
+
+VIDEOS (DONE — using CSV cliffside assets):
+ [✓] 5. SWAP:VIDEO — Hero video
+     SRC: cliffside1.mp4
+     poster: Image 149.png
+ [✓] 6. SWAP:VIDEO — Booking CTA video
+     SRC: cliffside2.mp4
+     poster: Image 162.png
+
+3D OBJECT (DONE — using CSV coral GLB):
+ [✓] 7. SWAP:3D → coral branch | Coastal Mediterranean
+     SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb
+     Canvas: 340×340px | Auto-rotate | Pause on hover
+
+IMAGES (ALL FROM CSV — cliffside mediterranean category):
+ [✓] 8.  SWAP:IMG — Hero poster: Image 149.png
+ [✓] 9.  SWAP:IMG — Experience card 1: Image 192.png
+ [✓] 10. SWAP:IMG — Experience card 2: Image 161.png
+ [✓] 11. SWAP:IMG — Experience card 3: Image 191.png
+ [✓] 12. SWAP:IMG — Experience card 4: Image 180.png
+ [✓] 13. SWAP:IMG — Experience card 5: Image 171.png
+ [✓] 14. SWAP:IMG — Experience card 6: Image 188.png
+ [✓] 15. SWAP:IMG — The Place: Image 170.png
+ [✓] 16. SWAP:IMG — Room 1 (Villa Helias): Image 155.png
+ [✓] 17. SWAP:IMG — Room 2 (Villa Etheria): Image 154.png
+ [✓] 18. SWAP:IMG — Room 3 (Villa Phivi): Image 153.png
+ [✓] 19. SWAP:IMG — Room 4 (The Suite): Image 157.png
+ [✓] 20. SWAP:IMG — Room 5 (Pool Terrace): Image 159.png
+ [✓] 21. SWAP:IMG — Room 6 (Cycladic Interior): Image 158.png
+ [✓] 22. SWAP:IMG — Editorial quote background: Image 165.png
+ [✓] 23. SWAP:IMG — Booking CTA poster: Image 162.png
+
+COPY (PRODUCTION REVIEW RECOMMENDED):
+ [~] 24. SWAP:COPY — Manifesto: "The Aegean does not forgive half-measures..."
+         → Review against actual brand voice; adjust if needed
+ [~] 25. SWAP:COPY — The Place: 3 paragraphs about Andros geography
+         → Confirm elevation and coordinates data
+ [~] 26. SWAP:COPY — Transformation stats: 300km trails / 4 villas / 180m elevation
+         → Verify against actual property data
+ [~] 27. SWAP:COPY — Wellness rituals [1–6]
+         → Match against actual services offered on-site
+ [~] 28. SWAP:COPY — Editorial quote: "We came for a week..."
+         ⚠️ IMPORTANT: Replace with a real verified guest quote before publishing
+ [~] 29. SWAP:COPY — Booking CTA: "The Aegean waits for no one."
+         → Confirm season label: "Summer & Early Autumn 2026"
+
+NO ASSET IN CSV — NONE. All slots covered by CSV assets.
+
+WEBFLOW NOTES:
+- Paste full file into a Webflow Embed block (Settings > Custom Code, or a section Embed element)
+- All GSAP, Three.js loaded via CDN — no Webflow conflicts
+- No external frameworks; pure vanilla JS
+- Ensure Webflow page has no conflicting global CSS resets for position:fixed
+
+END CUSTOMIZATION GUIDE
+-->
+
+</body>
+</html>
