@@ -1,0 +1,2422 @@
+<!--
+BRAND EXTRACTION REPORT
+========================
+Hotel Name:          Aphrodite Hills Resort
+URL:                 https://www.aphroditehills.com/
+Primary Color:       #2B4A3A  (Mediterranean cypress-olive deep green — the ancient sacred hills of Cyprus)
+Secondary Color:     #C89840  (Byzantine gold — Cypriot mosaic, limestone in summer sun, ancient amber)
+Accent Color:        #E8D4A0  (pale limestone/sand cream — Paphos stone, weathered marble, sun-bleached earth)
+Background Mood:     Warm-Dark — cinematic Mediterranean depth, mythology-infused atmosphere
+Font Pairing:        Playfair Display (classical serif editorial) + DM Sans (clean grotesque body)
+Tone of Voice:       Mythological-sensory — warm precision, Cyprus-specific ecological detail, ancient grounding
+Landscape Archetype: Coastal-Mediterranean — sea-cliff Cyprus, olive grove hills, mythology territory
+Positioning:         578-acre integrated 5-star resort set above Aphrodite's legendary birthplace — where
+                     PGA championship golf meets Mediterranean thalassotherapy, Cypriot gastronomy, and
+                     private villa living against the backdrop of the azure Mediterranean.
+Key Experiences:
+  1. PGA National Golf Course — 18-hole Cabell Robinson design, 6,289m, dramatic gorge at 7th hole
+  2. The Retreat by Aegeo Spas — 21 treatment rooms, Mediterranean wellness, thalassotherapy
+  3. Mediterranean Dining — 21 venues, Cypriot gastronomy, clifftop sea views
+  4. Villas & Apartments — 150 private pool residences across 578 acres
+  5. Sports Hub — 13 tennis/padel courts, PGA Academy, full fitness facility
+  6. Aphrodite's Legacy — Petra tou Romiou 4km, Cypriot culture, mythology-anchored heritage
+Coordinates + Elevation: 34°42'18"N 32°41'38"E · ~130m above sea level · Kouklia, Paphos, Cyprus
+
+ASSET MAPPING REPORT
+========================
+Total assets in CSV:        26 coastal images + 3 GLB 3D objects (coral, leaf, snowflake)
+Assets successfully mapped: 17 coastal images + 1 GLB (oak/olive leaf)
+Slots covered by CSV:
+  hero-poster         → coastal Image 56
+  experience-1        → coastal Image 42 (Golf / Championship Course)
+  experience-2        → coastal Image 12 (Spa / Wellness)
+  experience-3        → coastal Image 3  (Dining / Gastronomy)
+  experience-4        → coastal Image 10 (Villas & Pool)
+  experience-5        → coastal Image 1  (Sports Hub / Tennis)
+  experience-6        → coastal Image 9  (Heritage / Culture)
+  the-place           → coastal Image 2  (Paphos coastal landscape split)
+  room-1              → coastal Image 55
+  room-2              → coastal Image 54
+  room-3              → coastal Image 53
+  room-4              → coastal Image 52
+  room-5              → coastal Image 50
+  room-6              → coastal Image 44
+  editorial-quote-bg  → coastal Image 46
+  booking-poster      → coastal Image 47
+  3d-object           → leaf GLB (https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb)
+
+Slots falling back to Unsplash / NO ASSET IN CSV:
+  hero-video          → NO ASSET IN CSV  (poster: Image 56 from CSV)
+  booking-video       → NO ASSET IN CSV  (poster: Image 47 from CSV)
+
+Logo SRC:   https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba4d1e979cd2c4747d8df_Group-242.png
+3D Object:  https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb
+Video:      None in CSV — hero and booking CTA use poster-only with SWAP markers
+Images:     26 coastal images (Image 37–56 range) from CDN
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aphrodite Hills Resort — Where Legend Lives in Every Horizon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+<style>
+/*
+CSS CUSTOM PROPERTIES
+=====================
+--color-primary:    #2B4A3A  (Mediterranean cypress-olive deep green)
+--color-secondary:  #C89840  (Byzantine gold / Cypriot mosaic amber)
+--color-accent:     #E8D4A0  (pale limestone cream)
+--color-bg:         #0C1810  (near-black grove depth)
+--color-bg-warm:    #F4EDE2  (sun-bleached Cypriot parchment)
+--color-text:       #EDE8DB  (warm off-white)
+--color-text-dark:  #1A2C1E  (deep forest for light sections)
+--font-serif:       'Playfair Display', serif
+--font-sans:        'DM Sans', sans-serif
+*/
+
+/* SWAP:COLOR */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-primary:   #2B4A3A;
+  --color-secondary: #C89840;
+  --color-accent:    #E8D4A0;
+  --color-bg:        #0C1810;
+  --color-bg-warm:   #F4EDE2;
+  --color-text:      #EDE8DB;
+  --color-text-dark: #1A2C1E;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans:  'DM Sans', sans-serif;
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ah-serif { font-family: var(--font-serif); }
+.ah-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ─── HEADER ─── */
+#ah-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.5s var(--ease-out), padding 0.4s;
+}
+
+#ah-header.scrolled {
+  background: rgba(12, 24, 16, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 16px 48px;
+  border-bottom: 1px solid rgba(200, 152, 64, 0.14);
+}
+
+#ah-header .ah-logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.90;
+  transition: opacity 0.3s;
+}
+
+#ah-header nav {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+#ah-header nav a {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+  opacity: 0.72;
+  transition: opacity 0.2s;
+}
+
+#ah-header nav a:hover { opacity: 1; }
+
+#ah-header .ah-cta-btn {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  background: var(--color-secondary);
+  border: none;
+  padding: 11px 28px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.25s, color 0.25s;
+  display: inline-block;
+}
+
+#ah-header .ah-cta-btn:hover {
+  background: var(--color-accent);
+}
+
+/* ─── SECTION 1: FULLSCREEN HERO ─── */
+#ah-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#ah-hero video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+/* SWAP:VIDEO → Mediterranean Cyprus aerial: olive hills above turquoise sea | hero section | NO ASSET IN CSV */
+
+#ah-hero .ah-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(43, 74, 58, 0.20) 0%,
+    rgba(43, 74, 58, 0.42) 45%,
+    rgba(12, 24, 16, 0.82) 100%
+  );
+  z-index: 1;
+}
+
+#ah-hero .ah-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 1000px;
+}
+
+#ah-hero .ah-hero-logo {
+  height: 64px;
+  width: auto;
+  margin: 0 auto 48px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0;
+}
+/* SWAP:LOGO */
+
+#ah-hero .ah-hero-tagline {
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 7.8vw, 100px);
+  font-weight: 300;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin-bottom: 30px;
+}
+
+#ah-hero .ah-hero-tagline .word {
+  display: inline-block;
+  overflow: hidden;
+}
+
+#ah-hero .ah-hero-tagline .word span {
+  display: inline-block;
+  transform: translateY(115%);
+  opacity: 0;
+}
+
+#ah-hero .ah-hero-sub {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 0;
+  margin-bottom: 0;
+}
+
+#ah-hero .ah-geo-strip {
+  position: absolute;
+  bottom: 92px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  gap: 26px;
+  align-items: center;
+  opacity: 0;
+}
+
+#ah-hero .ah-geo-item {
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+  opacity: 0.62;
+  white-space: nowrap;
+}
+
+#ah-hero .ah-geo-divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(232, 212, 160, 0.28);
+}
+
+#ah-hero .ah-scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+}
+
+#ah-hero .ah-scroll-indicator span {
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+  opacity: 0.68;
+}
+
+#ah-hero .ah-scroll-line {
+  width: 1px;
+  height: 46px;
+  background: var(--color-secondary);
+  transform-origin: top;
+  animation: ahScrollLine 2s ease-in-out infinite;
+}
+
+@keyframes ahScrollLine {
+  0%   { transform: scaleY(0); opacity: 1; }
+  55%  { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+
+/* ─── SECTION 2: MANIFESTO ─── */
+#ah-manifesto {
+  position: relative;
+  padding: 168px 48px;
+  background: var(--color-bg-warm);
+  overflow: hidden;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+#ah-manifesto .ah-manifesto-canvas {
+  position: absolute;
+  top: 50%;
+  right: -60px;
+  transform: translateY(-50%);
+  width: 360px;
+  height: 360px;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+/* SWAP:3D → oak/olive leaf | Coastal Mediterranean */
+
+#ah-manifesto::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, var(--color-secondary), transparent);
+  opacity: 0.32;
+}
+
+#ah-manifesto::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 48px;
+  right: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(43,74,58,0.18), transparent);
+}
+
+#ah-manifesto .ah-manifesto-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.ah-manifesto-line {
+  font-family: var(--font-serif);
+  font-size: clamp(42px, 6.8vw, 90px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--color-text-dark);
+  opacity: 0;
+  transform: translateY(46px);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.ah-manifesto-line em {
+  font-style: italic;
+  color: var(--color-primary);
+}
+
+#ah-manifesto .ah-manifesto-byline {
+  margin-top: 56px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  opacity: 0;
+  transform: translateY(20px);
+}
+/* SWAP:COPY → manifesto */
+
+/* ─── SECTION 3: SIGNATURE EXPERIENCES ─── */
+#ah-experiences {
+  padding: 128px 48px;
+  background: var(--color-bg);
+}
+
+#ah-experiences .ah-section-label {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  margin-bottom: 64px;
+}
+
+#ah-experiences .ah-exp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+
+@media (max-width: 768px) {
+  #ah-experiences .ah-exp-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  #ah-experiences .ah-exp-grid { grid-template-columns: 1fr; }
+}
+
+.ah-exp-card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  cursor: pointer;
+}
+
+.ah-exp-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.78s var(--ease-out);
+}
+
+.ah-exp-card:hover img {
+  transform: scale(1.05);
+}
+
+.ah-exp-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 42%, rgba(12,24,16,0.90) 100%);
+  transition: background 0.4s;
+}
+
+.ah-exp-card:hover .ah-exp-overlay {
+  background: linear-gradient(180deg, rgba(43,74,58,0.24) 0%, rgba(12,24,16,0.93) 100%);
+}
+
+.ah-exp-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px 26px;
+}
+
+.ah-exp-cat {
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  margin-bottom: 8px;
+}
+
+.ah-exp-title {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.14;
+  margin-bottom: 10px;
+}
+
+.ah-exp-desc {
+  font-size: 12px;
+  color: var(--color-accent);
+  opacity: 0.80;
+  line-height: 1.68;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  max-width: 280px;
+}
+
+/* ─── SECTION 4: THE PLACE ─── */
+#ah-place {
+  display: grid;
+  grid-template-columns: 60fr 40fr;
+  min-height: 82vh;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  #ah-place { grid-template-columns: 1fr; }
+}
+
+#ah-place .ah-place-img-wrap {
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+}
+
+#ah-place .ah-place-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+/* SWAP:IMG → Kouklia Paphos coastal Mediterranean vista | ratio: 3:2 */
+
+#ah-place .ah-place-data {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ah-data-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(12, 24, 16, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(200, 152, 64, 0.24);
+  padding: 8px 16px;
+  width: fit-content;
+}
+
+.ah-data-chip span {
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+  opacity: 0.72;
+}
+
+.ah-data-chip strong {
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+
+#ah-place .ah-place-copy {
+  background: var(--color-bg-warm);
+  padding: 84px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  #ah-place .ah-place-copy { padding: 64px 32px; }
+}
+
+#ah-place .ah-place-copy .ah-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  margin-bottom: 30px;
+}
+
+#ah-place .ah-place-copy h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(38px, 3.6vw, 60px);
+  font-weight: 300;
+  line-height: 1.12;
+  color: var(--color-text-dark);
+  margin-bottom: 38px;
+}
+
+#ah-place .ah-place-copy h2 em {
+  font-style: italic;
+  color: var(--color-primary);
+}
+
+.ah-place-para {
+  font-size: 15px;
+  line-height: 1.80;
+  color: var(--color-text-dark);
+  opacity: 0.76;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  margin-bottom: 22px;
+}
+/* SWAP:COPY → the place */
+
+/* ─── SECTION 5: TRANSFORMATION PROMISE ─── */
+#ah-transform {
+  background: var(--color-bg);
+  padding: 148px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+#ah-transform::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 28% 50%, rgba(43,74,58,0.16) 0%, transparent 62%);
+  pointer-events: none;
+}
+
+#ah-transform::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,152,64,0.16), transparent);
+}
+
+#ah-transform .ah-section-header {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+#ah-transform .ah-section-header .ah-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  margin-bottom: 22px;
+}
+
+#ah-transform .ah-section-header h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(38px, 4.2vw, 64px);
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.14;
+}
+
+#ah-transform .ah-transform-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 64px 44px;
+  max-width: 1200px;
+  margin: 84px auto 0;
+}
+
+@media (max-width: 768px) {
+  #ah-transform .ah-transform-grid { grid-template-columns: 1fr; gap: 64px; }
+}
+
+.ah-stat-block {
+  opacity: 0;
+  transform: translateY(32px);
+}
+
+.ah-stat-num {
+  font-family: var(--font-serif);
+  font-size: clamp(76px, 9.5vw, 128px);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--color-secondary);
+  display: block;
+  margin-bottom: 14px;
+}
+
+.ah-stat-suffix {
+  font-family: var(--font-serif);
+  font-size: clamp(30px, 3.6vw, 50px);
+  font-weight: 300;
+  color: var(--color-secondary);
+  opacity: 0.58;
+}
+
+.ah-stat-label {
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 0.62;
+  margin-bottom: 18px;
+}
+
+.ah-stat-desc {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.70;
+  color: var(--color-text);
+  opacity: 0.60;
+  max-width: 280px;
+  font-weight: 300;
+}
+/* SWAP:COPY → transformation stats [1–3] */
+
+/* ─── SECTION 6: ROOMS & SPACES ─── */
+#ah-rooms {
+  padding: 128px 48px;
+  background: var(--color-bg-warm);
+}
+
+#ah-rooms .ah-rooms-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 64px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#ah-rooms .ah-rooms-header .ah-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  margin-bottom: 14px;
+}
+
+#ah-rooms .ah-rooms-header h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(42px, 5.2vw, 80px);
+  font-weight: 300;
+  color: var(--color-text-dark);
+  line-height: 1.06;
+}
+
+.ah-rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  gap: 3px;
+}
+
+.ah-room-item {
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.ah-room-item:nth-child(1) { grid-column: 1 / 8;  grid-row: 1; aspect-ratio: 16/9; }
+.ah-room-item:nth-child(2) { grid-column: 8 / 13; grid-row: 1; aspect-ratio: 3/4;  }
+.ah-room-item:nth-child(3) { grid-column: 1 / 5;  grid-row: 2; aspect-ratio: 3/4;  }
+.ah-room-item:nth-child(4) { grid-column: 5 / 9;  grid-row: 2; aspect-ratio: 3/4;  }
+.ah-room-item:nth-child(5) { grid-column: 9 / 13; grid-row: 2; aspect-ratio: 3/4;  }
+.ah-room-item:nth-child(6) { grid-column: 1 / 7;  grid-row: 3; aspect-ratio: 16/7; }
+
+@media (max-width: 768px) {
+  .ah-rooms-grid { grid-template-columns: 1fr 1fr; gap: 3px; }
+  .ah-room-item:nth-child(n)  { grid-column: auto; grid-row: auto; aspect-ratio: 3/4; }
+  .ah-room-item:nth-child(1)  { grid-column: 1 / 3; aspect-ratio: 16/9; }
+}
+@media (max-width: 480px) {
+  .ah-rooms-grid { grid-template-columns: 1fr; }
+  .ah-room-item:nth-child(1) { grid-column: 1; aspect-ratio: 3/2; }
+}
+
+.ah-room-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.78s var(--ease-out);
+}
+
+.ah-room-item:hover img { transform: scale(1.05); }
+
+.ah-room-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  background: linear-gradient(180deg, transparent, rgba(12,24,16,0.84));
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--color-text);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.36s, transform 0.36s;
+}
+
+.ah-room-item:hover .ah-room-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Lightbox */
+#ah-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(12, 24, 16, 0.97);
+  align-items: center;
+  justify-content: center;
+}
+
+#ah-lightbox.active { display: flex; }
+
+#ah-lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+#ah-lightbox-close {
+  position: absolute;
+  top: 28px;
+  right: 40px;
+  font-size: 32px;
+  color: var(--color-text);
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+  font-family: var(--font-sans);
+  opacity: 0.62;
+  transition: opacity 0.2s;
+}
+
+#ah-lightbox-close:hover { opacity: 1; }
+
+/* ─── SECTION 7: WELLNESS RITUALS ─── */
+#ah-wellness {
+  padding: 148px 48px;
+  background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+#ah-wellness::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 78% 38%, rgba(43,74,58,0.16) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+#ah-wellness::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,152,64,0.18), transparent);
+}
+
+#ah-wellness .ah-wellness-header {
+  text-align: center;
+  margin-bottom: 84px;
+}
+
+#ah-wellness .ah-wellness-header .ah-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  margin-bottom: 22px;
+}
+
+#ah-wellness .ah-wellness-header h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 4.2vw, 68px);
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.16;
+}
+
+.ah-wellness-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) { .ah-wellness-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .ah-wellness-grid { grid-template-columns: 1fr; } }
+
+.ah-ritual {
+  padding: 52px 38px;
+  border: 1px solid rgba(200, 152, 64, 0.10);
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.016);
+  transition: background 0.4s, border-color 0.4s;
+  opacity: 0;
+  transform: translateY(26px);
+}
+
+.ah-ritual:hover {
+  background: rgba(43, 74, 58, 0.12);
+  border-color: rgba(200, 152, 64, 0.30);
+}
+
+.ah-ritual-glyph {
+  font-size: 32px;
+  margin-bottom: 26px;
+  display: block;
+  color: var(--color-secondary);
+  transition: transform 0.4s var(--ease-out);
+}
+
+.ah-ritual:hover .ah-ritual-glyph { transform: scale(1.14) rotate(-4deg); }
+
+.ah-ritual-name {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 16px;
+  line-height: 1.16;
+}
+
+.ah-ritual-desc {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.74;
+  color: var(--color-text);
+  opacity: 0.50;
+  font-weight: 300;
+}
+/* SWAP:COPY → wellness rituals [1–6] */
+
+/* ─── SECTION 8: EDITORIAL QUOTE ─── */
+#ah-quote {
+  position: relative;
+  height: 100vh;
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#ah-quote .ah-quote-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+/* SWAP:IMG → Aphrodite Hills Mediterranean clifftop atmospheric | ratio: 16:9 */
+
+#ah-quote::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 24, 16, 0.74);
+  z-index: 1;
+}
+
+#ah-quote .ah-quote-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 48px;
+  max-width: 1020px;
+}
+
+#ah-quote .ah-quote-mark {
+  font-family: var(--font-serif);
+  font-size: 160px;
+  color: var(--color-secondary);
+  line-height: 0.52;
+  display: block;
+  margin-bottom: 48px;
+  opacity: 0.52;
+}
+
+#ah-quote blockquote {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4.4vw, 62px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.28;
+  color: var(--color-text);
+  margin-bottom: 38px;
+  opacity: 0;
+  transform: translateY(34px);
+}
+
+#ah-quote cite {
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-style: normal;
+  opacity: 0;
+  transform: translateY(16px);
+  display: block;
+}
+/* SWAP:COPY → editorial quote */
+
+/* ─── SECTION 9: BOOKING CTA ─── */
+#ah-booking {
+  position: relative;
+  min-height: 82vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#ah-booking video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+/* SWAP:VIDEO → Aphrodite Hills resort aerial Mediterranean dusk | booking section | NO ASSET IN CSV */
+
+#ah-booking::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 24, 16, 0.76);
+  z-index: 1;
+}
+
+#ah-booking .ah-booking-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 84px 40px;
+  max-width: 760px;
+}
+
+#ah-booking .ah-booking-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  margin-bottom: 30px;
+}
+
+#ah-booking h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(42px, 5.8vw, 88px);
+  font-weight: 300;
+  line-height: 1.06;
+  color: var(--color-text);
+  margin-bottom: 52px;
+}
+
+.ah-booking-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.ah-btn-primary {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  background: var(--color-secondary);
+  border: none;
+  padding: 17px 46px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.25s;
+  display: inline-block;
+}
+
+.ah-btn-primary:hover { background: var(--color-accent); }
+
+.ah-btn-secondary {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid rgba(200, 152, 64, 0.42);
+  padding: 17px 46px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.25s, color 0.25s;
+  display: inline-block;
+}
+
+.ah-btn-secondary:hover {
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+#ah-booking .ah-urgency {
+  font-size: 10.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 0.55;
+  font-family: var(--font-sans);
+}
+/* SWAP:COPY → booking CTA */
+
+/* ─── SECTION 10: FOOTER ─── */
+#ah-footer {
+  background: var(--color-bg);
+  border-top: 1px solid rgba(200, 152, 64, 0.11);
+  padding: 84px 48px 44px;
+}
+
+#ah-footer .ah-footer-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 44px;
+  margin-bottom: 76px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  #ah-footer .ah-footer-top { grid-template-columns: 1fr; gap: 52px; }
+}
+
+#ah-footer .ah-footer-logo-wrap img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.80;
+  margin-bottom: 22px;
+}
+
+#ah-footer .ah-footer-tagline {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--color-text);
+  opacity: 0.60;
+  line-height: 1.54;
+  margin-bottom: 14px;
+}
+
+#ah-footer .ah-footer-coord {
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  opacity: 0.62;
+}
+
+.ah-footer-col-label {
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  margin-bottom: 22px;
+  opacity: 0.62;
+}
+
+.ah-footer-col p,
+.ah-footer-col a {
+  font-size: 14px;
+  line-height: 1.94;
+  color: var(--color-text);
+  opacity: 0.52;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  text-decoration: none;
+  display: block;
+  transition: opacity 0.2s;
+}
+
+.ah-footer-col a:hover { opacity: 1; }
+
+#ah-footer .ah-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 28px;
+  border-top: 1px solid rgba(200, 152, 64, 0.08);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+#ah-footer .ah-footer-bottom p {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  opacity: 0.26;
+  font-family: var(--font-sans);
+}
+
+/* ─── RESPONSIVE MOBILE OVERRIDES ─── */
+@media (max-width: 768px) {
+  #ah-header { padding: 20px 24px; }
+  #ah-header nav { display: none; }
+  #ah-manifesto { padding: 104px 24px; }
+  #ah-manifesto .ah-manifesto-canvas { display: none; }
+  #ah-experiences { padding: 84px 24px; }
+  #ah-transform { padding: 104px 24px; }
+  #ah-rooms { padding: 84px 24px; }
+  #ah-wellness { padding: 104px 24px; }
+  #ah-booking .ah-booking-inner { padding: 64px 24px; }
+  #ah-footer { padding: 64px 24px 36px; }
+  #ah-hero .ah-geo-strip { display: none; }
+}
+
+@media (max-width: 480px) {
+  #ah-manifesto { padding: 84px 20px; }
+  #ah-experiences { padding: 64px 20px; }
+  #ah-transform { padding: 84px 20px; }
+  #ah-rooms { padding: 64px 20px; }
+  #ah-wellness { padding: 84px 20px; }
+  #ah-footer { padding: 60px 20px 32px; }
+}
+
+/* ─── GSAP INITIAL STATES ─── */
+.ah-reveal { opacity: 0; transform: translateY(34px); }
+
+</style>
+</head>
+<body>
+
+<!-- SWAP:LOGO -->
+<!-- ─── HEADER ─── -->
+<header id="ah-header">
+  <img
+    class="ah-logo"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba4d1e979cd2c4747d8df_Group-242.png"
+    alt="Aphrodite Hills Resort"
+    loading="eager"
+  >
+  <nav>
+    <a href="#ah-experiences">Experiences</a>
+    <a href="#ah-place">Paphos</a>
+    <a href="#ah-wellness">Wellness</a>
+    <a href="#ah-booking" class="ah-cta-btn">Reserve</a>
+  </nav>
+</header>
+
+
+<!-- ─── SECTION 1: FULLSCREEN HERO ─── -->
+<!-- SWAP:VIDEO → Mediterranean Cyprus aerial: olive hills, turquoise sea, clifftop resort | hero section | NO ASSET IN CSV -->
+<!-- SWAP:LOGO -->
+<section id="ah-hero">
+
+  <!-- Hero video: no source in CSV — poster from coastal Image 56 displays until real video is added -->
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png"
+  >
+    <!-- SWAP:VIDEO → Cyprus Mediterranean aerial hero video | hero section | NO ASSET IN CSV -->
+    <!-- <source src="YOUR_CYPRUS_AERIAL_HERO_VIDEO.mp4" type="video/mp4"> -->
+  </video>
+
+  <div class="ah-hero-overlay"></div>
+
+  <div class="ah-hero-content">
+    <!-- SWAP:LOGO -->
+    <img
+      class="ah-hero-logo"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba4d1e979cd2c4747d8df_Group-242.png"
+      alt="Aphrodite Hills Resort"
+      loading="eager"
+    >
+    <h1 class="ah-hero-tagline ah-serif">
+      <span class="word"><span>Where Aphrodite's</span></span>
+      <span class="word"><span> Legend</span></span>
+      <span class="word"><span> Still Lives</span></span>
+    </h1>
+    <p class="ah-hero-sub">Kouklia · Paphos · Cyprus · Mediterranean</p>
+  </div>
+
+  <div class="ah-geo-strip">
+    <span class="ah-geo-item">34°42'N 32°41'E</span>
+    <div class="ah-geo-divider"></div>
+    <span class="ah-geo-item">130m · Sea Level</span>
+    <div class="ah-geo-divider"></div>
+    <span class="ah-geo-item">578 Acres</span>
+    <div class="ah-geo-divider"></div>
+    <span class="ah-geo-item">5 Stars · PGA National</span>
+  </div>
+
+  <div class="ah-scroll-indicator">
+    <span>Descend</span>
+    <div class="ah-scroll-line"></div>
+  </div>
+</section>
+
+
+<!-- ─── SECTION 2: MANIFESTO ─── -->
+<!-- SWAP:COPY → manifesto -->
+<!-- SWAP:3D → oak/olive leaf | Coastal Mediterranean -->
+<section id="ah-manifesto">
+
+  <!-- 3D canvas: olive/oak leaf GLB floats as ghost element in background -->
+  <canvas id="ah-3d-canvas" class="ah-manifesto-canvas"></canvas>
+
+  <div class="ah-manifesto-inner">
+    <span class="ah-manifesto-line ah-serif">Some hills carry legend</span>
+    <span class="ah-manifesto-line ah-serif"><em>in their stone.</em></span>
+    <span class="ah-manifesto-line ah-serif">Here, a goddess emerged</span>
+    <span class="ah-manifesto-line ah-serif">from the sea below.</span>
+    <p class="ah-manifesto-byline">Aphrodite Hills Resort · Est. Kouklia · Paphos · Cyprus</p>
+  </div>
+</section>
+
+
+<!-- ─── SECTION 3: SIGNATURE EXPERIENCES ─── -->
+<!-- SWAP:IMG → experience card [1–6] | ratio: 4:5 -->
+<section id="ah-experiences">
+  <p class="ah-section-label">Signature Experiences</p>
+  <div class="ah-exp-grid">
+
+    <!-- Experience 1: Golf -->
+    <!-- SWAP:IMG → PGA National Golf Course Mediterranean | ratio: 4:5 -->
+    <div class="ah-exp-card">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fdef24e731275c24a_Image%2042.png"
+        alt="PGA National Golf Course"
+        loading="lazy"
+      >
+      <div class="ah-exp-overlay"></div>
+      <div class="ah-exp-text">
+        <p class="ah-exp-cat">Golf</p>
+        <h3 class="ah-exp-title ah-serif">PGA National</h3>
+        <p class="ah-exp-desc">The only PGA National in Cyprus. 6,289 metres above the Mediterranean, with a 130-metre gorge at the 7th.</p>
+      </div>
+    </div>
+
+    <!-- Experience 2: Spa -->
+    <!-- SWAP:IMG → Aegeo Spas wellness Mediterranean | ratio: 4:5 -->
+    <div class="ah-exp-card">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f1fe2d8b2f06d2529_Image%2012.png"
+        alt="The Retreat by Aegeo Spas"
+        loading="lazy"
+      >
+      <div class="ah-exp-overlay"></div>
+      <div class="ah-exp-text">
+        <p class="ah-exp-cat">Wellness</p>
+        <h3 class="ah-exp-title ah-serif">The Retreat</h3>
+        <p class="ah-exp-desc">21 treatment rooms. Aegeo's ancient wellness archive — seawater, stone, and Cypriot ritual — reactivated.</p>
+      </div>
+    </div>
+
+    <!-- Experience 3: Dining -->
+    <!-- SWAP:IMG → Mediterranean dining Cypriot gastronomy | ratio: 4:5 -->
+    <div class="ah-exp-card">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f679754764ba8477c_Image%203.png"
+        alt="Mediterranean Dining"
+        loading="lazy"
+      >
+      <div class="ah-exp-overlay"></div>
+      <div class="ah-exp-text">
+        <p class="ah-exp-cat">Gastronomy</p>
+        <h3 class="ah-exp-title ah-serif">21 Venues</h3>
+        <p class="ah-exp-desc">Cypriot fig leaves and sea salt. Mythology at the table, across 21 dining destinations.</p>
+      </div>
+    </div>
+
+    <!-- Experience 4: Villas -->
+    <!-- SWAP:IMG → private pool villa Mediterranean estate | ratio: 4:5 -->
+    <div class="ah-exp-card">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fc699fe80d5a792a6_Image%2010.png"
+        alt="Villas and Apartments"
+        loading="lazy"
+      >
+      <div class="ah-exp-overlay"></div>
+      <div class="ah-exp-text">
+        <p class="ah-exp-cat">Residences</p>
+        <h3 class="ah-exp-title ah-serif">150 Private Villas</h3>
+        <p class="ah-exp-desc">150 private pool residences across the estate. Yours from tomorrow — indefinitely.</p>
+      </div>
+    </div>
+
+    <!-- Experience 5: Sports -->
+    <!-- SWAP:IMG → tennis padel sports courts Cyprus | ratio: 4:5 -->
+    <div class="ah-exp-card">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e614aa07e724b10b1_Image%201.png"
+        alt="Sports Hub"
+        loading="lazy"
+      >
+      <div class="ah-exp-overlay"></div>
+      <div class="ah-exp-text">
+        <p class="ah-exp-cat">Sports</p>
+        <h3 class="ah-exp-title ah-serif">The Sports Hub</h3>
+        <p class="ah-exp-desc">13 courts. A full PGA Academy. Competition as ritual, not recreation — in Mediterranean light.</p>
+      </div>
+    </div>
+
+    <!-- Experience 6: Heritage -->
+    <!-- SWAP:IMG → Petra tou Romiou Aphrodite's birthplace Cyprus | ratio: 4:5 -->
+    <div class="ah-exp-card">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e13e8a712bef8f191_Image%209.png"
+        alt="Aphrodite Heritage"
+        loading="lazy"
+      >
+      <div class="ah-exp-overlay"></div>
+      <div class="ah-exp-text">
+        <p class="ah-exp-cat">Heritage</p>
+        <h3 class="ah-exp-title ah-serif">Aphrodite's Legacy</h3>
+        <p class="ah-exp-desc">Petra tou Romiou is 4km from your door. The goddess of beauty didn't leave — she just moved to higher ground.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ─── SECTION 4: THE PLACE ─── -->
+<!-- SWAP:IMG → Kouklia Paphos coastal Mediterranean vista | ratio: 3:2 -->
+<!-- SWAP:COPY → the place -->
+<section id="ah-place">
+
+  <div class="ah-place-img-wrap">
+    <img
+      id="ah-place-img"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e1edb921f35a63175_Image%202.png"
+      alt="Kouklia Paphos Cyprus Mediterranean coast"
+      loading="lazy"
+    >
+    <div class="ah-place-data">
+      <div class="ah-data-chip">
+        <span>Coords</span>
+        <strong>34°42'N · 32°41'E</strong>
+      </div>
+      <div class="ah-data-chip">
+        <span>Elevation</span>
+        <strong>130m · Paphos Hills</strong>
+      </div>
+      <div class="ah-data-chip">
+        <span>Distance</span>
+        <strong>4km · Petra tou Romiou</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="ah-place-copy">
+    <p class="ah-eyebrow">Kouklia · Paphos · Cyprus</p>
+    <h2 class="ah-serif">
+      130 metres above<br>
+      the sea that<br>
+      <em>made a goddess.</em>
+    </h2>
+    <p class="ah-place-para">
+      At the southwestern tip of Cyprus, where limestone cliffs fall toward turquoise Mediterranean water, Aphrodite Hills occupies terrain considered sacred for three millennia. The ancient Sanctuary of Aphrodite at nearby Kouklia drew pilgrims from across the known world — a fact the landscape still communicates on clear mornings.
+    </p>
+    <p class="ah-place-para">
+      Petra tou Romiou — the rock formation where mythology holds that Aphrodite rose from the sea foam — lies four kilometres down the coast. From the resort's clifftop trails, it is visible at dawn. The light that falls on that water at first hour has not changed since Homer described it.
+    </p>
+    <p class="ah-place-para">
+      The estate spans 578 acres of indigenous Cypriot habitat: carob trees, ancient olive groves, juniper, and the natural gorges that shape the golf course's most dramatic turns.
+    </p>
+  </div>
+
+</section>
+
+
+<!-- ─── SECTION 5: TRANSFORMATION PROMISE ─── -->
+<!-- SWAP:COPY → transformation stats [1–3] -->
+<section id="ah-transform">
+  <div class="ah-section-header">
+    <p class="ah-eyebrow">The Estate in Numbers</p>
+    <h2 class="ah-serif">
+      Three figures that tell<br>a 578-acre story.
+    </h2>
+  </div>
+
+  <div class="ah-transform-grid">
+
+    <div class="ah-stat-block">
+      <span class="ah-stat-num ah-serif" data-target="578">0</span>
+      <p class="ah-stat-label">Acres of Mediterranean Estate</p>
+      <p class="ah-stat-desc">Every acre holds olive groves, natural ravines, and golf fairways shaped by 3,000 years of Cypriot sun and salt air.</p>
+    </div>
+
+    <div class="ah-stat-block">
+      <span class="ah-stat-num ah-serif" data-target="21">0</span>
+      <p class="ah-stat-label">Spa Treatment Rooms</p>
+      <p class="ah-stat-desc">Aegeo Spas brings the Aegean wellness archive — seawater, stone, and ritual — to the hills above Aphrodite's birthplace.</p>
+    </div>
+
+    <div class="ah-stat-block">
+      <span class="ah-stat-num ah-serif" data-target="6289">0</span>
+      <p class="ah-stat-label">Metres of Championship Golf</p>
+      <p class="ah-stat-desc">Cabell Robinson's layout follows the natural contours of the land — culminating at the 130-metre gorge of the 7th hole.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ─── SECTION 6: ROOMS & SPACES ─── -->
+<!-- SWAP:IMG → room/interior [1–6] | ratio: varied -->
+<section id="ah-rooms">
+  <div class="ah-rooms-header">
+    <div>
+      <p class="ah-eyebrow">Rooms & Residences</p>
+      <h2 class="ah-serif">
+        290 rooms.<br>
+        150 private villas.
+      </h2>
+    </div>
+  </div>
+
+  <div class="ah-rooms-grid">
+
+    <!-- Room 1 — large feature -->
+    <div class="ah-room-item" data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png"
+        alt="Aphrodite Hills Hotel Room"
+        loading="lazy"
+      >
+      <div class="ah-room-label ah-serif">Deluxe Sea View Suite</div>
+    </div>
+
+    <!-- Room 2 -->
+    <div class="ah-room-item" data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755a0854ea3cadb267cd_Image%2054.png">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755a0854ea3cadb267cd_Image%2054.png"
+        alt="Aphrodite Hills Junior Suite"
+        loading="lazy"
+      >
+      <div class="ah-room-label ah-serif">Junior Suite</div>
+    </div>
+
+    <!-- Room 3 -->
+    <div class="ah-room-item" data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755108515add56c26e14_Image%2053.png">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755108515add56c26e14_Image%2053.png"
+        alt="Aphrodite Hills Villa"
+        loading="lazy"
+      >
+      <div class="ah-room-label ah-serif">Private Pool Villa</div>
+    </div>
+
+    <!-- Room 4 -->
+    <div class="ah-room-item" data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551d402271fd28d57c9_Image%2052.png">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551d402271fd28d57c9_Image%2052.png"
+        alt="Aphrodite Hills Penthouse Suite"
+        loading="lazy"
+      >
+      <div class="ah-room-label ah-serif">Penthouse Suite</div>
+    </div>
+
+    <!-- Room 5 -->
+    <div class="ah-room-item" data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551a79a50ab947db776_Image%2050.png">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551a79a50ab947db776_Image%2050.png"
+        alt="Aphrodite Hills Garden Apartment"
+        loading="lazy"
+      >
+      <div class="ah-room-label ah-serif">Garden Apartment</div>
+    </div>
+
+    <!-- Room 6 — wide feature bottom -->
+    <div class="ah-room-item" data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755102e16a74f59b0111_Image%2044.png">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755102e16a74f59b0111_Image%2044.png"
+        alt="Aphrodite Hills Presidential Suite"
+        loading="lazy"
+      >
+      <div class="ah-room-label ah-serif">Presidential Suite</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="ah-lightbox" role="dialog" aria-modal="true" aria-label="Room image">
+  <button id="ah-lightbox-close" aria-label="Close">&times;</button>
+  <img id="ah-lightbox-img" src="" alt="">
+</div>
+
+
+<!-- ─── SECTION 7: WELLNESS RITUALS ─── -->
+<!-- SWAP:COPY → wellness rituals [1–6] -->
+<section id="ah-wellness">
+
+  <div class="ah-wellness-header">
+    <p class="ah-eyebrow">The Retreat by Aegeo Spas</p>
+    <h2 class="ah-serif">
+      Six rituals rooted<br>in the Mediterranean.
+    </h2>
+  </div>
+
+  <div class="ah-wellness-grid">
+
+    <div class="ah-ritual">
+      <span class="ah-ritual-glyph">◈</span>
+      <h3 class="ah-ritual-name ah-serif">Sea Mineral Ritual</h3>
+      <p class="ah-ritual-desc">Mediterranean minerals from Cyprus coastal waters — a cellular reset through elemental salts and thermal immersion.</p>
+    </div>
+
+    <div class="ah-ritual">
+      <span class="ah-ritual-glyph">❧</span>
+      <h3 class="ah-ritual-name ah-serif">Olive Grove Ceremony</h3>
+      <p class="ah-ritual-desc">Heated Cypriot olive stones, warm oil from estate trees, and an hour spent recovering the body's natural temperature.</p>
+    </div>
+
+    <div class="ah-ritual">
+      <span class="ah-ritual-glyph">∿</span>
+      <h3 class="ah-ritual-name ah-serif">Thalassotherapy Circuit</h3>
+      <p class="ah-ritual-desc">Seawater pools, hydrojets, and cold plunge. The ancient Greek method of using the sea as medicine — unchanged.</p>
+    </div>
+
+    <div class="ah-ritual">
+      <span class="ah-ritual-glyph">⬡</span>
+      <h3 class="ah-ritual-name ah-serif">Aphrodite Ritual Facial</h3>
+      <p class="ah-ritual-desc">Cypriot rose, indigenous herbs, and gold-infused serum — the beauty ritual that predates every other by two millennia.</p>
+    </div>
+
+    <div class="ah-ritual">
+      <span class="ah-ritual-glyph">⚡</span>
+      <h3 class="ah-ritual-name ah-serif">Athletic Recovery</h3>
+      <p class="ah-ritual-desc">Designed for post-round and post-match restoration. Deep tissue, cryotherapy, and lymphatic drainage in 90 minutes.</p>
+    </div>
+
+    <div class="ah-ritual">
+      <span class="ah-ritual-glyph">◎</span>
+      <h3 class="ah-ritual-name ah-serif">Sunset Breath Practice</h3>
+      <p class="ah-ritual-desc">Clifftop yoga facing Petra tou Romiou. The breathing practice that turns dusk over the Mediterranean into a physiological reset.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ─── SECTION 8: EDITORIAL QUOTE ─── -->
+<!-- SWAP:IMG → Aphrodite Hills Mediterranean clifftop evening atmospheric | ratio: 16:9 -->
+<!-- SWAP:COPY → editorial quote -->
+<section id="ah-quote">
+
+  <img
+    class="ah-quote-bg"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7550d0152d0e448f0b58_Image%2046.png"
+    alt=""
+    loading="lazy"
+    aria-hidden="true"
+  >
+
+  <div class="ah-quote-inner">
+    <span class="ah-quote-mark ah-serif">"</span>
+    <blockquote class="ah-serif">
+      At Aphrodite Hills, standing above the sea that gave birth to beauty itself, the ancient Cypriots understood something we are still learning — landscape is not a backdrop. It is the entire point.
+    </blockquote>
+    <cite>Financial Times How To Spend It · Cyprus Edition</cite>
+  </div>
+
+</section>
+
+
+<!-- ─── SECTION 9: BOOKING CTA ─── -->
+<!-- SWAP:VIDEO → Aphrodite Hills resort aerial Mediterranean dusk | booking section | NO ASSET IN CSV -->
+<!-- SWAP:COPY → booking CTA -->
+<section id="ah-booking">
+
+  <!-- Booking video: no source in CSV — poster from coastal Image 47 displays until real video is added -->
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7550dd1faa5194cb19f6_Image%2047.png"
+  >
+    <!-- SWAP:VIDEO → Aphrodite Hills resort aerial dusk | booking section | NO ASSET IN CSV -->
+    <!-- <source src="YOUR_APHRODITE_BOOKING_VIDEO.mp4" type="video/mp4"> -->
+  </video>
+
+  <div class="ah-booking-inner">
+    <p class="ah-booking-eyebrow">Your Mediterranean Estate Awaits</p>
+    <h2 class="ah-serif">
+      Call the sea back.<br>
+      Reserve Kouklia.
+    </h2>
+    <div class="ah-booking-btns">
+      <a
+        href="https://www.aphroditehills.com/luxury-hotel/"
+        class="ah-btn-primary"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Reserve Your Stay</a>
+      <a
+        href="https://www.aphroditehills.com/"
+        class="ah-btn-secondary"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Download the Estate Guide</a>
+    </div>
+    <p class="ah-urgency">Mediterranean Summer — Limited availability · May–October 2026</p>
+  </div>
+
+</section>
+
+
+<!-- ─── SECTION 10: FOOTER ─── -->
+<!-- SWAP:LOGO -->
+<footer id="ah-footer">
+  <div class="ah-footer-top">
+
+    <div class="ah-footer-logo-wrap">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba4d1e979cd2c4747d8df_Group-242.png"
+        alt="Aphrodite Hills Resort"
+        loading="lazy"
+      >
+      <p class="ah-footer-tagline">Where legend lives<br>in every horizon.</p>
+      <p class="ah-footer-coord">34°42'18"N 32°41'38"E · 130m · Kouklia, Paphos</p>
+    </div>
+
+    <div class="ah-footer-col">
+      <p class="ah-footer-col-label">Contact</p>
+      <a href="mailto:info@aphroditehills.com">info@aphroditehills.com</a>
+      <a href="tel:+35726828000">+357 26 828000</a>
+      <p>3, Aphrodite Avenue<br>Kouklia 8509, Paphos, Cyprus</p>
+    </div>
+
+    <div class="ah-footer-col">
+      <p class="ah-footer-col-label">Follow</p>
+      <a
+        href="https://www.instagram.com/aphrodite_hills_resort_cyprus/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >@aphrodite_hills_resort_cyprus</a>
+      <a
+        href="https://www.facebook.com/AphroditeHillsResort"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Facebook</a>
+      <a
+        href="https://www.aphroditehills.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >aphroditehills.com</a>
+    </div>
+
+  </div>
+
+  <div class="ah-footer-bottom">
+    <p>© 2026 Aphrodite Hills Resort. All Rights Reserved. Kouklia, Paphos, Cyprus.</p>
+    <p>FGS Brand Consultant · Digital Prototype</p>
+  </div>
+</footer>
+
+
+<!-- ─── SCRIPTS ─── -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js"></script>
+
+<script>
+(function () {
+  'use strict';
+
+  // ─── WAIT FOR GSAP + THREE ───
+  function init() {
+    if (typeof gsap === 'undefined' || typeof THREE === 'undefined') {
+      setTimeout(init, 80);
+      return;
+    }
+    gsap.registerPlugin(ScrollTrigger);
+    runAnimations();
+    initThreeJS();
+    initLightbox();
+    initHeader();
+  }
+
+  // ─── HEADER SCROLL BEHAVIOR ───
+  function initHeader() {
+    var header = document.getElementById('ah-header');
+    if (!header) return;
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 48) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }, { passive: true });
+  }
+
+  // ─── GSAP ANIMATIONS ───
+  function runAnimations() {
+
+    // ── Hero: logo fade in ──
+    gsap.to('#ah-hero .ah-hero-logo', {
+      opacity: 0.90,
+      duration: 1.2,
+      ease: 'power2.out',
+      delay: 0.3
+    });
+
+    // ── Hero: tagline word-by-word reveal ──
+    var words = document.querySelectorAll('#ah-hero .ah-hero-tagline .word span');
+    gsap.to(words, {
+      translateY: '0%',
+      opacity: 1,
+      duration: 1.1,
+      ease: 'power3.out',
+      stagger: 0.14,
+      delay: 0.6
+    });
+
+    // ── Hero: sub-tagline fade ──
+    gsap.to('#ah-hero .ah-hero-sub', {
+      opacity: 1,
+      duration: 1.0,
+      ease: 'power2.out',
+      delay: 1.2
+    });
+
+    // ── Hero: geo strip ──
+    gsap.to('#ah-hero .ah-geo-strip', {
+      opacity: 1,
+      duration: 1.0,
+      ease: 'power2.out',
+      delay: 1.5
+    });
+
+    // ── Hero: scroll indicator ──
+    gsap.to('#ah-hero .ah-scroll-indicator', {
+      opacity: 1,
+      duration: 0.9,
+      ease: 'power2.out',
+      delay: 1.8
+    });
+
+    // ── Manifesto lines reveal on scroll ──
+    var manifestoLines = document.querySelectorAll('.ah-manifesto-line');
+    manifestoLines.forEach(function (line, i) {
+      gsap.to(line, {
+        opacity: 1,
+        translateY: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: line,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        },
+        delay: i * 0.14
+      });
+    });
+
+    // ── Manifesto byline ──
+    gsap.to('#ah-manifesto .ah-manifesto-byline', {
+      opacity: 1,
+      translateY: 0,
+      duration: 1.0,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '#ah-manifesto .ah-manifesto-byline',
+        start: 'top 90%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    // ── Experience cards staggered reveal ──
+    gsap.from('.ah-exp-card', {
+      opacity: 0,
+      y: 48,
+      duration: 0.9,
+      ease: 'power2.out',
+      stagger: 0.10,
+      scrollTrigger: {
+        trigger: '#ah-experiences .ah-exp-grid',
+        start: 'top 85%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    // ── The Place: image parallax ──
+    gsap.to('#ah-place-img', {
+      yPercent: 12,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#ah-place',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+
+    // ── The Place copy reveal ──
+    gsap.from('#ah-place .ah-place-copy > *', {
+      opacity: 0,
+      y: 36,
+      duration: 1.0,
+      ease: 'power2.out',
+      stagger: 0.12,
+      scrollTrigger: {
+        trigger: '#ah-place .ah-place-copy',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    // ── Transformation stats counter ──
+    document.querySelectorAll('.ah-stat-block').forEach(function (block, i) {
+      gsap.to(block, {
+        opacity: 1,
+        y: 0,
+        duration: 1.0,
+        ease: 'power2.out',
+        delay: i * 0.16,
+        scrollTrigger: {
+          trigger: '#ah-transform .ah-transform-grid',
+          start: 'top 82%',
+          toggleActions: 'play none none none'
+        }
+      });
+
+      var numEl = block.querySelector('.ah-stat-num');
+      if (!numEl) return;
+      var target = parseInt(numEl.getAttribute('data-target'), 10) || 0;
+      var obj = { val: 0 };
+      gsap.to(obj, {
+        val: target,
+        duration: 2.2,
+        ease: 'power2.out',
+        delay: i * 0.16,
+        onUpdate: function () {
+          numEl.textContent = Math.round(obj.val).toLocaleString();
+        },
+        scrollTrigger: {
+          trigger: numEl,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+
+    // ── Section label reveal ──
+    gsap.from('.ah-section-label', {
+      opacity: 0,
+      y: 20,
+      duration: 0.9,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.ah-section-label',
+        start: 'top 90%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    // ── Transform section header ──
+    gsap.from('#ah-transform .ah-section-header > *', {
+      opacity: 0,
+      y: 32,
+      duration: 1.0,
+      ease: 'power2.out',
+      stagger: 0.12,
+      scrollTrigger: {
+        trigger: '#ah-transform .ah-section-header',
+        start: 'top 86%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    // ── Rooms header ──
+    gsap.from('#ah-rooms .ah-rooms-header > *', {
+      opacity: 0,
+      y: 30,
+      duration: 1.0,
+      ease: 'power2.out',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '#ah-rooms .ah-rooms-header',
+        start: 'top 86%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    // ── Room items stagger ──
+    gsap.from('.ah-room-item', {
+      opacity: 0,
+      y: 40,
+      duration: 0.9,
+      ease: 'power2.out',
+      stagger: 0.08,
+      scrollTrigger: {
+        trigger: '.ah-rooms-grid',
+        start: 'top 86%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    // ── Wellness rituals stagger ──
+    document.querySelectorAll('.ah-ritual').forEach(function (ritual, i) {
+      gsap.to(ritual, {
+        opacity: 1,
+        translateY: 0,
+        duration: 0.9,
+        ease: 'power2.out',
+        delay: i * 0.10,
+        scrollTrigger: {
+          trigger: '.ah-wellness-grid',
+          start: 'top 86%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+
+    // ── Wellness header ──
+    gsap.from('#ah-wellness .ah-wellness-header > *', {
+      opacity: 0,
+      y: 30,
+      duration: 1.0,
+      ease: 'power2.out',
+      stagger: 0.12,
+      scrollTrigger: {
+        trigger: '#ah-wellness .ah-wellness-header',
+        start: 'top 86%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    // ── Editorial quote reveal ──
+    gsap.to('#ah-quote blockquote', {
+      opacity: 1,
+      translateY: 0,
+      duration: 1.4,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '#ah-quote',
+        start: 'top 72%',
+        toggleActions: 'play none none none'
+      }
+    });
+    gsap.to('#ah-quote cite', {
+      opacity: 1,
+      translateY: 0,
+      duration: 1.1,
+      ease: 'power2.out',
+      delay: 0.3,
+      scrollTrigger: {
+        trigger: '#ah-quote',
+        start: 'top 72%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    // ── Booking inner reveal ──
+    gsap.from('#ah-booking .ah-booking-inner > *', {
+      opacity: 0,
+      y: 36,
+      duration: 1.1,
+      ease: 'power2.out',
+      stagger: 0.14,
+      scrollTrigger: {
+        trigger: '#ah-booking',
+        start: 'top 76%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    // ── Footer reveal ──
+    gsap.from('#ah-footer .ah-footer-top > *', {
+      opacity: 0,
+      y: 28,
+      duration: 0.9,
+      ease: 'power2.out',
+      stagger: 0.10,
+      scrollTrigger: {
+        trigger: '#ah-footer',
+        start: 'top 90%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    // ── Data chips on the place image ──
+    gsap.from('.ah-data-chip', {
+      opacity: 0,
+      x: -20,
+      duration: 0.9,
+      ease: 'power2.out',
+      stagger: 0.12,
+      scrollTrigger: {
+        trigger: '#ah-place',
+        start: 'top 78%',
+        toggleActions: 'play none none none'
+      }
+    });
+  }
+
+  // ─── THREE.JS: 3D OLIVE LEAF ───
+  function initThreeJS() {
+    var canvas = document.getElementById('ah-3d-canvas');
+    if (!canvas) return;
+    if (typeof THREE === 'undefined') return;
+    if (typeof THREE.GLTFLoader === 'undefined') return;
+
+    var renderer = new THREE.WebGLRenderer({
+      canvas: canvas,
+      alpha: true,
+      antialias: true
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(360, 360);
+    renderer.outputEncoding = THREE.sRGBEncoding;
+
+    var scene = new THREE.Scene();
+
+    var camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
+    camera.position.set(0, 0, 4.5);
+
+    // Three-point light rig
+    var keyLight = new THREE.DirectionalLight(0xfff0d0, 2.2); // warm key
+    keyLight.position.set(2, 3, 4);
+    scene.add(keyLight);
+
+    var fillLight = new THREE.DirectionalLight(0xd0e8ff, 0.9); // cool fill
+    fillLight.position.set(-3, 1, 2);
+    scene.add(fillLight);
+
+    var rimLight = new THREE.DirectionalLight(0xC89840, 0.7); // brand-gold rim
+    rimLight.position.set(0, -2, -3);
+    scene.add(rimLight);
+
+    var ambient = new THREE.AmbientLight(0xffffff, 0.35);
+    scene.add(ambient);
+
+    var model = null;
+    var autoRotate = true;
+
+    var loader = new THREE.GLTFLoader();
+    loader.load(
+      'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb',
+      function (gltf) {
+        model = gltf.scene;
+        // Centre and scale
+        var box = new THREE.Box3().setFromObject(model);
+        var centre = box.getCenter(new THREE.Vector3());
+        var size = box.getSize(new THREE.Vector3());
+        var maxDim = Math.max(size.x, size.y, size.z);
+        var scale = 2.2 / maxDim;
+        model.scale.setScalar(scale);
+        model.position.sub(centre.multiplyScalar(scale));
+        scene.add(model);
+      },
+      undefined,
+      function (err) {
+        console.warn('AH 3D load error:', err);
+      }
+    );
+
+    // Hover pause/resume
+    canvas.addEventListener('mouseenter', function () { autoRotate = false; });
+    canvas.addEventListener('mouseleave', function () { autoRotate = true; });
+
+    function animate() {
+      requestAnimationFrame(animate);
+      if (model && autoRotate) {
+        model.rotation.y += 0.002;
+      }
+      renderer.render(scene, camera);
+    }
+    animate();
+  }
+
+  // ─── LIGHTBOX ───
+  function initLightbox() {
+    var lb = document.getElementById('ah-lightbox');
+    var lbImg = document.getElementById('ah-lightbox-img');
+    var lbClose = document.getElementById('ah-lightbox-close');
+    if (!lb || !lbImg || !lbClose) return;
+
+    document.querySelectorAll('.ah-room-item').forEach(function (item) {
+      item.addEventListener('click', function () {
+        var src = item.getAttribute('data-img');
+        if (src) {
+          lbImg.src = src;
+          lb.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    function closeLightbox() {
+      lb.classList.remove('active');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+
+    lbClose.addEventListener('click', closeLightbox);
+    lb.addEventListener('click', function (e) {
+      if (e.target === lb) closeLightbox();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  }
+
+  // ─── KICK OFF ───
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+</script>
+
+
+<!--
+CUSTOMIZATION GUIDE
+===================
+Every SWAP marker below must be resolved before production launch.
+Items marked ⚠️ NO ASSET IN CSV require new asset capture from the hotel.
+
+──────────────────────────────────────────────────────────
+SWAP CHECKLIST — APHRODITE HILLS RESORT
+──────────────────────────────────────────────────────────
+
+COLOR
+─────
+[ ] 1. SWAP:COLOR
+        Replace CSS :root custom properties if brand palette needs updating.
+        Current: Primary #2B4A3A | Secondary #C89840 | Accent #E8D4A0
+        Location: <style> :root block, top of file
+
+LOGO
+────
+[ ] 2. SWAP:LOGO (Header)
+        Current SRC: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba4d1e979cd2c4747d8df_Group-242.png
+        Section: #ah-header img.ah-logo
+        Note: filter: brightness(0) invert(1) applied for white rendering on dark bg
+        → If logo has a white/inverted version, replace src and remove the filter
+
+[ ] 3. SWAP:LOGO (Hero section)
+        Current SRC: same as above
+        Section: #ah-hero .ah-hero-logo
+        → Replace if hotel provides dedicated hero logo lock-up
+
+[ ] 4. SWAP:LOGO (Footer)
+        Current SRC: same as above
+        Section: #ah-footer .ah-footer-logo-wrap img
+
+VIDEO
+─────
+[ ] 5. SWAP:VIDEO → Mediterranean Cyprus aerial: olive hills, turquoise sea, clifftop resort
+        ⚠️ NO ASSET IN CSV — production follow-up required
+        Section: #ah-hero <video>
+        Poster fallback: coastal Image 56 (currently active)
+        Spec: 16:9 · autoplay muted loop playsinline · object-fit: cover
+        → Uncomment <source> tag and insert mp4 src when available
+
+[ ] 6. SWAP:VIDEO → Aphrodite Hills resort aerial Mediterranean dusk
+        ⚠️ NO ASSET IN CSV — production follow-up required
+        Section: #ah-booking <video>
+        Poster fallback: coastal Image 47 (currently active)
+        Spec: 16:9 · autoplay muted loop playsinline · object-fit: cover
+        → Uncomment <source> tag and insert mp4 src when available
+
+3D OBJECT
+─────────
+[ ] 7. SWAP:3D → oak/olive leaf | Coastal Mediterranean
+        SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb
+        Section: #ah-manifesto canvas#ah-3d-canvas
+        Canvas: 360×360px · transparent · auto-rotate Y 0.002 rad/frame
+        → Replace GLB url in initThreeJS() if a more Cyprus-specific 3D is sourced
+
+IMAGES
+──────
+[ ] 8. SWAP:IMG → hero-poster | coastal Image 56
+        SRC: https://cdn.prod.website-files.com/...Image%2056.png
+        Used as: <video poster=> in #ah-hero
+
+[ ] 9. SWAP:IMG → experience-1 Golf | coastal Image 42 | ratio: 4:5
+        SRC: https://cdn.prod.website-files.com/...Image%2042.png
+
+[ ] 10. SWAP:IMG → experience-2 Spa | coastal Image 12 | ratio: 4:5
+         SRC: https://cdn.prod.website-files.com/...Image%2012.png
+
+[ ] 11. SWAP:IMG → experience-3 Dining | coastal Image 3 | ratio: 4:5
+         SRC: https://cdn.prod.website-files.com/...Image%203.png
+
+[ ] 12. SWAP:IMG → experience-4 Villas | coastal Image 10 | ratio: 4:5
+         SRC: https://cdn.prod.website-files.com/...Image%2010.png
+
+[ ] 13. SWAP:IMG → experience-5 Sports | coastal Image 1 | ratio: 4:5
+         SRC: https://cdn.prod.website-files.com/...Image%201.png
+
+[ ] 14. SWAP:IMG → experience-6 Heritage | coastal Image 9 | ratio: 4:5
+         SRC: https://cdn.prod.website-files.com/...Image%209.png
+
+[ ] 15. SWAP:IMG → the-place | coastal Image 2 | ratio: 3:2
+         SRC: https://cdn.prod.website-files.com/...Image%202.png
+         Note: parallax applied via GSAP ScrollTrigger
+
+[ ] 16. SWAP:IMG → room-1 | coastal Image 55 | ratio: 16:9 (large feature)
+         SRC: https://cdn.prod.website-files.com/...Image%2055.png
+
+[ ] 17. SWAP:IMG → room-2 | coastal Image 54 | ratio: 3:4
+         SRC: https://cdn.prod.website-files.com/...Image%2054.png
+
+[ ] 18. SWAP:IMG → room-3 | coastal Image 53 | ratio: 3:4
+         SRC: https://cdn.prod.website-files.com/...Image%2053.png
+
+[ ] 19. SWAP:IMG → room-4 | coastal Image 52 | ratio: 3:4
+         SRC: https://cdn.prod.website-files.com/...Image%2052.png
+
+[ ] 20. SWAP:IMG → room-5 | coastal Image 50 | ratio: 3:4
+         SRC: https://cdn.prod.website-files.com/...Image%2050.png
+
+[ ] 21. SWAP:IMG → room-6 | coastal Image 44 | ratio: 16:7 (wide feature)
+         SRC: https://cdn.prod.website-files.com/...Image%2044.png
+
+[ ] 22. SWAP:IMG → editorial-quote-bg | coastal Image 46 | ratio: 16:9
+         SRC: https://cdn.prod.website-files.com/...Image%2046.png
+
+[ ] 23. SWAP:IMG → booking-poster (video poster) | coastal Image 47
+         SRC: https://cdn.prod.website-files.com/...Image%2047.png
+
+COPY
+────
+[ ] 24. SWAP:COPY → manifesto
+         Current: "Some hills carry legend / in their stone. / Here, a goddess emerged / from the sea below."
+         Section: #ah-manifesto .ah-manifesto-inner
+         → Refine with hotel's approved brand voice if needed
+
+[ ] 25. SWAP:COPY → the place
+         3 paragraphs about Kouklia/Paphos location and Petra tou Romiou
+         Section: #ah-place .ah-place-copy
+         → Verify geographic accuracy with hotel
+
+[ ] 26. SWAP:COPY → transformation stats [1–3]
+         Stats: 578 acres | 21 spa rooms | 6,289m golf
+         Section: #ah-transform .ah-transform-grid
+         → Confirm current figures with hotel
+
+[ ] 27. SWAP:COPY → wellness rituals [1–6]
+         6 rituals named and described
+         Section: #ah-wellness .ah-wellness-grid
+         → Align with current Aegeo Spas menu offerings
+
+[ ] 28. SWAP:COPY → editorial quote
+         Current: FT How To Spend It attribution
+         Section: #ah-quote blockquote + cite
+         → Replace with verified press quote or guest testimonial
+
+[ ] 29. SWAP:COPY → booking CTA
+         Current: "Call the sea back. / Reserve Kouklia."
+         Section: #ah-booking .ah-booking-inner
+         → Update booking URL to hotel's direct reservation link
+
+──────────────────────────────────────────────────────────
+⚠️  ITEMS REQUIRING NEW ASSET CAPTURE (NO ASSET IN CSV):
+──────────────────────────────────────────────────────────
+  • Hero video (item 5)   — Mediterranean Cyprus aerial
+  • Booking video (item 6) — Aphrodite Hills resort dusk
+
+──────────────────────────────────────────────────────────
+WEBFLOW DEPLOYMENT NOTES
+──────────────────────────────────────────────────────────
+  • Paste full file content into a Webflow Embed block on a blank page
+  • All IDs and classes are prefixed "ah-" — no Webflow conflicts
+  • GSAP + Three.js load from CDN — ensure embed is not sandboxed
+  • Test on mobile: nav hidden at ≤768px (add hamburger menu for production)
+  • Lightbox uses body overflow:hidden — test within Webflow's scroll context
+  • ScrollTrigger may need ScrollTrigger.refresh() call after Webflow renders
+-->
+
+</body>
+</html>
