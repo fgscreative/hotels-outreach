@@ -1,0 +1,1595 @@
+<!--
+BRAND EXTRACTION REPORT
+========================
+Hotel Name: Angsana
+URL: https://www.angsana.com/
+Primary Color: #1A3C2B (deep tropical forest green)
+Secondary Color: #C49A3C (warm sun gold)
+Accent Color: #E8D5A0 (sand champagne)
+Background Mood: warm / dark — lush tropical depth
+Font Pairing (Google Fonts): Cormorant Garamond (serif editorial) + DM Sans (grotesque sans)
+Tone of Voice: poetic, sensory, nature-rooted, warm
+Landscape Archetype: Coastal / Tropical
+Positioning: Where nature moves through you — Angsana's Spa, wellness and resort experiences across Asia's most elemental coastlines.
+Key Experiences: Angsana Spa, Water Villas, Coral Reef Diving, Private Dining, Wellness Rituals, Marine Conservation
+Coordinates + Elevation: 4.1755° N, 73.5093° E — Ihuru, North Malé Atoll, Maldives — elevation: 1.5m above sea level (Indian Ocean atoll)
+
+ASSET MAPPING REPORT
+========================
+Total assets in CSV: ~200+ images + 3 GLBs
+Assets successfully mapped: 30+ images, 1 GLB
+Landscape used: coastal + tropical/jungle bank
+Slots covered by CSV:
+  - hero poster: coastal Image 56
+  - experience-1 through 6: coastal/tropical images
+  - place image: tropical Image 143
+  - rooms grid: mixed coastal+tropical
+  - editorial quote bg: coastal Image 3
+  - booking CTA bg: coastal Image 1
+  - wellness bg: tropical Image 97
+  - manifesto bg: coastal Image 42
+Logo SRC: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69ece3499b87644de2e7d420_Angsana-Logoblack.webp
+3D Object SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb (coral branch)
+Video assets: NONE IN CSV — Unsplash video fallback used for hero
+Image assets: coastal bank (Image 56, 12, 42, 3, 10, 1, 9, 2, 55, 54, 53…), tropical bank (143, 142, 144, 129, 111, 98, 132, 135, 133, 97…)
+Slots falling back to Unsplash: hero video background
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Angsana — Where Nature Moves Through You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<style>
+/*
+CSS CUSTOM PROPERTIES
+========================
+--color-primary:    #1A3C2B  (deep tropical forest green)
+--color-secondary:  #C49A3C  (warm sun gold)
+--color-accent:     #E8D5A0  (sand champagne)
+--color-bg:         #0D1F14  (near-black jungle depth)
+--color-bg-light:   #F5EFE3  (warm cream off-white)
+--color-text:       #F0EAD6  (warm ivory on dark)
+--color-text-dark:  #1A1A14  (dark olive-black on light)
+*/
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-primary:    #1A3C2B;
+  --color-secondary:  #C49A3C;
+  --color-accent:     #E8D5A0;
+  --color-bg:         #0D1F14;
+  --color-bg-light:   #F5EFE3;
+  --color-text:       #F0EAD6;
+  --color-text-dark:  #1A1A14;
+  --font-serif:       'Cormorant Garamond', Georgia, serif;
+  --font-sans:        'DM Sans', system-ui, sans-serif;
+  --ease-out:         cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── UTILS ─── */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ─── HEADER ─── */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 3rem;
+  mix-blend-mode: normal;
+  transition: background 0.4s var(--ease-out), padding 0.4s var(--ease-out);
+}
+.site-header.scrolled {
+  background: rgba(13,31,20,0.92);
+  backdrop-filter: blur(12px);
+  padding: 1rem 3rem;
+}
+.logo-wrap img {
+  height: 28px;
+  width: auto;
+  filter: invert(1) brightness(10);
+  transition: filter 0.3s;
+}
+.site-header.scrolled .logo-wrap img { filter: invert(1) brightness(10); }
+.nav-cta {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  text-decoration: none;
+  border: 1px solid rgba(232,213,160,0.4);
+  padding: 0.6rem 1.4rem;
+  transition: background 0.25s, color 0.25s;
+}
+.nav-cta:hover { background: var(--color-secondary); color: var(--color-bg); }
+
+/* ─── SECTION 1: HERO ─── */
+#hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+/* SWAP:VIDEO → hero background cinematic ocean | hero section */
+.hero-video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(26,60,43,0.55) 0%,
+    rgba(13,31,20,0.3) 50%,
+    rgba(13,31,20,0.85) 100%
+  );
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 2rem;
+  max-width: 900px;
+}
+.hero-logo {
+  margin: 0 auto 3rem;
+  display: flex;
+  justify-content: center;
+}
+/* SWAP:LOGO */
+.hero-logo img {
+  height: 52px;
+  width: auto;
+  filter: invert(1) brightness(10);
+}
+.hero-tagline {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 6vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+.hero-tagline .word {
+  display: inline-block;
+  overflow: hidden;
+  padding-right: 0.2em;
+}
+.hero-tagline .word-inner {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+}
+.hero-tagline em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+.hero-sub {
+  margin-top: 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(232,213,160,0.7);
+  opacity: 0;
+  transform: translateY(20px);
+}
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+.scroll-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(240,234,214,0.5);
+}
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(196,154,60,0.7), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(1); opacity: 0.8; }
+  50% { transform: scaleY(0.5); opacity: 0.3; }
+}
+
+/* ─── SECTION 2: MANIFESTO ─── */
+#manifesto {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  padding: 12rem 2rem;
+  overflow: hidden;
+}
+.manifesto-bg-3d {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+/* SWAP:3D → coral branch | Coastal */
+#manifesto-canvas {
+  width: 500px;
+  height: 500px;
+}
+.manifesto-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+.manifesto-line {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5.5vw, 6rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--color-text);
+  display: block;
+  overflow: hidden;
+  margin-bottom: 0.1em;
+  opacity: 0;
+  transform: translateY(60px);
+}
+.manifesto-line.italic { font-style: italic; color: var(--color-accent); }
+.manifesto-line.small {
+  font-family: var(--font-sans);
+  font-size: clamp(0.75rem, 1.2vw, 1rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(196,154,60,0.6);
+  margin-top: 2rem;
+  font-weight: 400;
+}
+/* SWAP:COPY → manifesto */
+
+/* ─── SECTION 3: EXPERIENCES ─── */
+#experiences {
+  background: var(--color-bg);
+  padding: 8rem 0 10rem;
+  overflow: hidden;
+}
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  text-align: center;
+  color: var(--color-text);
+  margin-bottom: 4rem;
+  padding: 0 2rem;
+}
+.exp-track-wrap {
+  overflow-x: auto;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.exp-track-wrap::-webkit-scrollbar { display: none; }
+.exp-track {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 3rem 1rem;
+  width: max-content;
+}
+.exp-card {
+  flex: 0 0 300px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  aspect-ratio: 4/5;
+  cursor: pointer;
+}
+.exp-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-out);
+  loading: lazy;
+}
+.exp-card:hover img { transform: scale(1.05); }
+.exp-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13,31,20,0.85) 0%, transparent 60%);
+  transition: background 0.4s;
+}
+.exp-card:hover .exp-card-overlay {
+  background: linear-gradient(to top, rgba(26,60,43,0.9) 0%, rgba(26,60,43,0.2) 60%);
+}
+.exp-card-copy {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+}
+.exp-category {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.exp-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+.exp-desc {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: rgba(240,234,214,0.65);
+  line-height: 1.6;
+  max-width: 260px;
+}
+/* SWAP:IMG → experience cards 1-6 | ratio: 4:5 */
+
+/* ─── SECTION 4: THE PLACE ─── */
+#the-place {
+  background: var(--color-bg-light);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 90vh;
+  overflow: hidden;
+}
+.place-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.place-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center;
+  will-change: transform;
+}
+/* SWAP:IMG → the place tropical lagoon | ratio: 3:2 */
+.place-data-overlays {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.data-tag {
+  position: absolute;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(240,234,214,0.85);
+  background: rgba(13,31,20,0.6);
+  backdrop-filter: blur(6px);
+  padding: 0.5rem 0.8rem;
+  border-left: 2px solid var(--color-secondary);
+}
+.data-tag.coords { top: 12%; left: 8%; }
+.data-tag.elevation { top: 22%; left: 8%; }
+.data-tag.ecology { bottom: 15%; right: 6%; }
+.place-copy {
+  padding: 6rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--color-bg-light);
+}
+.place-copy .section-label { text-align: left; margin-bottom: 1.5rem; }
+.place-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 300;
+  color: var(--color-text-dark);
+  line-height: 1.15;
+  margin-bottom: 2rem;
+}
+.place-body {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: rgba(26,26,20,0.75);
+  line-height: 1.85;
+  margin-bottom: 1.2rem;
+  max-width: 420px;
+}
+/* SWAP:COPY → the place */
+
+/* ─── SECTION 5: TRANSFORMATION ─── */
+#transformation {
+  background: var(--color-bg);
+  padding: 12rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+#transformation::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-secondary), transparent);
+}
+.transform-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  padding-top: 4rem;
+}
+.transform-item {
+  text-align: left;
+  opacity: 0;
+  transform: translateY(40px);
+}
+.transform-number {
+  font-family: var(--font-serif);
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-weight: 300;
+  color: var(--color-secondary);
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.transform-unit {
+  font-size: 0.5em;
+  vertical-align: super;
+  color: var(--color-accent);
+}
+.transform-claim {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 300;
+  color: var(--color-text);
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+}
+.transform-sub {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: rgba(240,234,214,0.5);
+  line-height: 1.7;
+  max-width: 280px;
+}
+/* SWAP:COPY → transformation stats 1-3 */
+
+/* ─── SECTION 6: ROOMS & SPACES ─── */
+#rooms {
+  background: var(--color-bg-light);
+  padding: 8rem 2rem 10rem;
+}
+#rooms .section-label { color: var(--color-secondary); margin-bottom: 0.8rem; }
+#rooms .section-title { color: var(--color-text-dark); margin-bottom: 3rem; }
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto;
+  gap: 12px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.room-item {
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+.room-item:nth-child(1) { grid-column: 1 / 8; grid-row: 1; }
+.room-item:nth-child(2) { grid-column: 8 / 13; grid-row: 1; }
+.room-item:nth-child(3) { grid-column: 1 / 5; grid-row: 2; }
+.room-item:nth-child(4) { grid-column: 5 / 9; grid-row: 2; }
+.room-item:nth-child(5) { grid-column: 9 / 13; grid-row: 2; }
+.room-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 3/2;
+  transition: transform 0.7s var(--ease-out);
+}
+.room-item:hover img { transform: scale(1.04); }
+.room-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 1rem 1.2rem;
+  background: linear-gradient(to top, rgba(13,31,20,0.7), transparent);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text);
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.room-item:hover .room-label { opacity: 1; }
+/* SWAP:IMG → room/interior 1-5 | ratio: 3:2 */
+
+/* ─── SECTION 7: WELLNESS RITUALS ─── */
+#wellness {
+  position: relative;
+  background: var(--color-bg);
+  padding: 10rem 2rem 12rem;
+  overflow: hidden;
+}
+.wellness-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.wellness-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.08;
+  filter: blur(2px);
+}
+.wellness-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#wellness .section-label { text-align: center; color: var(--color-secondary); }
+#wellness .section-title { color: var(--color-text); margin-bottom: 5rem; }
+.rituals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem 4rem;
+}
+.ritual-item {
+  opacity: 0;
+  transform: translateY(30px);
+  border-top: 1px solid rgba(196,154,60,0.2);
+  padding-top: 1.5rem;
+}
+.ritual-glyph {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  display: block;
+  color: var(--color-secondary);
+  letter-spacing: 0.05em;
+}
+.ritual-name {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.02em;
+}
+.ritual-desc {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: rgba(240,234,214,0.55);
+  line-height: 1.75;
+  max-width: 320px;
+}
+/* SWAP:COPY → wellness rituals 1-6 */
+
+/* ─── SECTION 8: EDITORIAL QUOTE ─── */
+#editorial-quote {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.quote-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.quote-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+/* SWAP:IMG → editorial quote background ocean aerial | ratio: 16:9 */
+.quote-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13,31,20,0.62);
+}
+.quote-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 3rem 4rem;
+  max-width: 900px;
+}
+.quote-mark {
+  font-family: var(--font-serif);
+  font-size: 8rem;
+  line-height: 0.5;
+  color: var(--color-secondary);
+  display: block;
+  margin-bottom: 1.5rem;
+  opacity: 0.7;
+}
+.quote-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-text);
+  line-height: 1.35;
+  margin-bottom: 2rem;
+}
+.quote-source {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(232,213,160,0.6);
+}
+/* SWAP:COPY → editorial quote */
+
+/* ─── SECTION 9: BOOKING CTA ─── */
+#booking {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.booking-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.booking-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.booking-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26,60,43,0.82) 0%, rgba(13,31,20,0.75) 100%);
+}
+.booking-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.booking-urgency {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 1.2rem;
+  display: block;
+}
+.booking-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+.booking-sub {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: rgba(240,234,214,0.6);
+  max-width: 420px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.75;
+}
+.btn-row {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  background: var(--color-secondary);
+  border: 1px solid var(--color-secondary);
+  padding: 1rem 2.4rem;
+  text-decoration: none;
+  transition: background 0.25s, color 0.25s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--color-accent); border-color: var(--color-accent); }
+.btn-ghost {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: transparent;
+  border: 1px solid rgba(232,213,160,0.4);
+  padding: 1rem 2.4rem;
+  text-decoration: none;
+  transition: background 0.25s, color 0.25s;
+  display: inline-block;
+}
+.btn-ghost:hover { background: rgba(232,213,160,0.1); }
+/* SWAP:IMG → booking CTA background tropical beach | ratio: 16:9 */
+/* SWAP:COPY → booking CTA */
+
+/* ─── SECTION 10: FOOTER ─── */
+#footer {
+  background: var(--color-bg);
+  border-top: 1px solid rgba(196,154,60,0.15);
+  padding: 5rem 3rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.footer-logo img {
+  height: 24px;
+  width: auto;
+  filter: invert(1) brightness(6) sepia(1) hue-rotate(15deg) saturate(0.5);
+  margin-bottom: 1rem;
+}
+/* SWAP:LOGO */
+.footer-coords {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: rgba(196,154,60,0.55);
+  line-height: 1.8;
+}
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+.footer-link {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(240,234,214,0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-link:hover { color: var(--color-accent); }
+.footer-right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: flex-end;
+}
+.footer-email {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-email:hover { color: var(--color-secondary); }
+.footer-instagram {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(240,234,214,0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-instagram:hover { color: var(--color-secondary); }
+.footer-copyright {
+  grid-column: 1 / -1;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(196,154,60,0.1);
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(240,234,214,0.25);
+  text-align: center;
+}
+
+/* ─── LIGHTBOX ─── */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(13,31,20,0.94);
+  backdrop-filter: blur(10px);
+  align-items: center;
+  justify-content: center;
+}
+.lightbox.active { display: flex; }
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+}
+.lightbox-close {
+  position: absolute;
+  top: 2rem; right: 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1280px) {
+  .site-header { padding: 1.5rem 2rem; }
+  #the-place { grid-template-columns: 1fr; }
+  .place-copy { padding: 4rem 3rem; }
+  .transform-grid { gap: 2rem; }
+  .rituals-grid { grid-template-columns: repeat(2, 1fr); }
+  #footer { grid-template-columns: 1fr 1fr; }
+  .footer-right { grid-column: 1 / -1; align-items: flex-start; text-align: left; }
+}
+
+@media (max-width: 768px) {
+  .site-header { padding: 1.2rem 1.5rem; }
+  .nav-cta { display: none; }
+  .hero-tagline { font-size: clamp(2rem, 8vw, 3.5rem); }
+  .exp-card { flex: 0 0 260px; }
+  #the-place { grid-template-columns: 1fr; }
+  .place-img-wrap { height: 60vw; }
+  .transform-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .rooms-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .room-item { grid-column: auto !important; grid-row: auto !important; }
+  .rituals-grid { grid-template-columns: 1fr; }
+  #footer { grid-template-columns: 1fr; }
+  .footer-right { align-items: flex-start; text-align: left; }
+}
+
+@media (max-width: 375px) {
+  .hero-tagline { font-size: 2rem; }
+  .booking-headline { font-size: 2rem; }
+  .rooms-grid { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 1920px) {
+  body { font-size: 1.05rem; }
+  .exp-card { flex: 0 0 380px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header class="site-header" id="siteHeader">
+  <div class="logo-wrap">
+    <!-- SWAP:LOGO -->
+    <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69ece3499b87644de2e7d420_Angsana-Logoblack.webp" alt="Angsana" />
+  </div>
+  <a href="#booking" class="nav-cta">Reserve Now</a>
+</header>
+
+<!-- ─── SECTION 1: HERO ─── -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-video-wrap">
+    <!-- SWAP:VIDEO → hero background cinematic ocean aerial | hero section -->
+    <!-- No video asset in CSV — using poster image fallback as static bg -->
+    <video
+      class="hero-video"
+      autoplay muted loop playsinline
+      poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png"
+    >
+      <!-- SWAP:VIDEO → tropical ocean aerial flyover | hero section | NO ASSET IN CSV -->
+      <source src="" type="video/mp4" />
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-logo">
+      <!-- SWAP:LOGO -->
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69ece3499b87644de2e7d420_Angsana-Logoblack.webp" alt="Angsana" />
+    </div>
+    <h1 class="hero-tagline" id="heroTagline">
+      <span class="word"><span class="word-inner">Where</span></span>
+      <span class="word"><span class="word-inner">nature</span></span>
+      <span class="word"><span class="word-inner italic">moves</span></span>
+      <span class="word"><span class="word-inner">through</span></span>
+      <span class="word"><span class="word-inner">you</span></span>
+    </h1>
+    <p class="hero-sub" id="heroSub">Maldives · Bali · Sri Lanka · Thailand · China</p>
+  </div>
+  <div class="hero-scroll-indicator">
+    <span class="scroll-label">Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ─── SECTION 2: MANIFESTO ─── -->
+<section id="manifesto" aria-label="Philosophy">
+  <div class="manifesto-bg-3d" aria-hidden="true">
+    <!-- SWAP:3D → coral branch | Coastal -->
+    <canvas id="manifesto-canvas"></canvas>
+  </div>
+  <div class="manifesto-content">
+    <!-- SWAP:COPY → manifesto -->
+    <span class="manifesto-line" data-manifesto="0">The ocean does not</span>
+    <span class="manifesto-line italic" data-manifesto="1">ask permission</span>
+    <span class="manifesto-line" data-manifesto="2">to transform you.</span>
+    <span class="manifesto-line small" data-manifesto="3">Angsana — Spa &amp; Wellness across Asia's living coasts</span>
+  </div>
+</section>
+
+<!-- ─── SECTION 3: SIGNATURE EXPERIENCES ─── -->
+<section id="experiences" aria-label="Signature Experiences">
+  <p class="section-label">Signature Experiences</p>
+  <h2 class="section-title">Feel every element</h2>
+  <!-- SWAP:IMG → experience cards 1-6 | ratio: 4:5 -->
+  <div class="exp-track-wrap" id="expTrack" role="list">
+    <div class="exp-track">
+      <!-- Card 1 -->
+      <article class="exp-card" role="listitem" tabindex="0">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f1fe2d8b2f06d2529_Image%2012.png" alt="Angsana Spa" loading="lazy" />
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-copy">
+          <span class="exp-category">Angsana Spa</span>
+          <h3 class="exp-title">Ancient Touch</h3>
+          <p class="exp-desc">Balinese and Ayurvedic therapies drawn from four thousand years of coastal healing ritual.</p>
+        </div>
+      </article>
+      <!-- Card 2 -->
+      <article class="exp-card" role="listitem" tabindex="0">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fdef24e731275c24a_Image%2042.png" alt="Water Villa" loading="lazy" />
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-copy">
+          <span class="exp-category">Villas</span>
+          <h3 class="exp-title">Above the Reef</h3>
+          <p class="exp-desc">Overwater sanctuaries where the lagoon floor shifts through every shade of transparent blue.</p>
+        </div>
+      </article>
+      <!-- Card 3 -->
+      <article class="exp-card" role="listitem" tabindex="0">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fc699fe80d5a792a6_Image%2010.png" alt="Coral Diving" loading="lazy" />
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-copy">
+          <span class="exp-category">Marine</span>
+          <h3 class="exp-title">Living Coral</h3>
+          <p class="exp-desc">Marine biology programs and guided reef dives within UNESCO-protected atolls.</p>
+        </div>
+      </article>
+      <!-- Card 4 -->
+      <article class="exp-card" role="listitem" tabindex="0">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e614aa07e724b10b1_Image%201.png" alt="Private Dining" loading="lazy" />
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-copy">
+          <span class="exp-category">Dining</span>
+          <h3 class="exp-title">Tide Table</h3>
+          <p class="exp-desc">Catch-of-the-day dinners set at the waterline. The horizon is your only backdrop.</p>
+        </div>
+      </article>
+      <!-- Card 5 -->
+      <article class="exp-card" role="listitem" tabindex="0">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e13e8a712bef8f191_Image%209.png" alt="Sunset Sailing" loading="lazy" />
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-copy">
+          <span class="exp-category">Excursions</span>
+          <h3 class="exp-title">Open Water</h3>
+          <p class="exp-desc">Dhow sailing at dusk, mangrove kayaking at dawn — each departure timed to the tide.</p>
+        </div>
+      </article>
+      <!-- Card 6 -->
+      <article class="exp-card" role="listitem" tabindex="0">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e1edb921f35a63175_Image%202.png" alt="Yoga Pavilion" loading="lazy" />
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-copy">
+          <span class="exp-category">Wellness</span>
+          <h3 class="exp-title">Breath &amp; Salt</h3>
+          <p class="exp-desc">Ocean-facing yoga pavilions. Pranayama with the Indian Ocean as your only sound.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 4: THE PLACE ─── -->
+<section id="the-place" aria-label="The Place">
+  <div class="place-img-wrap">
+    <!-- SWAP:IMG → the place tropical lagoon aerial | ratio: 3:2 -->
+    <img
+      class="place-img"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ec8545023dbe3e5f2fc_Image%20143.png"
+      alt="The Maldivian Atoll"
+      loading="lazy"
+      id="placeImg"
+    />
+    <div class="place-data-overlays" aria-hidden="true">
+      <div class="data-tag coords">4.1755° N &nbsp;73.5093° E</div>
+      <div class="data-tag elevation">Elev. 1.5 m — North Malé Atoll</div>
+      <div class="data-tag ecology">Indian Ocean — 1,200 reef species</div>
+    </div>
+  </div>
+  <div class="place-copy">
+    <p class="section-label">The Place</p>
+    <!-- SWAP:COPY → the place -->
+    <h2 class="place-headline">
+      One degree north<br />of the equator.
+    </h2>
+    <p class="place-body">The Maldivian atoll sits at the precise latitude where the Indian Ocean turns luminous — where water temperature holds at 28°C year-round and visibility drops to 30 metres below the keel.</p>
+    <p class="place-body">This is not an island. It is a living reef system with a runway attached — 1,200 species of marine life within swimming distance of your villa steps.</p>
+    <p class="place-body">Here, the concept of a spa extends to every surface the ocean touches. Healing is not a programme. It is geography.</p>
+  </div>
+</section>
+
+<!-- ─── SECTION 5: TRANSFORMATION PROMISE ─── -->
+<section id="transformation" aria-label="Transformation Promise">
+  <p class="section-label" style="text-align:center; margin-bottom:1rem;">The numbers that matter</p>
+  <h2 class="section-title" style="color:var(--color-text); text-align:center;">What the reef restores</h2>
+  <!-- SWAP:COPY → transformation stats 1-3 -->
+  <div class="transform-grid">
+    <div class="transform-item" data-count="28" data-suffix="°C">
+      <span class="transform-number" data-target="28">0<span class="transform-unit">°C</span></span>
+      <h3 class="transform-claim">Water temperature. Year-round.</h3>
+      <p class="transform-sub">The constant warmth of the Indian Ocean that softens muscle, quiets the nervous system and slows everything that arrived urgent.</p>
+    </div>
+    <div class="transform-item" data-count="6" data-suffix="">
+      <span class="transform-number" data-target="6">0</span>
+      <h3 class="transform-claim">Spa rituals drawn from six traditions</h3>
+      <p class="transform-sub">Javanese, Ayurvedic, Thai, Balinese, Chinese and Marine — each selected for what this specific latitude demands of the body.</p>
+    </div>
+    <div class="transform-item" data-count="30" data-suffix=" m">
+      <span class="transform-number" data-target="30">0<span class="transform-unit"> m</span></span>
+      <h3 class="transform-claim">Reef visibility below the surface.</h3>
+      <p class="transform-sub">The clarity that recalibrates how deeply humans actually see — above and below the water line.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 6: ROOMS & SPACES ─── -->
+<section id="rooms" aria-label="Rooms and Spaces">
+  <p class="section-label">Rooms &amp; Spaces</p>
+  <h2 class="section-title">Rest at the waterline</h2>
+  <!-- SWAP:IMG → room/interior 1-5 | ratio: 3:2 -->
+  <div class="rooms-grid">
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png" alt="Overwater Villa" loading="lazy" />
+      <div class="room-label">Overwater Villa</div>
+    </div>
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755a0854ea3cadb267cd_Image%2054.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755a0854ea3cadb267cd_Image%2054.png" alt="Beach Suite" loading="lazy" />
+      <div class="room-label">Beach Suite</div>
+    </div>
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755108515add56c26e14_Image%2053.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755108515add56c26e14_Image%2053.png" alt="Garden Villa" loading="lazy" />
+      <div class="room-label">Garden Villa</div>
+    </div>
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551d402271fd28d57c9_Image%2052.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551d402271fd28d57c9_Image%2052.png" alt="Spa Pavilion" loading="lazy" />
+      <div class="room-label">Spa Pavilion</div>
+    </div>
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551a79a50ab947db776_Image%2050.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551a79a50ab947db776_Image%2050.png" alt="Lagoon Pool" loading="lazy" />
+      <div class="room-label">Lagoon Pool</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 7: WELLNESS RITUALS ─── -->
+<section id="wellness" aria-label="Wellness Rituals">
+  <div class="wellness-bg" aria-hidden="true">
+    <!-- SWAP:IMG → wellness background tropical water texture | ratio: 16:9 -->
+    <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ecaba32203e49b60e9c_Image%2097.png" alt="" loading="lazy" />
+  </div>
+  <div class="wellness-content">
+    <p class="section-label">Angsana Spa</p>
+    <h2 class="section-title">Six paths to stillness</h2>
+    <!-- SWAP:COPY → wellness rituals 1-6 -->
+    <div class="rituals-grid">
+      <div class="ritual-item">
+        <span class="ritual-glyph">◈</span>
+        <h3 class="ritual-name">Javanese Lulur</h3>
+        <p class="ritual-desc">A full-body ritual of turmeric paste and jasmine oil, tracing bridal ceremony traditions across eight centuries of Javanese culture.</p>
+      </div>
+      <div class="ritual-item">
+        <span class="ritual-glyph">◉</span>
+        <h3 class="ritual-name">Shirodhara Flow</h3>
+        <p class="ritual-desc">Warm sesame oil released in an unbroken stream across the third-eye point. The Ayurvedic science of deep neural rest.</p>
+      </div>
+      <div class="ritual-item">
+        <span class="ritual-glyph">◇</span>
+        <h3 class="ritual-name">Salt &amp; Mineral Soak</h3>
+        <p class="ritual-desc">Indian Ocean mineral salts in a warm bath drawn from desalinated lagoon water. The body returns its salt to the sea.</p>
+      </div>
+      <div class="ritual-item">
+        <span class="ritual-glyph">◈</span>
+        <h3 class="ritual-name">Tok Sen Percussion</h3>
+        <p class="ritual-desc">Northern Thai mallet therapy that resonates through fascia and bone. Vibration as medicine — 2,000 years of evidence.</p>
+      </div>
+      <div class="ritual-item">
+        <span class="ritual-glyph">◉</span>
+        <h3 class="ritual-name">Marine Collagen Wrap</h3>
+        <p class="ritual-desc">Seaweed, spirulina and deep-sea collagen cocoon — formulated at the Angsana Institute of Marine Wellness.</p>
+      </div>
+      <div class="ritual-item">
+        <span class="ritual-glyph">◇</span>
+        <h3 class="ritual-name">Ocean Pranayama</h3>
+        <p class="ritual-desc">Open-air breath work at the reef edge. The salt-laden air measurably alters cortisol within forty minutes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 8: EDITORIAL QUOTE ─── -->
+<section id="editorial-quote" aria-label="Guest Testimonial">
+  <div class="quote-bg">
+    <!-- SWAP:IMG → editorial quote background aerial lagoon | ratio: 16:9 -->
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f679754764ba8477c_Image%203.png"
+      alt=""
+      loading="lazy"
+    />
+    <div class="quote-bg-overlay"></div>
+  </div>
+  <div class="quote-content">
+    <!-- SWAP:COPY → editorial quote -->
+    <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+    <blockquote class="quote-text">
+      I arrived wound tight as a watch spring. By the third morning,&nbsp;I had forgotten why.
+    </blockquote>
+    <p class="quote-source">Condé Nast Traveller, Best Spa Resort Asia 2024</p>
+  </div>
+</section>
+
+<!-- ─── SECTION 9: BOOKING CTA ─── -->
+<section id="booking" aria-label="Booking">
+  <div class="booking-bg">
+    <!-- SWAP:IMG → booking CTA background tropical beach | ratio: 16:9 -->
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e614aa07e724b10b1_Image%201.png"
+      alt=""
+      loading="lazy"
+    />
+    <div class="booking-overlay"></div>
+  </div>
+  <div class="booking-content">
+    <!-- SWAP:COPY → booking CTA -->
+    <span class="booking-urgency">Limited availability — Monsoon Season closing October 2026</span>
+    <h2 class="booking-headline">The reef<br /><em>is waiting.</em></h2>
+    <p class="booking-sub">Each season at Angsana brings a different frequency of light, tide and thermal wind. The best time is always now.</p>
+    <div class="btn-row">
+      <a href="#" class="btn-primary">Reserve Your Stay</a>
+      <a href="#" class="btn-ghost">Download the Experience Guide</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 10: FOOTER ─── -->
+<footer id="footer" aria-label="Footer">
+  <div class="footer-logo">
+    <!-- SWAP:LOGO -->
+    <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69ece3499b87644de2e7d420_Angsana-Logoblack.webp" alt="Angsana" />
+    <div class="footer-coords">
+      4.1755° N, 73.5093° E<br />
+      North Malé Atoll — Maldives<br />
+      Elevation 1.5 m — Indian Ocean
+    </div>
+  </div>
+  <div class="footer-links">
+    <a href="#" class="footer-link">Destinations</a>
+    <a href="#" class="footer-link">Angsana Spa</a>
+    <a href="#" class="footer-link">Marine Conservation</a>
+    <a href="#" class="footer-link">Press</a>
+  </div>
+  <div class="footer-right">
+    <a href="mailto:reservations@angsana.com" class="footer-email">reservations@angsana.com</a>
+    <a href="https://instagram.com/angsanahotels" class="footer-instagram" target="_blank" rel="noopener">@angsanahotels</a>
+  </div>
+  <div class="footer-copyright">
+    &copy; 2026 Angsana Hotels &amp; Resorts. A Banyan Tree Group Property. All rights reserved.
+  </div>
+</footer>
+
+<!-- ─── LIGHTBOX ─── -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image Lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">Close ✕</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+</div>
+
+<!-- ─── SCRIPTS ─── -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ─── GSAP INIT ─── */
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ─── HEADER SCROLL ─── */
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 60) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }, { passive: true });
+
+  /* ─── HERO ANIMATION ─── */
+  function initHero() {
+    const wordInners = document.querySelectorAll('.word-inner');
+    const heroSub = document.getElementById('heroSub');
+
+    const tl = gsap.timeline({ delay: 0.5 });
+    tl.to(wordInners, {
+      y: 0,
+      opacity: 1,
+      duration: 1.1,
+      stagger: 0.1,
+      ease: 'power4.out'
+    }).to(heroSub, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power3.out'
+    }, '-=0.4');
+  }
+  initHero();
+
+  /* ─── MANIFESTO SCROLL ANIMATION ─── */
+  const manifestoLines = document.querySelectorAll('.manifesto-line');
+  manifestoLines.forEach(function(line, i) {
+    ScrollTrigger.create({
+      trigger: line,
+      start: 'top 80%',
+      onEnter: function() {
+        gsap.to(line, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: i * 0.15,
+          ease: 'power3.out'
+        });
+      }
+    });
+  });
+
+  /* ─── EXPERIENCE TRACK DRAG ─── */
+  const trackWrap = document.getElementById('expTrack');
+  if (trackWrap) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    trackWrap.addEventListener('mousedown', function(e) {
+      isDown = true;
+      trackWrap.style.cursor = 'grabbing';
+      startX = e.pageX - trackWrap.offsetLeft;
+      scrollLeft = trackWrap.scrollLeft;
+    });
+    trackWrap.addEventListener('mouseleave', function() { isDown = false; trackWrap.style.cursor = 'grab'; });
+    trackWrap.addEventListener('mouseup', function() { isDown = false; trackWrap.style.cursor = 'grab'; });
+    trackWrap.addEventListener('mousemove', function(e) {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - trackWrap.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      trackWrap.scrollLeft = scrollLeft - walk;
+    });
+  }
+
+  /* ─── EXPERIENCE CARDS ENTRY ─── */
+  gsap.utils.toArray('.exp-card').forEach(function(card, i) {
+    gsap.from(card, {
+      scrollTrigger: { trigger: card, start: 'top 85%' },
+      opacity: 0,
+      y: 40,
+      duration: 0.8,
+      delay: i * 0.08,
+      ease: 'power3.out'
+    });
+  });
+
+  /* ─── PLACE IMAGE PARALLAX ─── */
+  const placeImg = document.getElementById('placeImg');
+  if (placeImg) {
+    gsap.to(placeImg, {
+      y: -80,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#the-place',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+  }
+
+  /* ─── TRANSFORMATION COUNTER ─── */
+  document.querySelectorAll('.transform-item').forEach(function(item) {
+    ScrollTrigger.create({
+      trigger: item,
+      start: 'top 75%',
+      once: true,
+      onEnter: function() {
+        gsap.to(item, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' });
+        const numEl = item.querySelector('.transform-number');
+        const target = parseInt(numEl.dataset.target, 10);
+        const suffix = numEl.innerHTML.match(/<span[^>]*>([^<]*)<\/span>/);
+        const suffixHTML = suffix ? suffix[0] : '';
+        let current = 0;
+        const step = Math.max(1, Math.floor(target / 40));
+        const interval = setInterval(function() {
+          current = Math.min(current + step, target);
+          numEl.innerHTML = current + suffixHTML;
+          if (current >= target) clearInterval(interval);
+        }, 35);
+      }
+    });
+  });
+
+  /* ─── WELLNESS RITUALS ENTRY ─── */
+  gsap.utils.toArray('.ritual-item').forEach(function(item, i) {
+    gsap.to(item, {
+      scrollTrigger: { trigger: item, start: 'top 80%' },
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      delay: i * 0.1,
+      ease: 'power3.out'
+    });
+  });
+
+  /* ─── EDITORIAL QUOTE PARALLAX ─── */
+  gsap.to('#editorial-quote .quote-bg img', {
+    y: -60,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#editorial-quote',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
+
+  /* ─── ROOMS LIGHTBOX ─── */
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  document.querySelectorAll('.room-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      const src = item.dataset.src || item.querySelector('img').src;
+      const alt = item.querySelector('img').alt;
+      lightboxImg.src = src;
+      lightboxImg.alt = alt;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+    item.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') item.click();
+    });
+  });
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  /* ─── THREE.JS — 3D CORAL ─── */
+  // SWAP:3D → coral branch | Coastal
+  (function() {
+    var canvas = document.getElementById('manifesto-canvas');
+    if (!canvas || typeof THREE === 'undefined') return;
+
+    var w = 500, h = 500;
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setSize(w, h);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 100);
+    camera.position.set(0, 0, 4);
+
+    /* Three-point light rig */
+    var warmLight = new THREE.DirectionalLight(0xffd4a0, 1.6);
+    warmLight.position.set(3, 4, 3);
+    scene.add(warmLight);
+
+    var coolLight = new THREE.DirectionalLight(0xa0c8ff, 0.8);
+    coolLight.position.set(-3, 1, -2);
+    scene.add(coolLight);
+
+    var fillLight = new THREE.AmbientLight(0x204030, 0.9);
+    scene.add(fillLight);
+
+    var model = null;
+    var isHovered = false;
+
+    /* Load GLB */
+    var loaderScript = document.createElement('script');
+    loaderScript.src = 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js';
+    loaderScript.onload = function() {
+      if (typeof THREE.GLTFLoader === 'undefined') return;
+      var loader = new THREE.GLTFLoader();
+      loader.load(
+        'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb',
+        function(gltf) {
+          model = gltf.scene;
+          // Center model
+          var box = new THREE.Box3().setFromObject(model);
+          var center = box.getCenter(new THREE.Vector3());
+          var size = box.getSize(new THREE.Vector3());
+          var maxDim = Math.max(size.x, size.y, size.z);
+          model.position.sub(center);
+          model.scale.setScalar(2.5 / maxDim);
+          scene.add(model);
+        },
+        undefined,
+        function(err) { console.warn('GLB load error', err); }
+      );
+    };
+    document.head.appendChild(loaderScript);
+
+    canvas.addEventListener('mouseenter', function() { isHovered = true; });
+    canvas.addEventListener('mouseleave', function() { isHovered = false; });
+
+    function animate() {
+      requestAnimationFrame(animate);
+      if (model && !isHovered) {
+        model.rotation.y += 0.002;
+      }
+      renderer.render(scene, camera);
+    }
+    animate();
+  })();
+
+})();
+</script>
+
+<!--
+CUSTOMIZATION GUIDE
+========================
+All SWAP markers for production follow-up:
+
+1.  ✅ SWAP:LOGO — header logo
+    SRC: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69ece3499b87644de2e7d420_Angsana-Logoblack.webp
+    NOTE: Logo is dark. Uses CSS filter: invert(1) brightness(10) to render white on dark backgrounds.
+
+2.  ⚠️  SWAP:VIDEO → hero background cinematic ocean aerial | hero section | NO ASSET IN CSV
+    No video found in CSV. The <video> tag is present with poster= fallback (Image 56 coastal).
+    ACTION REQUIRED: Supply an MP4 video URL and insert as <source src="YOUR_URL" type="video/mp4" />
+
+3.  ✅ SWAP:3D → coral branch | Coastal
+    SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb
+    Placed in Section 2 (Manifesto) at 12% opacity background.
+
+4.  ✅ SWAP:IMG → experience card 1 | ratio: 4:5
+    SRC: coastal Image 12
+
+5.  ✅ SWAP:IMG → experience card 2 | ratio: 4:5
+    SRC: coastal Image 42
+
+6.  ✅ SWAP:IMG → experience card 3 | ratio: 4:5
+    SRC: coastal Image 10
+
+7.  ✅ SWAP:IMG → experience card 4 | ratio: 4:5
+    SRC: coastal Image 1
+
+8.  ✅ SWAP:IMG → experience card 5 | ratio: 4:5
+    SRC: coastal Image 9
+
+9.  ✅ SWAP:IMG → experience card 6 | ratio: 4:5
+    SRC: coastal Image 2
+
+10. ✅ SWAP:IMG → the place tropical lagoon | ratio: 3:2
+    SRC: tropical Image 143
+
+11. ✅ SWAP:COPY → the place
+    Text: Maldives-specific — coordinates, reef ecology, latitude prose
+
+12. ✅ SWAP:COPY → manifesto
+    3-line typographic manifesto + brand subline
+
+13. ✅ SWAP:COPY → transformation stats 1-3
+    Stats: 28°C water temp | 6 spa traditions | 30m reef visibility
+
+14. ✅ SWAP:IMG → room/interior 1 | ratio: 3:2 — coastal Image 55
+15. ✅ SWAP:IMG → room/interior 2 | ratio: 3:2 — coastal Image 54
+16. ✅ SWAP:IMG → room/interior 3 | ratio: 3:2 — coastal Image 53
+17. ✅ SWAP:IMG → room/interior 4 | ratio: 3:2 — coastal Image 52
+18. ✅ SWAP:IMG → room/interior 5 | ratio: 3:2 — coastal Image 50
+
+19. ✅ SWAP:COPY → wellness rituals 1-6
+    Rituals: Javanese Lulur | Shirodhara | Salt Soak | Tok Sen | Marine Collagen | Ocean Pranayama
+
+20. ✅ SWAP:IMG → editorial quote background aerial lagoon | ratio: 16:9
+    SRC: coastal Image 3
+
+21. ✅ SWAP:COPY → editorial quote
+    Source: Condé Nast Traveller, Best Spa Resort Asia 2024
+
+22. ✅ SWAP:IMG → booking CTA background tropical beach | ratio: 16:9
+    SRC: coastal Image 1
+
+23. ✅ SWAP:COPY → booking CTA
+    Urgency: Limited availability — Monsoon Season closing October 2026
+
+24. ✅ SWAP:LOGO — footer logo
+    Same SRC as header — CSS filter applied for warm tint
+
+25. ⚠️  COLOR — SWAP:COLOR
+    All colors derived from brand analysis. To adjust:
+    Edit :root { --color-primary / --color-secondary / --color-accent } in <style> block.
+-->
+</body>
+</html>
