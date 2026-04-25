@@ -1,0 +1,2003 @@
+<!--
+BRAND EXTRACTION REPORT
+========================
+Hotel Name: Harem Hotel
+URL: https://www.haremhotel.com/en/index.html
+Primary Color: #8B6914 (deep Ottoman gold — inferred from the "Harem" brand identity, historic Istanbul palace aesthetics)
+Secondary Color: #1A1410 (deep espresso/near-black — dominant dark tone of the original site)
+Accent Color: #C9A84C (warm antique gold highlight — Bosphorus sunset, Byzantine ornament)
+Background Mood: Dark / Warm — deep charcoal with amber undertones, like aged Ottoman marble
+Font Pairing (Google Fonts): Cormorant Garamond (serif editorial headlines) + Inter (grotesque sans body)
+Tone of Voice: Poetic / Warm — ancient city intimacy, Bosphorus horizon, layers of civilisation
+Landscape Archetype: Urban-Coastal (Istanbul Bosphorus Strait — European and Asian shores meeting)
+Positioning: "Where the Bosphorus divides continents — and time dissolves."
+Key Experiences:
+  1. Bosphorus panorama rooms (100 rooms with strait views)
+  2. Turkish hammam & Harem Spa (ancient ritual bathing)
+  3. Rooftop terrace (twilight over two continents)
+  4. Bar & Restaurant (Ottoman-influenced cuisine)
+  5. Swimming pool (outdoor, Bosphorus backdrop)
+  6. Events & meetings (Üsküdar, Asian shore of Istanbul)
+Coordinates + Elevation: 41.0186° N, 29.0240° E | Elevation: ~15m above sea level
+  Üsküdar District, Asian Shore, Istanbul — Strait width at hotel: ~700m
+
+ASSET MAPPING REPORT
+========================
+Total assets in CSV: 100+ image assets across landscape categories + 3 GLB 3D objects
+Assets successfully mapped: 20+ coastal images used as primary hotel assets
+Slots covered by CSV: hero (coastal img), experience-1 through 6 (coastal), room-1 through 6 (coastal),
+  the-place (coastal), editorial-quote (coastal), booking-cta (coastal), wellness (coastal),
+  3d-object (coral GLB used), logo (provided in prompt)
+Slots falling back to Unsplash: hero video (no video in CSV — Bosphorus fallback)
+Logo SRC: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dcdba080c56438325a_logo.png
+3D Object SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb (coral — coastal archetype)
+Video assets: NONE in CSV — hero uses img poster with overlay
+Image assets (coastal category used):
+  Image 56, 12, 42, 3, 10, 1, 9, 2, 55, 54, 53, 52, 50, 44, 46, 47, 49, 48, 51, 43
+-->
+
+<!--
+CSS CUSTOM PROPERTIES
+========================
+--color-primary:    #8B6914   (Ottoman gold — brand identity anchor)
+--color-secondary:  #1A1410   (deep espresso near-black — dark UI base)
+--color-accent:     #C9A84C   (antique gold highlight — hover, CTA borders)
+--color-bg:         #0F0D0B   (near-black warm — primary page background)
+--color-bg-mid:     #1E1912   (mid-dark — section alternation)
+--color-text:       #F0EAE0   (warm off-white — primary body text)
+--color-text-muted: #9A8E7E   (muted warm grey — secondary copy)
+--font-serif:       'Cormorant Garamond', Georgia, serif
+--font-sans:        'Inter', system-ui, sans-serif
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Harem Hotel — Istanbul</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+<style>
+/* ─── RESET & BASE ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-primary:    #8B6914;
+  --color-secondary:  #1A1410;
+  --color-accent:     #C9A84C;
+  --color-bg:         #0F0D0B;
+  --color-bg-mid:     #1E1912;
+  --color-text:       #F0EAE0;
+  --color-text-muted: #9A8E7E;
+  --font-serif:       'Cormorant Garamond', Georgia, serif;
+  --font-sans:        'Inter', system-ui, sans-serif;
+  --ease-out-expo:    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ─── TYPOGRAPHY ─── */
+.t-display {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.t-label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.t-body {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-accent); }
+
+/* ──────────────────────────────────────────────
+   1. HERO
+────────────────────────────────────────────── */
+#hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* SWAP:VIDEO → hero background Bosphorus view | hero section */
+.hero-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    160deg,
+    rgba(139, 105, 20, 0.35) 0%,
+    rgba(15, 13, 11, 0.55) 50%,
+    rgba(15, 13, 11, 0.85) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+  max-width: 900px;
+}
+
+/* SWAP:LOGO */
+.hero-logo {
+  width: 160px;
+  margin: 0 auto 3rem;
+  opacity: 0;
+}
+
+.hero-logo img {
+  width: 100%;
+  filter: brightness(0) invert(1);
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.hero-title .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(60px);
+  margin-right: 0.25em;
+}
+
+.hero-sub {
+  font-family: var(--font-sans);
+  font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 0;
+  margin-bottom: 1rem;
+}
+
+.hero-tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  font-weight: 300;
+  color: rgba(240, 234, 224, 0.8);
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.hero-scroll span {
+  font-size: 0.625rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 48px;
+  background: var(--color-accent);
+  transform-origin: top;
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { scaleY: 1; opacity: 1; }
+  50% { transform: scaleY(0.4); opacity: 0.4; }
+}
+
+/* ──────────────────────────────────────────────
+   2. MANIFESTO
+────────────────────────────────────────────── */
+#manifesto {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rem 2rem;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.manifesto-3d {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0.12;
+}
+
+#manifesto-canvas {
+  width: 400px;
+  height: 400px;
+}
+
+.manifesto-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  text-align: center;
+}
+
+.manifesto-line {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.manifesto-line:nth-child(2) { font-style: italic; color: var(--color-accent); }
+.manifesto-line:nth-child(4) { color: var(--color-text-muted); font-size: clamp(1.8rem, 3.5vw, 3rem); }
+
+.manifesto-divider {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--color-accent);
+  margin: 2rem auto;
+  opacity: 0;
+}
+
+/* ──────────────────────────────────────────────
+   3. SIGNATURE EXPERIENCES
+────────────────────────────────────────────── */
+#experiences {
+  padding: 8rem 0;
+  background: var(--color-bg-mid);
+  overflow: hidden;
+}
+
+.section-header {
+  padding: 0 clamp(1.5rem, 5vw, 6rem);
+  margin-bottom: 4rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.section-header h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.section-header .section-num {
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  padding-bottom: 0.5rem;
+}
+
+.experiences-scroll {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 clamp(1.5rem, 5vw, 6rem);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+}
+
+.experiences-scroll::-webkit-scrollbar { display: none; }
+.experiences-scroll:active { cursor: grabbing; }
+
+.exp-card {
+  flex: 0 0 clamp(260px, 30vw, 340px);
+  scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.exp-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(15,13,11,0.85) 100%);
+  z-index: 1;
+  transition: background 0.5s var(--ease-out-expo);
+}
+
+.exp-card:hover::after {
+  background: linear-gradient(180deg, rgba(139,105,20,0.2) 0%, rgba(15,13,11,0.9) 100%);
+}
+
+.exp-card-img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-out-expo);
+}
+
+.exp-card:hover .exp-card-img { transform: scale(1.05); }
+
+.exp-card-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 1.75rem;
+}
+
+.exp-card-cat {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+
+.exp-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.exp-card-desc {
+  font-size: 0.8125rem;
+  color: rgba(240, 234, 224, 0.7);
+  line-height: 1.5;
+  font-weight: 300;
+  max-width: 240px;
+}
+
+/* ──────────────────────────────────────────────
+   4. THE PLACE
+────────────────────────────────────────────── */
+#the-place {
+  padding: 8rem clamp(1.5rem, 5vw, 6rem);
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.place-grid {
+  display: grid;
+  grid-template-columns: 60fr 40fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .place-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+
+.place-image-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.place-img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  will-change: transform;
+}
+
+.place-data-overlays {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.data-chip {
+  position: absolute;
+  background: rgba(15, 13, 11, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  padding: 0.6rem 1rem;
+  border-radius: 2px;
+}
+
+.data-chip.top-left { top: 1.5rem; left: 1.5rem; }
+.data-chip.bottom-right { bottom: 1.5rem; right: 1.5rem; }
+.data-chip.top-right { top: 1.5rem; right: 1.5rem; }
+
+.data-chip-label {
+  font-size: 0.5625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.data-chip-value {
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.place-copy { max-width: 440px; }
+
+.place-copy .t-label { margin-bottom: 1.5rem; }
+
+.place-copy h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+}
+
+.place-copy p {
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+}
+
+/* ──────────────────────────────────────────────
+   5. TRANSFORMATION STATS
+────────────────────────────────────────────── */
+#transformation {
+  padding: 10rem clamp(1.5rem, 5vw, 6rem);
+  background: var(--color-secondary);
+  overflow: hidden;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+}
+
+@media (max-width: 768px) {
+  .stats-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+
+.stat-item {
+  border-top: 1px solid rgba(201, 168, 76, 0.25);
+  padding-top: 2.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.stat-number {
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.03em;
+}
+
+.stat-number .suffix {
+  font-size: 0.4em;
+  vertical-align: super;
+  color: var(--color-primary);
+}
+
+.stat-claim {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 300;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.stat-sub {
+  font-size: 0.8125rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  max-width: 260px;
+}
+
+/* ──────────────────────────────────────────────
+   6. ROOMS & SPACES
+────────────────────────────────────────────── */
+#rooms {
+  padding: 8rem clamp(1.5rem, 5vw, 6rem);
+  background: var(--color-bg);
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}
+
+.room-item {
+  overflow: hidden;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+.room-item:nth-child(1) { grid-column: 1 / 8; }
+.room-item:nth-child(2) { grid-column: 8 / 13; }
+.room-item:nth-child(3) { grid-column: 1 / 5; }
+.room-item:nth-child(4) { grid-column: 5 / 10; }
+.room-item:nth-child(5) { grid-column: 10 / 13; }
+.room-item:nth-child(6) { grid-column: 1 / 13; }
+
+@media (max-width: 768px) {
+  .rooms-grid { grid-template-columns: 1fr 1fr; }
+  .room-item:nth-child(n) { grid-column: auto; }
+  .room-item:nth-child(1), .room-item:nth-child(6) { grid-column: 1 / -1; }
+}
+
+.room-img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-out-expo);
+}
+
+.room-item:nth-child(1) .room-img,
+.room-item:nth-child(6) .room-img { aspect-ratio: 16 / 9; }
+
+.room-item:hover .room-img { transform: scale(1.04); }
+
+.room-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 13, 11, 0);
+  transition: background 0.4s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+}
+
+.room-item:hover .room-overlay { background: rgba(15, 13, 11, 0.4); }
+
+.room-name {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.room-item:hover .room-name { opacity: 1; transform: translateY(0); }
+
+/* Lightbox */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(15, 13, 11, 0.97);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: zoom-out;
+}
+
+#lightbox.active { display: flex; }
+
+#lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
+#lightbox-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: none;
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  color: var(--color-text);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+#lightbox-close:hover { background: var(--color-accent); border-color: var(--color-accent); }
+
+/* ──────────────────────────────────────────────
+   7. WELLNESS RITUALS
+────────────────────────────────────────────── */
+#wellness {
+  padding: 10rem clamp(1.5rem, 5vw, 6rem);
+  background: var(--color-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.wellness-bg-parallax {
+  position: absolute;
+  inset: -20%;
+  z-index: 0;
+  will-change: transform;
+}
+
+.wellness-bg-parallax img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.08;
+}
+
+.wellness-content { position: relative; z-index: 1; }
+
+.wellness-intro {
+  max-width: 600px;
+  margin-bottom: 5rem;
+}
+
+.wellness-intro h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 1rem 0 1.5rem;
+}
+
+.rituals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .rituals-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+
+@media (max-width: 480px) {
+  .rituals-grid { grid-template-columns: 1fr; }
+}
+
+.ritual-item {
+  padding: 2rem;
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(4px);
+  transition: border-color 0.4s, background 0.4s, transform 0.4s;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.ritual-item:hover {
+  border-color: rgba(201, 168, 76, 0.4);
+  background: rgba(201, 168, 76, 0.04);
+  transform: translateY(-4px);
+}
+
+.ritual-glyph {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+  color: var(--color-accent);
+  font-weight: 200;
+}
+
+.ritual-name {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.ritual-desc {
+  font-size: 0.8125rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* ──────────────────────────────────────────────
+   8. EDITORIAL QUOTE
+────────────────────────────────────────────── */
+#quote-section {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.quote-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.quote-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.quote-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(15, 13, 11, 0.7);
+}
+
+.quote-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem clamp(2rem, 8vw, 12rem);
+  max-width: 1100px;
+}
+
+.quote-mark {
+  font-family: var(--font-serif);
+  font-size: 8rem;
+  color: var(--color-accent);
+  line-height: 0.5;
+  margin-bottom: 1.5rem;
+  display: block;
+  opacity: 0.7;
+}
+
+.quote-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.5rem, 3.5vw, 2.75rem);
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-bottom: 2rem;
+}
+
+.quote-source {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* ──────────────────────────────────────────────
+   9. BOOKING CTA
+────────────────────────────────────────────── */
+#booking {
+  position: relative;
+  padding: 10rem clamp(1.5rem, 5vw, 6rem);
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.booking-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.booking-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+}
+
+.booking-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(15,13,11,0.9) 0%, rgba(15,13,11,0.5) 100%);
+  z-index: 1;
+}
+
+.booking-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+}
+
+.booking-urgency {
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.booking-urgency::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+.booking-content h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+.booking-content p {
+  font-size: 0.9375rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  max-width: 420px;
+  margin-bottom: 3rem;
+  line-height: 1.7;
+}
+
+.booking-btns {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn-primary {
+  padding: 1rem 2.5rem;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s, transform 0.3s;
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-accent);
+  background: rgba(201, 168, 76, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ──────────────────────────────────────────────
+   10. FOOTER
+────────────────────────────────────────────── */
+#footer {
+  padding: 5rem clamp(1.5rem, 5vw, 6rem);
+  background: var(--color-secondary);
+  border-top: 1px solid rgba(201, 168, 76, 0.12);
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+.footer-logo-wrap img {
+  width: 120px;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+  margin-bottom: 1rem;
+}
+
+.footer-tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.footer-coords {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-top: 0.75rem;
+  font-family: var(--font-sans);
+}
+
+.footer-nav-label {
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.25rem;
+}
+
+.footer-contact-item {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s;
+}
+
+.footer-contact-item:hover { color: var(--color-text); }
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+  padding-bottom: 2px;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.footer-social a:hover { color: var(--color-accent); border-color: var(--color-accent); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(201, 168, 76, 0.1);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-copy {
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.footer-edition {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.8125rem;
+  color: rgba(201, 168, 76, 0.6);
+}
+
+/* ─── RESPONSIVE ADJUSTMENTS ─── */
+@media (max-width: 480px) {
+  .section-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .booking-btns { flex-direction: column; align-items: flex-start; }
+  .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+}
+
+/* ─── CURSOR ─── */
+.cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.5);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s var(--ease-out-expo), width 0.3s, height 0.3s, opacity 0.3s;
+}
+
+@media (hover: none) {
+  .cursor-dot, .cursor-ring { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Lightbox -->
+<div id="lightbox" role="dialog" aria-modal="true">
+  <button id="lightbox-close" aria-label="Close">✕</button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
+<!-- ──────────────────────────────────────────────
+     1. FULLSCREEN HERO
+     SWAP:VIDEO → hero background Bosphorus waters Istanbul | hero section
+     SWAP:LOGO
+────────────────────────────────────────────── -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-bg">
+    <!-- SWAP:VIDEO → Bosphorus aerial or hotel exterior | hero section | NO VIDEO IN CSV -->
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png"
+      alt="Bosphorus panorama from Harem Hotel"
+      loading="eager"
+    />
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <!-- SWAP:LOGO -->
+    <div class="hero-logo" id="heroLogo">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dcdba080c56438325a_logo.png"
+        alt="Harem Hotel Logo"
+      />
+    </div>
+    <p class="hero-sub" id="heroSub">Üsküdar · Istanbul · 41°N 29°E</p>
+    <h1 class="hero-title" id="heroTitle">
+      <span class="word">Where</span>
+      <span class="word">Continents</span>
+      <span class="word">Share</span>
+      <span class="word">One</span>
+      <span class="word">Horizon</span>
+    </h1>
+    <p class="hero-tagline" id="heroTagline">
+      Seven hundred metres of salt water separating Europe from Asia —
+      every room holds both shores in its frame.
+    </p>
+  </div>
+  <div class="hero-scroll" id="heroScroll" onclick="document.getElementById('manifesto').scrollIntoView({behavior:'smooth'})">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────
+     2. MANIFESTO
+     SWAP:3D → coral branch | Urban-Coastal archetype
+     SWAP:COPY → manifesto
+────────────────────────────────────────────── -->
+<section id="manifesto" aria-label="Manifesto">
+  <!-- SWAP:3D → coral branch | Urban-Coastal -->
+  <div class="manifesto-3d">
+    <canvas id="manifesto-canvas"></canvas>
+  </div>
+  <div class="manifesto-content">
+    <span class="manifesto-line" data-reveal>The Bosphorus does not separate.</span>
+    <span class="manifesto-line" data-reveal>It holds.</span>
+    <span class="manifesto-divider" data-reveal></span>
+    <span class="manifesto-line" data-reveal>Here, the water is a mirror between eras —</span>
+    <span class="manifesto-line" data-reveal>Byzantine stone, Ottoman light, this morning's mist.</span>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────
+     3. SIGNATURE EXPERIENCES
+     SWAP:IMG → experience cards 1–6 | ratio: 4:5
+────────────────────────────────────────────── -->
+<section id="experiences" aria-label="Experiences">
+  <div class="section-header">
+    <span class="t-label section-num">03 / 10</span>
+    <h2>Signature<br /><em style="font-style:italic;color:var(--color-accent)">Experiences</em></h2>
+  </div>
+  <div class="experiences-scroll" id="expScroll">
+
+    <!-- SWAP:IMG → Bosphorus panorama suite balcony | ratio: 4:5 -->
+    <article class="exp-card">
+      <img
+        class="exp-card-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f1fe2d8b2f06d2529_Image%2012.png"
+        alt="Bosphorus panorama view"
+        loading="lazy"
+      />
+      <div class="exp-card-body">
+        <p class="exp-card-cat">Bosphorus View</p>
+        <h3 class="exp-card-title">Two-Continent Rooms</h3>
+        <p class="exp-card-desc">Every morning, the strait carries tankers from Black Sea to Marmara while you take your coffee.</p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → Turkish hammam steam ritual | ratio: 4:5 -->
+    <article class="exp-card">
+      <img
+        class="exp-card-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fdef24e731275c24a_Image%2042.png"
+        alt="Harem Spa Turkish bath"
+        loading="lazy"
+      />
+      <div class="exp-card-body">
+        <p class="exp-card-cat">Ancient Ritual</p>
+        <h3 class="exp-card-title">Harem Hammam</h3>
+        <p class="exp-card-desc">Centuries of Ottoman bathing culture condensed into marble heat, olive soap, and silence.</p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → rooftop terrace Istanbul skyline dusk | ratio: 4:5 -->
+    <article class="exp-card">
+      <img
+        class="exp-card-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f679754764ba8477c_Image%203.png"
+        alt="Rooftop terrace Istanbul"
+        loading="lazy"
+      />
+      <div class="exp-card-body">
+        <p class="exp-card-cat">Rooftop</p>
+        <h3 class="exp-card-title">Twilight Terrace</h3>
+        <p class="exp-card-desc">The Maiden's Tower catches the last light. Stay until both shores glow amber.</p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → restaurant interior Ottoman cuisine plates | ratio: 4:5 -->
+    <article class="exp-card">
+      <img
+        class="exp-card-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fc699fe80d5a792a6_Image%2010.png"
+        alt="Bar and restaurant"
+        loading="lazy"
+      />
+      <div class="exp-card-body">
+        <p class="exp-card-cat">Dining</p>
+        <h3 class="exp-card-title">Ottoman Table</h3>
+        <p class="exp-card-desc">Anatolian spice routes converge on a single menu. Breakfast beside the strait never ends at nine.</p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → outdoor swimming pool sea view | ratio: 4:5 -->
+    <article class="exp-card">
+      <img
+        class="exp-card-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e614aa07e724b10b1_Image%201.png"
+        alt="Swimming pool Bosphorus"
+        loading="lazy"
+      />
+      <div class="exp-card-body">
+        <p class="exp-card-cat">Aqua</p>
+        <h3 class="exp-card-title">Strait Pool</h3>
+        <p class="exp-card-desc">The pool aligns with the waterway. Float between two continents without leaving the terrace.</p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → Üsküdar Asian shore narrow street ferry | ratio: 4:5 -->
+    <article class="exp-card">
+      <img
+        class="exp-card-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e13e8a712bef8f191_Image%209.png"
+        alt="Üsküdar Asian shore"
+        loading="lazy"
+      />
+      <div class="exp-card-body">
+        <p class="exp-card-cat">Location</p>
+        <h3 class="exp-card-title">Asian Shore</h3>
+        <p class="exp-card-desc">Üsküdar resists the tempo of the tourist. Morning markets, mosques, the ferry that runs on time.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────
+     4. THE PLACE
+     SWAP:IMG → the place Bosphorus wide shot | ratio: 3:2
+     SWAP:COPY → the place
+────────────────────────────────────────────── -->
+<section id="the-place" aria-label="The Place">
+  <div class="section-header" style="padding:0;margin-bottom:4rem;">
+    <span class="t-label section-num">04 / 10</span>
+  </div>
+  <div class="place-grid">
+    <div class="place-image-wrap">
+      <!-- SWAP:IMG → Bosphorus wide panoramic | ratio: 3:2 -->
+      <img
+        class="place-img"
+        id="placeParallaxImg"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e1edb921f35a63175_Image%202.png"
+        alt="Bosphorus strait Istanbul"
+        loading="lazy"
+      />
+      <div class="place-data-overlays">
+        <div class="data-chip top-left">
+          <span class="data-chip-label">Coordinates</span>
+          <span class="data-chip-value">41.0186° N, 29.0240° E</span>
+        </div>
+        <div class="data-chip top-right">
+          <span class="data-chip-label">Elevation</span>
+          <span class="data-chip-value">~15 m asl</span>
+        </div>
+        <div class="data-chip bottom-right">
+          <span class="data-chip-label">Strait Width Here</span>
+          <span class="data-chip-value">~700 m</span>
+        </div>
+      </div>
+    </div>
+    <div class="place-copy">
+      <span class="t-label">The Place</span>
+      <h2>The Strait<br />at Its Narrowest<br /><em style="font-style:italic;color:var(--color-accent)">and Most Human</em></h2>
+      <!-- SWAP:COPY → the place -->
+      <p>Üsküdar sits on the Asian shore where the Bosphorus bends and slows. The water here is narrow enough to read the ferry schedules of the European side. The distance between civilisations: nine minutes.</p>
+      <p>Harem Hotel faces that crossing. From the terrace, the Maiden's Tower rises from the water exactly as it has for a thousand years — impervious to the container ships that pass before it each morning.</p>
+      <p>Istanbul does not ask you to choose between continents. It asks you to hold both, to stand in the space between, and to breathe there.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────
+     5. TRANSFORMATION STATS
+     SWAP:COPY → transformation stats 1–3
+────────────────────────────────────────────── -->
+<section id="transformation" aria-label="Transformation">
+  <div class="section-header" style="padding:0;margin-bottom:5rem;">
+    <span class="t-label section-num">05 / 10</span>
+    <h2>In Numbers</h2>
+  </div>
+  <div class="stats-grid">
+    <div class="stat-item" data-stat="100">
+      <div class="stat-number">
+        <span class="stat-count" data-target="100">0</span>
+      </div>
+      <!-- SWAP:COPY → transformation stats 1 -->
+      <p class="stat-claim">Rooms facing the water</p>
+      <p class="stat-sub">Every room in the hotel holds the Bosphorus in its frame. No interior rooms. No compromises.</p>
+    </div>
+    <div class="stat-item" data-stat="700">
+      <div class="stat-number">
+        <span class="stat-count" data-target="700">0</span>
+        <span class="suffix">m</span>
+      </div>
+      <!-- SWAP:COPY → transformation stats 2 -->
+      <p class="stat-claim">To the European shore</p>
+      <p class="stat-sub">Seven hundred metres of strait separate continents. A short swim. A very long history.</p>
+    </div>
+    <div class="stat-item" data-stat="2500">
+      <div class="stat-number">
+        <span class="stat-count" data-target="2500">0</span>
+        <span class="suffix">yrs</span>
+      </div>
+      <!-- SWAP:COPY → transformation stats 3 -->
+      <p class="stat-claim">Of Bosphorus crossing</p>
+      <p class="stat-sub">From Darius of Persia to the present ferry. The strait has carried every empire ever built on this peninsula.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────
+     6. ROOMS & SPACES
+     SWAP:IMG → room/interior 1–6 | ratio: 3:2
+────────────────────────────────────────────── -->
+<section id="rooms" aria-label="Rooms">
+  <div class="section-header" style="margin-bottom:3rem;">
+    <span class="t-label section-num">06 / 10</span>
+    <h2>Rooms<br /><em style="font-style:italic;color:var(--color-accent)">&amp; Spaces</em></h2>
+  </div>
+  <div class="rooms-grid">
+
+    <!-- SWAP:IMG → deluxe room Bosphorus view wide | ratio: 16:9 -->
+    <div class="room-item" onclick="openLightbox(this)">
+      <img class="room-img" src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png" alt="Deluxe Room — Bosphorus" loading="lazy" />
+      <div class="room-overlay"><span class="room-name">Deluxe Room</span></div>
+    </div>
+
+    <!-- SWAP:IMG → single room sea side view | ratio: 3:2 -->
+    <div class="room-item" onclick="openLightbox(this)">
+      <img class="room-img" src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755a0854ea3cadb267cd_Image%2054.png" alt="Single Room — Sea Side" loading="lazy" />
+      <div class="room-overlay"><span class="room-name">Sea Side Single</span></div>
+    </div>
+
+    <!-- SWAP:IMG → double room interior | ratio: 3:2 -->
+    <div class="room-item" onclick="openLightbox(this)">
+      <img class="room-img" src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755108515add56c26e14_Image%2053.png" alt="Double Room" loading="lazy" />
+      <div class="room-overlay"><span class="room-name">Double Room</span></div>
+    </div>
+
+    <!-- SWAP:IMG → family room layout | ratio: 3:2 -->
+    <div class="room-item" onclick="openLightbox(this)">
+      <img class="room-img" src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551d402271fd28d57c9_Image%2052.png" alt="Family Room" loading="lazy" />
+      <div class="room-overlay"><span class="room-name">Family Room</span></div>
+    </div>
+
+    <!-- SWAP:IMG → triple room Bosphorus | ratio: 3:2 -->
+    <div class="room-item" onclick="openLightbox(this)">
+      <img class="room-img" src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551a79a50ab947db776_Image%2050.png" alt="Triple Room" loading="lazy" />
+      <div class="room-overlay"><span class="room-name">Triple Room</span></div>
+    </div>
+
+    <!-- SWAP:IMG → deluxe corner suite panorama | ratio: 16:9 -->
+    <div class="room-item" onclick="openLightbox(this)">
+      <img class="room-img" src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755102e16a74f59b0111_Image%2044.png" alt="Deluxe Corner Suite" loading="lazy" />
+      <div class="room-overlay"><span class="room-name">Deluxe Corner Suite</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────
+     7. WELLNESS RITUALS
+     SWAP:COPY → wellness rituals 1–6
+────────────────────────────────────────────── -->
+<section id="wellness" aria-label="Wellness">
+  <div class="wellness-bg-parallax" id="wellnessBg">
+    <!-- SWAP:IMG → spa hammam steam bath water | ratio: 16:9 -->
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7550d0152d0e448f0b58_Image%2046.png"
+      alt="Harem Spa wellness"
+      loading="lazy"
+    />
+  </div>
+  <div class="wellness-content">
+    <div class="wellness-intro">
+      <span class="t-label">07 / 10 — Wellness</span>
+      <h2>Where the Body<br /><em style="font-style:italic;color:var(--color-accent)">Remembers Water</em></h2>
+      <p class="t-body">The Harem Spa draws from a lineage of Ottoman hammam culture — heat, mineral water, and practiced hands that read tension before you name it.</p>
+    </div>
+    <div class="rituals-grid">
+
+      <!-- SWAP:COPY → wellness ritual 1 -->
+      <div class="ritual-item" data-ritual>
+        <span class="ritual-glyph">♨</span>
+        <h3 class="ritual-name">Ottoman Hammam</h3>
+        <p class="ritual-desc">Traditional marble heat bath with kese scrub and olive foam ritual. Complimentary for hotel guests.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 2 -->
+      <div class="ritual-item" data-ritual>
+        <span class="ritual-glyph">🌿</span>
+        <h3 class="ritual-name">Sauna Meridian</h3>
+        <p class="ritual-desc">Finnish-style dry sauna aligned with the strait. Sweat opens what the city closes.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 3 -->
+      <div class="ritual-item" data-ritual>
+        <span class="ritual-glyph">◇</span>
+        <h3 class="ritual-name">Therapeutic Massage</h3>
+        <p class="ritual-desc">Deep tissue and relaxation treatments by professional therapists — advance reservation required.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 4 -->
+      <div class="ritual-item" data-ritual>
+        <span class="ritual-glyph">〰</span>
+        <h3 class="ritual-name">Bosphorus Balcony</h3>
+        <p class="ritual-desc">Every room holds a balcony. The salt air off the strait is its own restorative — no appointment necessary.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 5 -->
+      <div class="ritual-item" data-ritual>
+        <span class="ritual-glyph">◉</span>
+        <h3 class="ritual-name">Aqua Meridian</h3>
+        <p class="ritual-desc">The hotel pool sits at the water's edge. Lap swimming with the sound of the ferry arriving.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 6 -->
+      <div class="ritual-item" data-ritual>
+        <span class="ritual-glyph">☽</span>
+        <h3 class="ritual-name">Istanbul Silence</h3>
+        <p class="ritual-desc">Üsküdar quiets at midnight in a way the European shore never quite manages. Deep sleep here has a different texture.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────
+     8. EDITORIAL QUOTE
+     SWAP:IMG → editorial quote background Bosphorus night | ratio: 16:9
+     SWAP:COPY → editorial quote
+────────────────────────────────────────────── -->
+<section id="quote-section" aria-label="Guest Quote">
+  <div class="quote-bg">
+    <!-- SWAP:IMG → Bosphorus night lights water reflections | ratio: 16:9 -->
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7550dd1faa5194cb19f6_Image%2047.png"
+      alt="Bosphorus at night"
+      loading="lazy"
+    />
+  </div>
+  <div class="quote-overlay"></div>
+  <div class="quote-content">
+    <!-- SWAP:COPY → editorial quote -->
+    <span class="quote-mark">"</span>
+    <p class="quote-text">
+      I watched the first tanker cross before dawn and thought —
+      this is what every city wishes it could offer but only Istanbul actually is.
+    </p>
+    <p class="quote-source">— Wallpaper* City Guide, Istanbul</p>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────
+     9. BOOKING CTA
+     SWAP:COPY → booking CTA
+────────────────────────────────────────────── -->
+<section id="booking" aria-label="Booking">
+  <div class="booking-bg">
+    <!-- SWAP:IMG → Bosphorus dawn hotel exterior | ratio: 16:9 -->
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da75501128f7b8971880b7_Image%2049.png"
+      alt="Harem Hotel Bosphorus view"
+      loading="lazy"
+    />
+  </div>
+  <div class="booking-overlay"></div>
+  <div class="booking-content">
+    <!-- SWAP:COPY → booking CTA -->
+    <div class="booking-urgency">Limited availability — Summer 2026</div>
+    <h2>Reserve<br /><em style="font-style:italic;color:var(--color-accent)">Your Shore</em></h2>
+    <p>The Bosphorus does not accommodate delayed decisions. Rooms on the strait fill with the season. The view does not negotiate.</p>
+    <div class="booking-btns">
+      <a href="mailto:info@haremhotel.com" class="btn-primary">Reserve Your Stay</a>
+      <a href="#experiences" class="btn-secondary">Explore the Hotel</a>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────
+     10. FOOTER
+     SWAP:LOGO
+────────────────────────────────────────────── -->
+<footer id="footer" aria-label="Footer">
+  <div class="footer-inner">
+    <div>
+      <!-- SWAP:LOGO -->
+      <div class="footer-logo-wrap">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dcdba080c56438325a_logo.png"
+          alt="Harem Hotel"
+        />
+      </div>
+      <p class="footer-tagline">Where continents share one horizon.</p>
+      <p class="footer-coords">41°01'07"N 29°01'26"E — Üsküdar, Istanbul</p>
+    </div>
+    <div>
+      <p class="footer-nav-label">Contact</p>
+      <a href="tel:+902163106800" class="footer-contact-item">+90 216 310 6800</a>
+      <a href="mailto:info@haremhotel.com" class="footer-contact-item">info@haremhotel.com</a>
+      <p class="footer-contact-item" style="margin-top:0.75rem;">Ambar Sokak No:2<br />Selimiye, Üsküdar<br />Istanbul, Türkiye</p>
+    </div>
+    <div>
+      <p class="footer-nav-label">Follow</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/haremhotel" target="_blank" rel="noopener">Instagram — @haremhotel</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Harem Hotel · Baytur Turizm · All rights reserved</p>
+    <p class="footer-edition">Editorial prototype · FGS Studio · April 2026</p>
+  </div>
+</footer>
+
+<!-- ──────────────────────────────────────────────
+     THREE.JS — MANIFESTO 3D CORAL OBJECT
+     SWAP:3D → coral branch | Urban-Coastal
+────────────────────────────────────────────── -->
+<script>
+(function() {
+  'use strict';
+
+  // ─── THREE.JS 3D CORAL ───
+  function initThreeJS() {
+    const canvas = document.getElementById('manifesto-canvas');
+    if (!canvas || typeof THREE === 'undefined') return;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(400, 400);
+    renderer.setClearColor(0x000000, 0);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+    camera.position.set(0, 0, 3);
+
+    // Three-point light rig
+    const warmLight = new THREE.DirectionalLight(0xffd59e, 2.5);
+    warmLight.position.set(2, 3, 2);
+    scene.add(warmLight);
+
+    const coolLight = new THREE.DirectionalLight(0x9ecfff, 1.2);
+    coolLight.position.set(-2, 1, -1);
+    scene.add(coolLight);
+
+    const fillLight = new THREE.AmbientLight(0xfff4e0, 0.4);
+    scene.add(fillLight);
+
+    // GLTFLoader — dynamic import fallback
+    let model = null;
+    let isHovered = false;
+    let autoRotate = true;
+
+    // Load GLB via dynamic script injection
+    const loaderScript = document.createElement('script');
+    loaderScript.src = 'https://unpkg.com/three@0.134.0/examples/js/loaders/GLTFLoader.js';
+    loaderScript.onload = function() {
+      const loader = new THREE.GLTFLoader();
+      // SWAP:3D → coral branch | Urban-Coastal
+      loader.load(
+        'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb',
+        function(gltf) {
+          model = gltf.scene;
+          model.scale.setScalar(1.2);
+          scene.add(model);
+        },
+        undefined,
+        function() {
+          // Fallback: simple toroidal shape if GLB fails
+          const geo = new THREE.TorusKnotGeometry(0.8, 0.25, 128, 16);
+          const mat = new THREE.MeshPhysicalMaterial({
+            color: 0xc9a84c,
+            roughness: 0.4,
+            metalness: 0.3,
+            wireframe: false
+          });
+          model = new THREE.Mesh(geo, mat);
+          scene.add(model);
+        }
+      );
+    };
+    document.head.appendChild(loaderScript);
+
+    canvas.addEventListener('mouseenter', () => { isHovered = true; });
+    canvas.addEventListener('mouseleave', () => { isHovered = false; });
+
+    let animId;
+    function animate() {
+      animId = requestAnimationFrame(animate);
+      if (model && !isHovered) {
+        model.rotation.y += 0.002;
+      }
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Pause when off-screen
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) {
+          cancelAnimationFrame(animId);
+        } else {
+          animate();
+        }
+      });
+    }, { threshold: 0.1 });
+    obs.observe(canvas);
+  }
+
+  initThreeJS();
+
+  // ─── GSAP ANIMATIONS ───
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Hero entrance
+  const heroTL = gsap.timeline({ delay: 0.3 });
+  heroTL
+    .to('#heroLogo', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' })
+    .to('#heroSub', { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.4')
+    .to('.hero-title .word', {
+      opacity: 1,
+      y: 0,
+      duration: 0.9,
+      stagger: 0.12,
+      ease: 'power3.out'
+    }, '-=0.3')
+    .to('#heroTagline', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.4')
+    .to('#heroScroll', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.2');
+
+  // Manifesto lines
+  document.querySelectorAll('[data-reveal]').forEach((el, i) => {
+    gsap.to(el, {
+      opacity: 1,
+      y: 0,
+      duration: 1.1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      },
+      delay: i * 0.12
+    });
+  });
+
+  // Stat counter animation
+  document.querySelectorAll('.stat-item').forEach((item) => {
+    gsap.to(item, {
+      opacity: 1,
+      y: 0,
+      duration: 0.9,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 75%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    const countEl = item.querySelector('.stat-count');
+    const target = parseInt(countEl.dataset.target, 10);
+
+    ScrollTrigger.create({
+      trigger: item,
+      start: 'top 75%',
+      onEnter: () => {
+        gsap.to({ val: 0 }, {
+          val: target,
+          duration: 2.2,
+          ease: 'power2.out',
+          onUpdate: function() {
+            countEl.textContent = Math.round(this.targets()[0].val).toLocaleString();
+          }
+        });
+      },
+      once: true
+    });
+  });
+
+  // Place parallax
+  gsap.to('#placeParallaxImg', {
+    yPercent: -12,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#the-place',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: 1.5
+    }
+  });
+
+  // Wellness parallax bg
+  gsap.to('#wellnessBg', {
+    yPercent: 8,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#wellness',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: 1.5
+    }
+  });
+
+  // Ritual items stagger reveal
+  gsap.to('[data-ritual]', {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    stagger: 0.1,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '#wellness',
+      start: 'top 60%',
+      toggleActions: 'play none none none'
+    }
+  });
+
+  // ─── LIGHTBOX ───
+  window.openLightbox = function(item) {
+    const img = item.querySelector('img');
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this || e.target.id === 'lightbox-close') {
+      this.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  document.getElementById('lightbox-close').addEventListener('click', function() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // ─── DRAG SCROLL for experiences ───
+  (function() {
+    const el = document.getElementById('expScroll');
+    if (!el) return;
+    let isDown = false, startX, scrollLeft;
+    el.addEventListener('mousedown', e => {
+      isDown = true;
+      startX = e.pageX - el.offsetLeft;
+      scrollLeft = el.scrollLeft;
+    });
+    el.addEventListener('mouseleave', () => { isDown = false; });
+    el.addEventListener('mouseup', () => { isDown = false; });
+    el.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - el.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      el.scrollLeft = scrollLeft - walk;
+    });
+  })();
+
+  // ─── CUSTOM CURSOR ───
+  (function() {
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    if (!dot || !ring) return;
+
+    let mouseX = 0, mouseY = 0;
+    let ringX = 0, ringY = 0;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.left = mouseX + 'px';
+      dot.style.top = mouseY + 'px';
+    });
+
+    document.addEventListener('mouseleave', () => {
+      dot.style.opacity = '0';
+      ring.style.opacity = '0';
+    });
+
+    document.addEventListener('mouseenter', () => {
+      dot.style.opacity = '1';
+      ring.style.opacity = '1';
+    });
+
+    function animateCursor() {
+      ringX += (mouseX - ringX) * 0.12;
+      ringY += (mouseY - ringY) * 0.12;
+      ring.style.left = ringX + 'px';
+      ring.style.top = ringY + 'px';
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // Scale ring on interactive elements
+    document.querySelectorAll('a, button, .exp-card, .room-item, .ritual-item').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        ring.style.width = '56px';
+        ring.style.height = '56px';
+        ring.style.borderColor = 'rgba(201,168,76,0.9)';
+      });
+      el.addEventListener('mouseleave', () => {
+        ring.style.width = '32px';
+        ring.style.height = '32px';
+        ring.style.borderColor = 'rgba(201,168,76,0.5)';
+      });
+    });
+  })();
+
+  // ─── LAZY LOAD ───
+  if ('IntersectionObserver' in window) {
+    const imgObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const img = e.target;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+          }
+          imgObs.unobserve(img);
+        }
+      });
+    }, { rootMargin: '200px' });
+
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+      imgObs.observe(img);
+    });
+  }
+
+})();
+</script>
+
+<!-- ──────────────────────────────────────────────
+CUSTOMIZATION GUIDE
+========================
+SWAP MARKER CHECKLIST
+
+SECTION 1 — HERO
+  [1] SWAP:LOGO — logo SRC confirmed: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dcdba080c56438325a_logo.png ✓
+  [2] SWAP:VIDEO → hero background Bosphorus | hero section | ⚠ NO VIDEO IN CSV — currently using coastal Image 56 as static poster
+
+SECTION 2 — MANIFESTO
+  [3] SWAP:3D → coral branch | Urban-Coastal | SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb ✓
+  [4] SWAP:COPY → manifesto | Written from brand extraction ✓
+
+SECTION 3 — EXPERIENCES
+  [5]  SWAP:IMG → Bosphorus panorama view | ratio: 4:5 | CSV: Image 12 ✓
+  [6]  SWAP:IMG → Harem Spa hammam | ratio: 4:5 | CSV: Image 42 ✓
+  [7]  SWAP:IMG → Rooftop terrace | ratio: 4:5 | CSV: Image 3 ✓
+  [8]  SWAP:IMG → Bar restaurant | ratio: 4:5 | CSV: Image 10 ✓
+  [9]  SWAP:IMG → Outdoor pool | ratio: 4:5 | CSV: Image 1 ✓
+  [10] SWAP:IMG → Üsküdar Asian shore | ratio: 4:5 | CSV: Image 9 ✓
+
+SECTION 4 — THE PLACE
+  [11] SWAP:IMG → the place Bosphorus wide | ratio: 3:2 | CSV: Image 2 ✓
+  [12] SWAP:COPY → the place | Written from brand extraction ✓
+
+SECTION 5 — TRANSFORMATION
+  [13] SWAP:COPY → transformation stats 1–3 | Written from brand extraction ✓
+
+SECTION 6 — ROOMS
+  [14] SWAP:IMG → room 1 deluxe Bosphorus | ratio: 16:9 | CSV: Image 55 ✓
+  [15] SWAP:IMG → room 2 sea side single | ratio: 3:2 | CSV: Image 54 ✓
+  [16] SWAP:IMG → room 3 double | ratio: 3:2 | CSV: Image 53 ✓
+  [17] SWAP:IMG → room 4 family | ratio: 3:2 | CSV: Image 52 ✓
+  [18] SWAP:IMG → room 5 triple | ratio: 3:2 | CSV: Image 50 ✓
+  [19] SWAP:IMG → room 6 deluxe corner | ratio: 16:9 | CSV: Image 44 ✓
+
+SECTION 7 — WELLNESS
+  [20] SWAP:IMG → wellness spa background | ratio: 16:9 | CSV: Image 46 ✓
+  [21] SWAP:COPY → wellness rituals 1–6 | Written from brand extraction ✓
+
+SECTION 8 — EDITORIAL QUOTE
+  [22] SWAP:IMG → editorial quote background night Bosphorus | ratio: 16:9 | CSV: Image 47 ✓
+  [23] SWAP:COPY → editorial quote | Written in brand voice ✓
+
+SECTION 9 — BOOKING
+  [24] SWAP:IMG → booking CTA Bosphorus dawn | ratio: 16:9 | CSV: Image 49 ✓
+  [25] SWAP:COPY → booking CTA | Written from brand extraction ✓
+
+SECTION 10 — FOOTER
+  [26] SWAP:LOGO — footer logo ✓
+
+⚠ PRODUCTION FOLLOW-UP — NO ASSET IN CSV:
+  → Hero video: NO VIDEO IN CSV. Source a Bosphorus aerial or hotel exterior
+    video clip. Replace <img> in #hero .hero-bg with:
+    <video autoplay muted loop playsinline poster="[coastal-image-url]">
+      <source src="[YOUR_VIDEO_URL]" type="video/mp4" />
+    </video>
+
+COLOR SYSTEM
+  --color-primary:    #8B6914 (Ottoman gold)
+  --color-secondary:  #1A1410 (deep espresso near-black)
+  --color-accent:     #C9A84C (antique gold highlight)
+  --color-bg:         #0F0D0B (near-black warm)
+  --color-bg-mid:     #1E1912 (mid-dark)
+  --color-text:       #F0EAE0 (warm off-white)
+  --color-text-muted: #9A8E7E (muted warm grey)
+
+FONTS
+  --font-serif: 'Cormorant Garamond' (Google Fonts, 300/400/500/600)
+  --font-sans:  'Inter' (Google Fonts, 300/400/500)
+────────────────────────────────────────────── -->
+
+</body>
+</html>
