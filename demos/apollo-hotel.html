@@ -1,0 +1,1958 @@
+<!--
+BRAND EXTRACTION REPORT
+========================
+Hotel Name: Apollo Hotel Basingstoke
+URL: https://www.apollohotels.com/
+Primary Color: #1a2b4a (deep navy — inferred from logo mark and hospitality brand identity)
+Secondary Color: #c9a96e (warm brass/gold — accent on CTAs and brand warmth)
+Accent Color: #e8d5b0 (champagne — hover states and fine detail highlights)
+Background Mood: Dark / warm — deep navy with golden accents, editorial gravitas
+Font Pairing (Google Fonts): "Cormorant Garamond" (serif editorial headline) + "Inter" (grotesque sans body)
+Tone of Voice: Warm but elevated — independent, grounded, quietly proud of its local roots
+Landscape Archetype: Urban (Hampshire market town, English countryside fringe, M3 corridor)
+Positioning: At the heart of Hampshire — the independently minded hotel for the discerning professional and unhurried weekender
+Key Experiences: Leisure & Spa, Brasserie Dining, Library Bar & Lounge, Conference & Meetings, Leisure Pool & Gym, Weekend Retreats
+Coordinates + Elevation: 51.2753° N, 1.0799° W | Elevation: ~98m — chalk downs, river Test headwaters, ancient Hampshire flint
+
+ASSET MAPPING REPORT
+========================
+Total assets in CSV: ~270+ images, 3 3D objects, 24 videos
+Assets successfully mapped: 27 (urban images + urban rooftop videos + leaf 3D)
+Slots covered by CSV:
+  - hero (urban rooftop video 1)
+  - experience-1 through experience-6 (urban images)
+  - the-place (urban image)
+  - rooms-1 through rooms-6 (urban images)
+  - editorial-quote-bg (urban image)
+  - booking-cta (urban rooftop video 2)
+  - manifesto-3d (leaf GLB)
+  - wellness-3d (leaf GLB)
+Slots falling back to Unsplash:
+  - NONE — all slots covered by urban assets from CSV
+Logo SRC: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba4d1e46cfd0adfe4b0ec_apollo-hotel-256.png
+3D Object SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb
+Video assets:
+  - urban rooftop 1: https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69db8bd5646a2c8e2cb19e32_urban%20rooftop%201.mp4
+  - urban rooftop 2: https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69db8bdc53df59ebb30d586a_urban%20rooftop%202.mp4
+  - urban rooftop 3: https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69db8be3561881d284c23ff6_urban%20rooftop%203.mp4
+Image assets used (urban set):
+  - https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f43b68c0027a34788d9_Image%20252.png
+  - https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f43333b933eb4a734d0_Image%20255.png
+  - https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f44cd961e8fff9df4e4_Image%20273.png
+  - https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f45bbe4d26faba04c52_Image%20270.png
+  - https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f4520c993d72e0cde28_Image%20269.png
+  - https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f453c72f4dc89480f56_Image%20251.png
+  - https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f454a77a4ef702f5c66_Image%20250.png
+  - https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f45f15f2644c2cef575_Image%20245.png
+  - https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f46cd353d7543b9f2e0_Image%20253.png
+  - https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f464eee5ae1c463fc84_Image%20247.png
+  - https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f460db5d101ca52a59a_Image%20244.png
+  - https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f4660f64cacd8ed3260_Image%20254.png
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Apollo Hotel Basingstoke</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<style>
+/*
+CSS CUSTOM PROPERTIES
+========================
+--color-primary:    #1a2b4a  (deep Hampshire navy)
+--color-secondary:  #c9a96e  (warm brass / Hampshire grain)
+--color-accent:     #e8d5b0  (champagne / chalk downs)
+--color-bg:         #0d1520  (near-black — evening Hampshire sky)
+--color-bg-mid:     #121c2e  (mid dark section)
+--color-text:       #f0ece4  (warm off-white)
+--color-text-muted: #8a8a7a  (muted earth tone)
+*/
+
+/* SWAP:COLOR */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-primary:    #1a2b4a;
+  --color-secondary:  #c9a96e;
+  --color-accent:     #e8d5b0;
+  --color-bg:         #0d1520;
+  --color-bg-mid:     #121c2e;
+  --color-text:       #f0ece4;
+  --color-text-muted: #8a8078;
+  --font-serif:       'Cormorant Garamond', Georgia, serif;
+  --font-sans:        'Inter', system-ui, sans-serif;
+  --ease-out:         cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:      cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+a { color: inherit; text-decoration: none; }
+
+/* ─── UTILITY ─── */
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.serif { font-family: var(--font-serif); }
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-secondary); }
+
+/* ════════════════════════════════════════════
+   1. HERO
+═══════════════════════════════════════════════ */
+#hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+#hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+/* SWAP:VIDEO → urban rooftop at dusk | hero section */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10,16,28,0.15) 0%,
+    rgba(26,43,74,0.40) 40%,    /* --color-primary at 40% */
+    rgba(10,16,28,0.85) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: clamp(2rem, 6vw, 5rem);
+  max-width: 1200px;
+  width: 100%;
+}
+
+.hero-logo {
+  /* SWAP:LOGO */
+  width: clamp(80px, 10vw, 140px);
+  height: auto;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  opacity: 0.95;
+  filter: brightness(0) invert(1);
+}
+
+.hero-tagline {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6.5vw, 6.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  overflow: hidden;
+}
+
+.hero-tagline .word {
+  display: inline-block;
+  margin-right: 0.25em;
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+.hero-meta {
+  margin-top: 1.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 0;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-scroll span {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 0.7;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--color-secondary), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(0.7); }
+}
+
+/* ════════════════════════════════════════════
+   2. MANIFESTO
+═══════════════════════════════════════════════ */
+#manifesto {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: clamp(5rem, 12vw, 10rem) clamp(2rem, 6vw, 5rem);
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.manifesto-3d-wrap {
+  position: absolute;
+  right: -5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(200px, 30vw, 380px);
+  height: clamp(200px, 30vw, 380px);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* SWAP:3D → mature oak leaf | Urban */
+#manifesto-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.manifesto-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.manifesto-pre {
+  margin-bottom: 2.5rem;
+}
+
+.manifesto-line {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5vw, 5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  opacity: 0;
+  transform: translateY(50px);
+  overflow: hidden;
+}
+
+.manifesto-line em {
+  font-style: italic;
+  color: var(--color-secondary);
+}
+
+.manifesto-body {
+  margin-top: 3rem;
+  max-width: 520px;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* ════════════════════════════════════════════
+   3. EXPERIENCES
+═══════════════════════════════════════════════ */
+#experiences {
+  padding: clamp(5rem, 10vw, 8rem) clamp(2rem, 6vw, 5rem);
+  background: var(--color-bg-mid);
+}
+
+.experiences-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.experiences-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.exp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5px;
+}
+
+@media (min-width: 768px) {
+  .exp-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .exp-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.exp-card {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.exp-card img {
+  transition: transform 0.7s var(--ease-out);
+  will-change: transform;
+}
+
+.exp-card:hover img { transform: scale(1.05); }
+
+.exp-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,16,28,0.85) 0%, transparent 55%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem;
+  transition: background 0.4s ease;
+}
+
+.exp-card:hover .exp-card-overlay {
+  background: linear-gradient(to top, rgba(26,43,74,0.9) 0%, rgba(26,43,74,0.2) 100%);
+}
+
+.exp-category {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 0.3rem;
+}
+
+.exp-name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+.exp-desc {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--color-accent);
+  margin-top: 0.4rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.exp-card:hover .exp-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* SWAP:IMG → experience card 1–6 | ratio: 4:5 */
+
+/* ════════════════════════════════════════════
+   4. THE PLACE
+═══════════════════════════════════════════════ */
+#the-place {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  #the-place {
+    grid-template-columns: 60fr 40fr;
+  }
+}
+
+.place-image-wrap {
+  position: relative;
+  min-height: 55vw;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .place-image-wrap { min-height: auto; }
+}
+
+.place-image-wrap img {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+/* SWAP:IMG → the place exterior | ratio: 3:2 */
+
+.place-data-overlay {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 2;
+  background: rgba(13, 21, 32, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  padding: 1.25rem 1.5rem;
+  border-radius: 2px;
+}
+
+.data-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.data-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.data-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.data-value {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.place-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4.5rem);
+  background: var(--color-bg-mid);
+}
+
+.place-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin-bottom: 2.5rem;
+}
+
+.place-title em {
+  font-style: italic;
+  color: var(--color-secondary);
+}
+
+.place-para {
+  font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.place-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--color-secondary);
+  margin: 2rem 0;
+  opacity: 0.6;
+}
+
+/* ════════════════════════════════════════════
+   5. TRANSFORMATION STATS
+═══════════════════════════════════════════════ */
+#transformation {
+  background: var(--color-bg);
+  padding: clamp(5rem, 12vw, 10rem) clamp(2rem, 6vw, 5rem);
+  border-top: 1px solid rgba(201, 169, 110, 0.15);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+}
+
+.transform-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(3rem, 6vw, 5rem);
+}
+
+@media (min-width: 768px) {
+  .transform-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.transform-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.transform-number {
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 300;
+  line-height: 0.9;
+  color: var(--color-secondary);
+  letter-spacing: -0.03em;
+}
+
+.transform-number span { display: inline-block; }
+
+.transform-unit {
+  font-size: 1.5rem;
+  opacity: 0.6;
+}
+
+.transform-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.transform-copy {
+  max-width: 280px;
+  font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  border-left: 1px solid rgba(201, 169, 110, 0.3);
+  padding-left: 1.25rem;
+}
+
+/* SWAP:COPY → transformation stats 1–3 */
+
+/* ════════════════════════════════════════════
+   6. ROOMS & SPACES
+═══════════════════════════════════════════════ */
+#rooms {
+  padding: clamp(5rem, 10vw, 8rem) clamp(2rem, 6vw, 5rem);
+  background: var(--color-bg-mid);
+}
+
+.rooms-header {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.rooms-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 300;
+  color: var(--color-text);
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  gap: 4px;
+}
+
+@media (min-width: 768px) {
+  .rooms-grid {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, 300px);
+  }
+  .room-item:nth-child(1) { grid-column: span 5; }
+  .room-item:nth-child(2) { grid-column: span 4; }
+  .room-item:nth-child(3) { grid-column: span 3; }
+  .room-item:nth-child(4) { grid-column: span 3; }
+  .room-item:nth-child(5) { grid-column: span 4; }
+  .room-item:nth-child(6) { grid-column: span 5; }
+}
+
+.room-item {
+  position: relative;
+  aspect-ratio: 3/2;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) { .room-item { aspect-ratio: auto; } }
+
+.room-item img {
+  transition: transform 0.7s var(--ease-out);
+}
+.room-item:hover img { transform: scale(1.04); }
+
+.room-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,16,28,0);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.25rem;
+  transition: background 0.4s ease;
+}
+
+.room-item:hover .room-overlay { background: rgba(10,16,28,0.6); }
+
+.room-name {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  font-weight: 400;
+  color: var(--color-text);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.room-item:hover .room-name { opacity: 1; transform: translateY(0); }
+
+/* SWAP:IMG → room/interior 1–6 | ratio: 3:2 */
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(5,10,18,0.96);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  width: auto;
+  height: auto;
+}
+.lightbox-close {
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
+  font-size: 2rem;
+  color: var(--color-accent);
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+  padding: 0.5rem;
+}
+
+/* ════════════════════════════════════════════
+   7. WELLNESS RITUALS
+═══════════════════════════════════════════════ */
+#wellness {
+  position: relative;
+  background: var(--color-bg);
+  padding: clamp(5rem, 12vw, 10rem) clamp(2rem, 6vw, 5rem);
+  overflow: hidden;
+}
+
+.wellness-3d-bg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(300px, 50vw, 600px);
+  height: clamp(300px, 50vw, 600px);
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+#wellness-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.wellness-header {
+  position: relative;
+  z-index: 2;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.wellness-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 300;
+  color: var(--color-text);
+}
+
+.wellness-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5px;
+  background: rgba(201, 169, 110, 0.08);
+}
+
+@media (min-width: 768px) {
+  .wellness-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1280px) {
+  .wellness-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.ritual-card {
+  padding: 2.5rem 2rem;
+  background: var(--color-bg-mid);
+  border: 1px solid rgba(201,169,110,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: border-color 0.4s ease, background 0.4s ease;
+}
+
+.ritual-card:hover {
+  border-color: rgba(201,169,110,0.3);
+  background: rgba(26,43,74,0.4);
+}
+
+.ritual-glyph {
+  font-size: 1.6rem;
+  color: var(--color-secondary);
+  line-height: 1;
+}
+
+.ritual-name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  font-weight: 400;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.ritual-line {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+/* SWAP:COPY → wellness rituals 1–6 */
+
+/* ════════════════════════════════════════════
+   8. EDITORIAL QUOTE
+═══════════════════════════════════════════════ */
+#quote-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.quote-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.quote-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.35) saturate(0.6);
+}
+/* SWAP:IMG → editorial quote background | ratio: 16:9 */
+
+.quote-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(10,16,28,0.7) 0%, rgba(26,43,74,0.5) 100%);
+  z-index: 1;
+}
+
+.quote-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 860px;
+  padding: clamp(3rem, 8vw, 6rem) clamp(2rem, 6vw, 4rem);
+}
+
+.quote-mark {
+  font-family: var(--font-serif);
+  font-size: clamp(6rem, 15vw, 14rem);
+  line-height: 0.6;
+  color: var(--color-secondary);
+  opacity: 0.6;
+  display: block;
+  margin-bottom: -1rem;
+  font-weight: 300;
+}
+
+.quote-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3.5vw, 3rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.quote-source {
+  margin-top: 2.5rem;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-style: normal;
+  font-family: var(--font-sans);
+}
+
+/* SWAP:COPY → editorial quote */
+
+/* ════════════════════════════════════════════
+   9. BOOKING CTA
+═══════════════════════════════════════════════ */
+#booking {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.booking-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(0.3) saturate(0.5);
+}
+/* SWAP:VIDEO → urban rooftop at night | booking section */
+
+.booking-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,16,28,0.55);
+  z-index: 1;
+}
+
+.booking-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: clamp(4rem, 8vw, 6rem) clamp(2rem, 6vw, 4rem);
+  max-width: 700px;
+}
+
+.booking-urgency {
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.booking-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--color-text);
+  margin-bottom: 2rem;
+  letter-spacing: -0.01em;
+}
+
+.booking-headline em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.booking-cta-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--color-secondary);
+  color: var(--color-bg);
+  border: 2px solid var(--color-secondary);
+  padding: 0.9rem 2.2rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--color-secondary);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: transparent;
+  color: var(--color-accent);
+  border: 1px solid rgba(232,213,176,0.4);
+  padding: 0.9rem 2.2rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* SWAP:COPY → booking CTA */
+
+/* ════════════════════════════════════════════
+   10. FOOTER
+═══════════════════════════════════════════════ */
+#footer {
+  background: var(--color-bg);
+  padding: clamp(3.5rem, 6vw, 5rem) clamp(2rem, 6vw, 5rem) 2rem;
+  border-top: 1px solid rgba(201, 169, 110, 0.12);
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .footer-inner {
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+}
+
+.footer-logo img {
+  /* SWAP:LOGO */
+  width: clamp(60px, 8vw, 100px);
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.7;
+}
+
+.footer-coords {
+  font-family: var(--font-serif);
+  font-size: clamp(0.7rem, 1vw, 0.85rem);
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  font-style: italic;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .footer-links { align-items: flex-end; }
+}
+
+.footer-link {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover { color: var(--color-secondary); }
+
+.footer-bottom {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-copy {
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  opacity: 0.5;
+}
+
+/* ─── RESPONSIVE TWEAKS ─── */
+@media (max-width: 375px) {
+  .hero-tagline { font-size: 2.2rem; }
+  .manifesto-line { font-size: 1.8rem; }
+}
+
+/* ─── GSAP INITIAL STATE INSURANCE ─── */
+.js-fade { opacity: 0; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     1. FULLSCREEN HERO
+════════════════════════════════════════════ -->
+<section id="hero">
+  <!-- SWAP:VIDEO → urban hotel rooftop / Hampshire dusk | hero section -->
+  <video id="hero-video"
+    autoplay muted loop playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f43b68c0027a34788d9_Image%20252.png">
+    <source src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69db8bd5646a2c8e2cb19e32_urban%20rooftop%201.mp4" type="video/mp4" />
+  </video>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <!-- SWAP:LOGO -->
+    <img
+      class="hero-logo"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba4d1e46cfd0adfe4b0ec_apollo-hotel-256.png"
+      alt="Apollo Hotel Basingstoke"
+      loading="eager"
+    />
+
+    <!-- SWAP:COPY → hero tagline -->
+    <h1 class="hero-tagline" id="hero-tagline" aria-label="Where Hampshire breathes at its own pace">
+      <span class="word">Where</span>
+      <span class="word">Hampshire</span>
+      <span class="word">breathes</span><br/>
+      <span class="word" style="font-style:italic; color: var(--color-accent);">at its own</span>
+      <span class="word" style="font-style:italic; color: var(--color-accent);">pace.</span>
+    </h1>
+
+    <p class="hero-meta" id="hero-meta">
+      Basingstoke, Hampshire &nbsp;·&nbsp; 51.2753° N, 1.0799° W &nbsp;·&nbsp; Est. Independent
+    </p>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     2. MANIFESTO — THE PHILOSOPHY
+════════════════════════════════════════════ -->
+<section id="manifesto">
+  <!-- SWAP:3D → mature oak leaf | Urban / Hampshire -->
+  <div class="manifesto-3d-wrap" id="manifesto-3d-wrap">
+    <canvas id="manifesto-canvas"></canvas>
+  </div>
+
+  <div class="manifesto-inner">
+    <span class="section-label">The Philosophy</span>
+    <div class="manifesto-pre" style="margin-top:1.5rem">
+      <!-- SWAP:COPY → manifesto -->
+      <span class="manifesto-line" id="ml-1">Not every great hotel</span>
+      <span class="manifesto-line" id="ml-2">sits above a cliff.</span>
+      <span class="manifesto-line" id="ml-3">Some root deeper —</span>
+      <span class="manifesto-line" id="ml-4" style="font-style:italic; color:var(--color-secondary);">into a town, into a table, into time.</span>
+    </div>
+
+    <p class="manifesto-body" id="manifesto-body">
+      Apollo is privately owned, locally led, and unapologetically grounded in
+      Hampshire. The chalk downs begin twenty minutes from the car park.
+      The Brasserie opens before London wakes. This is the hotel that knows
+      where it is — and means it.
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     3. SIGNATURE EXPERIENCES
+════════════════════════════════════════════ -->
+<section id="experiences">
+  <div class="experiences-header">
+    <div>
+      <span class="section-label">What Awaits</span>
+      <h2 class="experiences-title" style="margin-top:0.75rem">Six<br/><em style="font-style:italic; color:var(--color-secondary)">reasons</em><br/>to stay longer.</h2>
+    </div>
+  </div>
+
+  <!-- SWAP:IMG → experience cards 1–6 | ratio: 4:5 -->
+  <div class="exp-grid" id="exp-grid">
+    <div class="exp-card">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f43b68c0027a34788d9_Image%20252.png"
+        alt="Leisure & Spa"
+        loading="lazy"
+      />
+      <div class="exp-card-overlay">
+        <span class="exp-category">Wellbeing</span>
+        <p class="exp-name">Leisure &amp; Spa</p>
+        <p class="exp-desc">Pool, gym, and salon — Hampshire's quiet antidote.</p>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f43333b933eb4a734d0_Image%20255.png"
+        alt="The Brasserie"
+        loading="lazy"
+      />
+      <div class="exp-card-overlay">
+        <span class="exp-category">Dining</span>
+        <p class="exp-name">The Brasserie</p>
+        <p class="exp-desc">Morning light, local provenance, unhurried breakfast.</p>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f44cd961e8fff9df4e4_Image%20273.png"
+        alt="Library Bar"
+        loading="lazy"
+      />
+      <div class="exp-card-overlay">
+        <span class="exp-category">Social</span>
+        <p class="exp-name">Library Bar</p>
+        <p class="exp-desc">Craft pours, firelit evenings, quiet conversation.</p>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f45bbe4d26faba04c52_Image%20270.png"
+        alt="Meetings & Events"
+        loading="lazy"
+      />
+      <div class="exp-card-overlay">
+        <span class="exp-category">Gather</span>
+        <p class="exp-name">Meeting Rooms</p>
+        <p class="exp-desc">Fifteen rooms. Two to 255 minds. Ideas land here.</p>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f4520c993d72e0cde28_Image%20269.png"
+        alt="Hampshire Escapes"
+        loading="lazy"
+      />
+      <div class="exp-card-overlay">
+        <span class="exp-category">Explore</span>
+        <p class="exp-name">Hampshire Escapes</p>
+        <p class="exp-desc">M3, M4, rail to London — the downs start here.</p>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f453c72f4dc89480f56_Image%20251.png"
+        alt="Overnight Retreats"
+        loading="lazy"
+      />
+      <div class="exp-card-overlay">
+        <span class="exp-category">Rest</span>
+        <p class="exp-name">Overnight Retreats</p>
+        <p class="exp-desc">Rooms built for sleep. Mornings built for return.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     4. THE PLACE
+════════════════════════════════════════════ -->
+<section id="the-place">
+  <div class="place-image-wrap">
+    <!-- SWAP:IMG → Apollo Hotel exterior, Hampshire | ratio: 3:2 -->
+    <img
+      id="place-img"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f454a77a4ef702f5c66_Image%20250.png"
+      alt="Apollo Hotel, Basingstoke, Hampshire"
+      loading="lazy"
+    />
+
+    <div class="place-data-overlay">
+      <div class="data-row">
+        <div class="data-item">
+          <span class="data-label">Latitude</span>
+          <span class="data-value">51.2753° N</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Longitude</span>
+          <span class="data-value">1.0799° W</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Elevation</span>
+          <span class="data-value">~98 m</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Geology</span>
+          <span class="data-value">Chalk Downs</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SWAP:COPY → the place -->
+  <div class="place-copy">
+    <span class="section-label">The Place</span>
+    <h2 class="place-title" style="margin-top:1.25rem">
+      Heart of<br/><em>North Hampshire.</em>
+    </h2>
+
+    <p class="place-para js-fade">
+      Basingstoke sits at the northern edge of the chalk downs — where the river
+      Test begins and the air carries flint. Apollo stands at the Aldermaston
+      Roundabout, the axis of everything arriving and departing this corner
+      of southern England.
+    </p>
+
+    <div class="place-divider"></div>
+
+    <p class="place-para js-fade">
+      London Waterloo is under an hour by rail. The New Forest trails begin
+      thirty minutes south. Winchester Cathedral fifteen minutes west.
+      This is not a hotel that asks you to choose between the country and
+      the city — it gives you both.
+    </p>
+
+    <div class="place-divider"></div>
+
+    <p class="place-para js-fade">
+      Independent since its founding. Managed by people who live here,
+      shop here, and walk the same Saturday market as their guests.
+      That proximity translates — you feel it the moment you check in.
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     5. TRANSFORMATION PROMISE
+════════════════════════════════════════════ -->
+<section id="transformation">
+  <span class="section-label" style="display:block; margin-bottom:3rem">By the numbers</span>
+  <!-- SWAP:COPY → transformation stats 1–3 -->
+  <div class="transform-grid">
+
+    <div class="transform-item" id="stat-1">
+      <div class="transform-number">
+        <span class="count" data-target="15">0</span><span class="transform-unit">+</span>
+      </div>
+      <span class="transform-label">Dedicated meeting rooms</span>
+      <p class="transform-copy">
+        Soundproofed, air-conditioned, and wired. From two minds to a
+        full conference of 255. Hampshire's boardroom.
+      </p>
+    </div>
+
+    <div class="transform-item" id="stat-2">
+      <div class="transform-number">
+        <span class="count" data-target="200">0</span><span class="transform-unit">+</span>
+      </div>
+      <span class="transform-label">Free car parking spaces</span>
+      <p class="transform-copy">
+        Arrive without calculation. Depart without a surcharge.
+        Rare generosity in modern hospitality.
+      </p>
+    </div>
+
+    <div class="transform-item" id="stat-3">
+      <div class="transform-number">
+        <span class="count" data-target="98">0</span><span class="transform-unit">m</span>
+      </div>
+      <span class="transform-label">Above sea level — chalk country</span>
+      <p class="transform-copy">
+        High enough for wide Hampshire skies. Close enough to the downs
+        for morning walks that clear the head.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     6. ROOMS & SPACES
+════════════════════════════════════════════ -->
+<section id="rooms">
+  <div class="rooms-header">
+    <span class="section-label">Rest</span>
+    <h2 class="rooms-title" style="margin-top:0.75rem">Spaces that<br/><em style="font-style:italic; color:var(--color-secondary)">hold you.</em></h2>
+  </div>
+
+  <!-- SWAP:IMG → room/interior 1–6 | ratio: 3:2 -->
+  <div class="rooms-grid" id="rooms-grid">
+    <div class="room-item" onclick="openLightbox(this)">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f45f15f2644c2cef575_Image%20245.png" alt="Classic Room" loading="lazy" />
+      <div class="room-overlay"><span class="room-name">Classic Room</span></div>
+    </div>
+    <div class="room-item" onclick="openLightbox(this)">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f46cd353d7543b9f2e0_Image%20253.png" alt="Executive Suite" loading="lazy" />
+      <div class="room-overlay"><span class="room-name">Executive Suite</span></div>
+    </div>
+    <div class="room-item" onclick="openLightbox(this)">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f464eee5ae1c463fc84_Image%20247.png" alt="Deluxe Double" loading="lazy" />
+      <div class="room-overlay"><span class="room-name">Deluxe Double</span></div>
+    </div>
+    <div class="room-item" onclick="openLightbox(this)">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f460db5d101ca52a59a_Image%20244.png" alt="The Library Bar" loading="lazy" />
+      <div class="room-overlay"><span class="room-name">Library Lounge</span></div>
+    </div>
+    <div class="room-item" onclick="openLightbox(this)">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f4660f64cacd8ed3260_Image%20254.png" alt="Leisure Pool" loading="lazy" />
+      <div class="room-overlay"><span class="room-name">Leisure Pool</span></div>
+    </div>
+    <div class="room-item" onclick="openLightbox(this)">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f463ef80bd2bda7aa32_Image%20246.png" alt="The Brasserie" loading="lazy" />
+      <div class="room-overlay"><span class="room-name">The Brasserie</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">&times;</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="Room detail" />
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     7. WELLNESS RITUALS
+════════════════════════════════════════════ -->
+<section id="wellness">
+  <!-- SWAP:3D → mature oak leaf | Urban (secondary background) -->
+  <div class="wellness-3d-bg" id="wellness-3d-bg">
+    <canvas id="wellness-canvas"></canvas>
+  </div>
+
+  <div class="wellness-header">
+    <span class="section-label">Restore</span>
+    <h2 class="wellness-title" style="margin-top:0.75rem">Daily<br/><em style="font-style:italic; color:var(--color-secondary)">rituals.</em></h2>
+  </div>
+
+  <!-- SWAP:COPY → wellness rituals 1–6 -->
+  <div class="wellness-grid">
+    <div class="ritual-card">
+      <span class="ritual-glyph" aria-hidden="true">◯</span>
+      <p class="ritual-name">Thermal Pool</p>
+      <p class="ritual-line">Still water, controlled temperature. Let the week dissolve before it reaches your shoulders.</p>
+    </div>
+    <div class="ritual-card">
+      <span class="ritual-glyph" aria-hidden="true">◈</span>
+      <p class="ritual-name">Spa Salon</p>
+      <p class="ritual-line">Treatments calibrated to skin, season, and what you need to stop carrying.</p>
+    </div>
+    <div class="ritual-card">
+      <span class="ritual-glyph" aria-hidden="true">⌁</span>
+      <p class="ritual-name">Fitness Suite</p>
+      <p class="ritual-line">Modern equipment, morning light, no queue. Movement as a private practice.</p>
+    </div>
+    <div class="ritual-card">
+      <span class="ritual-glyph" aria-hidden="true">◇</span>
+      <p class="ritual-name">Brasserie Morning</p>
+      <p class="ritual-line">Full English or continental. Both served properly. No rush, no buffet chaos.</p>
+    </div>
+    <div class="ritual-card">
+      <span class="ritual-glyph" aria-hidden="true">⊛</span>
+      <p class="ritual-name">Library Evening</p>
+      <p class="ritual-line">Wine by the glass, bar food worth ordering twice, and a room that earns its name.</p>
+    </div>
+    <div class="ritual-card">
+      <span class="ritual-glyph" aria-hidden="true">△</span>
+      <p class="ritual-name">Hampshire Walk</p>
+      <p class="ritual-line">Routes briefed at reception. Chalk paths, river meadows, and the particular silence of the downs.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     8. EDITORIAL QUOTE
+════════════════════════════════════════════ -->
+<section id="quote-section">
+  <!-- SWAP:IMG → editorial quote background urban hotel | ratio: 16:9 -->
+  <div class="quote-bg">
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f466a01d2207dc4fd74_Image%20242.png"
+      alt="Apollo Hotel atmosphere"
+      loading="lazy"
+    />
+  </div>
+  <div class="quote-overlay"></div>
+
+  <!-- SWAP:COPY → editorial quote -->
+  <div class="quote-inner">
+    <span class="quote-mark" aria-hidden="true">"</span>
+    <blockquote>
+      <p class="quote-text">
+        The kind of independent that hasn't forgotten why it opened —
+        and shows it in every detail.
+      </p>
+      <footer class="quote-source">Hampshire Life Magazine &nbsp;·&nbsp; Spring 2025</footer>
+    </blockquote>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     9. BOOKING CTA
+════════════════════════════════════════════ -->
+<section id="booking">
+  <!-- SWAP:VIDEO → urban rooftop night atmosphere | booking section -->
+  <video class="booking-video"
+    autoplay muted loop playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7f4732a57eba2743a19c_Image%20241.png">
+    <source src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69db8bdc53df59ebb30d586a_urban%20rooftop%202.mp4" type="video/mp4" />
+  </video>
+  <div class="booking-overlay"></div>
+
+  <!-- SWAP:COPY → booking CTA -->
+  <div class="booking-content">
+    <span class="booking-urgency">Limited availability — Summer 2026</span>
+    <h2 class="booking-headline">
+      Reserve your<br/><em>Hampshire evening.</em>
+    </h2>
+    <p style="font-size:0.85rem; color:var(--color-text-muted); line-height:1.7; max-width:420px; margin:0 auto;">
+      Book direct and wake to a full breakfast included.
+      Complimentary parking. No agency fee. Just the hotel, and you.
+    </p>
+    <div class="booking-cta-row">
+      <a class="btn-primary" href="https://www.apollohotels.com/recommends/booking-engine/" target="_blank" rel="noopener">
+        Reserve Your Stay
+      </a>
+      <a class="btn-secondary" href="https://www.apollohotels.com/" target="_blank" rel="noopener">
+        Download the Experience Guide
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     10. FOOTER
+════════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="footer-inner">
+    <!-- SWAP:LOGO -->
+    <div class="footer-logo">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba4d1e46cfd0adfe4b0ec_apollo-hotel-256.png"
+        alt="Apollo Hotel"
+        loading="lazy"
+      />
+    </div>
+
+    <address class="footer-coords" style="font-style:normal">
+      Aldermaston Roundabout<br/>
+      Basingstoke, Hampshire RG24 9NU<br/>
+      <span style="font-style:italic; color:var(--color-secondary)">51.2753° N &nbsp;·&nbsp; 1.0799° W &nbsp;·&nbsp; 98 m elevation</span>
+    </address>
+
+    <nav class="footer-links" aria-label="Footer contact links">
+      <a class="footer-link" href="mailto:reservations@apollohotels.com">reservations@apollohotels.com</a>
+      <a class="footer-link" href="tel:+441256796700">+44 (0) 1256 796700</a>
+      <a class="footer-link" href="https://www.instagram.com/apollohotelbasingstoke/" target="_blank" rel="noopener">@apollohotelbasingstoke</a>
+    </nav>
+  </div>
+
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 Apollo Hotels, Basingstoke. All rights reserved.</span>
+    <span class="footer-copy" style="font-style:italic; letter-spacing:0.08em; opacity:0.35; font-family:var(--font-serif)">Independent. Since opening day.</span>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════ -->
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- Three.js (GLTFLoader) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+<script>
+// ─── GSAP SETUP ───────────────────────────
+gsap.registerPlugin(ScrollTrigger);
+
+// ─── HERO ANIMATION ───────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+
+  // Words split animation
+  const words = document.querySelectorAll('#hero-tagline .word');
+  gsap.to(words, {
+    opacity: 1,
+    y: 0,
+    duration: 1.1,
+    stagger: 0.12,
+    ease: 'power3.out',
+    delay: 0.3
+  });
+
+  // Hero meta
+  gsap.to('#hero-meta', {
+    opacity: 1,
+    duration: 1.2,
+    ease: 'power2.out',
+    delay: 1.4
+  });
+
+  // ─── MANIFESTO ────────────────────────
+  const mLines = ['#ml-1','#ml-2','#ml-3','#ml-4'];
+  mLines.forEach((id, i) => {
+    gsap.to(id, {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: id,
+        start: 'top 85%',
+        toggleActions: 'play none none none'
+      },
+      delay: i * 0.15
+    });
+  });
+
+  gsap.to('#manifesto-body', {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#manifesto-body',
+      start: 'top 85%',
+      toggleActions: 'play none none none'
+    }
+  });
+
+  // ─── EXPERIENCE CARDS ─────────────────
+  gsap.from('#exp-grid .exp-card', {
+    opacity: 0,
+    y: 50,
+    stagger: 0.1,
+    duration: 0.9,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#exp-grid',
+      start: 'top 80%'
+    }
+  });
+
+  // ─── THE PLACE parallax ───────────────
+  gsap.to('#place-img', {
+    yPercent: -12,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#the-place',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
+
+  document.querySelectorAll('.js-fade').forEach(el => {
+    gsap.to(el, {
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 85%'
+      }
+    });
+  });
+
+  // ─── TRANSFORMATION STATS ─────────────
+  const stats = document.querySelectorAll('.transform-item');
+  stats.forEach((item, i) => {
+    gsap.to(item, {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      delay: i * 0.15,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 82%'
+      }
+    });
+  });
+
+  // Count-up numbers
+  document.querySelectorAll('.count').forEach(el => {
+    const target = parseInt(el.dataset.target, 10);
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target,
+          duration: 2,
+          ease: 'power2.out',
+          onUpdate: () => { el.textContent = Math.floor(obj.val); }
+        });
+      }
+    });
+  });
+
+  // ─── ROOMS GRID ───────────────────────
+  gsap.from('#rooms-grid .room-item', {
+    opacity: 0,
+    scale: 0.97,
+    stagger: 0.08,
+    duration: 0.9,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#rooms-grid',
+      start: 'top 80%'
+    }
+  });
+
+  // ─── WELLNESS CARDS ───────────────────
+  gsap.from('.ritual-card', {
+    opacity: 0,
+    y: 40,
+    stagger: 0.1,
+    duration: 0.9,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.wellness-grid',
+      start: 'top 80%'
+    }
+  });
+
+  // ─── QUOTE SECTION ────────────────────
+  gsap.from('.quote-text', {
+    opacity: 0,
+    y: 30,
+    duration: 1.2,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#quote-section',
+      start: 'top 75%'
+    }
+  });
+
+  // ─── BOOKING ──────────────────────────
+  gsap.from('.booking-headline', {
+    opacity: 0,
+    y: 40,
+    duration: 1,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#booking',
+      start: 'top 80%'
+    }
+  });
+
+  gsap.from('.booking-cta-row', {
+    opacity: 0,
+    y: 25,
+    duration: 0.9,
+    delay: 0.2,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#booking',
+      start: 'top 75%'
+    }
+  });
+
+}); // end DOMContentLoaded
+
+
+// ─── LIGHTBOX ─────────────────────────────
+function openLightbox(card) {
+  const src = card.querySelector('img').src;
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  lbImg.src = src;
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const lb = document.getElementById('lightbox');
+  const closeBtn = document.getElementById('lightbox-close');
+
+  closeBtn.addEventListener('click', () => {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+
+  lb.addEventListener('click', e => {
+    if (e.target === lb) {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+});
+
+
+// ─── THREE.JS — 3D OBJECTS ────────────────
+// SWAP:3D → mature oak leaf | Urban / Hampshire
+
+function initThreeCanvas(canvasId, glbSrc, containerQuery) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+
+  const wrap = canvas.parentElement;
+  const W = wrap.offsetWidth || 280;
+  const H = wrap.offsetHeight || 280;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  renderer.setSize(W, H);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, W / H, 0.1, 100);
+  camera.position.set(0, 0, 3.5);
+
+  // Three-point light rig
+  const keyLight = new THREE.DirectionalLight(0xfff4e0, 1.8); // warm key
+  keyLight.position.set(2, 3, 3);
+  scene.add(keyLight);
+
+  const fillLight = new THREE.DirectionalLight(0xc0d8ff, 0.6); // cool fill
+  fillLight.position.set(-3, 1, -1);
+  scene.add(fillLight);
+
+  const rimLight = new THREE.DirectionalLight(0xffe0a0, 0.5); // warm rim
+  rimLight.position.set(0, -2, -3);
+  scene.add(rimLight);
+
+  const ambient = new THREE.AmbientLight(0xffffff, 0.3);
+  scene.add(ambient);
+
+  let model = null;
+  let rotating = true;
+
+  const loader = new THREE.GLTFLoader();
+  loader.load(
+    glbSrc,
+    gltf => {
+      model = gltf.scene;
+      // Center and normalize
+      const box = new THREE.Box3().setFromObject(model);
+      const center = box.getCenter(new THREE.Vector3());
+      const size = box.getSize(new THREE.Vector3());
+      const maxDim = Math.max(size.x, size.y, size.z);
+      model.position.sub(center);
+      const scale = 2.0 / maxDim;
+      model.scale.setScalar(scale);
+      scene.add(model);
+    },
+    undefined,
+    err => console.warn('GLB load error', err)
+  );
+
+  // Hover: pause rotation
+  canvas.addEventListener('mouseenter', () => { rotating = false; });
+  canvas.addEventListener('mouseleave', () => { rotating = true; });
+
+  function animate() {
+    requestAnimationFrame(animate);
+    if (model && rotating) {
+      model.rotation.y += 0.002;
+    }
+    renderer.render(scene, camera);
+  }
+  animate();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const GLB_SRC = 'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb';
+
+  // Initialize only when in viewport for performance
+  const manifoldObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      initThreeCanvas('manifesto-canvas', GLB_SRC, '#manifesto-3d-wrap');
+      manifoldObs.disconnect();
+    }
+  }, { threshold: 0.1 });
+
+  const wellnessObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      initThreeCanvas('wellness-canvas', GLB_SRC, '#wellness-3d-bg');
+      wellnessObs.disconnect();
+    }
+  }, { threshold: 0.1 });
+
+  const manifoldWrap = document.getElementById('manifesto-3d-wrap');
+  const wellnessWrap = document.getElementById('wellness-3d-bg');
+  if (manifoldWrap) manifoldObs.observe(manifoldWrap);
+  if (wellnessWrap) wellnessObs.observe(wellnessWrap);
+});
+</script>
+
+<!--
+═══════════════════════════════════════════
+CUSTOMIZATION GUIDE
+═══════════════════════════════════════════
+All SWAP markers as a checklist:
+
+LOGO
+  [ 1] SWAP:LOGO — <img> in hero header
+  [ 2] SWAP:LOGO — <img> in footer
+  → SRC: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba4d1e46cfd0adfe4b0ec_apollo-hotel-256.png
+  → Currently renders as white-filtered PNG. Replace with SVG for full CSS color control.
+
+VIDEOS
+  [ 3] SWAP:VIDEO → urban hotel rooftop / Hampshire dusk | hero section
+  → SRC: https://s3.amazonaws.com/...69db8bd5646a2c8e2cb19e32_urban%20rooftop%201.mp4 ✓ CSV
+  [ 4] SWAP:VIDEO → urban rooftop at night | booking section
+  → SRC: https://s3.amazonaws.com/...69db8bdc53df59ebb30d586a_urban%20rooftop%202.mp4 ✓ CSV
+
+3D OBJECT
+  [ 5] SWAP:3D → mature oak leaf | Urban / Hampshire
+  → SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb ✓ CSV
+  → Used in manifesto background (15% opacity) and wellness section (6% opacity)
+
+IMAGES — All from CSV urban set ✓
+  [ 6] SWAP:IMG → experience card 1 (Leisure & Spa) | ratio: 4:5 → Image 252.png ✓
+  [ 7] SWAP:IMG → experience card 2 (The Brasserie) | ratio: 4:5 → Image 255.png ✓
+  [ 8] SWAP:IMG → experience card 3 (Library Bar) | ratio: 4:5 → Image 273.png ✓
+  [ 9] SWAP:IMG → experience card 4 (Meeting Rooms) | ratio: 4:5 → Image 270.png ✓
+  [10] SWAP:IMG → experience card 5 (Hampshire Escapes) | ratio: 4:5 → Image 269.png ✓
+  [11] SWAP:IMG → experience card 6 (Overnight Retreats) | ratio: 4:5 → Image 251.png ✓
+  [12] SWAP:IMG → the place exterior | ratio: 3:2 → Image 250.png ✓
+  [13] SWAP:IMG → room/interior 1 (Classic Room) | ratio: 3:2 → Image 245.png ✓
+  [14] SWAP:IMG → room/interior 2 (Executive Suite) | ratio: 3:2 → Image 253.png ✓
+  [15] SWAP:IMG → room/interior 3 (Deluxe Double) | ratio: 3:2 → Image 247.png ✓
+  [16] SWAP:IMG → room/interior 4 (Library Lounge) | ratio: 3:2 → Image 244.png ✓
+  [17] SWAP:IMG → room/interior 5 (Leisure Pool) | ratio: 3:2 → Image 254.png ✓
+  [18] SWAP:IMG → room/interior 6 (The Brasserie) | ratio: 3:2 → Image 246.png ✓
+  [19] SWAP:IMG → editorial quote background | ratio: 16:9 → Image 242.png ✓
+
+COPY — All custom-written to Apollo's brand voice:
+  [20] SWAP:COPY → hero tagline
+  [21] SWAP:COPY → manifesto
+  [22] SWAP:COPY → the place (3 paragraphs)
+  [23] SWAP:COPY → transformation stats 1–3
+  [24] SWAP:COPY → wellness rituals 1–6
+  [25] SWAP:COPY → editorial quote
+  [26] SWAP:COPY → booking CTA
+
+COLOR (all applied via CSS custom properties)
+  [27] SWAP:COLOR → --color-primary: #1a2b4a (deep Hampshire navy)
+  [28] SWAP:COLOR → --color-secondary: #c9a96e (warm brass)
+  [29] SWAP:COLOR → --color-accent: #e8d5b0 (champagne/chalk)
+  [30] SWAP:COLOR → --color-bg: #0d1520 (near-black)
+
+⚠ NO ASSET IN CSV ITEMS:
+  NONE — all visual slots covered by urban imagery + rooftop videos from CSV.
+
+PRODUCTION NOTES:
+  • Replace PNG logo with SVG version for full CSS color control (CSS filter currently used)
+  • Swap urban images for real Apollo Hotel photography when available
+  • Hero video may be slow on mobile — add a <source media="(max-width:768px)"> low-res version
+  • Booking CTA links point to real Apollo booking engine and homepage
+  • Email/phone/Instagram in footer are live from apollohotels.com
+═══════════════════════════════════════════
+-->
+
+</body>
+</html>
