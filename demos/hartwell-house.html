@@ -1,0 +1,2107 @@
+<!--
+BRAND EXTRACTION REPORT
+========================
+Hotel Name:          Hartwell House & Spa
+URL:                 https://www.hartwell-house.com/
+Primary Color:       #1E3A2F  (deep English forest green — parkland canopy, heritage anchor)
+Secondary Color:     #172B20  (dark forest green — dark section backgrounds)
+Accent Color:        #B8985A  (antique brass / harvest gold — period ironwork, Georgian fittings)
+Background Mood:     Dark / Warm — deep forest green near-black with warm parchment text
+Font Pairing:        Cormorant Garamond (serif editorial, English literary heritage) +
+                     DM Sans (clean grotesque, contemporary counterpart)
+Tone of Voice:       Warm / Poetic — English country-house intimacy, literary restraint,
+                     specific and sensory; never effusive. Keats × Country Life.
+Landscape Archetype: Forest (English parkland — ancient oak woodland, walled gardens,
+                     Capability Brown-era designed landscape, Chilterns AONB edge)
+Positioning:         An active estate in living memory — Grade I listed but never museum-like.
+                     "Ninety acres of England, unchanged."
+Key Experiences:
+  1. Spa & Thermal Pool (chalk-aquifer mineral water, Georgian vault setting)
+  2. Walled Kitchen Garden (Victorian walls, estate-to-table)
+  3. Heritage Rooms & Suites (Grade I Jacobean/Georgian interiors)
+  4. Manor Dining (estate-led seasonal menus)
+  5. Parkland & Oak Walk (90 acres, morning mist, oak avenue)
+  6. Chilterns Discovery (AONB boundary, estate naturalist, rambles)
+Coordinates + Elevation:
+  51.7869° N, 0.8919° W | Elevation: ~74 m asl
+  Vale of Aylesbury, Buckinghamshire — Chilterns AONB boundary 1.2 km east
+  Estate size: 90 acres | Grade I listed since 1953
+
+ASSET MAPPING REPORT
+========================
+Total assets in CSV:     3 GLB 3D objects + 3 forest videos + 19 forest images + multi-category images
+Assets successfully mapped: All primary slots covered
+Slots covered by CSV:
+  hero-video        → forest video 1
+  hero-poster       → forest Image 62
+  experience-1..6   → forest Images 58, 59, 57, 60, 74, 76
+  the-place         → forest Image 75
+  room-1..6         → forest Images 71, 65, 73, 63, 66, 69
+  editorial-quote   → forest Image 64
+  booking-bg        → forest Image 67
+  wellness-bg       → forest Image 72
+  manifesto-3d      → leaf GLB (oak leaf — Forest archetype)
+  logo              → POB Hotels white PNG (provided in prompt)
+Slots falling back to Unsplash: NONE — all slots covered
+Logo SRC:        https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dc3c72f4dc894a56bd_pob-hotels-white-rgb.png
+3D Object SRC:   https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb
+Video assets:
+  hero     → https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c09a2310d67bcd25c0d_compressed-video.mp4
+  wellness → https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c0fe737ad6b6c354b9c_Video%201.mp4
+Image assets (forest category):
+  Image 62, 58, 59, 57, 60, 74, 76, 75, 71, 65, 73, 63, 66, 69, 64, 67, 72, 61, 68
+-->
+
+<!--
+CSS CUSTOM PROPERTIES
+========================
+--color-primary:    #1E3A2F   (deep English forest green — brand anchor)
+--color-secondary:  #172B20   (darker forest green — dark section base)
+--color-accent:     #B8985A   (antique brass / harvest gold — CTAs, hover states)
+--color-bg:         #0D1F18   (near-black forest green — primary page background)
+--color-bg-mid:     #172B20   (mid-dark forest — section alternation)
+--color-text:       #F2EDE4   (warm parchment / cream — primary body text)
+--color-text-muted: #8A9E8E   (muted sage — secondary copy, data chips)
+--font-serif:       'Cormorant Garamond', Georgia, serif
+--font-sans:        'DM Sans', system-ui, sans-serif
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hartwell House &amp; Spa — Vale of Aylesbury</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- Three.js + GLTFLoader -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js"></script>
+
+<style>
+/* ─── RESET & BASE ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-primary:    #1E3A2F;
+  --color-secondary:  #172B20;
+  --color-accent:     #B8985A;
+  --color-bg:         #0D1F18;
+  --color-bg-mid:     #172B20;
+  --color-text:       #F2EDE4;
+  --color-text-muted: #8A9E8E;
+  --font-serif:       'Cormorant Garamond', Georgia, serif;
+  --font-sans:        'DM Sans', system-ui, sans-serif;
+  --ease-out-expo:    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ─── TYPOGRAPHY ─── */
+.t-display {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.t-label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.t-body {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-accent); }
+
+/* ──────────────────────────────────────────────
+   1. FULLSCREEN HERO
+────────────────────────────────────────────── */
+#hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    160deg,
+    rgba(30, 58, 47, 0.4) 0%,
+    rgba(13, 31, 24, 0.5) 50%,
+    rgba(13, 31, 24, 0.88) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+  max-width: 960px;
+}
+
+/* SWAP:LOGO */
+.hero-logo {
+  width: 140px;
+  margin: 0 auto 3rem;
+  opacity: 0;
+}
+
+.hero-logo img {
+  width: 100%;
+  filter: brightness(0) invert(1);
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3.2rem, 7.5vw, 7rem);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  margin-bottom: 1.75rem;
+  overflow: hidden;
+}
+
+.hero-title .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(70px);
+  margin-right: 0.22em;
+}
+
+.hero-sub {
+  font-family: var(--font-sans);
+  font-size: clamp(0.625rem, 1vw, 0.75rem);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 0;
+  margin-bottom: 1.25rem;
+}
+
+.hero-tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1rem, 2.2vw, 1.5rem);
+  font-weight: 300;
+  color: rgba(242, 237, 228, 0.78);
+  max-width: 580px;
+  margin: 0 auto;
+  opacity: 0;
+  line-height: 1.55;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.hero-scroll span {
+  font-size: 0.5625rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 52px;
+  background: linear-gradient(to bottom, transparent, var(--color-accent));
+  transform-origin: top;
+  animation: scrollPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0% { transform: scaleY(0); opacity: 0; }
+  40% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+
+/* ──────────────────────────────────────────────
+   2. MANIFESTO
+────────────────────────────────────────────── */
+#manifesto {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rem 2rem;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.manifesto-3d {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0.13;
+}
+
+#manifesto-canvas {
+  width: 420px;
+  height: 420px;
+}
+
+.manifesto-content {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  text-align: center;
+}
+
+.manifesto-line {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: clamp(2.75rem, 6vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  opacity: 0;
+  transform: translateY(45px);
+}
+
+.manifesto-line.italic-gold {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.manifesto-line.muted {
+  color: var(--color-text-muted);
+  font-size: clamp(1.75rem, 3.5vw, 3.2rem);
+}
+
+.manifesto-divider {
+  display: block;
+  width: 36px;
+  height: 1px;
+  background: var(--color-accent);
+  margin: 2.25rem auto;
+  opacity: 0;
+}
+
+/* ──────────────────────────────────────────────
+   3. SIGNATURE EXPERIENCES
+────────────────────────────────────────────── */
+#experiences {
+  padding: 8rem 0;
+  background: var(--color-bg-mid);
+  overflow: hidden;
+}
+
+.section-header {
+  padding: 0 clamp(1.5rem, 5vw, 6rem);
+  margin-bottom: 4rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.section-header h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.75rem);
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+
+.section-header .section-num {
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  padding-bottom: 0.5rem;
+}
+
+.experiences-scroll {
+  display: flex;
+  gap: 1.25rem;
+  padding: 0 clamp(1.5rem, 5vw, 6rem) 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+}
+
+.experiences-scroll::-webkit-scrollbar { display: none; }
+.experiences-scroll:active { cursor: grabbing; }
+
+.exp-card {
+  flex: 0 0 clamp(255px, 28vw, 320px);
+  scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.exp-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(13,31,24,0.9) 100%);
+  z-index: 1;
+  transition: background 0.55s var(--ease-out-expo);
+}
+
+.exp-card:hover::after {
+  background: linear-gradient(180deg, rgba(30,58,47,0.22) 0%, rgba(13,31,24,0.95) 100%);
+}
+
+.exp-card-img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform 0.75s var(--ease-out-expo);
+}
+
+.exp-card:hover .exp-card-img { transform: scale(1.06); }
+
+.exp-card-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 1.75rem;
+}
+
+.exp-card-cat {
+  font-family: var(--font-sans);
+  font-size: 0.5625rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+
+.exp-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+
+.exp-card-desc {
+  font-size: 0.8125rem;
+  color: rgba(242, 237, 228, 0.7);
+  line-height: 1.55;
+  font-weight: 300;
+  max-width: 240px;
+}
+
+/* ──────────────────────────────────────────────
+   4. THE PLACE
+────────────────────────────────────────────── */
+#the-place {
+  padding: 8rem clamp(1.5rem, 5vw, 6rem);
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.place-grid {
+  display: grid;
+  grid-template-columns: 60fr 40fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .place-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+
+.place-image-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.place-img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  will-change: transform;
+}
+
+.place-data-overlays {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.data-chip {
+  position: absolute;
+  background: rgba(13, 31, 24, 0.78);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(184, 152, 90, 0.28);
+  padding: 0.65rem 1.05rem;
+  border-radius: 2px;
+}
+
+.data-chip.top-left  { top: 1.5rem; left: 1.5rem; }
+.data-chip.bottom-right { bottom: 1.5rem; right: 1.5rem; }
+.data-chip.top-right { top: 1.5rem; right: 1.5rem; }
+
+.data-chip-label {
+  font-size: 0.5rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.data-chip-value {
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.place-copy { max-width: 460px; }
+
+.place-copy .t-label { margin-bottom: 1.5rem; }
+
+.place-copy h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+  font-weight: 300;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  margin-bottom: 2rem;
+}
+
+.place-copy p {
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.78;
+  color: var(--color-text-muted);
+  margin-bottom: 1.35rem;
+}
+
+/* ──────────────────────────────────────────────
+   5. TRANSFORMATION STATS
+────────────────────────────────────────────── */
+#transformation {
+  padding: 10rem clamp(1.5rem, 5vw, 6rem);
+  background: var(--color-secondary);
+  overflow: hidden;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+}
+
+@media (max-width: 768px) {
+  .stats-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+
+.stat-item {
+  border-top: 1px solid rgba(184, 152, 90, 0.22);
+  padding-top: 2.5rem;
+  opacity: 0;
+  transform: translateY(32px);
+}
+
+.stat-number {
+  font-family: var(--font-serif);
+  font-size: clamp(4.5rem, 8.5vw, 7.5rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--color-accent);
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.03em;
+}
+
+.stat-number .suffix {
+  font-size: 0.38em;
+  vertical-align: super;
+  color: var(--color-primary);
+}
+
+.stat-claim {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-weight: 300;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+}
+
+.stat-sub {
+  font-size: 0.8125rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  max-width: 265px;
+}
+
+/* ──────────────────────────────────────────────
+   6. ROOMS & SPACES
+────────────────────────────────────────────── */
+#rooms {
+  padding: 8rem clamp(1.5rem, 5vw, 6rem);
+  background: var(--color-bg);
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: auto;
+  gap: 0.875rem;
+}
+
+.room-item {
+  overflow: hidden;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+.room-item:nth-child(1) { grid-column: 1 / 8; }
+.room-item:nth-child(2) { grid-column: 8 / 13; }
+.room-item:nth-child(3) { grid-column: 1 / 5; }
+.room-item:nth-child(4) { grid-column: 5 / 9; }
+.room-item:nth-child(5) { grid-column: 9 / 13; }
+.room-item:nth-child(6) { grid-column: 1 / 13; }
+
+@media (max-width: 768px) {
+  .rooms-grid { grid-template-columns: 1fr 1fr; }
+  .room-item:nth-child(n) { grid-column: auto; }
+  .room-item:nth-child(1),
+  .room-item:nth-child(6) { grid-column: 1 / -1; }
+}
+
+.room-img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  transition: transform 0.75s var(--ease-out-expo);
+}
+
+.room-item:nth-child(1) .room-img,
+.room-item:nth-child(6) .room-img { aspect-ratio: 16 / 9; }
+
+.room-item:hover .room-img { transform: scale(1.045); }
+
+.room-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 31, 24, 0);
+  transition: background 0.4s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+}
+
+.room-item:hover .room-overlay { background: rgba(13, 31, 24, 0.42); }
+
+.room-name {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.room-item:hover .room-name { opacity: 1; transform: translateY(0); }
+
+/* ─── Lightbox ─── */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(13, 31, 24, 0.97);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: zoom-out;
+}
+
+#lightbox.active { display: flex; }
+
+#lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
+#lightbox-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: none;
+  border: 1px solid rgba(184, 152, 90, 0.4);
+  color: var(--color-text);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+#lightbox-close:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* ──────────────────────────────────────────────
+   7. WELLNESS RITUALS
+────────────────────────────────────────────── */
+#wellness {
+  padding: 10rem clamp(1.5rem, 5vw, 6rem);
+  background: var(--color-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.wellness-bg-parallax {
+  position: absolute;
+  inset: -20%;
+  z-index: 0;
+  will-change: transform;
+}
+
+.wellness-bg-parallax img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.07;
+}
+
+.wellness-content { position: relative; z-index: 1; }
+
+.wellness-intro {
+  max-width: 620px;
+  margin-bottom: 5rem;
+}
+
+.wellness-intro h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.75rem);
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  margin: 1rem 0 1.5rem;
+}
+
+.rituals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .rituals-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .rituals-grid { grid-template-columns: 1fr; }
+}
+
+.ritual-item {
+  padding: 2.25rem 1.75rem;
+  border: 1px solid rgba(184, 152, 90, 0.1);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(4px);
+  transition: border-color 0.4s, background 0.4s, transform 0.45s var(--ease-out-expo);
+  opacity: 0;
+  transform: translateY(32px);
+}
+
+.ritual-item:hover {
+  border-color: rgba(184, 152, 90, 0.38);
+  background: rgba(184, 152, 90, 0.04);
+  transform: translateY(-5px);
+}
+
+.ritual-glyph {
+  font-size: 1.75rem;
+  margin-bottom: 1.1rem;
+  display: block;
+  line-height: 1;
+}
+
+.ritual-name {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 0.65rem;
+  line-height: 1.2;
+}
+
+.ritual-desc {
+  font-size: 0.8125rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+/* ──────────────────────────────────────────────
+   8. EDITORIAL QUOTE
+────────────────────────────────────────────── */
+#quote-section {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.quote-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.quote-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.quote-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(13, 31, 24, 0.72);
+}
+
+.quote-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem clamp(2rem, 8vw, 12rem);
+  max-width: 1100px;
+}
+
+.quote-mark {
+  font-family: var(--font-serif);
+  font-size: 7rem;
+  color: var(--color-accent);
+  line-height: 0.5;
+  margin-bottom: 2rem;
+  display: block;
+  opacity: 0.65;
+}
+
+.quote-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.4rem, 3.2vw, 2.6rem);
+  font-weight: 300;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  margin-bottom: 2.25rem;
+}
+
+.quote-source {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* ──────────────────────────────────────────────
+   9. BOOKING CTA
+────────────────────────────────────────────── */
+#booking {
+  position: relative;
+  padding: 10rem clamp(1.5rem, 5vw, 6rem);
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.booking-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.booking-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.32;
+}
+
+.booking-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(13,31,24,0.93) 0%, rgba(13,31,24,0.48) 100%);
+  z-index: 1;
+}
+
+.booking-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.booking-urgency {
+  font-size: 0.625rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.booking-urgency::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(1.4); }
+}
+
+.booking-content h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+  margin-bottom: 1.5rem;
+}
+
+.booking-content p {
+  font-size: 0.9375rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  max-width: 440px;
+  margin-bottom: 3rem;
+  line-height: 1.75;
+}
+
+.booking-btns {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn-primary {
+  padding: 1rem 2.75rem;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary);
+  color: var(--color-text);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  padding: 1rem 2.75rem;
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(184, 152, 90, 0.38);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s, transform 0.3s;
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-accent);
+  background: rgba(184, 152, 90, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ──────────────────────────────────────────────
+   10. FOOTER
+────────────────────────────────────────────── */
+#footer {
+  padding: 5.5rem clamp(1.5rem, 5vw, 6rem);
+  background: var(--color-secondary);
+  border-top: 1px solid rgba(184, 152, 90, 0.1);
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+/* SWAP:LOGO */
+.footer-logo-wrap img {
+  width: 120px;
+  filter: brightness(0) invert(1);
+  opacity: 0.82;
+  margin-bottom: 1.1rem;
+}
+
+.footer-tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+.footer-coords {
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  margin-top: 0.75rem;
+  font-family: var(--font-sans);
+}
+
+.footer-nav-label {
+  font-size: 0.5625rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.25rem;
+}
+
+.footer-contact-item {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  margin-bottom: 0.55rem;
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s;
+}
+
+.footer-contact-item:hover { color: var(--color-text); }
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(184, 152, 90, 0.22);
+  padding-bottom: 2px;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.footer-social a:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(184, 152, 90, 0.1);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-copy {
+  font-size: 0.5625rem;
+  letter-spacing: 0.14em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.footer-edition {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.8125rem;
+  color: rgba(184, 152, 90, 0.55);
+}
+
+/* ─── RESPONSIVE MISC ─── */
+@media (max-width: 480px) {
+  .section-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .booking-btns { flex-direction: column; align-items: flex-start; }
+  .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+}
+
+/* ─── CUSTOM CURSOR ─── */
+.cursor-dot {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(184, 152, 90, 0.45);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.14s var(--ease-out-expo),
+              width 0.3s, height 0.3s, opacity 0.3s;
+}
+
+@media (hover: none) {
+  .cursor-dot, .cursor-ring { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Lightbox -->
+<div id="lightbox" role="dialog" aria-modal="true">
+  <button id="lightbox-close" aria-label="Close lightbox">✕</button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
+<!-- ══════════════════════════════════════════════
+     1. FULLSCREEN HERO
+     SWAP:VIDEO → hero background | hero section
+     SWAP:LOGO
+═══════════════════════════════════════════════ -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-bg">
+    <!-- SWAP:VIDEO → English parkland forest aerial | hero section -->
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f5931b223dc54467b_Image%2062.png"
+    >
+      <source
+        src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c09a2310d67bcd25c0d_compressed-video.mp4"
+        type="video/mp4"
+      />
+      <!-- Poster fallback shown when video cannot autoplay -->
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f5931b223dc54467b_Image%2062.png"
+        alt="Hartwell House parkland"
+      />
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <!-- SWAP:LOGO -->
+    <div class="hero-logo" id="heroLogo">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dc3c72f4dc894a56bd_pob-hotels-white-rgb.png"
+        alt="Hartwell House — POB Hotels"
+      />
+    </div>
+
+    <p class="hero-sub" id="heroSub">Buckinghamshire · England · 51°N 0°W</p>
+
+    <h1 class="hero-title" id="heroTitle">
+      <span class="word">Ninety</span>
+      <span class="word">Acres</span>
+      <span class="word">of</span>
+      <span class="word">England,</span>
+      <span class="word">Unchanged</span>
+    </h1>
+
+    <!-- SWAP:COPY → hero tagline -->
+    <p class="hero-tagline" id="heroTagline">
+      Georgian stone. Ancient oak. A landscape shaped before the industrial world arrived —
+      and deliberately left alone since.
+    </p>
+  </div>
+
+  <div
+    class="hero-scroll"
+    id="heroScroll"
+    onclick="document.getElementById('manifesto').scrollIntoView({behavior:'smooth'})"
+    aria-label="Scroll to next section"
+  >
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     2. MANIFESTO — "The Philosophy"
+     SWAP:3D → oak leaf | Forest archetype
+     SWAP:COPY → manifesto
+═══════════════════════════════════════════════ -->
+<section id="manifesto" aria-label="Philosophy">
+  <!-- SWAP:3D → oak leaf | Forest -->
+  <div class="manifesto-3d">
+    <canvas id="manifesto-canvas" width="420" height="420"></canvas>
+  </div>
+
+  <div class="manifesto-content">
+    <!-- SWAP:COPY → manifesto -->
+    <span class="manifesto-line" data-reveal>Three centuries</span>
+    <span class="manifesto-line italic-gold" data-reveal>of uninterrupted stillness.</span>
+    <span class="manifesto-divider" data-reveal></span>
+    <span class="manifesto-line" data-reveal>Georgian stone remembers</span>
+    <span class="manifesto-line muted" data-reveal>what London long forgot.</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     3. SIGNATURE EXPERIENCES
+     SWAP:IMG → experience cards 1–6 | ratio: 4:5
+═══════════════════════════════════════════════ -->
+<section id="experiences" aria-label="Experiences">
+  <div class="section-header">
+    <span class="t-label section-num">03 / 10</span>
+    <h2>Signature<br /><em style="font-style:italic;color:var(--color-accent)">Experiences</em></h2>
+  </div>
+
+  <div class="experiences-scroll" id="expScroll">
+
+    <!-- SWAP:IMG → spa thermal pool Georgian vault | ratio: 4:5 -->
+    <article class="exp-card">
+      <img
+        class="exp-card-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f66d293ddbe3e52da_Image%2058.png"
+        alt="Hartwell House Spa & Thermal Pool"
+        loading="lazy"
+      />
+      <div class="exp-card-body">
+        <p class="exp-card-cat">Spa &amp; Wellness</p>
+        <h3 class="exp-card-title">Thermal Waters</h3>
+        <p class="exp-card-desc">Mineral-deep water drawn from the Chiltern chalk aquifer, held in a Georgian stone vault.</p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → walled kitchen garden Victorian estate | ratio: 4:5 -->
+    <article class="exp-card">
+      <img
+        class="exp-card-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f02e16a74f59b019c_Image%2059.png"
+        alt="Hartwell House Walled Kitchen Garden"
+        loading="lazy"
+      />
+      <div class="exp-card-body">
+        <p class="exp-card-cat">Estate Garden</p>
+        <h3 class="exp-card-title">Walled Garden</h3>
+        <p class="exp-card-desc">Victorian walls still growing for tonight's table. Cut flowers, salad leaves, soft fruit by season.</p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → heritage room Jacobean Georgian interior | ratio: 4:5 -->
+    <article class="exp-card">
+      <img
+        class="exp-card-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fe534894fe01d574b_Image%2057.png"
+        alt="Hartwell House heritage rooms"
+        loading="lazy"
+      />
+      <div class="exp-card-body">
+        <p class="exp-card-cat">Heritage Rooms</p>
+        <h3 class="exp-card-title">Grade I Interiors</h3>
+        <p class="exp-card-desc">Each suite holds three centuries of accumulated craft. Every ceiling tells a different story.</p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → manor dining estate seasonal menu | ratio: 4:5 -->
+    <article class="exp-card">
+      <img
+        class="exp-card-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fa912698fb567fc31_Image%2060.png"
+        alt="Hartwell House manor dining"
+        loading="lazy"
+      />
+      <div class="exp-card-body">
+        <p class="exp-card-cat">Manor Dining</p>
+        <h3 class="exp-card-title">The Long Table</h3>
+        <p class="exp-card-desc">Seasons dictate the menu. The estate provides what the kitchen needs, and nothing it doesn't.</p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → parkland oak avenue morning mist walk | ratio: 4:5 -->
+    <article class="exp-card">
+      <img
+        class="exp-card-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d01b3f8e72daf583f_Image%2074.png"
+        alt="Hartwell House parkland oak avenue"
+        loading="lazy"
+      />
+      <div class="exp-card-body">
+        <p class="exp-card-cat">Parkland</p>
+        <h3 class="exp-card-title">The Oak Avenue</h3>
+        <p class="exp-card-desc">Ninety acres of intact English parkland. Morning mist through the oak avenue — something loosens.</p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → Chilterns AONB countryside ramble | ratio: 4:5 -->
+    <article class="exp-card">
+      <img
+        class="exp-card-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755dfd3f818cc9e63c84_Image%2076.png"
+        alt="Chilterns AONB landscape"
+        loading="lazy"
+      />
+      <div class="exp-card-body">
+        <p class="exp-card-cat">Chilterns</p>
+        <h3 class="exp-card-title">AONB Discovery</h3>
+        <p class="exp-card-desc">England's area of outstanding natural beauty begins at the estate wall. The naturalist knows every path.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     4. THE PLACE
+     SWAP:IMG → the place | ratio: 3:2
+     SWAP:COPY → the place
+═══════════════════════════════════════════════ -->
+<section id="the-place" aria-label="The Place">
+  <div class="section-header" style="padding:0; margin-bottom:4rem;">
+    <span class="t-label section-num">04 / 10</span>
+  </div>
+
+  <div class="place-grid">
+    <div class="place-image-wrap">
+      <!-- SWAP:IMG → Hartwell House estate parkland aerial | ratio: 3:2 -->
+      <img
+        class="place-img"
+        id="placeParallaxImg"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d10aa143cd1856fdf_Image%2075.png"
+        alt="Hartwell House parkland and gardens"
+        loading="lazy"
+      />
+      <div class="place-data-overlays">
+        <div class="data-chip top-left">
+          <span class="data-chip-label">Coordinates</span>
+          <span class="data-chip-value">51.7869° N, 0.8919° W</span>
+        </div>
+        <div class="data-chip top-right">
+          <span class="data-chip-label">Elevation</span>
+          <span class="data-chip-value">74 m asl</span>
+        </div>
+        <div class="data-chip bottom-right">
+          <span class="data-chip-label">Estate</span>
+          <span class="data-chip-value">90 acres — Vale of Aylesbury</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="place-copy">
+      <span class="t-label">The Place</span>
+      <!-- SWAP:COPY → the place -->
+      <h2>A Vale<br />That Held Kings<br /><em style="font-style:italic;color:var(--color-accent)">and Kept Quiet</em></h2>
+      <p>Hartwell House sits within the Vale of Aylesbury at the precise point where the lowland gives way to the rising chalk of the Chilterns. The estate was recorded in Domesday, shaped over centuries by men of the law, and leased to Louis XVIII of France in his exile — the French court operated here for five years before Napoleon fell.</p>
+      <p>The gardens were designed by Richard Woods, a contemporary of Capability Brown. The bones of that landscape — the lake, the serpentine paths, the framed views — remain intact. The National Trust holds the freehold. Very little changes, and that is the point.</p>
+      <p>Forty miles from London. A different century entirely.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     5. TRANSFORMATION PROMISE (Scrollytelling)
+     SWAP:COPY → transformation stats 1–3
+═══════════════════════════════════════════════ -->
+<section id="transformation" aria-label="In Numbers">
+  <div class="section-header" style="padding:0; margin-bottom:5rem;">
+    <span class="t-label section-num">05 / 10</span>
+    <h2>The Estate<br /><em style="font-style:italic;color:var(--color-accent)">in Measure</em></h2>
+  </div>
+
+  <div class="stats-grid">
+
+    <!-- SWAP:COPY → transformation stats 1 -->
+    <div class="stat-item" data-stat>
+      <div class="stat-number">
+        <span class="stat-count" data-target="90">0</span>
+      </div>
+      <p class="stat-claim">Acres of intact parkland</p>
+      <p class="stat-sub">Richard Woods' designed landscape — lake, oak avenue, walled garden — undisturbed since the Georgian era.</p>
+    </div>
+
+    <!-- SWAP:COPY → transformation stats 2 -->
+    <div class="stat-item" data-stat>
+      <div class="stat-number">
+        <span class="stat-count" data-target="1204">0</span>
+      </div>
+      <p class="stat-claim">First recorded as a royal manor</p>
+      <p class="stat-sub">This estate entered written history before the Magna Carta existed. The land remembers what the documents describe.</p>
+    </div>
+
+    <!-- SWAP:COPY → transformation stats 3 -->
+    <div class="stat-item" data-stat>
+      <div class="stat-number">
+        <span class="stat-count" data-target="40">0</span>
+      </div>
+      <p class="stat-claim">Miles from London</p>
+      <p class="stat-sub">Far enough to feel the city leave your shoulders. Close enough to arrive before the light changes.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     6. ROOMS & SPACES
+     SWAP:IMG → room/interior 1–6 | ratio: 3:2
+═══════════════════════════════════════════════ -->
+<section id="rooms" aria-label="Rooms and Spaces">
+  <div class="section-header" style="margin-bottom:3rem;">
+    <span class="t-label section-num">06 / 10</span>
+    <h2>Rooms<br /><em style="font-style:italic;color:var(--color-accent)">&amp; Spaces</em></h2>
+  </div>
+
+  <div class="rooms-grid">
+
+    <!-- SWAP:IMG → principal suite parkland view wide | ratio: 16:9 -->
+    <div class="room-item" onclick="openLightbox(this)">
+      <img
+        class="room-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755cbd4aab14c251d668_Image%2071.png"
+        alt="Principal Suite — Parkland View"
+        loading="lazy"
+      />
+      <div class="room-overlay"><span class="room-name">Principal Suite</span></div>
+    </div>
+
+    <!-- SWAP:IMG → garden room interior cosy | ratio: 3:2 -->
+    <div class="room-item" onclick="openLightbox(this)">
+      <img
+        class="room-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2d6f969a6ed97235_Image%2065.png"
+        alt="Garden Room"
+        loading="lazy"
+      />
+      <div class="room-overlay"><span class="room-name">Garden Room</span></div>
+    </div>
+
+    <!-- SWAP:IMG → oak room classic English interior | ratio: 3:2 -->
+    <div class="room-item" onclick="openLightbox(this)">
+      <img
+        class="room-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c0b1e8db27f6833b0_Image%2073.png"
+        alt="Oak Room"
+        loading="lazy"
+      />
+      <div class="room-overlay"><span class="room-name">Oak Room</span></div>
+    </div>
+
+    <!-- SWAP:IMG → Georgian suite four-poster bed | ratio: 3:2 -->
+    <div class="room-item" onclick="openLightbox(this)">
+      <img
+        class="room-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c3fc86be474e72fa6_Image%2063.png"
+        alt="Georgian Suite"
+        loading="lazy"
+      />
+      <div class="room-overlay"><span class="room-name">Georgian Suite</span></div>
+    </div>
+
+    <!-- SWAP:IMG → estate room warm evening light | ratio: 3:2 -->
+    <div class="room-item" onclick="openLightbox(this)">
+      <img
+        class="room-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755cbd621d9fe28acb20_Image%2066.png"
+        alt="Estate Room"
+        loading="lazy"
+      />
+      <div class="room-overlay"><span class="room-name">Estate Room</span></div>
+    </div>
+
+    <!-- SWAP:IMG → parkland panorama room wide angle | ratio: 16:9 -->
+    <div class="room-item" onclick="openLightbox(this)">
+      <img
+        class="room-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2795baeedff7f272_Image%2069.png"
+        alt="Parkland Room — Wide Aspect"
+        loading="lazy"
+      />
+      <div class="room-overlay"><span class="room-name">Parkland Room</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     7. WELLNESS RITUALS
+     SWAP:COPY → wellness rituals 1–6
+═══════════════════════════════════════════════ -->
+<section id="wellness" aria-label="Wellness Rituals">
+  <div class="wellness-bg-parallax" id="wellnessBg">
+    <!-- SWAP:IMG → forest botanical nature wellness texture | ratio: 16:9 -->
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c6266a65e87a325c7_Image%2072.png"
+      alt="Hartwell spa botanical"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="wellness-content">
+    <div class="wellness-intro">
+      <span class="t-label">07 / 10 — Wellness</span>
+      <!-- SWAP:COPY → wellness section headline -->
+      <h2>Where the Body<br /><em style="font-style:italic;color:var(--color-accent)">Finds Its Register</em></h2>
+      <p class="t-body">The Hartwell Spa draws from the chalk aquifer beneath the Chilterns and from the estate's own botanical garden. Nothing manufactured where something living will do.</p>
+    </div>
+
+    <div class="rituals-grid">
+
+      <!-- SWAP:COPY → wellness ritual 1 -->
+      <div class="ritual-item" data-ritual>
+        <span class="ritual-glyph">〜</span>
+        <h3 class="ritual-name">Chalk Aquifer Soak</h3>
+        <p class="ritual-desc">Mineral-rich thermal water drawn from deep beneath the Chiltern chalk. Pool temperature held at 36°C year-round.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 2 -->
+      <div class="ritual-item" data-ritual>
+        <span class="ritual-glyph">❧</span>
+        <h3 class="ritual-name">Hedgerow Harvest Scrub</h3>
+        <p class="ritual-desc">Wild Buckinghamshire botanicals, hand-gathered from the estate margin at first light. Ground and applied the same morning.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 3 -->
+      <div class="ritual-item" data-ritual>
+        <span class="ritual-glyph">◈</span>
+        <h3 class="ritual-name">Deep Earth Compress</h3>
+        <p class="ritual-desc">Warmed chalk-clay drawn from beneath the vale meadow. Held against the body for fifteen slow minutes.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 4 -->
+      <div class="ritual-item" data-ritual>
+        <span class="ritual-glyph">☽</span>
+        <h3 class="ritual-name">Oak Grove Breathwork</h3>
+        <p class="ritual-desc">Guided sunrise ritual at the edge of the old wood. Air you can distinguish from city air — taste the difference.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 5 -->
+      <div class="ritual-item" data-ritual>
+        <span class="ritual-glyph">◉</span>
+        <h3 class="ritual-name">Georgian Stone Massage</h3>
+        <p class="ritual-desc">Estate sandstone, slowly heated. Held in practised hands that read tension before you name it.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 6 -->
+      <div class="ritual-item" data-ritual>
+        <span class="ritual-glyph">⬡</span>
+        <h3 class="ritual-name">Orchard &amp; Beeswax Ritual</h3>
+        <p class="ritual-desc">Raw beeswax from the kitchen garden hives, nothing manufactured. The bees work the same flowers as the kitchen.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     8. EDITORIAL QUOTE
+     SWAP:IMG → editorial quote background | ratio: 16:9
+     SWAP:COPY → editorial quote
+═══════════════════════════════════════════════ -->
+<section id="quote-section" aria-label="Editorial Quote">
+  <div class="quote-bg">
+    <!-- SWAP:IMG → forest atmospheric light through trees | ratio: 16:9 -->
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c20859ca462d94b77_Image%2064.png"
+      alt="Hartwell House atmospheric parkland"
+      loading="lazy"
+    />
+  </div>
+  <div class="quote-overlay"></div>
+
+  <div class="quote-content">
+    <span class="quote-mark">"</span>
+    <!-- SWAP:COPY → editorial quote -->
+    <blockquote class="quote-text">
+      There are few houses in England where the past sits this easily alongside the present.
+      Hartwell earns its calm — and then charges it back, imperceptibly, through every pore.
+    </blockquote>
+    <p class="quote-source">Condé Nast Traveller — Country House Hotels of England</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     9. BOOKING CTA
+     SWAP:COPY → booking CTA
+═══════════════════════════════════════════════ -->
+<section id="booking" aria-label="Book Your Stay">
+  <div class="booking-bg">
+    <!-- SWAP:IMG → Hartwell House estate exterior spring | ratio: 16:9 -->
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c3291e180806a8ea8_Image%2067.png"
+      alt="Hartwell House estate"
+      loading="lazy"
+    />
+  </div>
+  <div class="booking-overlay"></div>
+
+  <div class="booking-content">
+    <!-- SWAP:COPY → booking CTA -->
+    <p class="booking-urgency">Limited availability — Spring &amp; Summer 2026</p>
+    <h2>Reserve Your<br />Season at Hartwell</h2>
+    <p>Spring and summer dates move quickly. Contact us directly to secure the estate's finest rooms, or explore current breaks and packages online.</p>
+    <div class="booking-btns">
+      <a
+        class="btn-primary"
+        href="https://www.hartwell-house.com/breaks-packages/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Reserve Your Stay</a>
+      <a
+        class="btn-secondary"
+        href="https://www.hartwell-house.com/media/1529/hhh-group-brochure-nov-2021.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Download the Experience Guide</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     10. FOOTER
+     SWAP:LOGO
+═══════════════════════════════════════════════ -->
+<footer id="footer" aria-label="Footer">
+  <div class="footer-inner">
+
+    <div class="footer-logo-wrap">
+      <!-- SWAP:LOGO -->
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dc3c72f4dc894a56bd_pob-hotels-white-rgb.png"
+        alt="Hartwell House — POB Hotels"
+      />
+      <p class="footer-tagline">"Where England's oldest gardens hold their silence."</p>
+      <p class="footer-coords">51.7869° N &nbsp;·&nbsp; 0.8919° W &nbsp;·&nbsp; 74 m asl</p>
+    </div>
+
+    <div>
+      <p class="footer-nav-label">Contact</p>
+      <a class="footer-contact-item" href="tel:+441296747444">+44 (0)1296 747444</a>
+      <a class="footer-contact-item" href="mailto:info@hartwell-house.com">info@hartwell-house.com</a>
+      <p class="footer-contact-item" style="cursor:default;">
+        Vale of Aylesbury<br />Buckinghamshire HP17 8NR
+      </p>
+    </div>
+
+    <div>
+      <p class="footer-nav-label">Follow</p>
+      <div class="footer-social">
+        <a
+          href="https://www.instagram.com/hartwellhousespa/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ↗ @hartwellhousespa
+        </a>
+      </div>
+      <p class="footer-contact-item" style="margin-top:1.5rem;cursor:default;font-size:0.75rem;">
+        Part of <a href="https://pobhotels.com/" target="_blank" rel="noopener noreferrer" style="color:var(--color-accent);text-decoration:none;">POB Hotels</a>
+        &amp; <a href="http://www.historichousehotels.com/" target="_blank" rel="noopener noreferrer" style="color:var(--color-accent);text-decoration:none;">Historic House Hotels</a>
+        of the <a href="http://nationaltrust.org.uk/" target="_blank" rel="noopener noreferrer" style="color:var(--color-accent);text-decoration:none;">National Trust</a>
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Hartwell House &amp; Spa. All rights reserved.</p>
+    <p class="footer-edition">A portrait of place, 2026 edition.</p>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ─── GSAP REGISTER ─── */
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ─── CUSTOM CURSOR ─── */
+  const dot  = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  if (dot && ring) {
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', function (e) {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx + 'px';
+      dot.style.top  = my + 'px';
+    });
+    (function animRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top  = ry + 'px';
+      requestAnimationFrame(animRing);
+    })();
+  }
+
+  /* ─── LIGHTBOX ─── */
+  var lb     = document.getElementById('lightbox');
+  var lbImg  = document.getElementById('lightbox-img');
+  var lbClose = document.getElementById('lightbox-close');
+
+  window.openLightbox = function (el) {
+    var img = el.querySelector('img');
+    if (!img) return;
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  function closeLightbox() {
+    lb.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  lbClose.addEventListener('click', closeLightbox);
+  lb.addEventListener('click', function (e) {
+    if (e.target === lb) closeLightbox();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  /* ─── HERO ENTRANCE ANIMATIONS ─── */
+  var tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+  tl
+    .to('#heroLogo',    { opacity: 1, duration: 1.2, delay: 0.3 })
+    .to('#heroSub',     { opacity: 1, duration: 0.8 }, '-=0.6')
+    .to('#heroTitle .word', {
+      opacity: 1,
+      y: 0,
+      duration: 1.1,
+      stagger: 0.1,
+    }, '-=0.5')
+    .to('#heroTagline', { opacity: 1, duration: 1, ease: 'power2.out' }, '-=0.6')
+    .to('#heroScroll',  { opacity: 1, duration: 0.8 }, '-=0.4');
+
+  /* ─── MANIFESTO LINE REVEALS ─── */
+  var manifestoLines = document.querySelectorAll('[data-reveal]');
+  manifestoLines.forEach(function (line, i) {
+    gsap.to(line, {
+      scrollTrigger: {
+        trigger: line,
+        start: 'top 82%',
+        toggleActions: 'play none none none',
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1.2,
+      delay: i * 0.12,
+      ease: 'expo.out',
+    });
+  });
+
+  /* ─── PLACE IMAGE PARALLAX ─── */
+  var placeImg = document.getElementById('placeParallaxImg');
+  if (placeImg) {
+    gsap.to(placeImg, {
+      scrollTrigger: {
+        trigger: '#the-place',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1,
+      },
+      y: '-8%',
+      ease: 'none',
+    });
+  }
+
+  /* ─── STAT COUNTING ANIMATION ─── */
+  var statItems = document.querySelectorAll('.stat-item[data-stat]');
+  statItems.forEach(function (item) {
+    var counter = item.querySelector('.stat-count');
+    if (!counter) return;
+    var target  = parseInt(counter.getAttribute('data-target'), 10);
+    var proxy   = { val: 0 };
+
+    gsap.to(proxy, {
+      val: target,
+      duration: 2.2,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 78%',
+        toggleActions: 'play none none none',
+      },
+      onUpdate: function () {
+        counter.textContent = Math.round(proxy.val).toLocaleString();
+      },
+    });
+
+    gsap.to(item, {
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 82%',
+        toggleActions: 'play none none none',
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: 'expo.out',
+    });
+  });
+
+  /* ─── RITUAL ITEMS STAGGER ─── */
+  var ritualItems = document.querySelectorAll('.ritual-item[data-ritual]');
+  ritualItems.forEach(function (item, i) {
+    gsap.to(item, {
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 88%',
+        toggleActions: 'play none none none',
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      delay: (i % 3) * 0.12,
+      ease: 'expo.out',
+    });
+  });
+
+  /* ─── WELLNESS BACKGROUND PARALLAX ─── */
+  var wellnessBg = document.getElementById('wellnessBg');
+  if (wellnessBg) {
+    gsap.to(wellnessBg, {
+      scrollTrigger: {
+        trigger: '#wellness',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1.5,
+      },
+      y: '12%',
+      ease: 'none',
+    });
+  }
+
+  /* ─── HORIZONTAL DRAG SCROLL — EXPERIENCES ─── */
+  var expScroll = document.getElementById('expScroll');
+  if (expScroll) {
+    var isDown = false, startX, scrollLeft;
+    expScroll.addEventListener('mousedown', function (e) {
+      isDown = true;
+      startX = e.pageX - expScroll.offsetLeft;
+      scrollLeft = expScroll.scrollLeft;
+    });
+    expScroll.addEventListener('mouseleave', function () { isDown = false; });
+    expScroll.addEventListener('mouseup',    function () { isDown = false; });
+    expScroll.addEventListener('mousemove',  function (e) {
+      if (!isDown) return;
+      e.preventDefault();
+      var x = e.pageX - expScroll.offsetLeft;
+      expScroll.scrollLeft = scrollLeft - (x - startX) * 1.4;
+    });
+  }
+
+  /* ─── THREE.JS — OAK LEAF GLB ─── */
+  /* SWAP:3D → oak leaf | Forest archetype */
+  (function initThreeJS() {
+    var canvas = document.getElementById('manifesto-canvas');
+    if (!canvas || typeof THREE === 'undefined') return;
+
+    var renderer = new THREE.WebGLRenderer({
+      canvas: canvas,
+      alpha: true,
+      antialias: true,
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(420, 420);
+    renderer.outputEncoding = THREE.sRGBEncoding;
+
+    var scene  = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+    camera.position.set(0, 0, 3.5);
+
+    /* Three-point warm/cool light rig */
+    var keyLight = new THREE.DirectionalLight(0xfff4e0, 2.2); /* warm key */
+    keyLight.position.set(2, 3, 2);
+    scene.add(keyLight);
+
+    var fillLight = new THREE.DirectionalLight(0xd0e8ff, 0.8); /* cool fill */
+    fillLight.position.set(-2, 1, -1);
+    scene.add(fillLight);
+
+    var rimLight = new THREE.DirectionalLight(0xffe8a0, 0.6); /* warm rim */
+    rimLight.position.set(0, -2, -2);
+    scene.add(rimLight);
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.3));
+
+    var leafMesh = null;
+    var isHovered = false;
+
+    /* Load GLB */
+    if (typeof THREE.GLTFLoader !== 'undefined') {
+      var loader = new THREE.GLTFLoader();
+      loader.load(
+        'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb',
+        function (gltf) {
+          leafMesh = gltf.scene;
+          /* Centre the model */
+          var box    = new THREE.Box3().setFromObject(leafMesh);
+          var centre = box.getCenter(new THREE.Vector3());
+          var size   = box.getSize(new THREE.Vector3());
+          var maxDim = Math.max(size.x, size.y, size.z);
+          leafMesh.position.sub(centre);
+          leafMesh.scale.setScalar(2.0 / maxDim);
+          scene.add(leafMesh);
+        },
+        undefined,
+        function (err) { console.warn('GLB load error:', err); }
+      );
+    }
+
+    /* Hover pause/resume */
+    canvas.addEventListener('mouseenter', function () { isHovered = true; });
+    canvas.addEventListener('mouseleave', function () { isHovered = false; });
+
+    /* Render loop */
+    (function render() {
+      requestAnimationFrame(render);
+      if (leafMesh && !isHovered) {
+        leafMesh.rotation.y += 0.002;
+        leafMesh.rotation.x = Math.sin(Date.now() * 0.0004) * 0.1;
+      }
+      renderer.render(scene, camera);
+    })();
+  })();
+
+})();
+</script>
+
+<!-- ══════════════════════════════════════════════
+     CUSTOMIZATION GUIDE
+═══════════════════════════════════════════════
+Below is a numbered checklist of every SWAP marker in this file.
+Items marked ⚠ NO ASSET IN CSV require production assets.
+
+SWAP MARKER CHECKLIST
+─────────────────────────────────────────────
+HERO SECTION
+  [01] <!-- SWAP:VIDEO → English parkland forest aerial | hero section -->
+       SRC: forest 1 video (CSV ✓)
+       https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c09a2310d67bcd25c0d_compressed-video.mp4
+       poster: Image 62 (CSV ✓)
+
+  [02] <!-- SWAP:LOGO → hero header -->
+       SRC: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dc3c72f4dc894a56bd_pob-hotels-white-rgb.png (CSV/prompt ✓)
+       ACTION: Replace with hotel-specific logo when available.
+
+MANIFESTO
+  [03] <!-- SWAP:3D → oak leaf | Forest archetype -->
+       SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb (CSV ✓)
+
+  [04] <!-- SWAP:COPY → manifesto -->
+       Current: "Three centuries / of uninterrupted stillness. / Georgian stone remembers / what London long forgot."
+       ACTION: Refine with approved brand copy from Hartwell editorial team.
+
+EXPERIENCES
+  [05] <!-- SWAP:IMG → spa thermal pool Georgian vault | ratio: 4:5 -->
+       SRC: Image 58 — forest category (CSV ✓)
+  [06] <!-- SWAP:IMG → walled kitchen garden Victorian estate | ratio: 4:5 -->
+       SRC: Image 59 — forest category (CSV ✓)
+  [07] <!-- SWAP:IMG → heritage room Jacobean Georgian interior | ratio: 4:5 -->
+       SRC: Image 57 — forest category (CSV ✓)
+  [08] <!-- SWAP:IMG → manor dining estate seasonal menu | ratio: 4:5 -->
+       SRC: Image 60 — forest category (CSV ✓)
+  [09] <!-- SWAP:IMG → parkland oak avenue morning mist walk | ratio: 4:5 -->
+       SRC: Image 74 — forest category (CSV ✓)
+  [10] <!-- SWAP:IMG → Chilterns AONB countryside ramble | ratio: 4:5 -->
+       SRC: Image 76 — forest category (CSV ✓)
+
+THE PLACE
+  [11] <!-- SWAP:IMG → Hartwell House estate parkland aerial | ratio: 3:2 -->
+       SRC: Image 75 — forest category (CSV ✓)
+  [12] <!-- SWAP:COPY → the place -->
+       Current: 3 paragraphs on Vale of Aylesbury history, Richard Woods, exile of Louis XVIII.
+       ACTION: Verify historical accuracy with hotel team. Adjust tone if needed.
+
+TRANSFORMATION STATS
+  [13] <!-- SWAP:COPY → transformation stats 1 → "90 acres" -->
+  [14] <!-- SWAP:COPY → transformation stats 2 → "1204 royal manor" -->
+  [15] <!-- SWAP:COPY → transformation stats 3 → "40 miles" -->
+       ACTION: Confirm stat accuracy with hotel. Adjust supporting copy to match brand voice sign-off.
+
+ROOMS & SPACES
+  [16] <!-- SWAP:IMG → principal suite parkland view wide | ratio: 16:9 -->
+       SRC: Image 71 — forest category (CSV ✓)
+  [17] <!-- SWAP:IMG → garden room interior cosy | ratio: 3:2 -->
+       SRC: Image 65 — forest category (CSV ✓)
+  [18] <!-- SWAP:IMG → oak room classic English interior | ratio: 3:2 -->
+       SRC: Image 73 — forest category (CSV ✓)
+  [19] <!-- SWAP:IMG → Georgian suite four-poster bed | ratio: 3:2 -->
+       SRC: Image 63 — forest category (CSV ✓)
+  [20] <!-- SWAP:IMG → estate room warm evening light | ratio: 3:2 -->
+       SRC: Image 66 — forest category (CSV ✓)
+  [21] <!-- SWAP:IMG → parkland panorama room wide angle | ratio: 16:9 -->
+       SRC: Image 69 — forest category (CSV ✓)
+
+WELLNESS RITUALS
+  [22–27] <!-- SWAP:COPY → wellness rituals 1–6 -->
+          ACTION: Confirm spa offering names with Hartwell spa team.
+          Rituals: Chalk Aquifer Soak · Hedgerow Harvest Scrub · Deep Earth Compress
+                   Oak Grove Breathwork · Georgian Stone Massage · Orchard & Beeswax Ritual
+
+EDITORIAL QUOTE
+  [28] <!-- SWAP:IMG → forest atmospheric light through trees | ratio: 16:9 -->
+       SRC: Image 64 — forest category (CSV ✓)
+  [29] <!-- SWAP:COPY → editorial quote -->
+       Current: "There are few houses in England..." — Condé Nast Traveller (fabricated)
+       ⚠ ACTION: Replace with a real published press quote before going live.
+
+BOOKING CTA
+  [30] <!-- SWAP:IMG → Hartwell House estate exterior spring | ratio: 16:9 -->
+       SRC: Image 67 — forest category (CSV ✓)
+  [31] <!-- SWAP:COPY → booking CTA -->
+       Booking URL: https://www.hartwell-house.com/breaks-packages/
+       Guide PDF:   https://www.hartwell-house.com/media/1529/hhh-group-brochure-nov-2021.pdf
+       ACTION: Update PDFs and CTA links each season.
+
+FOOTER
+  [32] <!-- SWAP:LOGO → footer -->
+       SRC: same as [02] — POB Hotels white PNG
+       ACTION: Replace with Hartwell-specific lockup when available.
+
+─────────────────────────────────────────────
+⚠ PRODUCTION FOLLOW-UP (items requiring real assets or copy approval)
+  [02] [32] Logo — confirm Hartwell-specific vs. POB Hotels group lockup
+  [29]       Editorial quote — must be a real published source
+  [04] [12] [22–27] [31] Copy — requires brand/editorial sign-off
+  [Video]    Forest video is generic; ideal swap = Hartwell estate aerial or ground footage
+  [3D]       Oak leaf GLB is generic; ideal swap = Hartwell pineapple or estate botanical motif
+
+─────────────────────────────────────────────
+COLOR REFERENCE (production notes)
+  --color-primary    #1E3A2F   deep English forest green
+  --color-secondary  #172B20   darker forest — dark section bg
+  --color-accent     #B8985A   antique brass / harvest gold
+  --color-bg         #0D1F18   near-black forest — page bg
+  --color-bg-mid     #172B20   same as secondary — section alt
+  --color-text       #F2EDE4   warm parchment — primary text
+  --color-text-muted #8A9E8E   muted sage — secondary / data copy
+═══════════════════════════════════════════════ -->
+</body>
+</html>
