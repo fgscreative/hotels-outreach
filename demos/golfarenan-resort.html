@@ -1,0 +1,2211 @@
+<!--
+BRAND EXTRACTION REPORT
+========================
+Hotel Name:         Halmstad Golfarena (HGGSC)
+URL:                https://www.golfarenan.se/
+Primary Color:      #1E3D2F  — Deep Swedish forest-coastal green
+Secondary Color:    #C4A265  — Halland coastal sand gold
+Accent Color:       #8FB89A  — Sea-glass soft green
+Background Mood:    Dark — near-black Nordic forest night (#0A1A12)
+Font Pairing:       Cormorant Garamond (serif editorial) + DM Sans (grotesque)
+Tone of Voice:      Warm precision — Swedish understated warmth, nature-rooted, active, inclusive
+Landscape Archetype: Coastal + Forest (Swedish West Coast, Halland county)
+Positioning:        "Mer än bara golf" — More than golf. A working stay in open nature beside the Kattegat.
+Key Experiences:
+  1. Championship Golf (365 days — arena course, Toptracer Range, training halls, adventure golf)
+  2. Accommodation (hotel rooms, golf houses, coastal cabins — Tylösand 4km)
+  3. Restaurant Görans Bistro (Halland-sourced seasonal kitchen)
+  4. Gym & Sauna (full-body training + outdoor hot pool + sauna)
+  5. Conference & Events (sea-view rooms, teambuilding, kickoff packages)
+  6. Golf Packages (all-inclusive: golf + stay + meals)
+Coordinates + Elevation: 56°36'N, 12°55'E | Elevation ~8m above sea level | 4km to Tylösand
+
+ASSET MAPPING REPORT
+========================
+Total assets in CSV: ~200+ images + 2 coastal videos + 1 forest video + 3 GLB objects
+Assets successfully mapped: 16 images + 2 videos + 1 GLB
+Slots covered by CSV:
+  hero-video, hero-poster, manifesto-3d, experience-1..5,
+  the-place-img, room-1..6, quote-bg, booking-video, booking-poster
+Slots falling back to Unsplash: wellness-bg (texture only), wellness-ritual icons (SVG glyphs)
+Logo SRC: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69ecea7793b190a7347f1bd1_HGGSC_Logo_Name_White_White.png
+3D Object SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb (oak leaf)
+Video assets:
+  coastal 1: https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c34614aa07e724b927a_Video%205.mp4
+  coastal 2: https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c3b2d6f969a6ed9d0f0_Video%207.mp4
+Image assets (coastal):
+  img-56: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png
+  img-12: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f1fe2d8b2f06d2529_Image%2012.png
+  img-42: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fdef24e731275c24a_Image%2042.png
+  img-3:  https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f679754764ba8477c_Image%203.png
+  img-10: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fc699fe80d5a792a6_Image%2010.png
+  img-1:  https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e614aa07e724b10b1_Image%201.png
+  img-9:  https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e13e8a712bef8f191_Image%209.png
+  img-2:  https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e1edb921f35a63175_Image%202.png
+  img-55: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png
+  img-54: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755a0854ea3cadb267cd_Image%2054.png
+  img-53: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755108515add56c26e14_Image%2053.png
+  img-52: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551d402271fd28d57c9_Image%2052.png
+  img-50: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551a79a50ab947db776_Image%2050.png
+  img-44: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755102e16a74f59b0111_Image%2044.png
+  img-46: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7550d0152d0e448f0b58_Image%2046.png
+  img-62 (forest): https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f5931b223dc54467b_Image%2062.png
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halmstad Golfarena — Where the Fairway Meets the Sea</title>
+
+<!-- Google Fonts: Cormorant Garamond + DM Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- Three.js r134 + GLTFLoader -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://unpkg.com/three@0.134.0/examples/js/loaders/GLTFLoader.js"></script>
+
+<style>
+/*
+ * CSS CUSTOM PROPERTIES
+ * =====================
+ * --color-primary    #1E3D2F  Deep Swedish forest-coastal green
+ * --color-secondary  #C4A265  Halland sand gold
+ * --color-accent     #8FB89A  Sea-glass green
+ * --color-bg         #0A1A12  Near-black Nordic night
+ * --color-surface    #111E16  Lifted surface
+ * --color-text       #E8E0D0  Warm parchment cream
+ * --color-muted      #7A8C7E  Muted sea-glass
+ * --font-serif       'Cormorant Garamond', Georgia, serif
+ * --font-sans        'DM Sans', system-ui, sans-serif
+ */
+
+/* SWAP:COLOR */
+:root {
+  --color-primary:   #1E3D2F;
+  --color-secondary: #C4A265;
+  --color-accent:    #8FB89A;
+  --color-bg:        #0A1A12;
+  --color-surface:   #111E16;
+  --color-text:      #E8E0D0;
+  --color-muted:     #7A8C7E;
+  --font-serif:      'Cormorant Garamond', Georgia, serif;
+  --font-sans:       'DM Sans', system-ui, sans-serif;
+  --ease-out:        cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:     cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+/* ── TYPOGRAPHY ── */
+.t-display {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.t-headline {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.t-label {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.t-body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.65;
+  font-size: 0.9rem;
+}
+
+/* ── LAYOUT UTILITY ── */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 4rem);
+}
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+/* ════════════════════════════════════════
+   1. HERO
+════════════════════════════════════════ */
+#hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SWAP:VIDEO → hero coastal background | hero section */
+#hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10,26,18,0.25) 0%,
+    rgba(30,61,47,0.40) 45%,
+    rgba(10,26,18,0.75) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 1.5rem;
+}
+
+/* SWAP:LOGO */
+.hero-logo {
+  width: clamp(120px, 18vw, 240px);
+  height: auto;
+  opacity: 0;
+  transform: translateY(-16px);
+}
+
+.hero-tagline {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(2.4rem, 7vw, 7rem);
+  color: var(--color-text);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  overflow: hidden;
+}
+
+.hero-tagline .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(60px);
+  padding-right: 0.3em;
+}
+
+.hero-sub {
+  font-family: var(--font-sans);
+  font-size: clamp(0.65rem, 1.2vw, 0.75rem);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 0;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+}
+
+.hero-scroll-indicator span {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--color-accent), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(1); opacity: 1; }
+  50%       { transform: scaleY(0.6); opacity: 0.4; }
+}
+
+/* ════════════════════════════════════════
+   2. MANIFESTO
+════════════════════════════════════════ */
+#manifesto {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(6rem, 15vh, 12rem) 1.5rem;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+#manifesto-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.12;
+  z-index: 0;
+  pointer-events: none;
+}
+/* SWAP:3D → oak leaf | Coastal + Forest */
+
+.manifesto-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 920px;
+  text-align: center;
+}
+
+.manifesto-eyebrow {
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 3rem;
+  opacity: 0;
+}
+
+.manifesto-line {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(2.4rem, 6.5vw, 6.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--color-text);
+  opacity: 0;
+  transform: translateY(40px);
+  will-change: transform;
+}
+
+.manifesto-line.accent {
+  color: var(--color-secondary);
+}
+
+/* SWAP:COPY → manifesto */
+
+/* ════════════════════════════════════════
+   3. SIGNATURE EXPERIENCES
+════════════════════════════════════════ */
+#experiences {
+  padding: clamp(5rem, 12vh, 10rem) 0;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.experiences-header {
+  padding: 0 clamp(1.25rem, 5vw, 4rem);
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.experiences-header-left .eyebrow {
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+.experiences-header-left h2 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.experiences-track-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+}
+.experiences-track-wrap::-webkit-scrollbar { display: none; }
+.experiences-track-wrap.grabbing { cursor: grabbing; }
+
+.experiences-track {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 clamp(1.25rem, 5vw, 4rem);
+  width: max-content;
+}
+
+.exp-card {
+  flex: 0 0 clamp(260px, 30vw, 380px);
+  aspect-ratio: 4/5;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--color-primary);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.exp-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-out);
+}
+
+.exp-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10,26,18,0.88) 0%,
+    rgba(10,26,18,0.15) 55%,
+    transparent 100%
+  );
+  transition: background 0.5s ease;
+}
+
+.exp-card-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.75rem 1.5rem;
+  z-index: 1;
+}
+
+.exp-category {
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.exp-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.5vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+.exp-desc {
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--color-muted);
+  max-width: 28ch;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.exp-card:hover .exp-card-img { transform: scale(1.06); }
+.exp-card:hover .exp-desc { opacity: 1; transform: none; }
+.exp-card:hover .exp-card-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(30,61,47,0.92) 0%,
+    rgba(10,26,18,0.35) 55%,
+    rgba(30,61,47,0.10) 100%
+  );
+}
+
+/* SWAP:COPY → experience card 1–5 */
+/* SWAP:IMG → experience card 1 | ratio: 4:5 */
+/* SWAP:IMG → experience card 2 | ratio: 4:5 */
+/* SWAP:IMG → experience card 3 | ratio: 4:5 */
+/* SWAP:IMG → experience card 4 | ratio: 4:5 */
+/* SWAP:IMG → experience card 5 | ratio: 4:5 */
+
+/* ════════════════════════════════════════
+   4. THE PLACE
+════════════════════════════════════════ */
+#the-place {
+  padding: clamp(5rem, 12vh, 10rem) 0;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.place-grid {
+  display: grid;
+  grid-template-columns: 60fr 40fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 4rem);
+}
+
+.place-img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/2;
+  will-change: transform;
+}
+
+.place-img {
+  width: 100%;
+  height: 115%;
+  object-fit: cover;
+  transform: translateY(0);
+  will-change: transform;
+}
+
+.place-data-overlay {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: rgba(10,26,18,0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(143,184,154,0.2);
+  padding: 1rem 1.25rem;
+  font-family: var(--font-sans);
+}
+
+.place-data-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+.place-data-item:last-child { margin-bottom: 0; }
+
+.place-data-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  min-width: 68px;
+}
+
+.place-data-value {
+  font-size: 0.78rem;
+  color: var(--color-accent);
+  letter-spacing: 0.04em;
+}
+
+.place-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.place-eyebrow {
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.place-headline {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1.1;
+  color: var(--color-text);
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.place-paras {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.place-para {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.place-rule {
+  width: 40px;
+  height: 1px;
+  background: var(--color-secondary);
+  opacity: 0;
+}
+
+/* SWAP:IMG → the place coastal | ratio: 3:2 */
+/* SWAP:COPY → the place */
+
+/* ════════════════════════════════════════
+   5. TRANSFORMATION STATS
+════════════════════════════════════════ */
+#stats {
+  padding: clamp(6rem, 14vh, 11rem) 0;
+  background: var(--color-surface);
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-bg-glyph {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-serif);
+  font-size: 40vw;
+  font-weight: 300;
+  color: rgba(30,61,47,0.12);
+  pointer-events: none;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 4rem);
+  position: relative;
+  z-index: 1;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  border-top: 1px solid rgba(143,184,154,0.2);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.stat-number {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(4rem, 9vw, 8rem);
+  line-height: 1;
+  color: var(--color-text);
+  letter-spacing: -0.03em;
+  display: block;
+}
+
+.stat-number .stat-unit {
+  font-size: 0.4em;
+  vertical-align: super;
+  color: var(--color-secondary);
+  letter-spacing: 0;
+}
+
+.stat-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0.75rem 0 0.5rem;
+  display: block;
+}
+
+.stat-desc {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-muted);
+  max-width: 22ch;
+  margin: 0 auto;
+}
+
+/* SWAP:COPY → transformation stats 1–3 */
+
+/* ════════════════════════════════════════
+   6. ROOMS & SPACES
+════════════════════════════════════════ */
+#rooms {
+  padding: clamp(5rem, 12vh, 10rem) 0;
+  background: var(--color-bg);
+}
+
+.rooms-header {
+  padding: 0 clamp(1.25rem, 5vw, 4rem);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.rooms-header .eyebrow {
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+.rooms-header h2 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+}
+
+.rooms-masonry {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 10vw;
+  gap: 0.5rem;
+  padding: 0 clamp(0.75rem, 2vw, 1.5rem);
+}
+
+.room-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0;
+  background: var(--color-surface);
+}
+
+.room-item:nth-child(1) { grid-column: span 5; grid-row: span 3; }
+.room-item:nth-child(2) { grid-column: span 4; grid-row: span 2; }
+.room-item:nth-child(3) { grid-column: span 3; grid-row: span 2; }
+.room-item:nth-child(4) { grid-column: span 4; grid-row: span 2; }
+.room-item:nth-child(5) { grid-column: span 3; grid-row: span 2; }
+.room-item:nth-child(6) { grid-column: span 5; grid-row: span 2; }
+
+.room-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-out);
+}
+
+.room-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,26,18,0);
+  transition: background 0.5s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.25rem;
+}
+
+.room-name {
+  font-family: var(--font-serif);
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  font-weight: 400;
+  color: var(--color-text);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.room-item:hover .room-img { transform: scale(1.05); }
+.room-item:hover .room-overlay { background: rgba(10,26,18,0.55); }
+.room-item:hover .room-name { opacity: 1; transform: none; }
+
+/* SWAP:IMG → room/interior 1 | ratio: 3:2 */
+/* SWAP:IMG → room/interior 2 | ratio: 3:2 */
+/* SWAP:IMG → room/interior 3 | ratio: 3:2 */
+/* SWAP:IMG → room/interior 4 | ratio: 3:2 */
+/* SWAP:IMG → room/interior 5 | ratio: 3:2 */
+/* SWAP:IMG → room/interior 6 | ratio: 3:2 */
+
+/* ════════════════════════════════════════
+   7. WELLNESS RITUALS
+════════════════════════════════════════ */
+#wellness {
+  position: relative;
+  padding: clamp(6rem, 14vh, 11rem) 0;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.wellness-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f5931b223dc54467b_Image%2062.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.07;
+  z-index: 0;
+  will-change: transform;
+}
+
+.wellness-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 4rem);
+}
+
+.wellness-header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 7vw, 5.5rem);
+}
+
+.wellness-header .eyebrow {
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.wellness-header h2 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  line-height: 1.08;
+  color: var(--color-text);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.wellness-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1px;
+  background: rgba(143,184,154,0.12);
+}
+
+.ritual-item {
+  background: var(--color-bg);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: background 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ritual-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 2px; height: 0;
+  background: var(--color-secondary);
+  transition: height 0.5s var(--ease-out);
+}
+
+.ritual-item:hover { background: var(--color-surface); }
+.ritual-item:hover::before { height: 100%; }
+
+.ritual-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  color: var(--color-secondary);
+}
+
+.ritual-name {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.ritual-desc {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+  max-width: 30ch;
+}
+
+/* SWAP:COPY → wellness rituals 1–6 */
+
+/* ════════════════════════════════════════
+   8. EDITORIAL QUOTE
+════════════════════════════════════════ */
+#quote {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.quote-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.quote-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,26,18,0.72);
+  z-index: 1;
+}
+
+.quote-body {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 780px;
+  padding: 0 clamp(1.5rem, 6vw, 5rem);
+}
+
+.quote-mark {
+  font-family: var(--font-serif);
+  font-size: clamp(6rem, 14vw, 14rem);
+  line-height: 0.7;
+  color: var(--color-secondary);
+  display: block;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.quote-text {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.4rem, 3.5vw, 2.8rem);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.quote-attribution {
+  margin-top: 2.5rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+/* SWAP:IMG → editorial quote background coastal | ratio: 16:9 */
+/* SWAP:COPY → editorial quote */
+
+/* ════════════════════════════════════════
+   9. BOOKING CTA
+════════════════════════════════════════ */
+#booking {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* SWAP:VIDEO → booking CTA background | booking section */
+#booking-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.booking-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10,26,18,0.55) 0%,
+    rgba(10,26,18,0.72) 100%
+  );
+  z-index: 1;
+}
+
+.booking-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 clamp(1.5rem, 6vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.booking-eyebrow {
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.booking-headline {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2.5rem, 6.5vw, 6rem);
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  color: var(--color-text);
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.booking-sub {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+  max-width: 44ch;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.booking-urgency {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  border: 1px solid rgba(196,162,101,0.3);
+  padding: 0.45rem 1rem;
+  opacity: 0;
+}
+
+.booking-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.btn-primary {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  background: var(--color-secondary);
+  color: var(--color-bg);
+  transition: background 0.3s ease, transform 0.25s ease;
+}
+
+.btn-primary:hover {
+  background: #d4b87a;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid rgba(232,224,208,0.35);
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.25s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* SWAP:COPY → booking CTA */
+
+/* ════════════════════════════════════════
+   10. FOOTER
+════════════════════════════════════════ */
+#footer {
+  background: var(--color-surface);
+  border-top: 1px solid rgba(143,184,154,0.15);
+  padding: clamp(3rem, 6vw, 5rem) 0 2rem;
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 4rem);
+}
+
+.footer-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(143,184,154,0.12);
+  margin-bottom: 2rem;
+}
+
+/* SWAP:LOGO */
+.footer-logo {
+  width: clamp(100px, 14vw, 180px);
+  height: auto;
+  filter: brightness(0.85);
+}
+
+.footer-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.footer-meta-item {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+}
+
+.footer-meta-item a {
+  color: var(--color-accent);
+  transition: color 0.25s;
+}
+.footer-meta-item a:hover { color: var(--color-text); }
+
+.footer-coords {
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-copyright {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: rgba(122,140,126,0.6);
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.footer-social-link {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  transition: color 0.25s;
+}
+.footer-social-link:hover { color: var(--color-accent); }
+
+/* ════════════════════════════════════════
+   LIGHTBOX
+════════════════════════════════════════ */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,26,18,0.95);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+#lightbox.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-size: 1.5rem;
+  color: var(--color-text);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1;
+  transition: color 0.25s;
+}
+.lightbox-close:hover { color: var(--color-accent); }
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+/* 768px */
+@media (max-width: 768px) {
+  .place-grid {
+    grid-template-columns: 1fr;
+  }
+  .place-content { padding: 0; }
+  .stats-grid { grid-template-columns: 1fr; gap: 0; }
+  .stat-item { border-top: none; border-bottom: 1px solid rgba(143,184,154,0.15); padding: 2rem 1rem; }
+  .rooms-masonry {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 45vw;
+  }
+  .room-item:nth-child(n) { grid-column: span 1; grid-row: span 1; }
+  .room-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+  .wellness-grid { grid-template-columns: 1fr; }
+  .booking-ctas { flex-direction: column; width: 100%; }
+  .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+}
+
+/* 375px */
+@media (max-width: 480px) {
+  .hero-tagline { font-size: 2.2rem; }
+  .manifesto-line { font-size: 2rem; }
+  .experiences-track { gap: 1rem; }
+  .exp-card { flex: 0 0 85vw; }
+  .footer-top { flex-direction: column; }
+  .footer-meta { align-items: flex-start; text-align: left; }
+  .rooms-masonry {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 60vw;
+  }
+  .room-item:nth-child(n) { grid-column: span 1; grid-row: span 1; }
+}
+
+/* 1280px+ */
+@media (min-width: 1280px) {
+  .wellness-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* 1920px+ */
+@media (min-width: 1920px) {
+  .container { max-width: 1600px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     1. HERO
+══════════════════════════════════════ -->
+<section id="hero" aria-label="Hero">
+
+  <!-- SWAP:VIDEO → coastal hero background | hero section -->
+  <video
+    id="hero-video"
+    autoplay muted loop playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png"
+    aria-hidden="true">
+    <source src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c34614aa07e724b927a_Video%205.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <!-- SWAP:LOGO -->
+    <img
+      class="hero-logo"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69ecea7793b190a7347f1bd1_HGGSC_Logo_Name_White_White.png"
+      alt="Halmstad Golfarena"
+      width="240" height="auto"
+      loading="eager">
+
+    <!-- SWAP:COPY → manifesto -->
+    <h1 class="hero-tagline" aria-label="Where the fairway meets the sea.">
+      <span class="word">Where</span><span class="word">the</span><span class="word">fairway</span><span class="word">meets</span><span class="word">the</span><span class="word">sea.</span>
+    </h1>
+
+    <p class="hero-sub">Halmstad Golfarena &mdash; Halland, Sweden</p>
+  </div>
+
+  <div class="hero-scroll-indicator" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     2. MANIFESTO
+══════════════════════════════════════ -->
+<section id="manifesto" aria-label="The Philosophy">
+
+  <!-- SWAP:3D → oak leaf | Coastal + Forest archetype -->
+  <canvas id="manifesto-canvas" aria-hidden="true"></canvas>
+
+  <div class="manifesto-inner">
+    <p class="manifesto-eyebrow">The Philosophy</p>
+    <!-- SWAP:COPY → manifesto -->
+    <span class="manifesto-line">Not every fairway ends</span>
+    <span class="manifesto-line accent">where the map says it does.</span>
+    <span class="manifesto-line">Ours ends at the sea.</span>
+    <span class="manifesto-line">Come back tomorrow.</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     3. SIGNATURE EXPERIENCES
+══════════════════════════════════════ -->
+<section id="experiences" aria-label="Signature Experiences">
+  <div class="experiences-header">
+    <div class="experiences-header-left">
+      <p class="eyebrow">What we offer</p>
+      <h2>Five ways<br><em>to be present here</em></h2>
+    </div>
+  </div>
+
+  <div class="experiences-track-wrap" id="exp-track-wrap">
+    <div class="experiences-track" id="exp-track">
+
+      <!-- Card 1: Championship Golf -->
+      <!-- SWAP:IMG → experience card 1 championship course | ratio: 4:5 -->
+      <article class="exp-card">
+        <img class="exp-card-img" loading="lazy"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png"
+          alt="Championship golf course">
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-body">
+          <p class="exp-category">Championship Golf</p>
+          <h3 class="exp-title">The Arena<br>Course</h3>
+          <p class="exp-desc">Eighteen holes carved from Swedish coastal heath. The wind is part of the game.</p>
+        </div>
+      </article>
+
+      <!-- Card 2: Golf Training -->
+      <!-- SWAP:IMG → experience card 2 golf training range | ratio: 4:5 -->
+      <article class="exp-card">
+        <img class="exp-card-img" loading="lazy"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f1fe2d8b2f06d2529_Image%2012.png"
+          alt="Golf training range">
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-body">
+          <p class="exp-category">Year-Round Training</p>
+          <h3 class="exp-title">365 Days<br>of Golf</h3>
+          <p class="exp-desc">Indoor halls, Toptracer Range, GolfCorner by Cobra. Every day, open.</p>
+        </div>
+      </article>
+
+      <!-- Card 3: Görans Bistro -->
+      <!-- SWAP:IMG → experience card 3 restaurant bistro | ratio: 4:5 -->
+      <article class="exp-card">
+        <img class="exp-card-img" loading="lazy"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fdef24e731275c24a_Image%2042.png"
+          alt="Restaurant Görans Bistro">
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-body">
+          <p class="exp-category">Görans Bistro</p>
+          <h3 class="exp-title">Halland's<br>Kitchen</h3>
+          <p class="exp-desc">Coastal catches and forest-edge produce. The meal earns the round.</p>
+        </div>
+      </article>
+
+      <!-- Card 4: Accommodation -->
+      <!-- SWAP:IMG → experience card 4 golf houses accommodation | ratio: 4:5 -->
+      <article class="exp-card">
+        <img class="exp-card-img" loading="lazy"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f679754764ba8477c_Image%203.png"
+          alt="Golf houses accommodation">
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-body">
+          <p class="exp-category">Stay</p>
+          <h3 class="exp-title">Golf Houses<br>&amp; Rooms</h3>
+          <p class="exp-desc">Four beds, a hot tub, and the sound of the Kattegat. Check in Sunday. Leave Thursday.</p>
+        </div>
+      </article>
+
+      <!-- Card 5: Conference & Events -->
+      <!-- SWAP:IMG → experience card 5 conference sea view | ratio: 4:5 -->
+      <article class="exp-card">
+        <img class="exp-card-img" loading="lazy"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fc699fe80d5a792a6_Image%2010.png"
+          alt="Conference with sea view">
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-body">
+          <p class="exp-category">Conference</p>
+          <h3 class="exp-title">Sea View<br>Boardrooms</h3>
+          <p class="exp-desc">Kickoffs that actually work. Teambuilding with fresh Atlantic air and open space.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     4. THE PLACE
+══════════════════════════════════════ -->
+<section id="the-place" aria-label="The Place">
+  <div class="place-grid">
+
+    <div class="place-img-wrap" id="place-img-wrap">
+      <!-- SWAP:IMG → the place coastal Halland | ratio: 3:2 -->
+      <img
+        class="place-img"
+        id="place-img"
+        loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e614aa07e724b10b1_Image%201.png"
+        alt="Halmstad coastline, Halland, Sweden">
+
+      <div class="place-data-overlay">
+        <div class="place-data-item">
+          <span class="place-data-label">Coords</span>
+          <span class="place-data-value">56°36'N 12°55'E</span>
+        </div>
+        <div class="place-data-item">
+          <span class="place-data-label">Elevation</span>
+          <span class="place-data-value">~8 m.a.s.l.</span>
+        </div>
+        <div class="place-data-item">
+          <span class="place-data-label">Sea</span>
+          <span class="place-data-value">Kattegat — 4 km</span>
+        </div>
+        <div class="place-data-item">
+          <span class="place-data-label">Region</span>
+          <span class="place-data-value">Halland, Sweden</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="place-content">
+      <p class="place-eyebrow">The Place</p>
+      <!-- SWAP:COPY → the place -->
+      <h2 class="place-headline">Halmstad.<br>Where the Nissan<br>meets the open sea.</h2>
+      <div class="place-rule"></div>
+      <div class="place-paras">
+        <p class="place-para">The Golfarena sits on Sweden's west coast, in Halland county, where heathland, pine forest, and the Kattegat converge in a single uninterrupted horizon. On clear days, you can see Denmark from the high point of hole seven.</p>
+        <p class="place-para">Walking distance: a fine sandy beach. Cycling distance: several nature reserves. Within reach: Tylösand, Halmstad's celebrated coastal headland. The city center is a twelve-minute bus ride — irrelevant to most guests.</p>
+        <p class="place-para">This is a working landscape. The light changes hourly. The wind is a playing partner, not an inconvenience. You don't visit Halmstad. You calibrate to it.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     5. TRANSFORMATION STATS
+══════════════════════════════════════ -->
+<section id="stats" aria-label="Key Numbers">
+  <div class="stats-bg-glyph" aria-hidden="true">GA</div>
+  <div class="stats-grid">
+
+    <!-- SWAP:COPY → transformation stats 1 -->
+    <div class="stat-item" data-count="365" data-unit="">
+      <span class="stat-number"><span class="count-display">0</span></span>
+      <span class="stat-label">Days of Golf</span>
+      <p class="stat-desc">No off-season. Indoor halls and outdoor greens run every day of the year.</p>
+    </div>
+
+    <!-- SWAP:COPY → transformation stats 2 -->
+    <div class="stat-item" data-count="14" data-unit="">
+      <span class="stat-number"><span class="count-display">0</span></span>
+      <span class="stat-label">Years, Award-Winning</span>
+      <p class="stat-desc">Family-run since 2010. Recognised for consistent quality and spirit.</p>
+    </div>
+
+    <!-- SWAP:COPY → transformation stats 3 -->
+    <div class="stat-item" data-count="4" data-unit="km">
+      <span class="stat-number"><span class="count-display">0</span><span class="stat-unit">km</span></span>
+      <span class="stat-label">To Tylösand Beach</span>
+      <p class="stat-desc">Halland's most celebrated sandy coast. Walk, cycle, or let the salt air find you.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     6. ROOMS & SPACES
+══════════════════════════════════════ -->
+<section id="rooms" aria-label="Rooms and Spaces">
+  <div class="rooms-header">
+    <p class="eyebrow">Where you rest</p>
+    <h2>Rooms &amp; <em>Spaces</em></h2>
+  </div>
+
+  <div class="rooms-masonry">
+
+    <!-- Room 1 — Hotel Room -->
+    <!-- SWAP:IMG → room/interior 1 hotel room | ratio: 3:2 -->
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e13e8a712bef8f191_Image%209.png">
+      <img class="room-img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e13e8a712bef8f191_Image%209.png"
+        alt="Hotel Room">
+      <div class="room-overlay"><span class="room-name">Hotel Room</span></div>
+    </div>
+
+    <!-- Room 2 — Golf House -->
+    <!-- SWAP:IMG → room/interior 2 golf house | ratio: 3:2 -->
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e1edb921f35a63175_Image%202.png">
+      <img class="room-img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e1edb921f35a63175_Image%202.png"
+        alt="Golf House">
+      <div class="room-overlay"><span class="room-name">Golf House</span></div>
+    </div>
+
+    <!-- Room 3 — Coastal Cabin -->
+    <!-- SWAP:IMG → room/interior 3 coastal cabin | ratio: 3:2 -->
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png">
+      <img class="room-img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png"
+        alt="Coastal Cabin">
+      <div class="room-overlay"><span class="room-name">Coastal Cabin</span></div>
+    </div>
+
+    <!-- Room 4 — Family Suite -->
+    <!-- SWAP:IMG → room/interior 4 family suite | ratio: 3:2 -->
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755a0854ea3cadb267cd_Image%2054.png">
+      <img class="room-img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755a0854ea3cadb267cd_Image%2054.png"
+        alt="Family Suite">
+      <div class="room-overlay"><span class="room-name">Family Suite</span></div>
+    </div>
+
+    <!-- Room 5 — Arena House -->
+    <!-- SWAP:IMG → room/interior 5 arena house | ratio: 3:2 -->
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755108515add56c26e14_Image%2053.png">
+      <img class="room-img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755108515add56c26e14_Image%2053.png"
+        alt="Arena House">
+      <div class="room-overlay"><span class="room-name">Arena House</span></div>
+    </div>
+
+    <!-- Room 6 — The Cabin -->
+    <!-- SWAP:IMG → room/interior 6 lakeside cabin | ratio: 3:2 -->
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551d402271fd28d57c9_Image%2052.png">
+      <img class="room-img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551d402271fd28d57c9_Image%2052.png"
+        alt="The Cabin">
+      <div class="room-overlay"><span class="room-name">The Cabin</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     7. WELLNESS RITUALS
+══════════════════════════════════════ -->
+<section id="wellness" aria-label="Wellness Rituals">
+  <!-- SWAP:IMG → wellness section forest background texture | NO ASSET IN CSV (using forest img-62 from CSV) -->
+  <div class="wellness-bg"></div>
+
+  <div class="wellness-content">
+    <div class="wellness-header">
+      <span class="eyebrow">Restore</span>
+      <h2>Rituals for the<br><em>whole body</em></h2>
+    </div>
+
+    <div class="wellness-grid">
+
+      <!-- SWAP:COPY → wellness ritual 1 -->
+      <div class="ritual-item">
+        <svg class="ritual-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <circle cx="18" cy="18" r="14"/>
+          <path d="M18 8v4M18 24v4M8 18h4M24 18h4"/>
+          <circle cx="18" cy="18" r="5" fill="none"/>
+        </svg>
+        <h3 class="ritual-name">Sauna</h3>
+        <p class="ritual-desc">Scandinavian heat. Twenty minutes of pure wood-smoke stillness. Then cold sea air.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 2 -->
+      <div class="ritual-item">
+        <svg class="ritual-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <ellipse cx="18" cy="22" rx="12" ry="7"/>
+          <path d="M6 22c0-6.627 5.373-12 12-12s12 5.373 12 12"/>
+          <path d="M12 15c1.5-4 8.5-4 12 0" opacity="0.5"/>
+        </svg>
+        <h3 class="ritual-name">Outdoor Hot Pool</h3>
+        <p class="ritual-desc">Open-air warmth. Stars above, Baltic wind on your face. Silence guaranteed.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 3 -->
+      <div class="ritual-item">
+        <svg class="ritual-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <rect x="5" y="14" width="26" height="14" rx="2"/>
+          <path d="M5 21h26M13 14V10a5 5 0 0 1 10 0v4"/>
+          <circle cx="18" cy="21" r="3"/>
+        </svg>
+        <h3 class="ritual-name">Full-Body Gym</h3>
+        <p class="ritual-desc">Machines, free weights, daily group classes. Sweat first. Everything else follows.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 4 -->
+      <div class="ritual-item">
+        <svg class="ritual-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M6 30 C10 20, 14 22, 18 12 C22 2, 26 8, 30 6"/>
+          <path d="M6 30L30 30" opacity="0.3"/>
+        </svg>
+        <h3 class="ritual-name">Trail &amp; Dune</h3>
+        <p class="ritual-desc">Eight kilometres of coastal path. Sandy ground, salt air, no tracking required.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 5 -->
+      <div class="ritual-item">
+        <svg class="ritual-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <circle cx="18" cy="10" r="4"/>
+          <path d="M14 26l-4-8h16l-4 8"/>
+          <path d="M18 14v4"/>
+          <path d="M12 26h12" opacity="0.4"/>
+        </svg>
+        <h3 class="ritual-name">Mental Golf</h3>
+        <p class="ritual-desc">Tactical play in open wind. The course as moving meditation. No handicap required.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 6 -->
+      <div class="ritual-item">
+        <svg class="ritual-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M8 28 Q14 12 18 12 Q22 12 28 28"/>
+          <path d="M11 22h14"/>
+          <circle cx="18" cy="8" r="3" opacity="0.5"/>
+        </svg>
+        <h3 class="ritual-name">Görans Table</h3>
+        <p class="ritual-desc">Local fishing, seasonal Halland produce. The meal that closes the day completely.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     8. EDITORIAL QUOTE
+══════════════════════════════════════ -->
+<section id="quote" aria-label="Guest Testimonial">
+
+  <!-- SWAP:IMG → editorial quote background coastal | ratio: 16:9 -->
+  <img
+    class="quote-bg-img"
+    loading="lazy"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551a79a50ab947db776_Image%2050.png"
+    alt="">
+
+  <div class="quote-overlay"></div>
+
+  <div class="quote-body">
+    <!-- SWAP:COPY → editorial quote -->
+    <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+    <blockquote class="quote-text">
+      We had deliberately chosen this place for its peace and nature. Walking distance to a very fine sandy beach.
+    </blockquote>
+    <p class="quote-attribution">— Google Review &nbsp;·&nbsp; Danish guests &nbsp;·&nbsp; 2024</p>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════
+     9. BOOKING CTA
+══════════════════════════════════════ -->
+<section id="booking" aria-label="Book Your Stay">
+
+  <!-- SWAP:VIDEO → booking CTA background coastal | booking section -->
+  <video
+    id="booking-video"
+    autoplay muted loop playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755102e16a74f59b0111_Image%2044.png"
+    aria-hidden="true">
+    <source src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c3b2d6f969a6ed9d0f0_Video%207.mp4" type="video/mp4">
+  </video>
+
+  <div class="booking-overlay"></div>
+
+  <div class="booking-content">
+    <!-- SWAP:COPY → booking CTA -->
+    <p class="booking-eyebrow">Reserve Your Season</p>
+    <h2 class="booking-headline">Every Swedish<br>day is different.</h2>
+    <p class="booking-sub">Choose yours. Golf packages, hotel rooms, golf houses, and cabins — all available direct.</p>
+    <p class="booking-urgency">Limited summer availability &mdash; July books before April</p>
+    <div class="booking-ctas">
+      <a href="https://book.golfarenan.se/accommodation?channelId=43e81a6b-5414-485c-90d8-1358b1dcd0ba&culture=en-EN" class="btn-primary">Reserve Your Stay</a>
+      <a href="https://www.golfarenan.se/golfpaket-halmstad" class="btn-secondary">View Golf Packages</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════
+     10. FOOTER
+══════════════════════════════════════ -->
+<footer id="footer" aria-label="Footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+
+      <!-- SWAP:LOGO -->
+      <a href="https://www.golfarenan.se/">
+        <img
+          class="footer-logo"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69ecea7793b190a7347f1bd1_HGGSC_Logo_Name_White_White.png"
+          alt="Halmstad Golfarena"
+          width="180" height="auto"
+          loading="lazy">
+      </a>
+
+      <div class="footer-meta">
+        <span class="footer-coords t-label">56°36'N · 12°55'E · Halland, Sweden</span>
+        <span class="footer-meta-item"><a href="mailto:info@golfarenan.se">info@golfarenan.se</a></span>
+        <span class="footer-meta-item">+46 (0)35 241 19 20</span>
+        <span class="footer-meta-item">Lunden 12, 302 61 Halmstad</span>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; 2026 Halmstad Golfarena. All rights reserved.</p>
+      <nav class="footer-socials" aria-label="Social links">
+        <a href="https://instagram.com/golfarenan/" class="footer-social-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="http://www.facebook.com/golfarenan" class="footer-social-link" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.golfarenan.se/" class="footer-social-link" target="_blank" rel="noopener noreferrer">Website</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Room image enlarged">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+</div>
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  /* ── Register GSAP ScrollTrigger ── */
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ══════════════════════════════
+     HERO ANIMATIONS
+  ══════════════════════════════ */
+  var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+  tl.to('.hero-logo', { opacity: 1, y: 0, duration: 1.1, delay: 0.3 })
+    .to('.hero-tagline .word', {
+      opacity: 1, y: 0, duration: 0.85, stagger: 0.12, ease: 'power3.out'
+    }, '-=0.5')
+    .to('.hero-sub', { opacity: 1, duration: 0.8 }, '-=0.3')
+    .to('.hero-scroll-indicator', { opacity: 1, duration: 0.6 }, '-=0.2');
+
+  /* ══════════════════════════════
+     THREE.JS — OAK LEAF 3D
+  ══════════════════════════════ */
+  (function initThreeJS() {
+    if (typeof THREE === 'undefined') return;
+
+    var canvas = document.getElementById('manifesto-canvas');
+    if (!canvas) return;
+
+    var W = canvas.offsetWidth;
+    var H = canvas.offsetHeight;
+
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+    renderer.setSize(W, H);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0);
+
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(45, W / H, 0.1, 100);
+    camera.position.set(0, 0, 5);
+
+    /* Three-point warm/cool light rig */
+    var keyLight = new THREE.DirectionalLight(0xFFF5E0, 2.2); /* warm key */
+    keyLight.position.set(3, 4, 5);
+    scene.add(keyLight);
+
+    var fillLight = new THREE.DirectionalLight(0xC0E8FF, 0.9); /* cool fill */
+    fillLight.position.set(-4, 2, 2);
+    scene.add(fillLight);
+
+    var rimLight = new THREE.DirectionalLight(0x8FB89A, 0.5); /* sea-glass rim */
+    rimLight.position.set(0, -3, -4);
+    scene.add(rimLight);
+
+    var ambient = new THREE.AmbientLight(0x1E3D2F, 0.8);
+    scene.add(ambient);
+
+    var model = null;
+    var isHovered = false;
+    var rotY = 0;
+
+    /* SWAP:3D → oak leaf GLB | Coastal + Forest */
+    if (THREE.GLTFLoader) {
+      var loader = new THREE.GLTFLoader();
+      loader.load(
+        'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb',
+        function(gltf) {
+          model = gltf.scene;
+          /* Center and scale */
+          var box = new THREE.Box3().setFromObject(model);
+          var center = box.getCenter(new THREE.Vector3());
+          var size = box.getSize(new THREE.Vector3());
+          var maxDim = Math.max(size.x, size.y, size.z);
+          var scale = 2.8 / maxDim;
+          model.scale.setScalar(scale);
+          model.position.sub(center.multiplyScalar(scale));
+          scene.add(model);
+        },
+        undefined,
+        function(err) { console.warn('GLB load error:', err); }
+      );
+    }
+
+    /* Hover state */
+    canvas.addEventListener('mouseenter', function() { isHovered = true; });
+    canvas.addEventListener('mouseleave', function() { isHovered = false; });
+
+    /* Resize */
+    window.addEventListener('resize', function() {
+      W = canvas.offsetWidth;
+      H = canvas.offsetHeight;
+      if (W === 0 || H === 0) return;
+      camera.aspect = W / H;
+      camera.updateProjectionMatrix();
+      renderer.setSize(W, H);
+    });
+
+    /* Render loop */
+    function animate() {
+      requestAnimationFrame(animate);
+      if (model && !isHovered) {
+        rotY += 0.002;
+        model.rotation.y = rotY;
+      }
+      renderer.render(scene, camera);
+    }
+    animate();
+  })();
+
+  /* ══════════════════════════════
+     MANIFESTO REVEALS
+  ══════════════════════════════ */
+  gsap.to('.manifesto-eyebrow', {
+    opacity: 1, duration: 0.8,
+    scrollTrigger: { trigger: '#manifesto', start: 'top 75%' }
+  });
+
+  gsap.utils.toArray('.manifesto-line').forEach(function(line, i) {
+    gsap.to(line, {
+      opacity: 1, y: 0, duration: 1.1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '#manifesto',
+        start: 'top 70%'
+      },
+      delay: i * 0.18
+    });
+  });
+
+  /* ══════════════════════════════
+     EXPERIENCE CARDS
+  ══════════════════════════════ */
+  gsap.utils.toArray('.exp-card').forEach(function(card, i) {
+    gsap.to(card, {
+      opacity: 1, y: 0, duration: 0.8,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '#experiences',
+        start: 'top 75%'
+      },
+      delay: i * 0.12
+    });
+  });
+
+  /* Drag scroll for experience track */
+  (function() {
+    var wrap = document.getElementById('exp-track-wrap');
+    var track = document.getElementById('exp-track');
+    if (!wrap || !track) return;
+    var isDown = false;
+    var startX, scrollLeft;
+
+    wrap.addEventListener('mousedown', function(e) {
+      isDown = true;
+      wrap.classList.add('grabbing');
+      startX = e.pageX - wrap.offsetLeft;
+      scrollLeft = wrap.scrollLeft;
+    });
+    document.addEventListener('mouseup', function() {
+      isDown = false;
+      wrap.classList.remove('grabbing');
+    });
+    wrap.addEventListener('mousemove', function(e) {
+      if (!isDown) return;
+      e.preventDefault();
+      var x = e.pageX - wrap.offsetLeft;
+      var walk = (x - startX) * 1.2;
+      wrap.scrollLeft = scrollLeft - walk;
+    });
+  })();
+
+  /* ══════════════════════════════
+     THE PLACE — PARALLAX
+  ══════════════════════════════ */
+  gsap.to('#place-img', {
+    yPercent: -12,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#place-img-wrap',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
+
+  gsap.to('.place-headline', {
+    opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+    scrollTrigger: { trigger: '#the-place', start: 'top 70%' }
+  });
+
+  gsap.utils.toArray('.place-para').forEach(function(p, i) {
+    gsap.to(p, {
+      opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
+      scrollTrigger: { trigger: '#the-place', start: 'top 65%' },
+      delay: i * 0.15
+    });
+  });
+
+  gsap.to('.place-rule', {
+    opacity: 1, duration: 1,
+    scrollTrigger: { trigger: '#the-place', start: 'top 65%' }
+  });
+
+  /* ══════════════════════════════
+     STATS — COUNT UP
+  ══════════════════════════════ */
+  gsap.utils.toArray('.stat-item').forEach(function(item, i) {
+    gsap.to(item, {
+      opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+      scrollTrigger: { trigger: '#stats', start: 'top 70%' },
+      delay: i * 0.15
+    });
+
+    var target = parseInt(item.getAttribute('data-count'), 10);
+    var display = item.querySelector('.count-display');
+    if (!display) return;
+
+    var obj = { val: 0 };
+    ScrollTrigger.create({
+      trigger: item,
+      start: 'top 80%',
+      once: true,
+      onEnter: function() {
+        gsap.to(obj, {
+          val: target,
+          duration: 2,
+          ease: 'power2.out',
+          onUpdate: function() {
+            display.textContent = Math.round(obj.val);
+          }
+        });
+      }
+    });
+  });
+
+  /* ══════════════════════════════
+     ROOMS — STAGGER REVEAL
+  ══════════════════════════════ */
+  gsap.utils.toArray('.room-item').forEach(function(item, i) {
+    gsap.to(item, {
+      opacity: 1, duration: 0.9, ease: 'power2.out',
+      scrollTrigger: { trigger: '#rooms', start: 'top 70%' },
+      delay: i * 0.1
+    });
+  });
+
+  /* LIGHTBOX */
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightbox-img');
+  var lightboxClose = document.getElementById('lightbox-close');
+
+  document.querySelectorAll('.room-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      var src = item.getAttribute('data-src');
+      var alt = item.querySelector('.room-name') ? item.querySelector('.room-name').textContent : '';
+      if (src) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+  }
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  /* ══════════════════════════════
+     WELLNESS REVEALS
+  ══════════════════════════════ */
+  gsap.to('.wellness-header h2', {
+    opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+    scrollTrigger: { trigger: '#wellness', start: 'top 72%' }
+  });
+
+  gsap.utils.toArray('.ritual-item').forEach(function(item, i) {
+    gsap.to(item, {
+      opacity: 1, y: 0, duration: 0.85, ease: 'power3.out',
+      scrollTrigger: { trigger: '#wellness', start: 'top 65%' },
+      delay: i * 0.1
+    });
+  });
+
+  /* Wellness bg parallax */
+  gsap.to('.wellness-bg', {
+    yPercent: -15,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#wellness',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
+
+  /* ══════════════════════════════
+     QUOTE REVEALS
+  ══════════════════════════════ */
+  var quoteTl = gsap.timeline({
+    scrollTrigger: { trigger: '#quote', start: 'top 65%' }
+  });
+  quoteTl
+    .to('.quote-mark', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
+    .to('.quote-text', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, '-=0.4')
+    .to('.quote-attribution', { opacity: 1, y: 0, duration: 0.7 }, '-=0.3');
+
+  /* ══════════════════════════════
+     BOOKING REVEALS
+  ══════════════════════════════ */
+  var bookingTl = gsap.timeline({
+    scrollTrigger: { trigger: '#booking', start: 'top 65%' }
+  });
+  bookingTl
+    .to('.booking-eyebrow', { opacity: 1, y: 0, duration: 0.7 })
+    .to('.booking-headline', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, '-=0.3')
+    .to('.booking-sub', { opacity: 1, y: 0, duration: 0.7 }, '-=0.4')
+    .to('.booking-urgency', { opacity: 1, duration: 0.5 }, '-=0.2')
+    .to('.booking-ctas', { opacity: 1, y: 0, duration: 0.7 }, '-=0.2');
+
+  /* ══════════════════════════════
+     LAZY IMAGE OBSERVE
+  ══════════════════════════════ */
+  if ('IntersectionObserver' in window) {
+    var imgObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var img = entry.target;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+          }
+          imgObserver.unobserve(img);
+        }
+      });
+    }, { rootMargin: '200px 0px' });
+
+    document.querySelectorAll('img[loading="lazy"]').forEach(function(img) {
+      imgObserver.observe(img);
+    });
+  }
+
+})();
+</script>
+
+<!--
+════════════════════════════════════════════════════════════════
+CUSTOMIZATION GUIDE — SWAP MARKER CHECKLIST
+════════════════════════════════════════════════════════════════
+
+ASSETS (from CSV):
+──────────────────
+[x] 1.  SWAP:VIDEO → hero coastal background | hero section
+        SRC: https://s3.amazonaws.com/webflow-prod-assets/...Video%205.mp4
+        POSTER: img-56 from coastal CSV
+
+[x] 2.  SWAP:LOGO (header)
+        SRC: https://cdn.prod.website-files.com/.../HGGSC_Logo_Name_White_White.png
+
+[x] 3.  SWAP:3D → oak leaf GLB | Coastal + Forest archetype
+        SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/.../leaf_texture.glb
+
+[x] 4.  SWAP:IMG → experience card 1 | ratio: 4:5
+        SRC: img-56 coastal
+
+[x] 5.  SWAP:IMG → experience card 2 | ratio: 4:5
+        SRC: img-12 coastal
+
+[x] 6.  SWAP:IMG → experience card 3 | ratio: 4:5
+        SRC: img-42 coastal
+
+[x] 7.  SWAP:IMG → experience card 4 | ratio: 4:5
+        SRC: img-3 coastal
+
+[x] 8.  SWAP:IMG → experience card 5 | ratio: 4:5
+        SRC: img-10 coastal
+
+[x] 9.  SWAP:IMG → the place coastal | ratio: 3:2
+        SRC: img-1 coastal
+
+[x] 10. SWAP:IMG → room/interior 1 | ratio: 3:2
+        SRC: img-9 coastal
+
+[x] 11. SWAP:IMG → room/interior 2 | ratio: 3:2
+        SRC: img-2 coastal
+
+[x] 12. SWAP:IMG → room/interior 3 | ratio: 3:2
+        SRC: img-55 coastal
+
+[x] 13. SWAP:IMG → room/interior 4 | ratio: 3:2
+        SRC: img-54 coastal
+
+[x] 14. SWAP:IMG → room/interior 5 | ratio: 3:2
+        SRC: img-53 coastal
+
+[x] 15. SWAP:IMG → room/interior 6 | ratio: 3:2
+        SRC: img-52 coastal
+
+[ ] 16. SWAP:IMG → wellness section forest bg texture | NO ASSET IN CSV
+        CURRENTLY: img-62 (forest section, CSV available)
+        NOTE: already using forest image from CSV for wellness bg
+
+[x] 17. SWAP:IMG → editorial quote background | ratio: 16:9
+        SRC: img-50 coastal
+
+[x] 18. SWAP:VIDEO → booking CTA coastal | booking section
+        SRC: https://s3.amazonaws.com/webflow-prod-assets/...Video%207.mp4
+        POSTER: img-44 coastal
+
+[x] 19. SWAP:LOGO (footer)
+        SRC: same as header
+
+COPY:
+──────
+[ ] 20. SWAP:COPY → manifesto
+        CURRENT: "Not every fairway ends / where the map says it does. / Ours ends at the sea. / Come back tomorrow."
+        → Replace with client-approved copy if needed
+
+[ ] 21. SWAP:COPY → experience card 1–5
+        CURRENT: Golf, Training, Bistro, Accommodation, Conference
+        → Confirm with brand
+
+[ ] 22. SWAP:COPY → the place
+        CURRENT: Halmstad/Kattegat/Halland copy
+        → Confirm factual accuracy with venue team
+
+[ ] 23. SWAP:COPY → transformation stats 1–3
+        CURRENT: 365 days, 14 years, 4km to Tylösand
+        → Verify all figures with client
+
+[ ] 24. SWAP:COPY → wellness rituals 1–6
+        CURRENT: Sauna, Hot Pool, Gym, Trail & Dune, Mental Golf, Görans Table
+        → Confirm active offerings with venue
+
+[ ] 25. SWAP:COPY → editorial quote
+        CURRENT: Google Review, Danish guests, 2024
+        → Source additional press quotes if available
+
+[ ] 26. SWAP:COPY → booking CTA
+        CURRENT: "Every Swedish day is different. Choose yours."
+        → Confirm booking URL / CTA text with client
+
+COLOR:
+──────
+[ ] 27. SWAP:COLOR
+        CURRENT SYSTEM:
+          --color-primary:   #1E3D2F
+          --color-secondary: #C4A265
+          --color-accent:    #8FB89A
+          --color-bg:        #0A1A12
+          --color-text:      #E8E0D0
+        → Extract exact hex values from brand guidelines once provided
+
+⚠️  PRODUCTION FOLLOW-UP — NO ASSET IN CSV:
+────────────────────────────────────────────
+• Wellness bg (Item 16): img-62 from forest CSV category used.
+  Confirm this is acceptable or provide a specific asset.
+
+• Hero/Booking videos use coastal archetype. If client provides
+  on-property footage, swap those SRC values directly.
+
+• Room names (Hotel Room, Golf House, Coastal Cabin, Family Suite,
+  Arena House, The Cabin) are inferred — confirm exact room type
+  names with venue.
+
+• Booking links point to live golfarenan.se booking system.
+  Verify these remain valid for the final production URL.
+════════════════════════════════════════════════════════════════
+-->
+</body>
+</html>
