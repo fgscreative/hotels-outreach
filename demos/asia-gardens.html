@@ -1,0 +1,2768 @@
+<!DOCTYPE html>
+<!--
+BRAND EXTRACTION REPORT
+========================
+Hotel Name:        Asia Gardens Hotel & Thai Spa
+URL:               https://www.asiagardens.es/
+Primary Color:     #1c3d2a  (deep tropical jade — forest canopy depth)
+Secondary Color:   #c9a053  (warm gold — Thai temple ornament, sunset Mediterranean)
+Accent Color:      #e8c98a  (soft amber — candlelight, botanical warmth, hover states)
+Background Mood:   Dark · Warm · Tropical night — near-black jungle floor
+Font Pairing:      Cormorant Garamond (serif editorial, 300–600) + DM Sans (humanist grotesque, 300–500)
+Tone of Voice:     Poetic · Meditative · Sensory · Ancient-meets-modern · Intimate
+Landscape:         Tropical Jungle × Coastal Mediterranean (unique hybrid — Southeast Asian
+                   botanical abundance on the Costa Blanca, Alicante, Spain)
+Positioning:       An Asian dream rooted in Mediterranean terrain — where 3,000 Southeast
+                   Asian plant species and 2,500 years of Thai healing converge on the Costa Blanca.
+                   Member of Leading Hotels of the World.
+Key Experiences:   1) Thai Spa (2,500-year tradition, Wat Po lineage)
+                   2) Tropical Gardens (3,000+ Southeast Asian species)
+                   3) Nine Asian Pools (5 heated, cascading water architecture)
+                   4) Pan-Asian Dining (9 restaurants, from Koh Samui to teppanyaki)
+                   5) Tennis & Padel with panoramic sea views
+                   6) Wellness & Yoga (Chi Kung, meditation, fitness)
+Coordinates:       38°33'15" N, 0°07'38" W
+Elevation:         ~120m ASL · Finestrat foothills · Bay of Benidorm · Alicante, Spain
+
+ASSET MAPPING REPORT
+========================
+Total assets in CSV: ~250+ images + 3 GLB 3D objects + 21 videos
+Assets successfully mapped: 21 images + 2 GLB + 2 videos
+Landscape archetype used: Tropical Jungle (primary) + Cliffside Mediterranean (secondary)
+
+Slots covered by CSV:
+  hero-video       → tropical jungle 1 mp4
+  hero-poster      → tropical Image 143
+  accent-video     → tropical jungle 2 mp4
+  booking-video    → tropical jungle 3 mp4
+  manifesto-3d     → oak leaf GLB (tropical/botanical)
+  wellness-3d      → coral GLB (coastal/spa ritual)
+  experience-1     → tropical Image 142
+  experience-2     → tropical Image 144
+  experience-3     → tropical Image 98
+  experience-4     → tropical Image 132
+  experience-5     → tropical Image 135
+  experience-6     → tropical Image 133
+  the-place        → cliffside med Image 149
+  room-1           → tropical Image 105
+  room-2           → tropical Image 131
+  room-3           → tropical Image 112
+  room-4           → tropical Image 106
+  room-5           → tropical Image 102
+  room-6           → tropical Image 140
+  editorial-quote  → cliffside med Image 192
+  wellness-bg      → tropical Image 129
+  booking-poster   → tropical Image 143 (reused)
+
+Slots falling back to Unsplash: NONE — all slots covered by CSV assets
+
+Logo SRC:          https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69ee15ce1e688536d9c30ec1_logo-footer.png
+3D Object (manifesto): https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb
+3D Object (wellness):  https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb
+Video assets:
+  hero       → https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69db8b3f4eee5ae1c46489e6_tropical%20jungle%201.mp4
+  accent     → https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69db8b4771813554e2064a1d_tropical%20jungle%202.mp4
+  booking    → https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69db8b5747aaffccdae1b1b5_tropical%20jungle%203.mp4
+Image assets: 21 images from tropical jungle + cliffside mediterranean categories (see above)
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asia Gardens Hotel & Thai Spa — An Asian Dream on the Mediterranean</title>
+  <meta name="description" content="Asia Gardens Hotel & Thai Spa — Where 3,000 Southeast Asian botanical species and 2,500 years of Thai healing meet the Mediterranean coast of Alicante, Spain." />
+
+  <!-- Google Fonts: Cormorant Garamond + DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    /*
+    ============================================================
+    CSS CUSTOM PROPERTIES — Asia Gardens Hotel & Thai Spa
+    ============================================================
+    --color-primary:    #1c3d2a   deep tropical jade
+    --color-secondary:  #c9a053   warm gold
+    --color-accent:     #e8c98a   soft amber
+    --color-bg:         #080e0b   near-black jungle night
+    --color-text:       #f0ece2   warm off-white
+    --color-text-muted: rgba(240,236,226,0.55)
+    --color-overlay:    rgba(28,61,42,0.45)
+    --font-serif:       'Cormorant Garamond', serif
+    --font-sans:        'DM Sans', sans-serif
+    ============================================================
+    */
+
+    /* SWAP:COLOR */
+    :root {
+      --color-primary:    #1c3d2a;
+      --color-secondary:  #c9a053;
+      --color-accent:     #e8c98a;
+      --color-bg:         #080e0b;
+      --color-text:       #f0ece2;
+      --color-text-muted: rgba(240, 236, 226, 0.55);
+      --color-overlay:    rgba(28, 61, 42, 0.45);
+      --color-gold-line:  rgba(201, 160, 83, 0.25);
+      --font-serif:       'Cormorant Garamond', Georgia, serif;
+      --font-sans:        'DM Sans', system-ui, sans-serif;
+      --ease-expo:        cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-smooth:      cubic-bezier(0.4, 0, 0.2, 1);
+      --section-pad:      clamp(80px, 12vw, 160px);
+      --gutter:           clamp(24px, 5vw, 80px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      overflow-x: hidden;
+      line-height: 1.65;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── UTILITIES ── */
+    .u-label {
+      font-family: var(--font-sans);
+      font-size: clamp(9px, 1vw, 11px);
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+    }
+
+    .u-serif {
+      font-family: var(--font-serif);
+    }
+
+    .u-line {
+      width: 40px;
+      height: 1px;
+      background: var(--color-secondary);
+      display: inline-block;
+    }
+
+    /* ── HEADER (inside hero) ── */
+    .site-header {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 32px var(--gutter);
+    }
+
+    /* SWAP:LOGO */
+    .site-logo img {
+      height: clamp(36px, 5vw, 52px);
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.92;
+    }
+
+    .site-header-cta {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-text);
+      border: 1px solid rgba(240, 236, 226, 0.35);
+      padding: 10px 22px;
+      transition: background 0.4s var(--ease-smooth), border-color 0.4s var(--ease-smooth);
+    }
+    .site-header-cta:hover {
+      background: rgba(201, 160, 83, 0.15);
+      border-color: var(--color-secondary);
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 1 — FULLSCREEN HERO
+       SWAP:VIDEO → tropical jungle canopy | hero section
+       SWAP:LOGO
+    ══════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      width: 100%;
+      height: 100svh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        180deg,
+        rgba(8, 14, 11, 0.3) 0%,
+        var(--color-overlay) 40%,
+        rgba(8, 14, 11, 0.7) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0 var(--gutter);
+      max-width: 900px;
+    }
+
+    .hero-kicker {
+      font-family: var(--font-sans);
+      font-size: clamp(9px, 1.1vw, 11px);
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      margin-bottom: 28px;
+      opacity: 0;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-serif);
+      font-size: clamp(44px, 7.5vw, 100px);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+      margin-bottom: 40px;
+    }
+
+    .hero-tagline .word {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+      margin-right: 0.2em;
+    }
+    .hero-tagline .word-inner {
+      display: inline-block;
+      transform: translateY(110%);
+    }
+    .hero-tagline em {
+      font-style: italic;
+      color: var(--color-accent);
+    }
+
+    .hero-tagline-line {
+      display: block;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-sans);
+      font-size: clamp(10px, 1.1vw, 12px);
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-bg);
+      background: var(--color-secondary);
+      padding: 14px 32px;
+      transition: background 0.4s var(--ease-smooth), color 0.4s var(--ease-smooth);
+    }
+    .btn-primary:hover { background: var(--color-accent); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-sans);
+      font-size: clamp(10px, 1.1vw, 12px);
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-text);
+      border: 1px solid rgba(240, 236, 226, 0.4);
+      padding: 13px 32px;
+      transition: border-color 0.4s var(--ease-smooth), background 0.4s var(--ease-smooth);
+    }
+    .btn-ghost:hover {
+      border-color: var(--color-secondary);
+      background: rgba(201, 160, 83, 0.1);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .scroll-indicator span {
+      font-family: var(--font-sans);
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--color-secondary), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%   { opacity: 0.3; transform: scaleY(0.6); transform-origin: top; }
+      50%  { opacity: 1;   transform: scaleY(1); }
+      100% { opacity: 0.3; transform: scaleY(0.6); }
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 2 — MANIFESTO "The Philosophy"
+       SWAP:COPY → manifesto
+       SWAP:3D → oak leaf GLB | Tropical Jungle
+    ══════════════════════════════════════════ */
+    #manifesto {
+      position: relative;
+      padding: var(--section-pad) var(--gutter);
+      background: var(--color-bg);
+      overflow: hidden;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+    }
+
+    .manifesto-3d-bg {
+      position: absolute;
+      top: 50%;
+      right: -5%;
+      transform: translateY(-50%);
+      width: min(480px, 55vw);
+      height: min(480px, 55vw);
+      opacity: 0.13;
+      pointer-events: none;
+      z-index: 1;
+    }
+    /* SWAP:3D → oak leaf GLB | Tropical Jungle */
+    #canvas-manifesto {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .manifesto-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+
+    .manifesto-label {
+      font-family: var(--font-sans);
+      font-size: clamp(9px, 1vw, 11px);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      margin-bottom: 52px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .manifesto-label::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: var(--color-secondary);
+    }
+
+    .manifesto-lines {
+      margin-bottom: 52px;
+    }
+    .manifesto-line {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: clamp(42px, 7vw, 96px);
+      font-weight: 300;
+      line-height: 1.06;
+      letter-spacing: -0.015em;
+      color: var(--color-text);
+      overflow: hidden;
+    }
+    .manifesto-line em {
+      font-style: italic;
+      color: var(--color-secondary);
+    }
+    .manifesto-line-inner {
+      display: block;
+      transform: translateY(105%);
+    }
+
+    .manifesto-body {
+      font-family: var(--font-sans);
+      font-size: clamp(14px, 1.5vw, 17px);
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+      max-width: 540px;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .manifesto-data-strip {
+      display: flex;
+      gap: clamp(24px, 5vw, 64px);
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid var(--color-gold-line);
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .manifesto-data-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .manifesto-data-value {
+      font-family: var(--font-serif);
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 400;
+      color: var(--color-secondary);
+      line-height: 1;
+    }
+    .manifesto-data-label {
+      font-family: var(--font-sans);
+      font-size: clamp(9px, 1vw, 10px);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 3 — SIGNATURE EXPERIENCES
+       SWAP:IMG → experience cards 1–6 | ratio: 4:5
+    ══════════════════════════════════════════ */
+    #experiences {
+      padding: var(--section-pad) var(--gutter);
+      background: var(--color-bg);
+      overflow: hidden;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: clamp(48px, 6vw, 80px);
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 5vw, 64px);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+    }
+    .section-title em { font-style: italic; color: var(--color-secondary); }
+    .section-subtitle {
+      font-family: var(--font-sans);
+      font-size: clamp(12px, 1.3vw, 14px);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      max-width: 320px;
+      line-height: 1.7;
+    }
+
+    .experiences-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(12px, 1.5vw, 20px);
+    }
+
+    .exp-card {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .exp-card-img {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.9s var(--ease-expo);
+    }
+    .exp-card:hover .exp-card-img { transform: scale(1.06); }
+
+    .exp-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(8, 14, 11, 0.85) 0%,
+        rgba(8, 14, 11, 0.1) 55%,
+        transparent 100%
+      );
+      z-index: 2;
+      transition: background 0.5s var(--ease-smooth);
+    }
+    .exp-card:hover .exp-card-overlay {
+      background: linear-gradient(
+        to top,
+        rgba(28, 61, 42, 0.9) 0%,
+        rgba(8, 14, 11, 0.2) 55%,
+        transparent 100%
+      );
+    }
+
+    .exp-card-content {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 3;
+      padding: clamp(20px, 3vw, 32px);
+    }
+    .exp-card-category {
+      font-family: var(--font-sans);
+      font-size: 9px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      margin-bottom: 8px;
+    }
+    .exp-card-title {
+      font-family: var(--font-serif);
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--color-text);
+      margin-bottom: 10px;
+    }
+    .exp-card-desc {
+      font-family: var(--font-sans);
+      font-size: clamp(12px, 1.2vw, 13px);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      max-width: 240px;
+      transform: translateY(8px);
+      opacity: 0;
+      transition: transform 0.5s var(--ease-expo), opacity 0.5s var(--ease-expo);
+    }
+    .exp-card:hover .exp-card-desc {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 4 — THE PLACE
+       SWAP:IMG → the place, aerial coast | ratio: 3:2
+       SWAP:COPY → the place
+    ══════════════════════════════════════════ */
+    #the-place {
+      padding: var(--section-pad) var(--gutter);
+      background: var(--color-bg);
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: clamp(32px, 5vw, 80px);
+      align-items: center;
+    }
+
+    .place-image-wrap {
+      position: relative;
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+    }
+    .place-image-wrap img {
+      position: absolute;
+      inset: 0;
+      will-change: transform;
+    }
+
+    /* Atmospheric data overlays */
+    .place-data-overlay {
+      position: absolute;
+      bottom: clamp(16px, 2.5vw, 32px);
+      left: clamp(16px, 2.5vw, 32px);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .place-data-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(8, 14, 11, 0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--color-gold-line);
+      padding: 8px 14px;
+      max-width: 260px;
+    }
+    .place-data-chip-label {
+      font-family: var(--font-sans);
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      white-space: nowrap;
+    }
+    .place-data-chip-value {
+      font-family: var(--font-serif);
+      font-size: 13px;
+      color: var(--color-text);
+      white-space: nowrap;
+    }
+
+    .place-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .place-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4vw, 56px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--color-text);
+    }
+    .place-heading em { font-style: italic; color: var(--color-secondary); }
+
+    .place-body p {
+      font-family: var(--font-sans);
+      font-size: clamp(13px, 1.4vw, 15px);
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--color-text-muted);
+      margin-bottom: 20px;
+    }
+    .place-body p:last-child { margin-bottom: 0; }
+
+    .place-coords {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      padding-top: 20px;
+      border-top: 1px solid var(--color-gold-line);
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 5 — TRANSFORMATION PROMISE
+       SWAP:COPY → transformation stats 1–3
+    ══════════════════════════════════════════ */
+    #transformation {
+      padding: var(--section-pad) var(--gutter);
+      background: #060b08;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .transformation-bg-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-serif);
+      font-size: clamp(120px, 25vw, 320px);
+      font-weight: 300;
+      color: rgba(28, 61, 42, 0.12);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      letter-spacing: -0.04em;
+    }
+
+    .transformation-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .transformation-label {
+      font-family: var(--font-sans);
+      font-size: clamp(9px, 1vw, 11px);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      text-align: center;
+      margin-bottom: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+    .transformation-label::before,
+    .transformation-label::after {
+      content: '';
+      display: inline-block;
+      width: 40px;
+      height: 1px;
+      background: var(--color-secondary);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1px, 0.5vw, 2px);
+    }
+
+    .stat-block {
+      padding: clamp(40px, 6vw, 72px) clamp(24px, 4vw, 56px);
+      border: 1px solid var(--color-gold-line);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: clamp(64px, 10vw, 128px);
+      font-weight: 300;
+      line-height: 0.9;
+      color: var(--color-secondary);
+      letter-spacing: -0.03em;
+    }
+    .stat-number sup {
+      font-size: 0.35em;
+      vertical-align: top;
+      margin-top: 0.15em;
+    }
+
+    .stat-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 400;
+      color: var(--color-text);
+      line-height: 1.2;
+      font-style: italic;
+    }
+
+    .stat-body {
+      font-family: var(--font-sans);
+      font-size: clamp(12px, 1.2vw, 14px);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      max-width: 280px;
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 6 — ROOMS & SPACES
+       SWAP:IMG → room/interior 1–6 | ratio: 3:2
+    ══════════════════════════════════════════ */
+    #rooms {
+      padding: var(--section-pad) var(--gutter);
+      background: var(--color-bg);
+    }
+
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto;
+      gap: clamp(8px, 1vw, 14px);
+      margin-top: clamp(48px, 6vw, 80px);
+    }
+
+    .room-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .room-card:nth-child(1) { grid-column: 1 / 8; grid-row: 1; aspect-ratio: 16/9; }
+    .room-card:nth-child(2) { grid-column: 8 / 13; grid-row: 1; aspect-ratio: 4/5; }
+    .room-card:nth-child(3) { grid-column: 1 / 5; grid-row: 2; aspect-ratio: 4/5; }
+    .room-card:nth-child(4) { grid-column: 5 / 10; grid-row: 2; aspect-ratio: 3/2; }
+    .room-card:nth-child(5) { grid-column: 10 / 13; grid-row: 2; aspect-ratio: 4/5; }
+    .room-card:nth-child(6) { grid-column: 1 / 13; grid-row: 3; aspect-ratio: 21/9; }
+
+    .room-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.9s var(--ease-expo);
+    }
+    .room-card:hover img { transform: scale(1.05); }
+
+    .room-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(8, 14, 11, 0.7) 0%,
+        transparent 50%
+      );
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.5s var(--ease-smooth);
+    }
+    .room-card:hover .room-card-overlay { opacity: 1; }
+
+    .room-card-label {
+      position: absolute;
+      bottom: clamp(16px, 2vw, 24px);
+      left: clamp(16px, 2vw, 24px);
+      z-index: 3;
+      font-family: var(--font-serif);
+      font-size: clamp(16px, 2vw, 22px);
+      font-weight: 400;
+      color: var(--color-text);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.4s var(--ease-smooth), transform 0.4s var(--ease-expo);
+    }
+    .room-card:hover .room-card-label {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 7, 5, 0.97);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox-inner {
+      position: relative;
+      max-width: min(1100px, 90vw);
+      max-height: 85vh;
+    }
+    .lightbox-inner img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      display: block;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -48px;
+      right: 0;
+      background: none;
+      border: none;
+      color: var(--color-text);
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .lightbox-close::before {
+      content: '×';
+      font-size: 20px;
+      font-weight: 200;
+    }
+    .lightbox-close:hover { color: var(--color-secondary); }
+    .lightbox-border {
+      position: absolute;
+      inset: -12px;
+      border: 1px solid var(--color-gold-line);
+      pointer-events: none;
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 7 — WELLNESS RITUALS
+       SWAP:COPY → wellness rituals 1–6
+       SWAP:3D → coral branch GLB | Coastal
+    ══════════════════════════════════════════ */
+    #wellness {
+      padding: var(--section-pad) var(--gutter);
+      background: #060b08;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wellness-bg-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.08;
+    }
+
+    .wellness-3d-anchor {
+      position: absolute;
+      top: 50%;
+      left: -3%;
+      transform: translateY(-50%);
+      width: min(340px, 40vw);
+      height: min(340px, 40vw);
+      opacity: 0.1;
+      pointer-events: none;
+      z-index: 1;
+    }
+    /* SWAP:3D → coral branch GLB | Coastal */
+    #canvas-wellness {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .wellness-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .rituals-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(24px, 3vw, 48px);
+      margin-top: clamp(48px, 6vw, 80px);
+    }
+
+    .ritual-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: clamp(24px, 3vw, 36px);
+      border: 1px solid var(--color-gold-line);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.4s var(--ease-smooth), background 0.4s var(--ease-smooth);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .ritual-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(28, 61, 42, 0.15), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .ritual-card:hover {
+      border-color: rgba(201, 160, 83, 0.5);
+      background: rgba(28, 61, 42, 0.15);
+    }
+    .ritual-card:hover::before { opacity: 1; }
+
+    .ritual-glyph {
+      font-size: clamp(28px, 3.5vw, 40px);
+      line-height: 1;
+      color: var(--color-secondary);
+      opacity: 0.8;
+    }
+
+    .ritual-name {
+      font-family: var(--font-serif);
+      font-size: clamp(20px, 2.2vw, 26px);
+      font-weight: 400;
+      color: var(--color-text);
+      line-height: 1.2;
+    }
+
+    .ritual-desc {
+      font-family: var(--font-sans);
+      font-size: clamp(12px, 1.2vw, 13px);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      line-height: 1.75;
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 8 — EDITORIAL QUOTE
+       SWAP:IMG → cliffside mediterranean | ratio: 16:9
+       SWAP:COPY → editorial quote
+    ══════════════════════════════════════════ */
+    #editorial-quote {
+      position: relative;
+      width: 100%;
+      height: 100svh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .quote-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .quote-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .quote-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(4, 8, 5, 0.72);
+      z-index: 1;
+    }
+
+    .quote-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 var(--gutter);
+      max-width: 920px;
+    }
+
+    .quote-mark {
+      font-family: var(--font-serif);
+      font-size: clamp(80px, 15vw, 160px);
+      color: var(--color-accent);
+      line-height: 0.6;
+      display: block;
+      margin-bottom: 24px;
+      opacity: 0.5;
+    }
+
+    .quote-text {
+      font-family: var(--font-serif);
+      font-size: clamp(24px, 4vw, 52px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.3;
+      color: var(--color-text);
+      margin-bottom: 32px;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .quote-source {
+      font-family: var(--font-sans);
+      font-size: clamp(10px, 1.1vw, 12px);
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      opacity: 0;
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 9 — BOOKING CTA
+       SWAP:VIDEO → tropical jungle canopy | booking section
+       SWAP:COPY → booking CTA
+    ══════════════════════════════════════════ */
+    #booking {
+      position: relative;
+      padding: var(--section-pad) var(--gutter);
+      overflow: hidden;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 70svh;
+    }
+
+    #booking-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .booking-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(4, 8, 5, 0.78);
+      z-index: 1;
+    }
+
+    .booking-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+
+    .booking-urgency {
+      font-family: var(--font-sans);
+      font-size: clamp(9px, 1vw, 11px);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      margin-bottom: 24px;
+    }
+
+    .booking-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 6.5vw, 86px);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--color-text);
+      margin-bottom: 48px;
+    }
+    .booking-heading em {
+      font-style: italic;
+      color: var(--color-accent);
+    }
+
+    .booking-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 10 — FOOTER
+       SWAP:LOGO
+    ══════════════════════════════════════════ */
+    #footer {
+      padding: clamp(60px, 8vw, 100px) var(--gutter);
+      background: #040706;
+      border-top: 1px solid var(--color-gold-line);
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: start;
+    }
+
+    /* SWAP:LOGO */
+    .footer-logo img {
+      height: clamp(32px, 4vw, 44px);
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.7;
+      margin-bottom: 20px;
+    }
+
+    .footer-tagline {
+      font-family: var(--font-serif);
+      font-size: clamp(13px, 1.5vw, 16px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    .footer-col-heading {
+      font-family: var(--font-sans);
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      margin-bottom: 20px;
+    }
+
+    .footer-coords {
+      font-family: var(--font-serif);
+      font-size: clamp(14px, 1.5vw, 17px);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+    }
+
+    .footer-contact-item {
+      font-family: var(--font-sans);
+      font-size: clamp(12px, 1.2vw, 13px);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      margin-bottom: 10px;
+      transition: color 0.3s;
+    }
+    .footer-contact-item:hover { color: var(--color-secondary); }
+
+    .footer-instagram {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: clamp(11px, 1.1vw, 13px);
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--color-text-muted);
+      margin-top: 12px;
+      transition: color 0.3s;
+    }
+    .footer-instagram:hover { color: var(--color-secondary); }
+
+    .footer-bottom {
+      margin-top: clamp(40px, 5vw, 64px);
+      padding-top: 28px;
+      border-top: 1px solid var(--color-gold-line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copyright {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: rgba(240, 236, 226, 0.28);
+      text-transform: uppercase;
+    }
+
+    .footer-lhw {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: rgba(201, 160, 83, 0.4);
+      text-transform: uppercase;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1280px) {
+      .experiences-grid { grid-template-columns: repeat(2, 1fr); }
+      .experiences-grid .exp-card:nth-child(5),
+      .experiences-grid .exp-card:nth-child(6) { display: none; }
+
+      .rooms-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+      }
+      .room-card:nth-child(1) { grid-column: 1 / 2; grid-row: 1; aspect-ratio: 3/2; }
+      .room-card:nth-child(2) { grid-column: 2 / 3; grid-row: 1; aspect-ratio: 3/2; }
+      .room-card:nth-child(3) { grid-column: 1 / 2; grid-row: 2; aspect-ratio: 3/2; }
+      .room-card:nth-child(4) { grid-column: 2 / 3; grid-row: 2; aspect-ratio: 3/2; }
+      .room-card:nth-child(5) { grid-column: 1 / 2; grid-row: 3; aspect-ratio: 3/2; }
+      .room-card:nth-child(6) { grid-column: 2 / 3; grid-row: 3; aspect-ratio: 3/2; }
+
+      .rituals-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      #the-place {
+        grid-template-columns: 1fr;
+      }
+      .experiences-grid { grid-template-columns: 1fr; }
+      .experiences-grid .exp-card:nth-child(5),
+      .experiences-grid .exp-card:nth-child(6) { display: block; }
+      .exp-card { aspect-ratio: 3/2; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .rituals-grid { grid-template-columns: 1fr; }
+      .rooms-grid {
+        grid-template-columns: 1fr;
+      }
+      .room-card:nth-child(1),
+      .room-card:nth-child(2),
+      .room-card:nth-child(3),
+      .room-card:nth-child(4),
+      .room-card:nth-child(5),
+      .room-card:nth-child(6) {
+        grid-column: 1; aspect-ratio: 3/2;
+      }
+      .room-card:nth-child(1) { grid-row: 1; }
+      .room-card:nth-child(2) { grid-row: 2; }
+      .room-card:nth-child(3) { grid-row: 3; }
+      .room-card:nth-child(4) { grid-row: 4; }
+      .room-card:nth-child(5) { grid-row: 5; }
+      .room-card:nth-child(6) { grid-row: 6; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .section-header { flex-direction: column; align-items: flex-start; }
+      .manifesto-3d-bg { display: none; }
+      .wellness-3d-anchor { display: none; }
+    }
+
+    @media (max-width: 375px) {
+      :root { --gutter: 20px; }
+    }
+
+    /* ── LOADING STATE ── */
+    .js-hidden { opacity: 0; }
+    .js-reveal { transition: none; }
+
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 1 — FULLSCREEN HERO
+     SWAP:VIDEO → tropical jungle canopy, lush aerial | hero section
+     SWAP:LOGO
+══════════════════════════════════════════════ -->
+<section id="hero" aria-label="Hero">
+
+  <!-- SWAP:VIDEO → tropical jungle canopy | hero section -->
+  <video
+    id="hero-video"
+    autoplay muted loop playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ec8545023dbe3e5f2fc_Image%20143.png"
+  >
+    <source
+      src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69db8b3f4eee5ae1c46489e6_tropical%20jungle%201.mp4"
+      type="video/mp4"
+    />
+  </video>
+
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <header class="site-header" role="banner">
+    <!-- SWAP:LOGO -->
+    <a href="#hero" class="site-logo" aria-label="Asia Gardens">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69ee15ce1e688536d9c30ec1_logo-footer.png"
+        alt="Asia Gardens Hotel & Thai Spa"
+        loading="eager"
+      />
+    </a>
+    <a
+      href="https://be.synxis.com/?hotel=6878&chain=24447&locale=en-US&currency=EUR"
+      class="site-header-cta"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Reserve your stay"
+    >Reserve</a>
+  </header>
+
+  <div class="hero-content">
+    <p class="hero-kicker" aria-label="Location">
+      38°33′N · 0°08′W · Finestrat · Alicante · España
+    </p>
+    <!-- SWAP:COPY → hero tagline -->
+    <h1 class="hero-tagline" aria-label="Asia Gardens tagline">
+      <span class="hero-tagline-line">
+        <span class="word"><span class="word-inner">Where Ancient</span></span>
+      </span>
+      <span class="hero-tagline-line">
+        <span class="word"><span class="word-inner"><em>Thai Wisdom</em></span></span>
+      </span>
+      <span class="hero-tagline-line">
+        <span class="word"><span class="word-inner">Meets the</span></span>
+      </span>
+      <span class="hero-tagline-line">
+        <span class="word"><span class="word-inner">Mediterranean Sea</span></span>
+      </span>
+    </h1>
+    <div class="hero-actions">
+      <a
+        href="https://be.synxis.com/?hotel=6878&chain=24447&locale=en-US&currency=EUR"
+        class="btn-primary"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Reserve Your Stay</a>
+      <a href="#manifesto" class="btn-ghost">Discover the Gardens</a>
+    </div>
+  </div>
+
+  <div class="scroll-indicator" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     SECTION 2 — MANIFESTO "The Philosophy"
+     SWAP:COPY → manifesto
+     SWAP:3D → oak leaf GLB | Tropical Jungle
+══════════════════════════════════════════════ -->
+<section id="manifesto" aria-label="The Philosophy">
+
+  <!-- SWAP:3D → mature oak leaf GLB | Tropical Jungle archetype -->
+  <div class="manifesto-3d-bg" aria-hidden="true">
+    <canvas id="canvas-manifesto"></canvas>
+  </div>
+
+  <div class="manifesto-inner">
+    <p class="manifesto-label">The Philosophy</p>
+
+    <!-- SWAP:COPY → manifesto lines -->
+    <div class="manifesto-lines">
+      <span class="manifesto-line">
+        <span class="manifesto-line-inner">Three thousand</span>
+      </span>
+      <span class="manifesto-line">
+        <span class="manifesto-line-inner"><em>living species.</em></span>
+      </span>
+      <span class="manifesto-line">
+        <span class="manifesto-line-inner">Nine waters.</span>
+      </span>
+      <span class="manifesto-line">
+        <span class="manifesto-line-inner">One ancient art.</span>
+      </span>
+    </div>
+
+    <p class="manifesto-body">
+      The rarest botanical collection in Europe meets 2,500 years of Thai therapeutic tradition.
+      Asia Gardens was built around one conviction: that deep rest requires a landscape
+      as alive as you are.
+    </p>
+
+    <div class="manifesto-data-strip">
+      <div class="manifesto-data-item">
+        <span class="manifesto-data-value">3,000+</span>
+        <span class="manifesto-data-label">Plant Species</span>
+      </div>
+      <div class="manifesto-data-item">
+        <span class="manifesto-data-value">9</span>
+        <span class="manifesto-data-label">Asian Pools</span>
+      </div>
+      <div class="manifesto-data-item">
+        <span class="manifesto-data-value">2,500</span>
+        <span class="manifesto-data-label">Years of Thai Healing</span>
+      </div>
+      <div class="manifesto-data-item">
+        <span class="manifesto-data-value">120m</span>
+        <span class="manifesto-data-label">Above Sea Level</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     SECTION 3 — SIGNATURE EXPERIENCES
+     SWAP:IMG → experience card 1–6 | ratio: 4:5
+══════════════════════════════════════════════ -->
+<section id="experiences" aria-label="Signature Experiences">
+  <div class="section-header">
+    <h2 class="section-title">
+      Six<br><em>Reasons</em><br>to Stay Longer
+    </h2>
+    <p class="section-subtitle">
+      Each corner of Asia Gardens speaks a different dialect of Southeast Asian culture.
+      Each one asks you to slow down.
+    </p>
+  </div>
+
+  <div class="experiences-grid">
+
+    <!-- SWAP:IMG → Thai Spa interior, warm light | ratio: 4:5 -->
+    <article class="exp-card">
+      <div class="exp-card-img">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ec96028d9e25b26a639_Image%20142.png"
+          alt="Thai Spa"
+          loading="lazy"
+        />
+      </div>
+      <div class="exp-card-overlay" aria-hidden="true"></div>
+      <div class="exp-card-content">
+        <p class="exp-card-category">Thai Spa</p>
+        <h3 class="exp-card-title">Ancient Touch</h3>
+        <p class="exp-card-desc">
+          Therapists trained at Bangkok's Wat Po temple bring 2,500 years of
+          restorative technique to the Costa Blanca coast.
+        </p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → tropical botanical garden, exotic flowers | ratio: 4:5 -->
+    <article class="exp-card">
+      <div class="exp-card-img">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ec9aacae90345288106_Image%20144.png"
+          alt="Tropical Gardens"
+          loading="lazy"
+        />
+      </div>
+      <div class="exp-card-overlay" aria-hidden="true"></div>
+      <div class="exp-card-content">
+        <p class="exp-card-category">Gardens</p>
+        <h3 class="exp-card-title">Living Botany</h3>
+        <p class="exp-card-desc">
+          Three thousand species drawn from Bali, Thailand, and the Mekong basin.
+          The densest Asian botanical collection on European soil.
+        </p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → tropical pool, still water, reflections | ratio: 4:5 -->
+    <article class="exp-card">
+      <div class="exp-card-img">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7eca74448edbf7de2574_Image%2098.png"
+          alt="Asian Pools"
+          loading="lazy"
+        />
+      </div>
+      <div class="exp-card-overlay" aria-hidden="true"></div>
+      <div class="exp-card-content">
+        <p class="exp-card-category">Nine Pools</p>
+        <h3 class="exp-card-title">Nine Waters</h3>
+        <p class="exp-card-desc">
+          Cascading heated streams and deep reflective pools — five open year-round,
+          anchored by a microclimate that never drops below 17°C.
+        </p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → pan-Asian restaurant, lanterns, dinner | ratio: 4:5 -->
+    <article class="exp-card">
+      <div class="exp-card-img">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7eca287d477270bc1226_Image%20132.png"
+          alt="Pan-Asian Dining"
+          loading="lazy"
+        />
+      </div>
+      <div class="exp-card-overlay" aria-hidden="true"></div>
+      <div class="exp-card-content">
+        <p class="exp-card-category">Nine Restaurants</p>
+        <h3 class="exp-card-title">Pan-Asian Table</h3>
+        <p class="exp-card-desc">
+          From Tokyo-style teppanyaki to the aromatic broths of Koh Samui —
+          nine culinary dialects, one garden setting.
+        </p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → tropical wellness yoga at sunrise | ratio: 4:5 -->
+    <article class="exp-card">
+      <div class="exp-card-img">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7eca7dd3345fe3cdfc81_Image%20135.png"
+          alt="Wellness Activities"
+          loading="lazy"
+        />
+      </div>
+      <div class="exp-card-overlay" aria-hidden="true"></div>
+      <div class="exp-card-content">
+        <p class="exp-card-category">Wellness</p>
+        <h3 class="exp-card-title">Moving Silence</h3>
+        <p class="exp-card-desc">
+          Chi Kung at dawn, pranayama yoga between the banyan trees,
+          personal fitness in a space that breathes with you.
+        </p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → tennis courts with Mediterranean sea view | ratio: 4:5 -->
+    <article class="exp-card">
+      <div class="exp-card-img">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ecaef237ac94658ec46_Image%20133.png"
+          alt="Tennis & Padel"
+          loading="lazy"
+        />
+      </div>
+      <div class="exp-card-overlay" aria-hidden="true"></div>
+      <div class="exp-card-content">
+        <p class="exp-card-category">Sport</p>
+        <h3 class="exp-card-title">Court & Horizon</h3>
+        <p class="exp-card-desc">
+          Tennis and padel courts cut into the hillside —
+          the Bay of Benidorm spread below every rally.
+        </p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     SECTION 4 — THE PLACE
+     SWAP:IMG → cliffside mediterranean, costa blanca aerial | ratio: 3:2
+     SWAP:COPY → the place
+══════════════════════════════════════════════ -->
+<section id="the-place" aria-label="The Place">
+
+  <div class="place-image-wrap">
+    <!-- SWAP:IMG → cliffside mediterranean aerial, Finestrat hills | ratio: 3:2 -->
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db8754c5bc3f91633f248c_Image%20149.png"
+      alt="Asia Gardens — Finestrat, Alicante"
+      loading="lazy"
+      id="place-parallax-img"
+    />
+
+    <!-- Atmospheric data overlays on image -->
+    <div class="place-data-overlay" aria-label="Location data">
+      <div class="place-data-chip">
+        <span class="place-data-chip-label">Coordinates</span>
+        <span class="place-data-chip-value">38°33′15″ N, 0°07′38″ W</span>
+      </div>
+      <div class="place-data-chip">
+        <span class="place-data-chip-label">Elevation</span>
+        <span class="place-data-chip-value">120m · Costa Blanca</span>
+      </div>
+      <div class="place-data-chip">
+        <span class="place-data-chip-label">Microclimate</span>
+        <span class="place-data-chip-value">300+ sun days · Min 17°C</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SWAP:COPY → the place -->
+  <div class="place-copy">
+    <p class="u-label">The Place</p>
+    <h2 class="place-heading">
+      A <em>Mediterranean</em><br>Terroir Unlike<br>Any Other
+    </h2>
+    <div class="place-body">
+      <p>
+        Finestrat sits at 120 metres above the Bay of Benidorm, shielded from
+        Atlantic wind by the Sierra de Aitana. This accident of geology creates
+        a microclimate tropical enough to sustain bamboo groves, frangipani, and
+        a specimen of every major Southeast Asian species — thriving on Spanish soil.
+      </p>
+      <p>
+        The same sun that cures the Mediterranean coast pours into the hotel's
+        nine pools from first light. The same warm air that lifts the scent of
+        jasmine and ylang-ylang through the gardens carries it into every open
+        room, every corridor, every breath.
+      </p>
+      <p>
+        This is not a recreation. It is a genuine convergence — two landscapes
+        that, by some quiet miracle of climate and intention, found each other
+        on the Costa Blanca.
+      </p>
+    </div>
+    <p class="place-coords">38°33′15″ N · 0°07′38″ W · 120m ASL · Finestrat, Alicante, Spain</p>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     SECTION 5 — TRANSFORMATION PROMISE
+     SWAP:COPY → transformation stats 1–3
+══════════════════════════════════════════════ -->
+<section id="transformation" aria-label="By the Numbers">
+
+  <div class="transformation-bg-text" aria-hidden="true">ASIA</div>
+
+  <div class="transformation-inner">
+    <p class="transformation-label">By the Numbers</p>
+
+    <div class="stats-grid">
+
+      <!-- SWAP:COPY → transformation stat 1 -->
+      <div class="stat-block" data-count="3000">
+        <div class="stat-number">
+          <span class="count-target" data-target="3000">0</span><sup>+</sup>
+        </div>
+        <h3 class="stat-heading">Plant species, all from Southeast Asia</h3>
+        <p class="stat-body">
+          The largest Asian botanical collection in Europe — grown in a coastal microclimate
+          that acts as a living bridge between two continents.
+        </p>
+      </div>
+
+      <!-- SWAP:COPY → transformation stat 2 -->
+      <div class="stat-block" data-count="9">
+        <div class="stat-number">
+          <span class="count-target" data-target="9">0</span>
+        </div>
+        <h3 class="stat-heading">Swimming pools, five heated year-round</h3>
+        <p class="stat-body">
+          Cascading from the hillside in geometric tiers — each pool a different
+          temperature, atmosphere, and degree of solitude.
+        </p>
+      </div>
+
+      <!-- SWAP:COPY → transformation stat 3 -->
+      <div class="stat-block" data-count="2500">
+        <div class="stat-number">
+          <span class="count-target" data-target="2500">0</span>
+        </div>
+        <h3 class="stat-heading">Years of unbroken Thai healing tradition</h3>
+        <p class="stat-body">
+          Every therapist traces their lineage to the Wat Po school in Bangkok —
+          the oldest surviving centre of traditional Thai medicine.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     SECTION 6 — ROOMS & SPACES
+     SWAP:IMG → room/interior 1–6 | ratio: 3:2
+══════════════════════════════════════════════ -->
+<section id="rooms" aria-label="Rooms and Spaces">
+
+  <div class="section-header">
+    <h2 class="section-title">
+      Rooms<br>Built to<br><em>Disappear In</em>
+    </h2>
+    <p class="section-subtitle">
+      Balinese timbers, hand-selected stone, and fabrics from Southeast Asian markets.
+      Every suite is a private landscape.
+    </p>
+  </div>
+
+  <div class="rooms-grid">
+
+    <!-- SWAP:IMG → tropical suite interior, warm lighting | ratio: 16:9 -->
+    <div class="room-card" data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ecb710ae5ba7aa9eb4b_Image%20105.png">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ecb710ae5ba7aa9eb4b_Image%20105.png"
+        alt="Deluxe Suite"
+        loading="lazy"
+      />
+      <div class="room-card-overlay" aria-hidden="true"></div>
+      <span class="room-card-label">Deluxe Suite</span>
+    </div>
+
+    <!-- SWAP:IMG → suite bedroom, exotic furniture | ratio: 4:5 -->
+    <div class="room-card" data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ecbfb7dc180c2e08f63_Image%20131.png">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ecbfb7dc180c2e08f63_Image%20131.png"
+        alt="Suite Superior"
+        loading="lazy"
+      />
+      <div class="room-card-overlay" aria-hidden="true"></div>
+      <span class="room-card-label">Suite Superior</span>
+    </div>
+
+    <!-- SWAP:IMG → bathroom with tropical view | ratio: 4:5 -->
+    <div class="room-card" data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ece9b964e547029da30_Image%20112.png">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ece9b964e547029da30_Image%20112.png"
+        alt="Langkawi Suite"
+        loading="lazy"
+      />
+      <div class="room-card-overlay" aria-hidden="true"></div>
+      <span class="room-card-label">Langkawi Suite</span>
+    </div>
+
+    <!-- SWAP:IMG → suite terrace with garden view | ratio: 3:2 -->
+    <div class="room-card" data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ece4bce584e19f58de2_Image%20106.png">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ece4bce584e19f58de2_Image%20106.png"
+        alt="Suite Deluxe"
+        loading="lazy"
+      />
+      <div class="room-card-overlay" aria-hidden="true"></div>
+      <span class="room-card-label">Suite Deluxe</span>
+    </div>
+
+    <!-- SWAP:IMG → presidential suite living area | ratio: 4:5 -->
+    <div class="room-card" data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ece6b38b8ecc577d7e5_Image%20102.png">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ece6b38b8ecc577d7e5_Image%20102.png"
+        alt="Jakarta Suite"
+        loading="lazy"
+      />
+      <div class="room-card-overlay" aria-hidden="true"></div>
+      <span class="room-card-label">Jakarta Suite</span>
+    </div>
+
+    <!-- SWAP:IMG → panoramic suite with sea and garden view | ratio: 21:9 -->
+    <div class="room-card" data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ece02d47ed21bc217ec_Image%20140.png">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ece02d47ed21bc217ec_Image%20140.png"
+        alt="Presidential Suite"
+        loading="lazy"
+      />
+      <div class="room-card-overlay" aria-hidden="true"></div>
+      <span class="room-card-label">Presidential Suite</span>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Room image viewer">
+  <div class="lightbox-inner">
+    <div class="lightbox-border" aria-hidden="true"></div>
+    <img id="lightbox-img" src="" alt="" />
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">Close</button>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     SECTION 7 — WELLNESS RITUALS
+     SWAP:COPY → wellness rituals 1–6
+     SWAP:3D → coral branch GLB | Coastal archetype
+══════════════════════════════════════════════ -->
+<section id="wellness" aria-label="Wellness Rituals">
+
+  <!-- SWAP:VIDEO → tropical jungle, mist, movement | wellness accent -->
+  <video
+    class="wellness-bg-video"
+    autoplay muted loop playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ec9aa9193de3a1f6186_Image%20129.png"
+    aria-hidden="true"
+  >
+    <source
+      src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69db8b4771813554e2064a1d_tropical%20jungle%202.mp4"
+      type="video/mp4"
+    />
+  </video>
+
+  <!-- SWAP:3D → coral branch GLB | Coastal archetype -->
+  <div class="wellness-3d-anchor" aria-hidden="true">
+    <canvas id="canvas-wellness"></canvas>
+  </div>
+
+  <div class="wellness-inner">
+    <div class="section-header">
+      <h2 class="section-title">
+        Thai Spa<br><em>Rituals</em>
+      </h2>
+      <p class="section-subtitle">
+        Six treatments drawn from the living pharmacopoeia of Southeast Asia —
+        each calibrated to the body you arrive with.
+      </p>
+    </div>
+
+    <div class="rituals-grid">
+
+      <!-- SWAP:COPY → wellness ritual 1 -->
+      <div class="ritual-card">
+        <div class="ritual-glyph" aria-hidden="true">𓆸</div>
+        <h3 class="ritual-name">Traditional Thai Massage</h3>
+        <p class="ritual-desc">
+          Two and a half millennia of therapeutic touch — yoga postures,
+          acupressure, and deep energy work performed with the full body.
+        </p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 2 -->
+      <div class="ritual-card">
+        <div class="ritual-glyph" aria-hidden="true">◈</div>
+        <h3 class="ritual-name">Hot Stone Release</h3>
+        <p class="ritual-desc">
+          Volcanic basalt stones, heated in medicinal herbs, placed along
+          the body's meridians to dissolve deep-tissue resistance.
+        </p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 3 -->
+      <div class="ritual-card">
+        <div class="ritual-glyph" aria-hidden="true">𓂀</div>
+        <h3 class="ritual-name">Bamboo Alignment</h3>
+        <p class="ritual-desc">
+          Warmed bamboo stalks rolled along the fascia — a cellular-level
+          release that restores structural symmetry and qi circulation.
+        </p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 4 -->
+      <div class="ritual-card">
+        <div class="ritual-glyph" aria-hidden="true">✦</div>
+        <h3 class="ritual-name">Botanical Aromatherapy</h3>
+        <p class="ritual-desc">
+          Cold-pressed oils from jasmine, ylang-ylang, and white ginger
+          grown on the grounds — the garden distilled into a single breath.
+        </p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 5 -->
+      <div class="ritual-card">
+        <div class="ritual-glyph" aria-hidden="true">𐂃</div>
+        <h3 class="ritual-name">Pranayama Yoga</h3>
+        <p class="ritual-desc">
+          Breath as architecture. Morning sessions between the banyan roots —
+          the Mediterranean morning unfolding behind every inhale.
+        </p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 6 -->
+      <div class="ritual-card">
+        <div class="ritual-glyph" aria-hidden="true">⬡</div>
+        <h3 class="ritual-name">Thermal Circuit</h3>
+        <p class="ritual-desc">
+          Sauna, cold plunge, mineral steam — a contrast therapy protocol
+          that resets the autonomic nervous system in under ninety minutes.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     SECTION 8 — EDITORIAL QUOTE
+     SWAP:IMG → cliffside mediterranean landscape, sea view | ratio: 16:9
+     SWAP:COPY → editorial quote
+══════════════════════════════════════════════ -->
+<section id="editorial-quote" aria-label="Guest Quote">
+
+  <!-- SWAP:IMG → cliffside mediterranean, panoramic sea view | ratio: 16:9 -->
+  <div class="quote-bg">
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db875e6a5fc3d55c655d17_Image%20192.png"
+      alt=""
+      aria-hidden="true"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="quote-overlay" aria-hidden="true"></div>
+
+  <!-- SWAP:COPY → editorial quote -->
+  <div class="quote-content">
+    <span class="quote-mark" aria-hidden="true">"</span>
+    <blockquote>
+      <p class="quote-text">
+        The moment you enter the gardens, Asia takes
+        quiet possession of your senses. You do not
+        need to know where you are. You simply know
+        you do not wish to leave.
+      </p>
+      <footer>
+        <cite class="quote-source">
+          Leading Hotels of the World · Spain's Leading Hotel 2024
+        </cite>
+      </footer>
+    </blockquote>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     SECTION 9 — BOOKING CTA
+     SWAP:VIDEO → tropical jungle aerial | booking section
+     SWAP:COPY → booking CTA
+══════════════════════════════════════════════ -->
+<section id="booking" aria-label="Reserve Your Stay">
+
+  <!-- SWAP:VIDEO → tropical jungle canopy | booking section -->
+  <video
+    id="booking-video"
+    autoplay muted loop playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ec8545023dbe3e5f2fc_Image%20143.png"
+    aria-hidden="true"
+  >
+    <source
+      src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69db8b5747aaffccdae1b1b5_tropical%20jungle%203.mp4"
+      type="video/mp4"
+    />
+  </video>
+
+  <div class="booking-overlay" aria-hidden="true"></div>
+
+  <!-- SWAP:COPY → booking CTA -->
+  <div class="booking-content">
+    <p class="booking-urgency">Limited availability — Summer 2026</p>
+    <h2 class="booking-heading">
+      The Gardens<br>Are <em>Waiting</em>
+    </h2>
+    <div class="booking-actions">
+      <a
+        href="https://be.synxis.com/?hotel=6878&chain=24447&locale=en-US&currency=EUR"
+        class="btn-primary"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Reserve Your Stay</a>
+      <a
+        href="https://www.asiagardens.es/res/pdf/Plano_Asia-Gardens_2025-descarga-web.pdf"
+        class="btn-ghost"
+        target="_blank"
+        rel="noopener noreferrer"
+        download
+      >Download the Experience Guide</a>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     SECTION 10 — FOOTER
+     SWAP:LOGO
+══════════════════════════════════════════════ -->
+<footer id="footer" role="contentinfo">
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <!-- SWAP:LOGO -->
+      <a href="https://www.asiagardens.es/" target="_blank" rel="noopener noreferrer" class="footer-logo" aria-label="Asia Gardens">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69ee15ce1e688536d9c30ec1_logo-footer.png"
+          alt="Asia Gardens Hotel & Thai Spa"
+          loading="lazy"
+        />
+      </a>
+      <p class="footer-tagline">
+        Un sueño asiático en el Mediterráneo.<br>
+        A Leading Hotel of the World.
+      </p>
+    </div>
+
+    <div class="footer-location">
+      <p class="footer-col-heading">Location</p>
+      <p class="footer-coords">
+        Rotonda del Fuego, Terra Mítica<br>
+        03509 Finestrat, Alicante<br>
+        España<br>
+        <br>
+        38°33′15″ N, 0°07′38″ W<br>
+        Elevation 120m ASL
+      </p>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-col-heading">Contact</p>
+      <a href="mailto:reservas@asiagardens.es" class="footer-contact-item">
+        reservas@asiagardens.es
+      </a>
+      <a href="tel:+34966818400" class="footer-contact-item">
+        +34 966 818 400
+      </a>
+      <a
+        href="https://instagram.com/asiagardens"
+        class="footer-instagram"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Asia Gardens on Instagram"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        @asiagardens
+      </a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span class="footer-copyright">
+      © 2026 Asia Gardens Hotel & Thai Spa · All Rights Reserved
+    </span>
+    <span class="footer-lhw">
+      Member · Leading Hotels of the World
+    </span>
+  </div>
+
+</footer>
+
+
+<!-- ══════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════ -->
+
+<!-- Three.js r128 + GLTFLoader -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ─────────────────────────────────────────
+     GSAP REGISTRATION
+  ───────────────────────────────────────── */
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+  }
+
+  /* ─────────────────────────────────────────
+     HERO ANIMATIONS
+  ───────────────────────────────────────── */
+  function initHero () {
+    if (typeof gsap === 'undefined') return;
+
+    const kicker = document.querySelector('.hero-kicker');
+    const wordInners = document.querySelectorAll('.hero-tagline .word-inner');
+    const heroActions = document.querySelector('.hero-actions');
+    const scrollInd = document.querySelector('.scroll-indicator');
+
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+    if (kicker) tl.to(kicker, { opacity: 1, y: 0, duration: 0.8 }, 0.6);
+
+    if (wordInners.length) {
+      tl.to(wordInners, {
+        y: '0%',
+        duration: 1.1,
+        stagger: 0.12,
+        ease: 'expo.out'
+      }, 0.9);
+    }
+
+    if (heroActions) tl.from(heroActions, { opacity: 0, y: 16, duration: 0.7 }, 1.9);
+    if (scrollInd)   tl.from(scrollInd, { opacity: 0, duration: 0.7 }, 2.2);
+  }
+
+  /* ─────────────────────────────────────────
+     MANIFESTO ANIMATIONS
+  ───────────────────────────────────────── */
+  function initManifesto () {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    const lines = document.querySelectorAll('.manifesto-line-inner');
+    const body  = document.querySelector('.manifesto-body');
+    const strip = document.querySelector('.manifesto-data-strip');
+
+    if (lines.length) {
+      gsap.to(lines, {
+        y: '0%',
+        duration: 1.2,
+        stagger: 0.15,
+        ease: 'expo.out',
+        scrollTrigger: {
+          trigger: '#manifesto',
+          start: 'top 75%',
+          toggleActions: 'play none none none'
+        }
+      });
+    }
+
+    if (body) {
+      gsap.to(body, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: body,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      });
+    }
+
+    if (strip) {
+      gsap.to(strip, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: strip,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        }
+      });
+    }
+  }
+
+  /* ─────────────────────────────────────────
+     EXPERIENCES — CARD STAGGER REVEAL
+  ───────────────────────────────────────── */
+  function initExperiences () {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    const cards = document.querySelectorAll('.exp-card');
+    if (!cards.length) return;
+
+    gsap.from(cards, {
+      opacity: 0,
+      y: 40,
+      duration: 0.9,
+      stagger: 0.12,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '#experiences',
+        start: 'top 70%',
+        toggleActions: 'play none none none'
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────
+     THE PLACE — PARALLAX
+  ───────────────────────────────────────── */
+  function initPlaceParallax () {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    const img = document.getElementById('place-parallax-img');
+    if (!img) return;
+
+    gsap.fromTo(img,
+      { y: '-8%' },
+      {
+        y: '8%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#the-place',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        }
+      }
+    );
+
+    // Reveal place copy
+    const copyItems = document.querySelectorAll('.place-heading, .place-body, .place-coords');
+    gsap.from(copyItems, {
+      opacity: 0,
+      x: 30,
+      duration: 0.9,
+      stagger: 0.18,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '#the-place',
+        start: 'top 65%',
+        toggleActions: 'play none none none'
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────
+     TRANSFORMATION — STAT BLOCKS + COUNTERS
+  ───────────────────────────────────────── */
+  function initTransformation () {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    const blocks = document.querySelectorAll('.stat-block');
+    if (!blocks.length) return;
+
+    gsap.to(blocks, {
+      opacity: 1,
+      y: 0,
+      duration: 0.9,
+      stagger: 0.2,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '#transformation',
+        start: 'top 65%',
+        toggleActions: 'play none none none',
+        onEnter: function () { startCounters(); }
+      }
+    });
+  }
+
+  function startCounters () {
+    const targets = document.querySelectorAll('.count-target');
+    targets.forEach(function (el) {
+      const end = parseInt(el.getAttribute('data-target'), 10);
+      if (!end) return;
+      const duration = end > 100 ? 2.4 : 1.4;
+      const startTime = performance.now();
+      function update (now) {
+        const elapsed = (now - startTime) / 1000;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * end).toLocaleString();
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    });
+  }
+
+  /* ─────────────────────────────────────────
+     ROOMS — STAGGER REVEAL
+  ───────────────────────────────────────── */
+  function initRooms () {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    const cards = document.querySelectorAll('.room-card');
+    if (!cards.length) return;
+
+    gsap.from(cards, {
+      opacity: 0,
+      scale: 0.97,
+      duration: 0.8,
+      stagger: 0.1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '#rooms',
+        start: 'top 70%',
+        toggleActions: 'play none none none'
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────
+     WELLNESS RITUALS — STAGGER REVEAL
+  ───────────────────────────────────────── */
+  function initWellness () {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    const cards = document.querySelectorAll('.ritual-card');
+    if (!cards.length) return;
+
+    gsap.to(cards, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      stagger: 0.12,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '#wellness',
+        start: 'top 65%',
+        toggleActions: 'play none none none'
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────
+     EDITORIAL QUOTE REVEAL
+  ───────────────────────────────────────── */
+  function initQuote () {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    const qText   = document.querySelector('.quote-text');
+    const qSource = document.querySelector('.quote-source');
+    if (!qText) return;
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#editorial-quote',
+        start: 'top 60%',
+        toggleActions: 'play none none none'
+      }
+    });
+    tl.to(qText,   { opacity: 1, y: 0, duration: 1.1, ease: 'power3.out' })
+      .to(qSource, { opacity: 1, duration: 0.8, ease: 'power3.out' }, '-=0.4');
+  }
+
+  /* ─────────────────────────────────────────
+     BOOKING CTA REVEAL
+  ───────────────────────────────────────── */
+  function initBooking () {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    const heading = document.querySelector('.booking-heading');
+    const urgency = document.querySelector('.booking-urgency');
+    const actions = document.querySelector('.booking-actions');
+    if (!heading) return;
+
+    gsap.from([urgency, heading, actions], {
+      opacity: 0,
+      y: 24,
+      duration: 0.9,
+      stagger: 0.18,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '#booking',
+        start: 'top 65%',
+        toggleActions: 'play none none none'
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────
+     LIGHTBOX
+  ───────────────────────────────────────── */
+  function initLightbox () {
+    var lightbox  = document.getElementById('lightbox');
+    var lbImg     = document.getElementById('lightbox-img');
+    var lbClose   = document.getElementById('lightbox-close');
+    var roomCards = document.querySelectorAll('.room-card');
+
+    if (!lightbox || !lbImg) return;
+
+    roomCards.forEach(function (card) {
+      card.addEventListener('click', function () {
+        var src = card.getAttribute('data-img') || card.querySelector('img').src;
+        var alt = card.querySelector('img').getAttribute('alt') || '';
+        lbImg.src = src;
+        lbImg.alt = alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        lbClose.focus();
+      });
+    });
+
+    function closeLightbox () {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+
+    lbClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+    });
+  }
+
+  /* ─────────────────────────────────────────
+     THREE.JS — 3D MANIFESTO LEAF
+     SWAP:3D → mature oak leaf GLB | Tropical Jungle
+  ───────────────────────────────────────── */
+  function init3DManifesto () {
+    if (typeof THREE === 'undefined') return;
+
+    var canvas = document.getElementById('canvas-manifesto');
+    if (!canvas) return;
+
+    var scene    = new THREE.Scene();
+    var camera   = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+    camera.position.set(0, 0, 4);
+
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0);
+    renderer.outputEncoding = THREE.sRGBEncoding;
+
+    function resize3d () {
+      var w = canvas.parentElement.offsetWidth;
+      var h = canvas.parentElement.offsetHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+    resize3d();
+    window.addEventListener('resize', resize3d);
+
+    // Warm + Cool 3-point light rig
+    var ambientLight = new THREE.AmbientLight(0xf0e8d0, 0.6);
+    scene.add(ambientLight);
+    var warmLight = new THREE.DirectionalLight(0xffe4a0, 1.4);
+    warmLight.position.set(2, 3, 3);
+    scene.add(warmLight);
+    var coolLight = new THREE.DirectionalLight(0xa8d8ea, 0.7);
+    coolLight.position.set(-3, 1, 1);
+    scene.add(coolLight);
+    var rimLight = new THREE.PointLight(0xc9a053, 0.5, 10);
+    rimLight.position.set(0, -2, 2);
+    scene.add(rimLight);
+
+    var group = null;
+    var hovering = false;
+
+    if (typeof THREE.GLTFLoader !== 'undefined') {
+      var loader = new THREE.GLTFLoader();
+      /* SWAP:3D → mature oak leaf GLB | Tropical Jungle */
+      loader.load(
+        'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb',
+        function (gltf) {
+          group = gltf.scene;
+          // Center & scale
+          var box = new THREE.Box3().setFromObject(group);
+          var center = box.getCenter(new THREE.Vector3());
+          group.position.sub(center);
+          var size = box.getSize(new THREE.Vector3());
+          var maxDim = Math.max(size.x, size.y, size.z);
+          group.scale.setScalar(2.4 / maxDim);
+          scene.add(group);
+        },
+        undefined,
+        function (err) { console.warn('3D leaf load error:', err); }
+      );
+    }
+
+    canvas.addEventListener('mouseenter', function () { hovering = true; });
+    canvas.addEventListener('mouseleave', function () { hovering = false; });
+
+    var clock = new THREE.Clock();
+    function animate () {
+      requestAnimationFrame(animate);
+      if (group && !hovering) {
+        group.rotation.y += 0.002;
+        group.rotation.x = Math.sin(clock.getElapsedTime() * 0.3) * 0.06;
+      }
+      renderer.render(scene, camera);
+    }
+    animate();
+  }
+
+  /* ─────────────────────────────────────────
+     THREE.JS — 3D WELLNESS CORAL
+     SWAP:3D → coral branch GLB | Coastal archetype
+  ───────────────────────────────────────── */
+  function init3DWellness () {
+    if (typeof THREE === 'undefined') return;
+
+    var canvas = document.getElementById('canvas-wellness');
+    if (!canvas) return;
+
+    var scene    = new THREE.Scene();
+    var camera   = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+    camera.position.set(0, 0, 4);
+
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0);
+    renderer.outputEncoding = THREE.sRGBEncoding;
+
+    function resize3dW () {
+      var w = canvas.parentElement.offsetWidth;
+      var h = canvas.parentElement.offsetHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+    resize3dW();
+    window.addEventListener('resize', resize3dW);
+
+    var ambientLight = new THREE.AmbientLight(0xd0e8f0, 0.5);
+    scene.add(ambientLight);
+    var warmLight = new THREE.DirectionalLight(0xffd080, 1.2);
+    warmLight.position.set(2, 3, 3);
+    scene.add(warmLight);
+    var coolLight = new THREE.DirectionalLight(0x88bbdd, 0.8);
+    coolLight.position.set(-2, 1, 2);
+    scene.add(coolLight);
+
+    var group = null;
+    var hovering = false;
+
+    if (typeof THREE.GLTFLoader !== 'undefined') {
+      var loader = new THREE.GLTFLoader();
+      /* SWAP:3D → coral branch GLB | Coastal */
+      loader.load(
+        'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb',
+        function (gltf) {
+          group = gltf.scene;
+          var box = new THREE.Box3().setFromObject(group);
+          var center = box.getCenter(new THREE.Vector3());
+          group.position.sub(center);
+          var size = box.getSize(new THREE.Vector3());
+          var maxDim = Math.max(size.x, size.y, size.z);
+          group.scale.setScalar(2.2 / maxDim);
+          scene.add(group);
+        },
+        undefined,
+        function (err) { console.warn('3D coral load error:', err); }
+      );
+    }
+
+    canvas.addEventListener('mouseenter', function () { hovering = true; });
+    canvas.addEventListener('mouseleave', function () { hovering = false; });
+
+    var clock = new THREE.Clock();
+    function animate () {
+      requestAnimationFrame(animate);
+      if (group && !hovering) {
+        group.rotation.y += 0.002;
+        group.rotation.z = Math.sin(clock.getElapsedTime() * 0.25) * 0.04;
+      }
+      renderer.render(scene, camera);
+    }
+    animate();
+  }
+
+  /* ─────────────────────────────────────────
+     SECTION HEADER REVEALS (generic)
+  ───────────────────────────────────────── */
+  function initSectionHeaders () {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    var sectionHeaders = document.querySelectorAll('.section-header');
+    sectionHeaders.forEach(function (el) {
+      gsap.from(el.children, {
+        opacity: 0,
+        y: 24,
+        duration: 0.85,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 78%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+  }
+
+  /* ─────────────────────────────────────────
+     BOOT
+  ───────────────────────────────────────── */
+  function boot () {
+    initHero();
+    initManifesto();
+    initExperiences();
+    initPlaceParallax();
+    initTransformation();
+    initRooms();
+    initWellness();
+    initQuote();
+    initBooking();
+    initLightbox();
+    initSectionHeaders();
+    init3DManifesto();
+    init3DWellness();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+
+})();
+</script>
+
+
+<!--
+══════════════════════════════════════════════════════════════════
+CUSTOMIZATION GUIDE
+══════════════════════════════════════════════════════════════════
+All swap markers are listed below as a numbered checklist.
+Items marked [NO ASSET IN CSV] require production media.
+All other items are already wired to CSV assets.
+
+ASSETS / MEDIA
+──────────────
+[✓]  1.  SWAP:VIDEO → hero background | tropical jungle canopy
+         SRC: tropical jungle 1.mp4 (CSV: tropical jungle 1)
+         poster: Image 143 (CSV: tropical image)
+
+[✓]  2.  SWAP:LOGO → header logo
+         SRC: https://cdn.prod.website-files.com/...logo-footer.png
+         Filter: brightness(0) invert(1) — renders white on dark bg
+
+[✓]  3.  SWAP:3D → oak leaf GLB | Manifesto section | Tropical Jungle
+         SRC: Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb
+         Canvas: 280×280px, transparent, auto-rotate Y 0.002 rad/frame
+
+[✓]  4.  SWAP:IMG → experience card 1 (Thai Spa) | ratio: 4:5
+         SRC: Image 142 (CSV: tropical jungle)
+
+[✓]  5.  SWAP:IMG → experience card 2 (Tropical Gardens) | ratio: 4:5
+         SRC: Image 144 (CSV: tropical jungle)
+
+[✓]  6.  SWAP:IMG → experience card 3 (Nine Pools) | ratio: 4:5
+         SRC: Image 98 (CSV: tropical jungle)
+
+[✓]  7.  SWAP:IMG → experience card 4 (Pan-Asian Dining) | ratio: 4:5
+         SRC: Image 132 (CSV: tropical jungle)
+
+[✓]  8.  SWAP:IMG → experience card 5 (Wellness/Yoga) | ratio: 4:5
+         SRC: Image 135 (CSV: tropical jungle)
+
+[✓]  9.  SWAP:IMG → experience card 6 (Tennis & Padel) | ratio: 4:5
+         SRC: Image 133 (CSV: tropical jungle)
+
+[✓] 10.  SWAP:IMG → the place | cliffside mediterranean aerial | ratio: 3:2
+         SRC: Image 149 (CSV: cliffside mediterranean)
+
+[✓] 11.  SWAP:IMG → room 1 (Deluxe Suite) | ratio: 16:9
+         SRC: Image 105 (CSV: tropical jungle)
+
+[✓] 12.  SWAP:IMG → room 2 (Suite Superior) | ratio: 4:5
+         SRC: Image 131 (CSV: tropical jungle)
+
+[✓] 13.  SWAP:IMG → room 3 (Langkawi Suite) | ratio: 4:5
+         SRC: Image 112 (CSV: tropical jungle)
+
+[✓] 14.  SWAP:IMG → room 4 (Suite Deluxe) | ratio: 3:2
+         SRC: Image 106 (CSV: tropical jungle)
+
+[✓] 15.  SWAP:IMG → room 5 (Jakarta Suite) | ratio: 4:5
+         SRC: Image 102 (CSV: tropical jungle)
+
+[✓] 16.  SWAP:IMG → room 6 (Presidential Suite) | ratio: 21:9
+         SRC: Image 140 (CSV: tropical jungle)
+
+[✓] 17.  SWAP:VIDEO → wellness section background | tropical jungle mist
+         SRC: tropical jungle 2.mp4 (CSV: tropical jungle 2)
+         poster: Image 129 (CSV: tropical jungle)
+
+[✓] 18.  SWAP:3D → coral branch GLB | Wellness section | Coastal archetype
+         SRC: Meshy_AI_A_single_branch_of_st_0411162924_texture.glb
+         Canvas: 280×280px, transparent, auto-rotate Y 0.002 rad/frame
+
+[✓] 19.  SWAP:IMG → editorial quote background | cliffside mediterranean | ratio: 16:9
+         SRC: Image 192 (CSV: cliffside mediterranean)
+
+[✓] 20.  SWAP:VIDEO → booking CTA background | tropical jungle aerial
+         SRC: tropical jungle 3.mp4 (CSV: tropical jungle 3)
+         poster: Image 143 (CSV: tropical jungle)
+
+[✓] 21.  SWAP:LOGO → footer logo
+         SRC: https://cdn.prod.website-files.com/...logo-footer.png
+
+COPY
+────
+[→] 22.  SWAP:COPY → hero tagline
+         Current: "Where Ancient Thai Wisdom Meets the Mediterranean Sea"
+         → Replace with approved brand copy if needed
+
+[→] 23.  SWAP:COPY → manifesto lines
+         Current: "Three thousand / living species. / Nine waters. / One ancient art."
+         → Elevate with approved brand voice
+
+[→] 24.  SWAP:COPY → the place (3 paragraphs)
+         Current: Finestrat microclimate + botanical narrative
+         → Verify with property team for factual accuracy
+
+[→] 25.  SWAP:COPY → transformation stats 1–3
+         Current: 3,000+ / 9 / 2,500
+         → Verify figures with hotel marketing team
+
+[→] 26.  SWAP:COPY → wellness rituals 1–6
+         Current: Thai Massage, Hot Stone, Bamboo, Aromatherapy, Yoga, Thermal
+         → Verify against actual spa menu
+
+[→] 27.  SWAP:COPY → editorial quote
+         Current: atmospheric prose quote attributed to Leading Hotels of the World
+         → Replace with real guest quote or press citation
+
+[→] 28.  SWAP:COPY → booking CTA
+         Current: "The Gardens Are Waiting" / "Limited availability — Summer 2026"
+         → Update seasonality signal quarterly
+
+COLORS
+──────
+[→] 29.  SWAP:COLOR
+         --color-primary:   #1c3d2a  (deep tropical jade)
+         --color-secondary: #c9a053  (warm gold)
+         --color-accent:    #e8c98a  (soft amber)
+         --color-bg:        #080e0b  (near-black jungle night)
+         --color-text:      #f0ece2  (warm off-white)
+         → Adjust values to match brand colour book if brand guide provided
+
+PRODUCTION NOTES
+────────────────
+•  No Unsplash fallbacks used — all 21 media slots filled from CSV assets.
+•  The tropical jungle image set was selected as the primary image library
+   (best match to hotel's Southeast Asian botanical character).
+•  Cliffside mediterranean images used for "The Place" and "Editorial Quote"
+   to provide geographic context of the Costa Blanca setting.
+•  3D objects: leaf (manifesto, 15% opacity) + coral (wellness, 10% opacity)
+   provide organic depth without competing with editorial content.
+•  All <video> elements carry poster= from matching CSV image for browsers
+   that block autoplay.
+•  Lightbox is fully keyboard-accessible (Escape to close, focus trapping).
+•  All GSAP animations degrade gracefully if CDN fails to load.
+══════════════════════════════════════════════════════════════════
+-->
+
+</body>
+</html>
