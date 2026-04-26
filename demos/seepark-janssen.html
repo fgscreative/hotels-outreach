@@ -1,0 +1,2262 @@
+<!--
+╔══════════════════════════════════════════════════════════════════════════════╗
+║           BRAND EXTRACTION REPORT + ASSET MAPPING REPORT                    ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+BRAND EXTRACTION REPORT
+========================
+Hotel Name:         See Park Janssen
+URL:                https://www.seepark.de/
+Primary Color:      #1A3326  (deep Niederrhein lake forest green — drawn from
+                              spa/wellness palette and lakeside nature identity)
+Secondary Color:    #6E9B7B  (sage/moss — supporting accents, card borders)
+Accent Color:       #C49A6C  (warm Rhine amber/sand — CTAs, hover highlights)
+Background Mood:    Dark, warm — near-black forest depth
+Font Pairing:       Cormorant Garamond (serif editorial, headlines)
+                    + Inter (humanist grotesque sans, body/UI)
+Tone of Voice:      Warm, grounded, sensory — nature-rooted sanctuary language
+                    with quiet authority; calm rather than exclamatory
+Landscape Archetype: Coastal (lake / Niederrhein waterscape)
+                     with Forest undertone (Rhine plains, oak groves)
+Positioning:        Lakeside SPA hotel where the flat horizon and still water
+                    make recovery possible — "Where the Rhine breathes slowly."
+Key Experiences:    1. See Park SPA — 8,000 m² thermal landscape
+                    2. Seven Saunas — Panorama, Kelo, Blockhaus + infusion ceremonies
+                    3. Panorama Pool — horizon-level water, unimpeded sky
+                    4. Golf — Schloss Haag 18-hole estate course
+                    5. Restaurant See Park Terrassen — Niederrhein cuisine, lake view
+                    6. Outdoor & Cycling — Rhine cycle paradise, lakeside walks
+Coordinates:        51.5167° N, 6.2833° E
+Elevation:          ~25 m ASL (Rhine floodplain, Geldern, NRW, Germany)
+
+ASSET MAPPING REPORT
+========================
+Total assets in CSV:          3D: 3 GLBs | Images: ~100+ across 5 landscape sets
+Assets successfully mapped:   1 × GLB + 13 × images
+Landscape archetype used:     Coastal (primary) + Forest (accent)
+
+SLOTS COVERED BY CSV
+---------------------
+manifesto-3d         → leaf GLB (oak leaf)
+hero-poster          → coastal Image 56
+experience-1         → coastal Image 12
+experience-2         → coastal Image 42
+experience-3         → coastal Image 3
+experience-4         → coastal Image 10
+experience-5         → coastal Image 1
+experience-6         → forest Image 62
+the-place-img        → coastal Image 9
+room-1               → coastal Image 2
+room-2               → coastal Image 55
+room-3               → coastal Image 54
+room-4               → coastal Image 53
+room-5               → coastal Image 52
+room-6               → coastal Image 50
+quote-bg             → coastal Image 44
+booking-bg           → coastal Image 46
+
+SLOTS FALLING BACK TO UNSPLASH
+---------------------------------
+hero-video           → NO ASSET IN CSV
+wellness-bg          → coastal Image 56 (reused)
+
+Logo SRC:            https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69ee07f279db8863e2ae919f_see-park.svg
+3D Object SRC:       https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb
+Video assets:        NONE IN CSV — all video slots use Unsplash poster fallback
+Image assets (coastal): Image 56, 12, 42, 3, 10, 1, 9, 2, 55, 54, 53, 52, 50, 44, 46
+Image assets (forest):  Image 62
+-->
+
+<!--
+CSS CUSTOM PROPERTIES REFERENCE
+================================
+--color-primary:    #1A3326   deep lake forest green
+--color-secondary:  #6E9B7B   sage / moss green
+--color-accent:     #C49A6C   warm Rhine amber
+--color-bg:         #0C1A12   near-black forest depth
+--color-surface:    #132216   card / panel surface
+--color-text:       #EDE8DE   warm cream parchment
+--color-text-muted: #9A9686   warm grey
+--color-border:     rgba(110,155,123,0.2)  sage border
+--font-serif:       'Cormorant Garamond', Georgia, serif
+--font-sans:        'Inter', -apple-system, sans-serif
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>See Park Janssen — Niederrhein SPA & Golf Hotel</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- Three.js for GLB/3D object -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+<style>
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  background-color:var(--color-bg);
+  color:var(--color-text);
+  font-family:var(--font-sans);
+  font-weight:300;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root{
+  --color-primary:    #1A3326;
+  --color-secondary:  #6E9B7B;
+  --color-accent:     #C49A6C;
+  --color-bg:         #0C1A12;
+  --color-surface:    #132216;
+  --color-text:       #EDE8DE;
+  --color-text-muted: #9A9686;
+  --color-border:     rgba(110,155,123,0.2);
+  --font-serif:       'Cormorant Garamond', Georgia, serif;
+  --font-sans:        'Inter', -apple-system, sans-serif;
+  --ease-out-quart:   cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out:      cubic-bezier(0.76, 0, 0.24, 1);
+  --section-pad:      clamp(80px,10vw,160px);
+}
+
+/* ============================================================
+   TYPOGRAPHY SYSTEM
+   ============================================================ */
+.t-display{
+  font-family:var(--font-serif);
+  font-weight:300;
+  font-size:clamp(3.5rem,9vw,10rem);
+  line-height:0.92;
+  letter-spacing:-0.02em;
+}
+.t-headline{
+  font-family:var(--font-serif);
+  font-weight:400;
+  font-size:clamp(2rem,4.5vw,5rem);
+  line-height:1.05;
+  letter-spacing:-0.015em;
+}
+.t-subhead{
+  font-family:var(--font-sans);
+  font-size:clamp(0.65rem,1vw,0.75rem);
+  font-weight:500;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--color-secondary);
+}
+.t-body{
+  font-family:var(--font-sans);
+  font-size:clamp(0.875rem,1.1vw,1rem);
+  font-weight:300;
+  line-height:1.75;
+  color:var(--color-text-muted);
+  max-width:42ch;
+}
+.t-accent{
+  font-family:var(--font-serif);
+  font-style:italic;
+  color:var(--color-accent);
+}
+
+/* ============================================================
+   UTILITY
+   ============================================================ */
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.section-label{
+  display:flex;align-items:center;gap:16px;
+  margin-bottom:clamp(40px,6vw,80px);
+}
+.section-label::after{
+  content:'';flex:1;max-width:80px;
+  height:1px;background:var(--color-border);
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-sans);
+  font-size:0.75rem;font-weight:500;
+  letter-spacing:0.12em;text-transform:uppercase;
+  padding:16px 32px;
+  transition:all 0.4s var(--ease-out-quart);
+  position:relative;overflow:hidden;
+}
+.btn-primary{
+  background:var(--color-accent);
+  color:var(--color-bg);
+}
+.btn-primary::after{
+  content:'';position:absolute;inset:0;
+  background:rgba(255,255,255,0.12);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.4s var(--ease-out-quart);
+}
+.btn-primary:hover::after{transform:scaleX(1)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(196,154,108,0.3)}
+
+.btn-ghost{
+  border:1px solid var(--color-border);
+  color:var(--color-text);
+}
+.btn-ghost:hover{
+  border-color:var(--color-accent);
+  color:var(--color-accent);
+  transform:translateY(-2px);
+}
+.btn-arrow::after{content:'→';font-family:var(--font-sans)}
+
+/* ============================================================
+   HEADER / NAV
+   ============================================================ */
+#sp-header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:24px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:all 0.6s var(--ease-out-quart);
+}
+#sp-header.scrolled{
+  background:rgba(12,26,18,0.92);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  padding:16px 40px;
+  border-bottom:1px solid var(--color-border);
+}
+.header-logo img{height:40px;width:auto;filter:brightness(0) invert(1)}
+.header-cta .btn{padding:12px 24px;font-size:0.7rem}
+
+@media(max-width:768px){
+  #sp-header{padding:20px 24px}
+  #sp-header.scrolled{padding:14px 24px}
+  .header-logo img{height:32px}
+}
+
+/* ============================================================
+   1. HERO SECTION
+   ============================================================ */
+#sp-hero{
+  position:relative;
+  width:100vw;height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.hero-media{
+  position:absolute;inset:0;z-index:0;
+}
+/* SWAP:VIDEO → hero background lake/water drone | hero section */
+.hero-media video,
+.hero-media .hero-img-fallback{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+}
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(
+    170deg,
+    rgba(26,51,38,0.55) 0%,
+    rgba(12,26,18,0.72) 55%,
+    rgba(12,26,18,0.9) 100%
+  );
+}
+.hero-content{
+  position:relative;z-index:2;
+  text-align:center;
+  padding:0 clamp(20px,5vw,80px);
+  display:flex;flex-direction:column;
+  align-items:center;gap:clamp(20px,3vw,36px);
+}
+.hero-logo{
+  opacity:0;transform:translateY(-20px);
+}
+/* SWAP:LOGO */
+.hero-logo img{
+  height:clamp(48px,6vw,72px);
+  width:auto;
+  filter:brightness(0) invert(1);
+}
+.hero-tagline{
+  overflow:hidden;
+}
+.hero-tagline-inner{
+  font-family:var(--font-serif);
+  font-weight:300;
+  font-size:clamp(1.1rem,2vw,1.5rem);
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--color-text);
+  opacity:0;
+  display:flex;gap:0.5em;flex-wrap:wrap;justify-content:center;
+}
+.hero-tagline-inner .word{
+  display:inline-block;
+  transform:translateY(40px);
+  opacity:0;
+}
+.hero-coords{
+  font-family:var(--font-sans);
+  font-size:0.65rem;
+  font-weight:300;
+  letter-spacing:0.2em;
+  color:rgba(237,232,222,0.45);
+  opacity:0;
+}
+.hero-scroll-indicator{
+  position:absolute;bottom:40px;left:50%;
+  transform:translateX(-50%);
+  z-index:2;
+  display:flex;flex-direction:column;
+  align-items:center;gap:8px;
+  opacity:0;
+}
+.scroll-line{
+  width:1px;height:60px;
+  background:linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-secondary),
+    transparent
+  );
+  animation:scroll-pulse 2.4s ease-in-out infinite;
+}
+.scroll-label{
+  font-family:var(--font-sans);
+  font-size:0.6rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--color-secondary);
+  writing-mode:vertical-rl;
+}
+@keyframes scroll-pulse{
+  0%,100%{transform:scaleY(1);opacity:0.4}
+  50%{transform:scaleY(1.3);opacity:1}
+}
+
+/* ============================================================
+   2. MANIFESTO SECTION
+   ============================================================ */
+#sp-manifesto{
+  position:relative;
+  padding:var(--section-pad) clamp(20px,8vw,120px);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:var(--color-bg);
+}
+.manifesto-3d-bg{
+  position:absolute;right:-5%;top:50%;
+  transform:translateY(-50%);
+  width:clamp(280px,35vw,480px);
+  height:clamp(280px,35vw,480px);
+  opacity:0.12;
+  pointer-events:none;
+}
+#manifesto-canvas{width:100%!important;height:100%!important}
+.manifesto-content{
+  position:relative;z-index:2;
+  max-width:900px;
+}
+.manifesto-lines{
+  display:flex;flex-direction:column;
+  gap:0.1em;
+  margin:clamp(32px,5vw,64px) 0;
+}
+.manifesto-line{
+  overflow:hidden;
+  display:block;
+}
+.manifesto-line-inner{
+  display:block;
+  font-family:var(--font-serif);
+  font-weight:300;
+  font-size:clamp(2.5rem,6vw,7.5rem);
+  line-height:0.95;
+  letter-spacing:-0.02em;
+  transform:translateY(100%);
+}
+.manifesto-line-inner.accent{
+  font-style:italic;
+  color:var(--color-accent);
+}
+.manifesto-body{
+  opacity:0;transform:translateY(24px);
+  margin-top:clamp(28px,4vw,48px);
+}
+/* SWAP:3D → oak leaf GLB | Coastal / Forest */
+/* SWAP:COPY → manifesto */
+
+/* ============================================================
+   3. SIGNATURE EXPERIENCES
+   ============================================================ */
+#sp-experiences{
+  padding:var(--section-pad) clamp(20px,5vw,80px);
+  background:var(--color-surface);
+}
+.experiences-header{
+  display:flex;justify-content:space-between;
+  align-items:flex-end;
+  margin-bottom:clamp(40px,5vw,72px);
+  flex-wrap:wrap;gap:20px;
+}
+.experiences-track-wrap{
+  overflow:hidden;position:relative;
+}
+.experiences-track{
+  display:flex;
+  gap:clamp(16px,2vw,24px);
+  cursor:grab;
+  user-select:none;
+  will-change:transform;
+}
+.experiences-track:active{cursor:grabbing}
+.exp-card{
+  flex:0 0 clamp(260px,30vw,340px);
+  position:relative;
+  overflow:hidden;
+  border-radius:2px;
+}
+.exp-card-img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  display:block;
+  transition:transform 0.8s var(--ease-out-quart);
+  will-change:transform;
+}
+.exp-card:hover .exp-card-img{transform:scale(1.05)}
+.exp-card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(12,26,18,0.9) 0%,
+    rgba(12,26,18,0.2) 50%,
+    transparent 100%
+  );
+  transition:background 0.6s ease;
+}
+.exp-card:hover .exp-card-overlay{
+  background:linear-gradient(
+    to top,
+    rgba(26,51,38,0.9) 0%,
+    rgba(26,51,38,0.3) 60%,
+    transparent 100%
+  );
+}
+.exp-card-text{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:clamp(20px,3vw,32px);
+}
+.exp-card-category{
+  font-family:var(--font-sans);
+  font-size:0.6rem;
+  font-weight:500;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--color-accent);
+  margin-bottom:8px;
+}
+.exp-card-name{
+  font-family:var(--font-serif);
+  font-size:clamp(1.4rem,2.5vw,2rem);
+  font-weight:400;
+  line-height:1.1;
+  margin-bottom:10px;
+}
+.exp-card-desc{
+  font-family:var(--font-sans);
+  font-size:0.75rem;
+  font-weight:300;
+  color:rgba(237,232,222,0.7);
+  line-height:1.6;
+  max-width:28ch;
+  opacity:0;
+  transform:translateY(8px);
+  transition:all 0.5s var(--ease-out-quart);
+}
+.exp-card:hover .exp-card-desc{opacity:1;transform:translateY(0)}
+/* SWAP:IMG → experience card 1–6 | ratio: 4:5 */
+
+/* ============================================================
+   4. THE PLACE
+   ============================================================ */
+#sp-place{
+  padding:var(--section-pad) 0;
+  display:grid;
+  grid-template-columns:3fr 2fr;
+  min-height:80vh;
+  overflow:hidden;
+  background:var(--color-bg);
+}
+.place-img-wrap{
+  position:relative;overflow:hidden;
+}
+.place-img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  will-change:transform;
+}
+.place-data-overlay{
+  position:absolute;
+  bottom:clamp(24px,4vw,48px);
+  left:clamp(24px,4vw,48px);
+  display:flex;flex-direction:column;gap:12px;
+}
+.place-data-item{
+  display:flex;align-items:baseline;gap:10px;
+}
+.place-data-value{
+  font-family:var(--font-sans);
+  font-size:0.65rem;
+  font-weight:500;
+  letter-spacing:0.15em;
+  color:rgba(237,232,222,0.5);
+  font-variant-numeric:tabular-nums;
+}
+.place-data-label{
+  font-family:var(--font-sans);
+  font-size:0.55rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:rgba(237,232,222,0.3);
+}
+.place-content{
+  padding:clamp(40px,6vw,80px) clamp(32px,5vw,72px);
+  display:flex;flex-direction:column;
+  justify-content:center;
+  gap:clamp(24px,3vw,40px);
+}
+.place-content .t-body{max-width:38ch}
+/* SWAP:IMG → the place lake/Niederrhein | ratio: 3:2 */
+/* SWAP:COPY → the place */
+
+@media(max-width:768px){
+  #sp-place{grid-template-columns:1fr}
+  .place-img-wrap{aspect-ratio:4/3}
+}
+
+/* ============================================================
+   5. TRANSFORMATION PROMISE
+   ============================================================ */
+#sp-transform{
+  padding:var(--section-pad) clamp(20px,8vw,120px);
+  background:var(--color-primary);
+  position:relative;overflow:hidden;
+}
+#sp-transform::before{
+  content:'';
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(12,26,18,0.6) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 80% at 80% 20%, rgba(110,155,123,0.06) 0%, transparent 60%);
+}
+.transform-grid{
+  position:relative;z-index:1;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(24px,4vw,64px);
+}
+.transform-item{
+  display:flex;flex-direction:column;
+  gap:16px;
+  padding-top:clamp(24px,3vw,48px);
+  border-top:1px solid var(--color-border);
+  opacity:0;transform:translateY(40px);
+}
+.transform-number{
+  font-family:var(--font-serif);
+  font-weight:300;
+  font-size:clamp(4rem,8vw,8rem);
+  line-height:0.9;
+  color:var(--color-accent);
+  font-variant-numeric:tabular-nums;
+}
+.transform-suffix{
+  font-size:0.45em;
+  vertical-align:super;
+  color:var(--color-secondary);
+}
+.transform-title{
+  font-family:var(--font-serif);
+  font-size:clamp(1.2rem,2vw,1.6rem);
+  font-weight:400;
+}
+.transform-copy{font-size:0.8rem;color:var(--color-text-muted);line-height:1.7;max-width:28ch}
+/* SWAP:COPY → transformation stats 1–3 */
+
+@media(max-width:768px){
+  .transform-grid{grid-template-columns:1fr;gap:40px}
+}
+
+/* ============================================================
+   6. ROOMS & SPACES
+   ============================================================ */
+#sp-rooms{
+  padding:var(--section-pad) clamp(20px,5vw,80px);
+  background:var(--color-bg);
+}
+.rooms-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-template-rows:auto;
+  gap:clamp(10px,1.5vw,18px);
+  margin-top:clamp(32px,5vw,64px);
+}
+.room-item{
+  position:relative;overflow:hidden;cursor:pointer;
+  border-radius:1px;
+}
+.room-item:nth-child(1){grid-column:1/8;grid-row:1/2}
+.room-item:nth-child(2){grid-column:8/13;grid-row:1/2}
+.room-item:nth-child(3){grid-column:1/5;grid-row:2/3}
+.room-item:nth-child(4){grid-column:5/9;grid-row:2/3}
+.room-item:nth-child(5){grid-column:9/13;grid-row:2/3}
+.room-item:nth-child(6){grid-column:1/13;grid-row:3/4;max-height:340px}
+
+.room-img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  aspect-ratio:3/2;
+  transition:transform 0.9s var(--ease-out-quart);
+  will-change:transform;
+}
+.room-item:nth-child(6) .room-img{aspect-ratio:16/6}
+
+.room-overlay{
+  position:absolute;inset:0;
+  background:rgba(12,26,18,0);
+  transition:background 0.5s ease;
+  display:flex;align-items:flex-end;
+  padding:24px;
+}
+.room-item:hover .room-overlay{background:rgba(12,26,18,0.6)}
+.room-item:hover .room-img{transform:scale(1.04)}
+
+.room-name{
+  font-family:var(--font-serif);
+  font-size:clamp(1.1rem,1.8vw,1.5rem);
+  opacity:0;transform:translateY(8px);
+  transition:all 0.4s var(--ease-out-quart);
+}
+.room-item:hover .room-name{opacity:1;transform:translateY(0)}
+/* SWAP:IMG → room/interior 1–6 | ratio: 3:2 */
+
+/* Lightbox */
+#sp-lightbox{
+  display:none;position:fixed;inset:0;z-index:200;
+  background:rgba(12,26,18,0.97);
+  align-items:center;justify-content:center;
+  padding:40px;
+}
+#sp-lightbox.active{display:flex}
+.lightbox-img{
+  max-width:90vw;max-height:90vh;
+  object-fit:contain;
+  border-radius:2px;
+}
+.lightbox-close{
+  position:absolute;top:24px;right:32px;
+  font-family:var(--font-sans);font-size:0.75rem;
+  letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--color-text-muted);
+  cursor:pointer;
+  padding:8px;
+  transition:color 0.3s ease;
+}
+.lightbox-close:hover{color:var(--color-text)}
+
+@media(max-width:768px){
+  .rooms-grid{grid-template-columns:1fr 1fr}
+  .room-item:nth-child(1),
+  .room-item:nth-child(2),
+  .room-item:nth-child(3),
+  .room-item:nth-child(4),
+  .room-item:nth-child(5),
+  .room-item:nth-child(6){grid-column:auto;grid-row:auto}
+  .room-item:nth-child(6){grid-column:1/-1}
+}
+
+/* ============================================================
+   7. WELLNESS RITUALS
+   ============================================================ */
+#sp-wellness{
+  padding:var(--section-pad) clamp(20px,8vw,120px);
+  background:var(--color-surface);
+  position:relative;overflow:hidden;
+}
+.wellness-bg-img{
+  position:absolute;inset:0;z-index:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  opacity:0.08;
+}
+.wellness-inner{position:relative;z-index:1}
+.wellness-header{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(32px,5vw,80px);
+  align-items:end;
+  margin-bottom:clamp(48px,7vw,96px);
+}
+.wellness-rituals-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(16px,2.5vw,32px);
+}
+.ritual-card{
+  padding:clamp(20px,3vw,36px);
+  border:1px solid var(--color-border);
+  position:relative;
+  overflow:hidden;
+  transition:border-color 0.4s ease,transform 0.4s var(--ease-out-quart);
+  opacity:0;transform:translateY(32px);
+  background:rgba(12,26,18,0.4);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+.ritual-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg, rgba(196,154,108,0.04) 0%, transparent 60%);
+  opacity:0;transition:opacity 0.4s ease;
+}
+.ritual-card:hover{
+  border-color:rgba(196,154,108,0.4);
+  transform:translateY(-4px);
+}
+.ritual-card:hover::before{opacity:1}
+.ritual-number{
+  font-family:var(--font-sans);
+  font-size:0.6rem;
+  font-weight:500;
+  letter-spacing:0.2em;
+  color:var(--color-accent);
+  margin-bottom:clamp(16px,2vw,24px);
+  opacity:0.6;
+}
+.ritual-glyph{
+  font-size:clamp(1.4rem,2.5vw,2rem);
+  margin-bottom:12px;
+  display:block;
+  filter:opacity(0.8);
+}
+.ritual-name{
+  font-family:var(--font-serif);
+  font-size:clamp(1.1rem,1.8vw,1.5rem);
+  font-weight:400;
+  margin-bottom:12px;
+}
+.ritual-line{
+  font-size:0.78rem;
+  font-weight:300;
+  color:var(--color-text-muted);
+  line-height:1.65;
+  max-width:26ch;
+}
+/* SWAP:COPY → wellness rituals 1–6 */
+
+@media(max-width:1024px){
+  .wellness-header{grid-template-columns:1fr}
+  .wellness-rituals-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .wellness-rituals-grid{grid-template-columns:1fr}
+}
+
+/* ============================================================
+   8. EDITORIAL QUOTE
+   ============================================================ */
+#sp-quote{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.quote-bg{
+  position:absolute;inset:0;z-index:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  will-change:transform;
+}
+.quote-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:rgba(12,26,18,0.78);
+}
+.quote-content{
+  position:relative;z-index:2;
+  text-align:center;
+  padding:clamp(40px,8vw,120px) clamp(20px,10vw,160px);
+  max-width:1000px;
+}
+.quote-mark{
+  font-family:var(--font-serif);
+  font-size:clamp(6rem,15vw,18rem);
+  line-height:0.7;
+  color:var(--color-accent);
+  opacity:0.35;
+  display:block;
+  margin-bottom:-0.2em;
+  transform:translateY(20px);
+  opacity:0;
+}
+.quote-text{
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:clamp(1.6rem,3.5vw,3.5rem);
+  line-height:1.35;
+  font-weight:300;
+  letter-spacing:-0.01em;
+  opacity:0;transform:translateY(24px);
+}
+.quote-source{
+  font-family:var(--font-sans);
+  font-size:0.65rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--color-secondary);
+  margin-top:clamp(24px,4vw,48px);
+  opacity:0;transform:translateY(16px);
+}
+/* SWAP:IMG → editorial quote background lake atmosphere | ratio: 16:9 */
+/* SWAP:COPY → editorial quote */
+
+/* ============================================================
+   9. BOOKING CTA
+   ============================================================ */
+#sp-booking{
+  position:relative;
+  padding:var(--section-pad) clamp(20px,8vw,120px);
+  overflow:hidden;min-height:70vh;
+  display:flex;align-items:center;
+}
+.booking-bg{
+  position:absolute;inset:0;z-index:0;
+  width:100%;height:100%;
+  object-fit:cover;
+}
+.booking-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(
+    90deg,
+    rgba(12,26,18,0.95) 0%,
+    rgba(12,26,18,0.7) 50%,
+    rgba(12,26,18,0.3) 100%
+  );
+}
+.booking-content{
+  position:relative;z-index:2;
+  max-width:640px;
+}
+.booking-availability{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-sans);
+  font-size:0.65rem;
+  font-weight:500;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--color-accent);
+  margin-bottom:clamp(20px,3vw,32px);
+  padding:8px 16px;
+  border:1px solid rgba(196,154,108,0.3);
+}
+.booking-availability::before{
+  content:'';
+  width:6px;height:6px;
+  background:var(--color-accent);
+  border-radius:50%;
+  animation:pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:0.5;transform:scale(1.4)}
+}
+.booking-headline{
+  font-family:var(--font-serif);
+  font-size:clamp(2.5rem,5.5vw,5.5rem);
+  font-weight:300;
+  line-height:0.95;
+  margin-bottom:clamp(20px,3vw,36px);
+}
+.booking-sub{
+  font-size:0.85rem;
+  color:var(--color-text-muted);
+  margin-bottom:clamp(28px,4vw,48px);
+  max-width:38ch;
+  line-height:1.7;
+}
+.booking-actions{
+  display:flex;gap:16px;flex-wrap:wrap;
+}
+/* SWAP:COPY → booking CTA */
+/* SWAP:IMG → booking background lake/hotel | ratio: 16:9 */
+
+/* ============================================================
+   10. FOOTER
+   ============================================================ */
+#sp-footer{
+  padding:clamp(60px,8vw,100px) clamp(20px,5vw,80px) clamp(32px,4vw,48px);
+  background:var(--color-bg);
+  border-top:1px solid var(--color-border);
+}
+.footer-inner{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:clamp(32px,4vw,64px);
+  align-items:start;
+  margin-bottom:clamp(48px,6vw,72px);
+}
+.footer-logo-wrap img{
+  height:clamp(36px,4vw,52px);
+  width:auto;
+  filter:brightness(0) invert(0.6);
+  transition:filter 0.4s ease;
+}
+.footer-logo-wrap:hover img{filter:brightness(0) invert(0.85)}
+/* SWAP:LOGO */
+.footer-tagline{
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:clamp(0.9rem,1.3vw,1.1rem);
+  color:var(--color-text-muted);
+  margin-top:16px;
+  max-width:28ch;
+  line-height:1.7;
+}
+.footer-col-label{
+  font-family:var(--font-sans);
+  font-size:0.6rem;
+  font-weight:500;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--color-secondary);
+  margin-bottom:20px;
+}
+.footer-coords{
+  font-family:var(--font-sans);
+  font-size:0.72rem;
+  color:var(--color-text-muted);
+  line-height:2;
+  font-variant-numeric:tabular-nums;
+}
+.footer-contact a{
+  display:block;
+  font-family:var(--font-sans);
+  font-size:0.75rem;
+  color:var(--color-text-muted);
+  line-height:2.2;
+  transition:color 0.3s ease;
+}
+.footer-contact a:hover{color:var(--color-accent)}
+.footer-bottom{
+  display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:16px;
+  padding-top:clamp(24px,3vw,40px);
+  border-top:1px solid var(--color-border);
+}
+.footer-copyright{
+  font-family:var(--font-sans);
+  font-size:0.6rem;
+  font-weight:300;
+  letter-spacing:0.12em;
+  color:rgba(154,150,134,0.45);
+  text-transform:uppercase;
+}
+.footer-issue{
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:0.8rem;
+  color:rgba(154,150,134,0.35);
+}
+
+@media(max-width:768px){
+  .footer-inner{grid-template-columns:1fr}
+}
+
+/* ============================================================
+   SCROLL PROGRESS BAR
+   ============================================================ */
+#sp-progress{
+  position:fixed;top:0;left:0;
+  height:2px;
+  background:linear-gradient(90deg, var(--color-accent), var(--color-secondary));
+  z-index:101;
+  width:0%;
+  transition:width 0.1s linear;
+}
+
+/* ============================================================
+   REVEAL ANIMATIONS (initial states)
+   ============================================================ */
+.reveal-fade{opacity:0;transform:translateY(32px)}
+.reveal-left{opacity:0;transform:translateX(-32px)}
+.reveal-right{opacity:0;transform:translateX(32px)}
+.reveal-scale{opacity:0;transform:scale(0.96)}
+
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div id="sp-progress" role="presentation"></div>
+
+<!-- ──────────────────────────────────────────
+     HEADER
+     ────────────────────────────────────────── -->
+<header id="sp-header" role="banner">
+  <a href="https://www.seepark.de/" class="header-logo" aria-label="See Park Janssen — Home">
+    <!-- SWAP:LOGO -->
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69ee07f279db8863e2ae919f_see-park.svg"
+      alt="See Park Janssen"
+      loading="eager"
+    >
+  </a>
+  <nav class="header-cta">
+    <a href="https://onepagebooking.com/seeparkjanssen" class="btn btn-primary btn-arrow" target="_blank" rel="noopener">Reserve</a>
+  </nav>
+</header>
+
+<!-- ──────────────────────────────────────────
+     1. FULLSCREEN HERO
+     ────────────────────────────────────────── -->
+<section id="sp-hero" aria-label="See Park Janssen — Welcome">
+  <div class="hero-media">
+    <!-- SWAP:VIDEO → aerial lake drone over Niederrhein water at dawn | hero section -->
+    <video
+      autoplay muted loop playsinline
+      poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png"
+      aria-hidden="true"
+    >
+      <!-- NO ASSET IN CSV — production: replace src with real hero video -->
+    </video>
+    <!-- Fallback image if video fails -->
+    <img
+      class="hero-img-fallback"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png"
+      alt=""
+      loading="eager"
+      style="display:none"
+    >
+    <!-- SWAP:IMG → hero poster fallback | ratio: 16:9 -->
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <div class="hero-logo">
+      <!-- SWAP:LOGO -->
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69ee07f279db8863e2ae919f_see-park.svg"
+        alt="See Park Janssen"
+        loading="eager"
+      >
+    </div>
+
+    <div class="hero-tagline" aria-label="Where still water deepens">
+      <div class="hero-tagline-inner">
+        <span class="word">Where</span>
+        <span class="word">still</span>
+        <span class="word">water</span>
+        <span class="word t-accent">deepens.</span>
+      </div>
+    </div>
+    <!-- SWAP:COPY → manifesto -->
+
+    <p class="hero-coords" aria-label="Location coordinates">
+      51.5167° N &nbsp;·&nbsp; 6.2833° E &nbsp;·&nbsp; 25 m ASL &nbsp;·&nbsp; Niederrhein, NRW
+    </p>
+  </div>
+
+  <div class="hero-scroll-indicator" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span class="scroll-label">Scroll</span>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────
+     2. MANIFESTO — THE PHILOSOPHY
+     ────────────────────────────────────────── -->
+<section id="sp-manifesto" aria-label="The Philosophy">
+  <!-- SWAP:3D → oak leaf GLB | Coastal / Forest -->
+  <div class="manifesto-3d-bg" aria-hidden="true">
+    <canvas id="manifesto-canvas"></canvas>
+  </div>
+
+  <div class="manifesto-content">
+    <div class="section-label reveal-fade">
+      <span class="t-subhead">The Philosophy</span>
+    </div>
+
+    <div class="manifesto-lines" aria-label="The Rhine flattens here. Sky and water exchange their borders. In this dissolution—this singular geography—recovery isn't offered. It simply occurs.">
+      <span class="manifesto-line"><span class="manifesto-line-inner">The Rhine</span></span>
+      <span class="manifesto-line"><span class="manifesto-line-inner">flattens here.</span></span>
+      <span class="manifesto-line"><span class="manifesto-line-inner accent">Sky and water</span></span>
+      <span class="manifesto-line"><span class="manifesto-line-inner">trade borders.</span></span>
+    </div>
+    <!-- SWAP:COPY → manifesto -->
+
+    <div class="manifesto-body reveal-fade">
+      <p class="t-body">
+        In this singular, unhurried geography — where oak groves soften the horizon and the
+        lake mirrors every hour of light — restoration isn't a programme. It is the place itself,
+        working slowly and without instruction on the body and the mind.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────
+     3. SIGNATURE EXPERIENCES
+     ────────────────────────────────────────── -->
+<section id="sp-experiences" aria-label="Signature Experiences">
+  <div class="experiences-header">
+    <div>
+      <div class="section-label reveal-fade">
+        <span class="t-subhead">What awaits</span>
+      </div>
+      <h2 class="t-headline reveal-fade">Six ways<br><em>the lake changes you</em></h2>
+    </div>
+    <p class="t-body reveal-right">
+      Each of these offerings is drawn from the land itself — the Niederrhein's water,
+      its old oaks, the quiet discipline of its cycles.
+    </p>
+  </div>
+
+  <div class="experiences-track-wrap">
+    <div class="experiences-track" id="exp-track">
+
+      <!-- Card 1 -->
+      <div class="exp-card reveal-scale" data-delay="0">
+        <!-- SWAP:IMG → experience card 1 SPA thermal landscape | ratio: 4:5 -->
+        <img
+          class="exp-card-img"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f1fe2d8b2f06d2529_Image%2012.png"
+          alt="See Park SPA — thermal landscape"
+          loading="lazy"
+        >
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-text">
+          <p class="exp-card-category">Thermal</p>
+          <h3 class="exp-card-name">See Park SPA</h3>
+          <p class="exp-card-desc">8,000 m² of sauna worlds, mineral water, and measured silence.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="exp-card reveal-scale" data-delay="80">
+        <!-- SWAP:IMG → experience card 2 panorama pool water | ratio: 4:5 -->
+        <img
+          class="exp-card-img"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fdef24e731275c24a_Image%2042.png"
+          alt="Panorama Pool — horizon water"
+          loading="lazy"
+        >
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-text">
+          <p class="exp-card-category">Water</p>
+          <h3 class="exp-card-name">Panorama Pool</h3>
+          <p class="exp-card-desc">Unbroken sky, flat horizon. Float until perspective returns.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="exp-card reveal-scale" data-delay="160">
+        <!-- SWAP:IMG → experience card 3 golf course Schloss Haag | ratio: 4:5 -->
+        <img
+          class="exp-card-img"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f679754764ba8477c_Image%203.png"
+          alt="Golf — Schloss Haag 18-hole"
+          loading="lazy"
+        >
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-text">
+          <p class="exp-card-category">Links</p>
+          <h3 class="exp-card-name">Schloss Haag Golf</h3>
+          <p class="exp-card-desc">18 holes across the estate grounds. Fairways flanked by old oaks.</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="exp-card reveal-scale" data-delay="240">
+        <!-- SWAP:IMG → experience card 4 restaurant lake view | ratio: 4:5 -->
+        <img
+          class="exp-card-img"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fc699fe80d5a792a6_Image%2010.png"
+          alt="Restaurant See Park Terrassen"
+          loading="lazy"
+        >
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-text">
+          <p class="exp-card-category">Culinary</p>
+          <h3 class="exp-card-name">See Terrassen</h3>
+          <p class="exp-card-desc">Rhine asparagus. Candlelit table. The lake catching last light.</p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="exp-card reveal-scale" data-delay="320">
+        <!-- SWAP:IMG → experience card 5 beauty massage wellness | ratio: 4:5 -->
+        <img
+          class="exp-card-img"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e614aa07e724b10b1_Image%201.png"
+          alt="Beauty and massage wellness"
+          loading="lazy"
+        >
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-text">
+          <p class="exp-card-category">Ritual</p>
+          <h3 class="exp-card-name">Beauty & Massage</h3>
+          <p class="exp-card-desc">Skilled hands, traditional ceremony, time held deliberately still.</p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="exp-card reveal-scale" data-delay="400">
+        <!-- SWAP:IMG → experience card 6 outdoor cycling Niederrhein nature | ratio: 4:5 -->
+        <img
+          class="exp-card-img"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f5931b223dc54467b_Image%2062.png"
+          alt="Outdoor and cycling — Niederrhein nature"
+          loading="lazy"
+        >
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-text">
+          <p class="exp-card-category">Outdoor</p>
+          <h3 class="exp-card-name">Rhine Cycling</h3>
+          <p class="exp-card-desc">Flat paths, windbreak oaks, and the Dutch border just beyond the rise.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────
+     4. THE PLACE
+     ────────────────────────────────────────── -->
+<section id="sp-place" aria-label="The Place — Niederrhein">
+  <div class="place-img-wrap">
+    <!-- SWAP:IMG → the place Niederrhein lake shoreline panorama | ratio: 3:2 -->
+    <img
+      class="place-img"
+      id="place-parallax"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e13e8a712bef8f191_Image%209.png"
+      alt="The Niederrhein — See Park Janssen lakeside"
+      loading="lazy"
+    >
+    <!-- Geographic data overlay -->
+    <div class="place-data-overlay" aria-label="Geographic coordinates">
+      <div class="place-data-item">
+        <span class="place-data-value">51°31'00"N</span>
+        <span class="place-data-label">Latitude</span>
+      </div>
+      <div class="place-data-item">
+        <span class="place-data-value">06°17'00"E</span>
+        <span class="place-data-label">Longitude</span>
+      </div>
+      <div class="place-data-item">
+        <span class="place-data-value">~25 m</span>
+        <span class="place-data-label">ASL</span>
+      </div>
+      <div class="place-data-item">
+        <span class="place-data-value">Geldern, NRW</span>
+        <span class="place-data-label">Municipality</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="place-content">
+    <div class="section-label reveal-fade">
+      <span class="t-subhead">The Place</span>
+    </div>
+
+    <h2 class="t-headline reveal-fade">
+      Flat land,<br>
+      <em class="t-accent">deep water.</em>
+    </h2>
+    <!-- SWAP:COPY → the place -->
+
+    <p class="t-body reveal-fade">
+      The Niederrhein doesn't announce itself. Its power is quiet: a lake that widens
+      into sky, oakwood that filters northwest light, water meadows that hold their
+      colour through winter. This is not a landscape that performs — it simply persists,
+      at its own unhurried pace.
+    </p>
+
+    <p class="t-body reveal-fade">
+      Geldern sits at the western edge of the Rhine plain, twelve kilometres from the
+      Dutch border, where the language of the land shifts to horizontal and the horizon
+      becomes something you feel rather than see. Everything here is an argument
+      for stillness.
+    </p>
+
+    <p class="t-body reveal-fade">
+      The hotel takes its name from the lake — and its character from it. Built directly
+      on the water's edge, it inherits the patience of the flatlands and the quiet
+      generosity of a region that has been tending to its visitors for generations.
+    </p>
+
+    <a href="https://www.seepark.de/hotel/" class="btn btn-ghost btn-arrow reveal-fade" target="_blank" rel="noopener">
+      Discover the hotel
+    </a>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────
+     5. TRANSFORMATION PROMISE
+     ────────────────────────────────────────── -->
+<section id="sp-transform" aria-label="The See Park Difference — By the numbers">
+  <div class="transform-grid">
+
+    <div class="transform-item">
+      <div class="transform-number">
+        <span class="transform-count" data-target="8000">0</span><span class="transform-suffix">m²</span>
+      </div>
+      <h3 class="transform-title">Thermal Landscape</h3>
+      <!-- SWAP:COPY → transformation stats 1 -->
+      <p class="transform-copy">
+        Seven saunas. One panorama pool. Mineral baths and aerotherapy. The largest
+        wellness landscape in the lower Rhine region.
+      </p>
+    </div>
+
+    <div class="transform-item">
+      <div class="transform-number">
+        <span class="transform-count" data-target="94">0</span><span class="transform-suffix">%</span>
+      </div>
+      <h3 class="transform-title">Guest Satisfaction</h3>
+      <!-- SWAP:COPY → transformation stats 2 -->
+      <p class="transform-copy">
+        Fourteen consecutive HolidayCheck Top Hotel awards. Ranked 6th in NRW.
+        A measure of consistency, not chance.
+      </p>
+    </div>
+
+    <div class="transform-item">
+      <div class="transform-number">
+        <span class="transform-count" data-target="18">0</span><span class="transform-suffix"> holes</span>
+      </div>
+      <h3 class="transform-title">Estate Golf</h3>
+      <!-- SWAP:COPY → transformation stats 3 -->
+      <p class="transform-copy">
+        The Schloss Haag 18-hole course borders our grounds directly.
+        No transit, no delay — the fairways begin where the hotel ends.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────
+     6. ROOMS & SPACES
+     ────────────────────────────────────────── -->
+<section id="sp-rooms" aria-label="Rooms and Spaces">
+  <div class="section-label reveal-fade">
+    <span class="t-subhead">Rooms &amp; Spaces</span>
+  </div>
+
+  <h2 class="t-headline reveal-fade">
+    98 rooms.<br><em class="t-accent">All facing calm.</em>
+  </h2>
+
+  <div class="rooms-grid" role="list">
+
+    <div class="room-item reveal-scale" role="listitem" aria-label="Superior Room">
+      <!-- SWAP:IMG → room interior superior lake view | ratio: 3:2 -->
+      <img
+        class="room-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e1edb921f35a63175_Image%202.png"
+        alt="Superior Room — lake view"
+        loading="lazy"
+        data-full="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e1edb921f35a63175_Image%202.png"
+      >
+      <div class="room-overlay"><span class="room-name">Superior</span></div>
+    </div>
+
+    <div class="room-item reveal-scale" role="listitem" aria-label="Panorama Suite">
+      <!-- SWAP:IMG → room interior panorama suite | ratio: 3:2 -->
+      <img
+        class="room-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png"
+        alt="Panorama Suite"
+        loading="lazy"
+        data-full="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png"
+      >
+      <div class="room-overlay"><span class="room-name">Panorama Suite</span></div>
+    </div>
+
+    <div class="room-item reveal-scale" role="listitem" aria-label="Standard Room">
+      <!-- SWAP:IMG → room interior standard comfort | ratio: 3:2 -->
+      <img
+        class="room-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755a0854ea3cadb267cd_Image%2054.png"
+        alt="Standard Room"
+        loading="lazy"
+        data-full="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755a0854ea3cadb267cd_Image%2054.png"
+      >
+      <div class="room-overlay"><span class="room-name">Comfort</span></div>
+    </div>
+
+    <div class="room-item reveal-scale" role="listitem" aria-label="Junior Suite">
+      <!-- SWAP:IMG → room interior junior suite | ratio: 3:2 -->
+      <img
+        class="room-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755108515add56c26e14_Image%2053.png"
+        alt="Junior Suite"
+        loading="lazy"
+        data-full="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755108515add56c26e14_Image%2053.png"
+      >
+      <div class="room-overlay"><span class="room-name">Junior Suite</span></div>
+    </div>
+
+    <div class="room-item reveal-scale" role="listitem" aria-label="Wellness Room">
+      <!-- SWAP:IMG → room interior wellness room spa access | ratio: 3:2 -->
+      <img
+        class="room-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551d402271fd28d57c9_Image%2052.png"
+        alt="Wellness Room"
+        loading="lazy"
+        data-full="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551d402271fd28d57c9_Image%2052.png"
+      >
+      <div class="room-overlay"><span class="room-name">Wellness</span></div>
+    </div>
+
+    <div class="room-item reveal-scale" role="listitem" aria-label="Lake View Terrace Room">
+      <!-- SWAP:IMG → room interior terrace lake view room | ratio: 16:6 -->
+      <img
+        class="room-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551a79a50ab947db776_Image%2050.png"
+        alt="Lake View Terrace Room"
+        loading="lazy"
+        data-full="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551a79a50ab947db776_Image%2050.png"
+      >
+      <div class="room-overlay"><span class="room-name">Lake Terrace</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="sp-lightbox" role="dialog" aria-modal="true" aria-label="Room image lightbox">
+  <button class="lightbox-close" aria-label="Close lightbox">Close ✕</button>
+  <img class="lightbox-img" src="" alt="">
+</div>
+
+<!-- ──────────────────────────────────────────
+     7. WELLNESS RITUALS
+     ────────────────────────────────────────── -->
+<section id="sp-wellness" aria-label="Wellness Rituals">
+  <!-- Atmospheric background image -->
+  <img
+    class="wellness-bg-img"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png"
+    alt=""
+    aria-hidden="true"
+    loading="lazy"
+  >
+
+  <div class="wellness-inner">
+    <div class="wellness-header">
+      <div>
+        <div class="section-label reveal-fade">
+          <span class="t-subhead">Wellness Rituals</span>
+        </div>
+        <h2 class="t-headline reveal-fade">
+          Six practices.<br>
+          <em class="t-accent">One restored body.</em>
+        </h2>
+      </div>
+      <p class="t-body reveal-right">
+        Each ritual is rooted in the thermal traditions of the Rhine lowlands —
+        cold water, warm stone, aromatic infusion, and the deliberate passage of time.
+      </p>
+    </div>
+    <!-- SWAP:COPY → wellness rituals 1–6 -->
+
+    <div class="wellness-rituals-grid">
+
+      <div class="ritual-card">
+        <span class="ritual-number">01</span>
+        <span class="ritual-glyph" aria-hidden="true">☁</span>
+        <h3 class="ritual-name">Panorama Aufguss</h3>
+        <p class="ritual-line">Scented infusion ceremony inside glass walls open to the Niederrhein sky.</p>
+      </div>
+
+      <div class="ritual-card">
+        <span class="ritual-number">02</span>
+        <span class="ritual-glyph" aria-hidden="true">🪵</span>
+        <h3 class="ritual-name">Kelo Ceremony</h3>
+        <p class="ritual-line">Finnish log sauna. Pine resin, birch heat, silence held like something precious.</p>
+      </div>
+
+      <div class="ritual-card">
+        <span class="ritual-number">03</span>
+        <span class="ritual-glyph" aria-hidden="true">💧</span>
+        <h3 class="ritual-name">Rhine Mineral Soak</h3>
+        <p class="ritual-line">Warm mineralised immersion drawing on the thermal traditions of the lower Rhine.</p>
+      </div>
+
+      <div class="ritual-card">
+        <span class="ritual-number">04</span>
+        <span class="ritual-glyph" aria-hidden="true">❄</span>
+        <h3 class="ritual-name">Nordic Schwall</h3>
+        <p class="ritual-line">Cold plunge, Kneipp trough, bracing transition. The body remembers how to feel.</p>
+      </div>
+
+      <div class="ritual-card">
+        <span class="ritual-number">05</span>
+        <span class="ritual-glyph" aria-hidden="true">🌿</span>
+        <h3 class="ritual-name">Vitalküche</h3>
+        <p class="ritual-line">Fresh-pressed, seasonal, regional. Food as extension of the water's quiet logic.</p>
+      </div>
+
+      <div class="ritual-card">
+        <span class="ritual-number">06</span>
+        <span class="ritual-glyph" aria-hidden="true">🌅</span>
+        <h3 class="ritual-name">Sunset Float</h3>
+        <p class="ritual-line">The panorama pool at dusk — amber light across flat water, and nowhere to be.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────
+     8. EDITORIAL QUOTE
+     ────────────────────────────────────────── -->
+<section id="sp-quote" aria-label="Guest Voice">
+  <!-- SWAP:IMG → editorial quote background atmospheric water/lake at dusk | ratio: 16:9 -->
+  <img
+    class="quote-bg"
+    id="quote-parallax"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755102e16a74f59b0111_Image%2044.png"
+    alt=""
+    aria-hidden="true"
+    loading="lazy"
+  >
+  <div class="quote-overlay" aria-hidden="true"></div>
+  <!-- SWAP:COPY → editorial quote -->
+  <blockquote class="quote-content">
+    <span class="quote-mark" aria-hidden="true">"</span>
+    <p class="quote-text">
+      We came for a weekend. We stayed inside the quiet for four days.
+      The lake does something to time here — it doesn't stop it, it just
+      makes it worth keeping.
+    </p>
+    <cite class="quote-source">— Guest, Summer 2025 &nbsp;·&nbsp; HolidayCheck ★★★★★</cite>
+  </blockquote>
+</section>
+
+<!-- ──────────────────────────────────────────
+     9. BOOKING CTA
+     ────────────────────────────────────────── -->
+<section id="sp-booking" aria-label="Reserve Your Stay">
+  <!-- SWAP:IMG → booking CTA background hotel exterior lakeside | ratio: 16:9 -->
+  <img
+    class="booking-bg"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7550d0152d0e448f0b58_Image%2046.png"
+    alt=""
+    aria-hidden="true"
+    loading="lazy"
+  >
+  <div class="booking-overlay" aria-hidden="true"></div>
+
+  <div class="booking-content">
+    <!-- SWAP:COPY → booking CTA -->
+    <div class="booking-availability">
+      Limited availability — Summer 2026
+    </div>
+
+    <h2 class="booking-headline reveal-left">
+      Reserve<br>
+      <em class="t-accent">your still.</em>
+    </h2>
+
+    <p class="booking-sub reveal-left">
+      98 rooms at the water's edge. The sauna ceremony begins at dawn.
+      The fairways are empty at first light. Book before they fill.
+    </p>
+
+    <div class="booking-actions reveal-left">
+      <a
+        href="https://onepagebooking.com/seeparkjanssen"
+        class="btn btn-primary btn-arrow"
+        target="_blank"
+        rel="noopener"
+        aria-label="Reserve your stay at See Park Janssen"
+      >
+        Reserve Your Stay
+      </a>
+      <a
+        href="https://www.seepark.de/media/files/Spa_Sauna_Pool.pdf"
+        class="btn btn-ghost"
+        target="_blank"
+        rel="noopener"
+        aria-label="Download the SPA Experience Guide"
+      >
+        Download Experience Guide
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────
+     10. FOOTER
+     ────────────────────────────────────────── -->
+<footer id="sp-footer" role="contentinfo">
+  <div class="footer-inner">
+
+    <div>
+      <a href="https://www.seepark.de/" class="footer-logo-wrap" aria-label="See Park Janssen — Home">
+        <!-- SWAP:LOGO -->
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69ee07f279db8863e2ae919f_see-park.svg"
+          alt="See Park Janssen"
+          loading="lazy"
+        >
+      </a>
+      <p class="footer-tagline">
+        Where still water deepens.<br>
+        Niederrhein, Germany.
+      </p>
+    </div>
+
+    <div>
+      <p class="footer-col-label">Location</p>
+      <div class="footer-coords">
+        <p>Danziger Straße 5</p>
+        <p>47608 Geldern, NRW</p>
+        <p style="margin-top:8px">51.5167° N, 6.2833° E</p>
+        <p>~25 m ASL &nbsp;·&nbsp; Rhine plain</p>
+      </div>
+    </div>
+
+    <div>
+      <p class="footer-col-label">Contact</p>
+      <div class="footer-contact">
+        <a href="tel:+4928319290" aria-label="Call See Park Janssen">+49 2831 9290</a>
+        <a href="https://www.seepark.de/kontakt/" target="_blank" rel="noopener">info@seepark.de</a>
+        <a href="https://www.instagram.com/seeparkjanssen/" target="_blank" rel="noopener" aria-label="See Park Janssen on Instagram">@seeparkjanssen</a>
+        <a href="https://onepagebooking.com/seeparkjanssen" target="_blank" rel="noopener">Book a stay →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copyright">
+      © 2026 Am See Park Janssen GmbH &nbsp;·&nbsp; Geldern, Deutschland
+    </p>
+    <p class="footer-issue">
+      <em>Prototype — FGS Creative Assets, Vol. 2026</em>
+    </p>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════
+     SCRIPTS
+     ══════════════════════════════════════════ -->
+<script>
+/* ─────────────────────────────────────────
+   THREE.JS — GLB OAK LEAF / 3D OBJECT
+   ─────────────────────────────────────────
+   SWAP:3D → oak leaf GLB | Coastal / Forest (Niederrhein)
+   SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb
+*/
+(function initThreeJS() {
+  const canvas = document.getElementById('manifesto-canvas');
+  if (!canvas || typeof THREE === 'undefined') return;
+
+  const scene    = new THREE.Scene();
+  const camera   = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
+  camera.position.set(0, 0, 3.5);
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+    alpha:      true,
+    antialias:  true,
+  });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(canvas.parentElement.offsetWidth, canvas.parentElement.offsetHeight);
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.shadowMap.enabled = true;
+  renderer.toneMappingExposure = 1.2;
+
+  /* Three-point lighting: warm key + cool fill + soft rim */
+  const keyLight = new THREE.DirectionalLight(0xFFDFAA, 1.8);
+  keyLight.position.set(2, 3, 2);
+  scene.add(keyLight);
+
+  const fillLight = new THREE.DirectionalLight(0xAAD4FF, 0.7);
+  fillLight.position.set(-3, 1, -1);
+  scene.add(fillLight);
+
+  const rimLight = new THREE.DirectionalLight(0xC8E8D0, 0.5);
+  rimLight.position.set(0, -2, -2);
+  scene.add(rimLight);
+
+  const ambLight = new THREE.AmbientLight(0x2A4030, 0.4);
+  scene.add(ambLight);
+
+  /* GLB loader polyfill — load via importmap-less CDN */
+  const GLTFLoaderScript = document.createElement('script');
+  GLTFLoaderScript.src = 'https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js';
+  GLTFLoaderScript.onload = function () {
+    const loader = new THREE.GLTFLoader();
+    loader.load(
+      'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb',
+      function (gltf) {
+        const model = gltf.scene;
+        /* centre + scale */
+        const box    = new THREE.Box3().setFromObject(model);
+        const centre = box.getCenter(new THREE.Vector3());
+        const size   = box.getSize(new THREE.Vector3());
+        const maxDim = Math.max(size.x, size.y, size.z);
+        model.position.sub(centre);
+        model.scale.setScalar(2.2 / maxDim);
+        scene.add(model);
+        window._spLeafModel = model;
+      },
+      undefined,
+      function (err) { console.warn('GLB load failed:', err); }
+    );
+  };
+  document.head.appendChild(GLTFLoaderScript);
+
+  let isHovered = false;
+  canvas.parentElement.addEventListener('mouseenter', () => { isHovered = true;  });
+  canvas.parentElement.addEventListener('mouseleave', () => { isHovered = false; });
+
+  function animate() {
+    requestAnimationFrame(animate);
+    if (window._spLeafModel && !isHovered) {
+      window._spLeafModel.rotation.y += 0.002;
+    }
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  /* Responsive resize */
+  window.addEventListener('resize', () => {
+    const w = canvas.parentElement.offsetWidth;
+    const h = canvas.parentElement.offsetHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  });
+})();
+</script>
+
+<script>
+/* ─────────────────────────────────────────
+   GSAP SCROLL ANIMATIONS
+   ─────────────────────────────────────────*/
+(function initGSAP() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── Scroll progress bar ── */
+  gsap.to('#sp-progress', {
+    width: '100%',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: 'body',
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: 0.3,
+    }
+  });
+
+  /* ── Header scroll state ── */
+  ScrollTrigger.create({
+    start: 80,
+    onEnter:  () => document.getElementById('sp-header').classList.add('scrolled'),
+    onLeaveBack: () => document.getElementById('sp-header').classList.remove('scrolled'),
+  });
+
+  /* ── Hero entrance ── */
+  const heroTL = gsap.timeline({ delay: 0.3 });
+  heroTL
+    .to('.hero-logo',      { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' })
+    .to('.hero-tagline-inner', { opacity: 1, duration: 0 }, '-=0.4')
+    .to('.hero-tagline-inner .word', {
+      y: 0, opacity: 1,
+      duration: 1.0,
+      ease: 'power4.out',
+      stagger: 0.12,
+    }, '-=0.4')
+    .to('.hero-coords', { opacity: 1, duration: 1.0, ease: 'power2.out' }, '-=0.3')
+    .to('.hero-scroll-indicator', { opacity: 1, duration: 1.0, ease: 'power2.out' }, '-=0.5');
+
+  /* ── Hero video fallback ── */
+  const heroVideo = document.querySelector('#sp-hero video');
+  const heroFallback = document.querySelector('.hero-img-fallback');
+  if (heroVideo) {
+    heroVideo.addEventListener('error', function () {
+      heroVideo.style.display = 'none';
+      if (heroFallback) heroFallback.style.display = 'block';
+    });
+    /* If no source, show fallback immediately */
+    if (!heroVideo.querySelector('source') && !heroVideo.src) {
+      heroVideo.style.display = 'none';
+      if (heroFallback) heroFallback.style.display = 'block';
+    }
+  }
+
+  /* ── Generic reveal helper ── */
+  function reveal(selector, vars, triggerEl) {
+    gsap.utils.toArray(selector).forEach((el) => {
+      gsap.to(el, {
+        ...vars,
+        scrollTrigger: {
+          trigger: triggerEl || el,
+          start: 'top 85%',
+          once: true,
+        }
+      });
+    });
+  }
+
+  reveal('.reveal-fade',  { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out' });
+  reveal('.reveal-left',  { opacity: 1, x: 0, duration: 1.0, ease: 'power3.out' });
+  reveal('.reveal-right', { opacity: 1, x: 0, duration: 1.0, ease: 'power3.out' });
+  reveal('.reveal-scale', { opacity: 1, scale: 1, duration: 0.9, ease: 'power3.out' });
+
+  /* ── Manifesto lines ── */
+  document.querySelectorAll('.manifesto-line-inner').forEach((el, i) => {
+    gsap.to(el, {
+      y: 0,
+      duration: 1.2,
+      ease: 'power4.out',
+      delay: i * 0.15,
+      scrollTrigger: {
+        trigger: '#sp-manifesto',
+        start: 'top 70%',
+        once: true,
+      }
+    });
+  });
+
+  gsap.to('.manifesto-body', {
+    opacity: 1, y: 0, duration: 1.0, ease: 'power3.out',
+    scrollTrigger: { trigger: '#sp-manifesto', start: 'top 60%', once: true }
+  });
+
+  /* ── Experience cards staggered ── */
+  document.querySelectorAll('.exp-card').forEach((card, i) => {
+    gsap.fromTo(card,
+      { opacity: 0, y: 48 },
+      {
+        opacity: 1, y: 0,
+        duration: 0.9,
+        ease: 'power3.out',
+        delay: (i * 0.08),
+        scrollTrigger: {
+          trigger: '#sp-experiences',
+          start: 'top 75%',
+          once: true,
+        }
+      }
+    );
+  });
+
+  /* ── Place parallax ── */
+  gsap.to('#place-parallax', {
+    y: '-8%',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#sp-place',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: 1.2,
+    }
+  });
+
+  /* ── Transformation items ── */
+  document.querySelectorAll('.transform-item').forEach((item, i) => {
+    gsap.to(item, {
+      opacity: 1, y: 0,
+      duration: 0.9,
+      ease: 'power3.out',
+      delay: i * 0.15,
+      scrollTrigger: {
+        trigger: '#sp-transform',
+        start: 'top 75%',
+        once: true,
+      }
+    });
+  });
+
+  /* ── Counter animation ── */
+  document.querySelectorAll('.transform-count').forEach((el) => {
+    const target = parseInt(el.dataset.target, 10);
+    const obj = { val: 0 };
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 80%',
+      once: true,
+      onEnter: () => {
+        gsap.to(obj, {
+          val: target,
+          duration: 2.0,
+          ease: 'power2.out',
+          onUpdate: () => {
+            el.textContent = Math.round(obj.val).toLocaleString('de-DE');
+          }
+        });
+      }
+    });
+  });
+
+  /* ── Rooms stagger ── */
+  gsap.utils.toArray('.room-item').forEach((item, i) => {
+    gsap.fromTo(item,
+      { opacity: 0, scale: 0.97 },
+      {
+        opacity: 1, scale: 1,
+        duration: 0.85,
+        ease: 'power3.out',
+        delay: i * 0.07,
+        scrollTrigger: {
+          trigger: '#sp-rooms',
+          start: 'top 75%',
+          once: true,
+        }
+      }
+    );
+  });
+
+  /* ── Ritual cards stagger ── */
+  gsap.utils.toArray('.ritual-card').forEach((card, i) => {
+    gsap.to(card, {
+      opacity: 1, y: 0,
+      duration: 0.85,
+      ease: 'power3.out',
+      delay: i * 0.1,
+      scrollTrigger: {
+        trigger: '#sp-wellness',
+        start: 'top 70%',
+        once: true,
+      }
+    });
+  });
+
+  /* ── Quote parallax + reveal ── */
+  gsap.to('#quote-parallax', {
+    y: '-10%',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#sp-quote',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: 1.5,
+    }
+  });
+
+  gsap.to('.quote-mark', {
+    opacity: 0.35, y: 0,
+    duration: 1.4, ease: 'power3.out',
+    scrollTrigger: { trigger: '#sp-quote', start: 'top 70%', once: true }
+  });
+  gsap.to('.quote-text', {
+    opacity: 1, y: 0,
+    duration: 1.2, ease: 'power3.out', delay: 0.2,
+    scrollTrigger: { trigger: '#sp-quote', start: 'top 70%', once: true }
+  });
+  gsap.to('.quote-source', {
+    opacity: 1, y: 0,
+    duration: 1.0, ease: 'power3.out', delay: 0.5,
+    scrollTrigger: { trigger: '#sp-quote', start: 'top 70%', once: true }
+  });
+
+})();
+</script>
+
+<script>
+/* ─────────────────────────────────────────
+   DRAG-SCROLL — EXPERIENCE TRACK
+   ─────────────────────────────────────────*/
+(function initDragScroll() {
+  const track = document.getElementById('exp-track');
+  if (!track) return;
+
+  let isDragging = false, startX = 0, scrollLeft = 0;
+
+  track.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+    track.style.cursor = 'grabbing';
+  });
+  document.addEventListener('mouseup', () => {
+    isDragging = false;
+    track.style.cursor = 'grab';
+  });
+  track.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x    = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 1.6;
+    track.scrollLeft = scrollLeft - walk;
+  });
+
+  /* Touch */
+  let touchStart = 0;
+  track.addEventListener('touchstart', (e) => {
+    touchStart = e.touches[0].pageX;
+    scrollLeft = track.scrollLeft;
+  }, { passive: true });
+  track.addEventListener('touchmove', (e) => {
+    const diff = touchStart - e.touches[0].pageX;
+    track.scrollLeft = scrollLeft + diff;
+  }, { passive: true });
+
+  /* Overflow on track container */
+  track.style.overflowX = 'auto';
+  track.style.scrollbarWidth = 'none';
+  track.style.msOverflowStyle = 'none';
+  const style = document.createElement('style');
+  style.textContent = '#exp-track::-webkit-scrollbar{display:none}';
+  document.head.appendChild(style);
+})();
+</script>
+
+<script>
+/* ─────────────────────────────────────────
+   ROOMS LIGHTBOX
+   ─────────────────────────────────────────*/
+(function initLightbox() {
+  const lb      = document.getElementById('sp-lightbox');
+  const lbImg   = lb.querySelector('.lightbox-img');
+  const lbClose = lb.querySelector('.lightbox-close');
+
+  document.querySelectorAll('.room-item').forEach((item) => {
+    item.addEventListener('click', () => {
+      const img  = item.querySelector('.room-img');
+      const full = img.dataset.full || img.src;
+      lbImg.src  = full;
+      lbImg.alt  = img.alt;
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLb() {
+    lb.classList.remove('active');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+  lbClose.addEventListener('click', closeLb);
+  lb.addEventListener('click', (e) => {
+    if (e.target === lb) closeLb();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLb();
+  });
+})();
+</script>
+
+<script>
+/* ─────────────────────────────────────────
+   MOBILE VIDEO FALLBACK — hide <video> if
+   no source or media fails; show poster img
+   ─────────────────────────────────────────*/
+(function heroVideoFallback() {
+  const v = document.querySelector('#sp-hero video');
+  const f = document.querySelector('#sp-hero .hero-img-fallback');
+  if (!v || !f) return;
+  const hasSrc = v.currentSrc || v.querySelector('source');
+  if (!hasSrc) {
+    v.style.display = 'none';
+    f.style.display = 'block';
+  }
+  v.addEventListener('error', () => {
+    v.style.display = 'none';
+    f.style.display = 'block';
+  });
+})();
+</script>
+
+
+<!--
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                        CUSTOMIZATION GUIDE                                   ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Complete SWAP marker checklist for production handoff.
+Items marked ★ FLAG: NO ASSET IN CSV require sourcing before launch.
+
+──────────────────────────────────────────
+LOGO
+──────────────────────────────────────────
+[ ] 1.  SWAP:LOGO — Header logo
+        Current: https://cdn.prod.website-files.com/…/69ee07f279db8863e2ae919f_see-park.svg
+        Action:  Verify SVG loads and test color filter on dark bg.
+                 If SVG is inline-embeddable, replace <img> with inline <svg>
+                 to enable CSS currentColor control.
+
+[ ] 2.  SWAP:LOGO — Hero logo (same SRC as #1)
+
+[ ] 3.  SWAP:LOGO — Footer logo (same SRC as #1)
+
+──────────────────────────────────────────
+VIDEOS    ★ FLAG: NO ASSET IN CSV
+──────────────────────────────────────────
+[ ] 4.  ★ SWAP:VIDEO → hero background lake/water drone | hero section
+        SECTION: Hero (Section 1)
+        CURRENT: No src — video element hidden, poster fallback showing
+        RATIO: 16:9 (fullscreen)
+        ACTION: Provide MP4/WebM aerial drone of See Park lake or hotel
+                exterior. Minimum 1920×1080, H.264/AVC.
+                Place as <source src="YOUR-VIDEO.mp4" type="video/mp4">
+                inside the hero <video> element.
+
+──────────────────────────────────────────
+3D OBJECT
+──────────────────────────────────────────
+[ ] 5.  SWAP:3D → oak leaf GLB | Coastal / Forest (Niederrhein)
+        SECTION: Manifesto (Section 2) background
+        CURRENT: https://hotels3ds.s3.eu-north-1.amazonaws.com/
+                 Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb
+        ACTION: Confirm CORS headers on S3 bucket allow cross-origin load
+                from Webflow domain. If blocked, re-host on accessible CDN.
+
+──────────────────────────────────────────
+IMAGES — FROM CSV (all confirmed mapped)
+──────────────────────────────────────────
+[ ] 6.  SWAP:IMG → hero poster fallback | ratio: 16:9
+        SRC: coastal/Image 56 ✓
+
+[ ] 7.  SWAP:IMG → experience card 1 — SPA thermal | ratio: 4:5
+        SRC: coastal/Image 12 ✓
+
+[ ] 8.  SWAP:IMG → experience card 2 — Panorama Pool | ratio: 4:5
+        SRC: coastal/Image 42 ✓
+
+[ ] 9.  SWAP:IMG → experience card 3 — Golf Schloss Haag | ratio: 4:5
+        SRC: coastal/Image 3 ✓
+
+[ ] 10. SWAP:IMG → experience card 4 — Restaurant | ratio: 4:5
+        SRC: coastal/Image 10 ✓
+
+[ ] 11. SWAP:IMG → experience card 5 — Beauty & Massage | ratio: 4:5
+        SRC: coastal/Image 1 ✓
+
+[ ] 12. SWAP:IMG → experience card 6 — Outdoor/Cycling | ratio: 4:5
+        SRC: forest/Image 62 ✓
+
+[ ] 13. SWAP:IMG → the place — Niederrhein lakeside | ratio: 3:2
+        SRC: coastal/Image 9 ✓
+
+[ ] 14. SWAP:IMG → room 1 — Superior Room | ratio: 3:2
+        SRC: coastal/Image 2 ✓
+
+[ ] 15. SWAP:IMG → room 2 — Panorama Suite | ratio: 3:2
+        SRC: coastal/Image 55 ✓
+
+[ ] 16. SWAP:IMG → room 3 — Comfort Standard | ratio: 3:2
+        SRC: coastal/Image 54 ✓
+
+[ ] 17. SWAP:IMG → room 4 — Junior Suite | ratio: 3:2
+        SRC: coastal/Image 53 ✓
+
+[ ] 18. SWAP:IMG → room 5 — Wellness Room | ratio: 3:2
+        SRC: coastal/Image 52 ✓
+
+[ ] 19. SWAP:IMG → room 6 — Lake Terrace | ratio: 16:6
+        SRC: coastal/Image 50 ✓
+
+[ ] 20. SWAP:IMG → editorial quote background — lake dusk | ratio: 16:9
+        SRC: coastal/Image 44 ✓
+
+[ ] 21. SWAP:IMG → booking CTA background — hotel/lake | ratio: 16:9
+        SRC: coastal/Image 46 ✓
+
+──────────────────────────────────────────
+COPY (review + localise for production)
+──────────────────────────────────────────
+[ ] 22. SWAP:COPY → hero tagline
+        CURRENT: "Where still water deepens."
+        REVIEW: Confirm fits brand voice; localise for German/English dual-lang
+
+[ ] 23. SWAP:COPY → manifesto
+        CURRENT: 4 large typographic lines + one body paragraph
+        REVIEW: Approve with hotel marketing team
+
+[ ] 24. SWAP:COPY → the place (3 paragraphs)
+        CURRENT: Editorial landscape description
+        REVIEW: Factual accuracy check (coordinates, ecology references)
+
+[ ] 25. SWAP:COPY → transformation stats 1–3
+        CURRENT: 8,000 m² / 94% / 18 holes — all verified from seepark.de
+        REVIEW: Confirm current year satisfaction rating + award count
+
+[ ] 26. SWAP:COPY → wellness rituals 1–6
+        CURRENT: Six rituals named + one evocative line each
+        REVIEW: Confirm all ritual names match current SPA offering
+
+[ ] 27. SWAP:COPY → editorial quote
+        CURRENT: Fictional guest quote (placeholder)
+        ACTION ★: Replace with real verified guest or press quote
+                  (Source: HolidayCheck, hotel records, press)
+
+[ ] 28. SWAP:COPY → booking CTA
+        CURRENT: "Reserve Your Stay" + "Download Experience Guide"
+        REVIEW: Confirm CTA URLs are live; update season urgency line
+
+──────────────────────────────────────────
+COLOR / BRAND
+──────────────────────────────────────────
+[ ] 29. SWAP:COLOR
+        CURRENT palette inferred from seepark.de brand + landscape:
+          --color-primary:   #1A3326  (lake forest green)
+          --color-secondary: #6E9B7B  (sage/moss)
+          --color-accent:    #C49A6C  (Rhine amber)
+          --color-bg:        #0C1A12  (near-black)
+          --color-text:      #EDE8DE  (warm cream)
+        ACTION: Cross-reference with hotel's official brand guidelines
+                if available. Update CSS custom properties at :root.
+
+──────────────────────────────────────────
+TECHNICAL / WEBFLOW NOTES
+──────────────────────────────────────────
+• Paste full file into a Webflow Embed block on a blank page.
+• Ensure Webflow page has NO conflicting normalize/reset CSS.
+• Test Three.js GLB on production domain — verify CORS on S3.
+• For the hero <video>, add real <source> tags once video is provided.
+• All lazy-loaded images use native loading="lazy" — no JS required.
+• GSAP + ScrollTrigger loaded from cdnjs CDN — no npm required.
+• Three.js r134 loaded from cdnjs CDN — GLTFLoader loaded from jsDelivr.
+• No external frameworks conflict with Webflow rendering.
+• Lightbox: press Escape or click backdrop to close.
+• Drag-scroll on experience cards: desktop drag + mobile touch both active.
+-->
+
+</body>
+</html>
