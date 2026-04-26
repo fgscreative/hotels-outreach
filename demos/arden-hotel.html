@@ -1,0 +1,1736 @@
+<!--
+BRAND EXTRACTION REPORT
+========================
+Hotel Name: The Arden Hotel
+URL: https://www.ardenhotel.co.uk/
+Primary Color: #2C4A2E (deep forest green — extracted from logo "2025-web-logo-green-aa.jpg")
+Secondary Color: #8B2035 (Burgundy — restaurant name, warm accent, referenced directly in site)
+Accent Color: #C8A96E (warm brass/gold — implied premium hospitality warmth)
+Background Mood: Dark / Warm
+Font Pairing (Google Fonts): Cormorant Garamond (serif editorial headline) + DM Sans (grotesque sans body)
+Tone of Voice: Warm / Understated / Grounded — family-owned 50+ years, independent, community-rooted
+Landscape Archetype: Forest (Warwickshire woodland, UK countryside near Meriden)
+Positioning: The largest independent hotel in Birmingham — family-owned for over 50 years, rooted in Warwickshire, gateway to the heart of England
+Key Experiences: Burgundy Restaurant (bistro & table d'hôte), Leisure Club, Meetings & Events (15 rooms, 180 delegates), Weddings, Park Sleep & Fly, Murder Mystery Nights
+Coordinates + Elevation: 52.4424° N, 1.7218° W · 105m above sea level · Heart of England, Warwickshire
+
+ASSET MAPPING REPORT
+========================
+Total assets in CSV: 120+ images, 3 GLB 3D objects (no video found in CSV)
+Assets successfully mapped: 20 images (forest archetype) + 1 GLB (leaf)
+Slots covered by CSV: hero-poster, experience-1 through 6, place, rooms 1–6, quote-bg, 3d-object
+Slots falling back to Unsplash: hero video (no video in CSV)
+Logo SRC: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69ee0e10ac95fdd15de75023_2025-web-logo-green-aa.jpg
+3D Object SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb (leaf/oak — forest archetype match)
+Video assets: NONE IN CSV — hero video falls back to atmospheric poster image
+Image assets (forest archetype selected):
+  hero-poster: Image 62
+  experience-1: Image 58
+  experience-2: Image 59
+  experience-3: Image 57
+  experience-4: Image 60
+  experience-5: Image 74
+  experience-6: Image 76
+  place: Image 75
+  room-1: Image 71
+  room-2: Image 65
+  room-3: Image 73
+  room-4: Image 63
+  room-5: Image 66
+  room-6: Image 69
+  quote-bg: Image 64
+  manifesto-bg: Image 67
+  booking-bg: Image 61
+  wellness-bg: Image 68
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Arden Hotel — Heart of England</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- Three.js -->
+<script src="https://unpkg.com/three@0.155.0/build/three.min.js"></script>
+<script src="https://unpkg.com/three@0.155.0/examples/js/loaders/GLTFLoader.js"></script>
+
+<style>
+/*
+CSS CUSTOM PROPERTIES
+========================
+--color-primary:    #2C4A2E  deep forest green
+--color-secondary:  #8B2035  Burgundy restaurant red
+--color-accent:     #C8A96E  warm brass/gold
+--color-bg:         #0E1610  near-black forest dark
+--color-bg-mid:     #161E18  slightly lifted dark
+--color-text:       #F2EDE4  warm off-white
+--color-text-muted: #9A9E96  muted sage
+--font-serif:       'Cormorant Garamond', Georgia, serif
+--font-sans:        'DM Sans', system-ui, sans-serif
+*/
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --color-primary:    #2C4A2E;
+    --color-secondary:  #8B2035;
+    --color-accent:     #C8A96E;
+    --color-bg:         #0E1610;
+    --color-bg-mid:     #161E18;
+    --color-bg-light:   #1C2A1E;
+    --color-text:       #F2EDE4;
+    --color-text-muted: #9A9E96;
+    --font-serif:       'Cormorant Garamond', Georgia, serif;
+    --font-sans:        'DM Sans', system-ui, sans-serif;
+    --ease-out:         cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { display: block; max-width: 100%; }
+
+  /* ─────────── UTILITY ─────────── */
+  .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+  .section-label {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+  .split-line { overflow: hidden; }
+  .split-line span { display: block; }
+
+  /* ─────────── HEADER (sticky minimal) ─────────── */
+  #arden-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.4s ease, padding 0.4s ease;
+  }
+  #arden-header.scrolled {
+    background: rgba(14, 22, 16, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1rem 2.5rem;
+  }
+  .header-logo img {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+  }
+  .header-book {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    text-decoration: none;
+    border: 1px solid rgba(200, 169, 110, 0.5);
+    padding: 0.6rem 1.25rem;
+    transition: border-color 0.3s, color 0.3s, background 0.3s;
+  }
+  .header-book:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: rgba(200, 169, 110, 0.06);
+  }
+  @media (max-width: 768px) {
+    #arden-header { padding: 1.25rem 1.25rem; }
+    .header-book { display: none; }
+  }
+
+  /* ─────────── 1. HERO ─────────── */
+  #hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  /* SWAP:VIDEO → hero background | hero section — NO VIDEO IN CSV, using atmospheric poster image */
+  .hero-video-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba(44, 74, 46, 0.45) 0%,
+      rgba(14, 22, 16, 0.55) 50%,
+      rgba(14, 22, 16, 0.8) 100%
+    );
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 1.5rem;
+    max-width: 900px;
+  }
+  /* SWAP:LOGO */
+  .hero-logo {
+    margin: 0 auto 2.5rem;
+    width: 180px;
+  }
+  .hero-logo img {
+    width: 100%;
+    opacity: 0;
+  }
+  .hero-tagline {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+  }
+  .hero-tagline .word { opacity: 0; display: inline-block; margin-right: 0.25em; }
+  .hero-sub {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    opacity: 0;
+  }
+  .hero-scroll-indicator {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+  }
+  .hero-scroll-indicator span {
+    font-family: var(--font-sans);
+    font-size: 0.625rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+  .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--color-accent), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.15); }
+  }
+  @media (max-width: 768px) {
+    .hero-tagline { font-size: clamp(2rem, 8vw, 3rem); }
+    .hero-logo { width: 140px; }
+  }
+
+  /* ─────────── 2. MANIFESTO ─────────── */
+  #manifesto {
+    position: relative;
+    padding: 10rem 2.5rem;
+    overflow: hidden;
+    background: var(--color-bg);
+  }
+  .manifesto-bg-3d {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 5%;
+    pointer-events: none;
+    opacity: 0.12;
+  }
+  /* SWAP:3D → mature oak leaf | Forest */
+  #manifesto-canvas { display: block; }
+  .manifesto-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .manifesto-eyebrow {
+    margin-bottom: 3rem;
+    opacity: 0;
+  }
+  .manifesto-line {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 4.5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  .manifesto-line em {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+  .manifesto-body {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    max-width: 480px;
+    margin-top: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  @media (max-width: 768px) {
+    #manifesto { padding: 6rem 1.5rem; }
+  }
+
+  /* ─────────── 3. EXPERIENCES ─────────── */
+  #experiences {
+    padding: 8rem 2.5rem;
+    background: var(--color-bg-mid);
+    overflow: hidden;
+  }
+  .experiences-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    gap: 2rem;
+  }
+  .experiences-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.2;
+    max-width: 500px;
+  }
+  .experiences-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .exp-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 4/5;
+  }
+  .exp-card:first-child,
+  .exp-card:nth-child(4) {
+    grid-column: span 1;
+  }
+  .exp-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s var(--ease-out);
+    will-change: transform;
+  }
+  .exp-card:hover img { transform: scale(1.05); }
+  .exp-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(14,22,16,0.75) 0%, transparent 55%);
+    transition: background 0.4s;
+  }
+  .exp-card:hover .exp-card-overlay {
+    background: linear-gradient(to top, rgba(44,74,46,0.7) 0%, transparent 55%);
+  }
+  .exp-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+  }
+  .exp-card-cat {
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+  .exp-card-name {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-text);
+    margin-bottom: 0.4rem;
+  }
+  .exp-card-desc {
+    font-size: 0.8125rem;
+    font-weight: 300;
+    color: rgba(242,237,228,0.7);
+    line-height: 1.5;
+  }
+  @media (max-width: 1024px) {
+    .experiences-grid { grid-template-columns: repeat(2, 1fr); }
+    .experiences-header { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 768px) {
+    #experiences { padding: 5rem 1.25rem; }
+    .experiences-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .exp-card { aspect-ratio: 3/2; }
+  }
+
+  /* ─────────── 4. THE PLACE ─────────── */
+  #the-place {
+    display: grid;
+    grid-template-columns: 60fr 40fr;
+    min-height: 80vh;
+    overflow: hidden;
+  }
+  .place-image-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+  /* SWAP:IMG → the place | ratio: 3:2 */
+  .place-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    will-change: transform;
+  }
+  .place-data-overlay {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    z-index: 2;
+  }
+  .place-data-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .place-data-label {
+    font-size: 0.5625rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+  .place-data-value {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--color-accent);
+  }
+  .place-copy {
+    padding: 5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--color-bg-light);
+  }
+  .place-eyebrow { margin-bottom: 2rem; }
+  .place-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 2.5vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.25;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+  }
+  .place-body {
+    font-size: 0.9375rem;
+    font-weight: 300;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    max-width: 380px;
+  }
+  @media (max-width: 1024px) {
+    #the-place { grid-template-columns: 1fr; }
+    .place-image-wrap { aspect-ratio: 3/2; }
+    .place-copy { padding: 3.5rem 1.5rem; }
+    .place-body { max-width: none; }
+  }
+
+  /* ─────────── 5. TRANSFORMATION STATS ─────────── */
+  #transformation {
+    padding: 10rem 2.5rem;
+    background: var(--color-bg);
+    border-top: 1px solid rgba(200,169,110,0.12);
+    border-bottom: 1px solid rgba(200,169,110,0.12);
+  }
+  .transformation-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+  }
+  .stat-block { opacity: 0; transform: translateY(30px); }
+  .stat-number {
+    font-family: var(--font-serif);
+    font-size: clamp(4rem, 7vw, 8rem);
+    font-weight: 300;
+    line-height: 1;
+    color: var(--color-text);
+    letter-spacing: -0.03em;
+    margin-bottom: 0.75rem;
+  }
+  .stat-unit {
+    color: var(--color-accent);
+    font-size: 0.6em;
+    vertical-align: super;
+  }
+  .stat-label {
+    font-size: 0.625rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+  }
+  .stat-desc {
+    font-size: 0.9375rem;
+    font-weight: 300;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    max-width: 260px;
+  }
+  @media (max-width: 1024px) {
+    .transformation-inner { grid-template-columns: 1fr; gap: 3rem; }
+    #transformation { padding: 6rem 1.5rem; }
+  }
+
+  /* ─────────── 6. ROOMS & SPACES ─────────── */
+  #rooms {
+    padding: 8rem 2.5rem;
+    background: var(--color-bg-mid);
+  }
+  .rooms-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .rooms-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-top: 1rem;
+  }
+  .rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 280px;
+    gap: 1rem;
+  }
+  .room-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .room-item:nth-child(1) { grid-column: span 7; }
+  .room-item:nth-child(2) { grid-column: span 5; }
+  .room-item:nth-child(3) { grid-column: span 4; }
+  .room-item:nth-child(4) { grid-column: span 4; }
+  .room-item:nth-child(5) { grid-column: span 4; }
+  .room-item:nth-child(6) { grid-column: span 12; grid-row: span 1; height: 320px; }
+  .room-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s var(--ease-out);
+    will-change: transform;
+  }
+  .room-item:hover img { transform: scale(1.05); }
+  .room-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(14,22,16,0);
+    transition: background 0.4s;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+  }
+  .room-item:hover .room-item-overlay { background: rgba(14,22,16,0.4); }
+  .room-name {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-text);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.4s, transform 0.4s;
+  }
+  .room-item:hover .room-name { opacity: 1; transform: translateY(0); }
+  @media (max-width: 1024px) {
+    .rooms-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 220px; }
+    .room-item:nth-child(n) { grid-column: span 1; height: auto; }
+    .room-item:nth-child(1) { grid-column: span 2; }
+    .room-item:nth-child(6) { grid-column: span 2; height: auto; }
+  }
+  @media (max-width: 768px) {
+    #rooms { padding: 5rem 1.25rem; }
+    .rooms-grid { grid-template-columns: 1fr; grid-auto-rows: 260px; }
+    .room-item:nth-child(n) { grid-column: span 1; }
+    .room-name { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─────────── LIGHTBOX ─────────── */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(10,15,10,0.95);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .lightbox.active { display: flex; }
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  /* ─────────── 7. WELLNESS RITUALS ─────────── */
+  #wellness {
+    position: relative;
+    padding: 10rem 2.5rem;
+    background: var(--color-bg);
+    overflow: hidden;
+  }
+  .wellness-bg-img {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.12) saturate(0.4);
+  }
+  .wellness-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .wellness-header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  .wellness-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    font-weight: 300;
+    margin-top: 1rem;
+  }
+  .wellness-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+  .ritual-card {
+    opacity: 0;
+    transform: translateY(24px);
+    border: 1px solid rgba(200,169,110,0.1);
+    padding: 2.5rem 2rem;
+    transition: border-color 0.4s;
+    background: rgba(22, 30, 24, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .ritual-card:hover { border-color: rgba(200,169,110,0.35); }
+  .ritual-glyph {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    margin-bottom: 1.25rem;
+    line-height: 1;
+  }
+  .ritual-name {
+    font-family: var(--font-serif);
+    font-size: 1.375rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+  .ritual-line {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+  @media (max-width: 1024px) {
+    .wellness-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    #wellness { padding: 6rem 1.5rem; }
+  }
+  @media (max-width: 768px) {
+    .wellness-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ─────────── 8. EDITORIAL QUOTE ─────────── */
+  #editorial-quote {
+    position: relative;
+    height: 100vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  /* SWAP:IMG → editorial quote background | ratio: 16:9 */
+  .quote-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.35) saturate(0.5);
+  }
+  .quote-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(14,22,16,0.3), rgba(14,22,16,0.6));
+    z-index: 1;
+  }
+  .quote-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 2.5rem;
+    max-width: 900px;
+  }
+  .quote-mark {
+    font-family: var(--font-serif);
+    font-size: 8rem;
+    line-height: 0.6;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+  .quote-text {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 3.5vw, 3rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--color-text);
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .quote-source {
+    font-size: 0.6875rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-top: 2rem;
+    display: block;
+    opacity: 0;
+  }
+  @media (max-width: 768px) {
+    .quote-mark { font-size: 5rem; }
+  }
+
+  /* ─────────── 9. BOOKING CTA ─────────── */
+  #booking {
+    position: relative;
+    padding: 10rem 2.5rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+  }
+  .booking-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.22) saturate(0.4);
+  }
+  .booking-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(44,74,46,0.3) 0%, rgba(14,22,16,0.8) 100%);
+    z-index: 1;
+  }
+  .booking-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 700px;
+  }
+  .booking-urgency {
+    font-size: 0.6875rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+  }
+  .booking-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 4vw, 4rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .booking-sub {
+    font-size: 0.9375rem;
+    font-weight: 300;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    opacity: 0;
+  }
+  .booking-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+  }
+  .btn-primary {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-bg);
+    background: var(--color-accent);
+    text-decoration: none;
+    padding: 1rem 2.25rem;
+    transition: background 0.3s, color 0.3s;
+  }
+  .btn-primary:hover { background: #d9bc82; }
+  .btn-secondary {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    background: transparent;
+    border: 1px solid rgba(242,237,228,0.35);
+    text-decoration: none;
+    padding: 1rem 2.25rem;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .btn-secondary:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+  @media (max-width: 768px) {
+    #booking { padding: 6rem 1.5rem; }
+    .booking-btns { flex-direction: column; align-items: center; }
+    .btn-primary, .btn-secondary { width: 100%; max-width: 300px; text-align: center; }
+  }
+
+  /* ─────────── 10. FOOTER ─────────── */
+  #footer {
+    padding: 5rem 2.5rem;
+    background: var(--color-bg);
+    border-top: 1px solid rgba(200,169,110,0.12);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  /* SWAP:LOGO */
+  .footer-logo img {
+    height: 32px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.6;
+    transition: opacity 0.3s;
+  }
+  .footer-logo:hover img { opacity: 1; }
+  .footer-center {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .footer-coords {
+    font-family: var(--font-serif);
+    font-size: 0.875rem;
+    color: var(--color-accent);
+    font-style: italic;
+  }
+  .footer-copy {
+    font-size: 0.625rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+  .footer-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-end;
+  }
+  .footer-contact a {
+    font-size: 0.8125rem;
+    font-weight: 300;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s;
+    margin-bottom: 0.25rem;
+  }
+  .footer-contact a:hover { color: var(--color-accent); }
+  .footer-insta {
+    font-size: 0.625rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+    margin-top: 0.25rem;
+  }
+  .footer-insta:hover { color: var(--color-accent); }
+  @media (max-width: 768px) {
+    #footer {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .footer-logo { display: flex; justify-content: center; }
+    .footer-right { text-align: center; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════ -->
+<header id="arden-header">
+  <!-- SWAP:LOGO -->
+  <a href="https://www.ardenhotel.co.uk/" class="header-logo" aria-label="The Arden Hotel">
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69ee0e10ac95fdd15de75023_2025-web-logo-green-aa.jpg"
+      alt="The Arden Hotel"
+      loading="eager"
+    />
+  </a>
+  <a href="https://ardenhotel.dbm.guestline.net/availability?hotel=ARDEN" class="header-book">Reserve</a>
+</header>
+
+<!-- ══════════════════════════════════════════
+     1. HERO
+══════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-media">
+    <!-- SWAP:VIDEO → hero background video | hero section — NO VIDEO IN CSV, atmospheric image used as poster -->
+    <!-- SWAP:IMG → hero atmospheric forest | ratio: 16:9 | NO ASSET IN CSV (using forest image as poster fallback) -->
+    <img
+      class="hero-video-placeholder"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f5931b223dc54467b_Image%2062.png"
+      alt="The Arden Hotel — Warwickshire woodland atmosphere"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <!-- SWAP:LOGO -->
+    <div class="hero-logo">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69ee0e10ac95fdd15de75023_2025-web-logo-green-aa.jpg"
+        alt="The Arden Hotel"
+        loading="eager"
+      />
+    </div>
+    <!-- SWAP:COPY → hero tagline -->
+    <h1 class="hero-tagline">
+      <span class="word">Where</span><span class="word">Warwickshire</span><span class="word">breathes</span><br/>
+      <em style="font-style:italic; color: var(--color-accent);"><span class="word">into</span><span class="word">you.</span></em>
+    </h1>
+    <p class="hero-sub">52.4424° N &nbsp;·&nbsp; 1.7218° W &nbsp;·&nbsp; Heart of England</p>
+  </div>
+  <div class="hero-scroll-indicator">
+    <span>Descend</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     2. MANIFESTO
+══════════════════════════════════════════ -->
+<section id="manifesto">
+  <div class="manifesto-bg-3d">
+    <!-- SWAP:3D → mature oak leaf | Forest -->
+    <canvas id="manifesto-canvas" width="280" height="280"></canvas>
+  </div>
+  <div class="manifesto-inner">
+    <p class="section-label manifesto-eyebrow">The Philosophy</p>
+    <!-- SWAP:COPY → manifesto -->
+    <h2 class="manifesto-line">The forest does not hurry.</h2>
+    <h2 class="manifesto-line"><em>Neither do we.</em></h2>
+    <h2 class="manifesto-line">Fifty years, the same family,</h2>
+    <h2 class="manifesto-line">the same unhurried welcome.</h2>
+    <p class="manifesto-body">
+      Rooted in Warwickshire since the 1970s, The Arden is not a brand managed from a boardroom. It is a house — tended, known by name, alive to the particular quality of light through English oak at dusk.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     3. SIGNATURE EXPERIENCES
+══════════════════════════════════════════ -->
+<section id="experiences">
+  <div class="experiences-header">
+    <div>
+      <p class="section-label">Signature Experiences</p>
+      <!-- SWAP:COPY → experiences headline -->
+      <h2 class="experiences-headline">Six reasons to stay longer than you planned.</h2>
+    </div>
+  </div>
+  <div class="experiences-grid">
+
+    <!-- SWAP:IMG → experience card 1 | ratio: 4:5 -->
+    <div class="exp-card">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f66d293ddbe3e52da_Image%2058.png" alt="Burgundy Restaurant" loading="lazy" />
+      <div class="exp-card-overlay"></div>
+      <div class="exp-card-content">
+        <p class="exp-card-cat">Drink &amp; Dine</p>
+        <p class="exp-card-name">Burgundy</p>
+        <p class="exp-card-desc">Bistro fire, table d'hôte ceremony. Sunday lunch from £23.95.</p>
+      </div>
+    </div>
+
+    <!-- SWAP:IMG → experience card 2 | ratio: 4:5 -->
+    <div class="exp-card">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f02e16a74f59b019c_Image%2059.png" alt="Leisure Club" loading="lazy" />
+      <div class="exp-card-overlay"></div>
+      <div class="exp-card-content">
+        <p class="exp-card-cat">Body &amp; Recover</p>
+        <p class="exp-card-name">The Leisure Club</p>
+        <p class="exp-card-desc">Pool, gym, sauna. Movement without a countdown clock.</p>
+      </div>
+    </div>
+
+    <!-- SWAP:IMG → experience card 3 | ratio: 4:5 -->
+    <div class="exp-card">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fe534894fe01d574b_Image%2057.png" alt="Meetings & Events" loading="lazy" />
+      <div class="exp-card-overlay"></div>
+      <div class="exp-card-content">
+        <p class="exp-card-cat">Gather</p>
+        <p class="exp-card-name">15 Rooms</p>
+        <p class="exp-card-desc">180 delegates. Ideas need proper walls — we have them.</p>
+      </div>
+    </div>
+
+    <!-- SWAP:IMG → experience card 4 | ratio: 4:5 -->
+    <div class="exp-card">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fa912698fb567fc31_Image%2060.png" alt="Weddings" loading="lazy" />
+      <div class="exp-card-overlay"></div>
+      <div class="exp-card-content">
+        <p class="exp-card-cat">Celebrate</p>
+        <p class="exp-card-name">Weddings</p>
+        <p class="exp-card-desc">The day remembered by how it felt, not how it photographed.</p>
+      </div>
+    </div>
+
+    <!-- SWAP:IMG → experience card 5 | ratio: 4:5 -->
+    <div class="exp-card">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d01b3f8e72daf583f_Image%2074.png" alt="Park Sleep Fly" loading="lazy" />
+      <div class="exp-card-overlay"></div>
+      <div class="exp-card-content">
+        <p class="exp-card-cat">Departure</p>
+        <p class="exp-card-name">Park, Sleep &amp; Fly</p>
+        <p class="exp-card-desc">10 minutes from Birmingham Airport. Begin here, arrive calm.</p>
+      </div>
+    </div>
+
+    <!-- SWAP:IMG → experience card 6 | ratio: 4:5 -->
+    <div class="exp-card">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755dfd3f818cc9e63c84_Image%2076.png" alt="Murder Mystery Nights" loading="lazy" />
+      <div class="exp-card-overlay"></div>
+      <div class="exp-card-content">
+        <p class="exp-card-cat">Evening</p>
+        <p class="exp-card-name">Murder Mystery</p>
+        <p class="exp-card-desc">Three courses, professional actors, one question left unanswered.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     4. THE PLACE
+══════════════════════════════════════════ -->
+<section id="the-place">
+  <div class="place-image-wrap">
+    <!-- SWAP:IMG → the place Warwickshire woodland | ratio: 3:2 -->
+    <img
+      class="place-image"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d10aa143cd1856fdf_Image%2075.png"
+      alt="Warwickshire — Heart of England"
+      loading="lazy"
+    />
+    <div class="place-data-overlay">
+      <div class="place-data-item">
+        <span class="place-data-label">Coordinates</span>
+        <span class="place-data-value">52.4424° N, 1.7218° W</span>
+      </div>
+      <div class="place-data-item">
+        <span class="place-data-label">Elevation</span>
+        <span class="place-data-value">105 m</span>
+      </div>
+      <div class="place-data-item">
+        <span class="place-data-label">Habitat</span>
+        <span class="place-data-value">Arden Forest, Meriden</span>
+      </div>
+      <div class="place-data-item">
+        <span class="place-data-label">Est.</span>
+        <span class="place-data-value">1970 — Family-owned</span>
+      </div>
+    </div>
+  </div>
+  <div class="place-copy">
+    <p class="section-label place-eyebrow">The Place</p>
+    <!-- SWAP:COPY → the place -->
+    <h2 class="place-headline">Ancient woodland,<br/>five minutes from the airport.</h2>
+    <p class="place-body">
+      The Forest of Arden — where Shakespeare set his comedies of transformation — lies in the folds of north Warwickshire. Oak, ash, field maple. The light here changes by the hour.
+    </p>
+    <p class="place-body">
+      We sit at 105 metres elevation, close enough to the NEC to be convenient, far enough from anywhere to feel removed. That paradox is exactly the point.
+    </p>
+    <p class="place-body">
+      Step outside and the air holds wild garlic in spring, woodsmoke in autumn. The seasons still arrive here. We keep a note of them.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     5. TRANSFORMATION PROMISE
+══════════════════════════════════════════ -->
+<section id="transformation">
+  <div class="transformation-inner">
+
+    <!-- SWAP:COPY → transformation stats 1 -->
+    <div class="stat-block">
+      <div class="stat-number"><span class="stat-unit"></span><span class="counter" data-target="50">0</span><span style="font-size:0.5em; color: var(--color-accent);">+</span></div>
+      <p class="stat-label">Years of one family</p>
+      <p class="stat-desc">Not managed. Tended. The Arden has been held by the same hands since 1970 — continuity you can feel in the floorboards.</p>
+    </div>
+
+    <!-- SWAP:COPY → transformation stats 2 -->
+    <div class="stat-block">
+      <div class="stat-number"><span class="counter" data-target="216">0</span></div>
+      <p class="stat-label">Ensuite rooms</p>
+      <p class="stat-desc">Every room its own quietude. 32″ screens, free Wi-Fi, and a window facing something worth looking at.</p>
+    </div>
+
+    <!-- SWAP:COPY → transformation stats 3 -->
+    <div class="stat-block">
+      <div class="stat-number"><span class="counter" data-target="10">0</span><span style="font-size:0.4em; color: var(--color-accent); vertical-align: middle;"> min</span></div>
+      <p class="stat-label">To Birmingham Airport</p>
+      <p class="stat-desc">Walk to the NEC, the Arena, Resorts World. Return to free parking and a room that remembers your name.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     6. ROOMS & SPACES
+══════════════════════════════════════════ -->
+<section id="rooms">
+  <div class="rooms-header">
+    <p class="section-label">Rooms &amp; Spaces</p>
+    <h2 class="rooms-headline">216 rooms. Every one a retreat.</h2>
+  </div>
+  <div class="rooms-grid">
+
+    <!-- SWAP:IMG → room/interior 1 | ratio: 3:2 -->
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755cbd4aab14c251d668_Image%2071.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755cbd4aab14c251d668_Image%2071.png" alt="Classic Room" loading="lazy" />
+      <div class="room-item-overlay"><span class="room-name">Classic Room</span></div>
+    </div>
+
+    <!-- SWAP:IMG → room/interior 2 | ratio: 3:2 -->
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2d6f969a6ed97235_Image%2065.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2d6f969a6ed97235_Image%2065.png" alt="Superior Room" loading="lazy" />
+      <div class="room-item-overlay"><span class="room-name">Superior Room</span></div>
+    </div>
+
+    <!-- SWAP:IMG → room/interior 3 | ratio: 3:2 -->
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c0b1e8db27f6833b0_Image%2073.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c0b1e8db27f6833b0_Image%2073.png" alt="Family Room" loading="lazy" />
+      <div class="room-item-overlay"><span class="room-name">Family Room</span></div>
+    </div>
+
+    <!-- SWAP:IMG → room/interior 4 | ratio: 3:2 -->
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c3fc86be474e72fa6_Image%2063.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c3fc86be474e72fa6_Image%2063.png" alt="Executive Room" loading="lazy" />
+      <div class="room-item-overlay"><span class="room-name">Executive Room</span></div>
+    </div>
+
+    <!-- SWAP:IMG → room/interior 5 | ratio: 3:2 -->
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755cbd621d9fe28acb20_Image%2066.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755cbd621d9fe28acb20_Image%2066.png" alt="Burgundy Suite" loading="lazy" />
+      <div class="room-item-overlay"><span class="room-name">Burgundy Suite</span></div>
+    </div>
+
+    <!-- SWAP:IMG → room/interior 6 | ratio: 3:2 -->
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2795baeedff7f272_Image%2069.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2795baeedff7f272_Image%2069.png" alt="Garden View" loading="lazy" />
+      <div class="room-item-overlay"><span class="room-name">Garden View</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Image lightbox">
+  <button class="lightbox-close" id="lightbox-close">Close ×</button>
+  <img src="" alt="" id="lightbox-img" />
+</div>
+
+<!-- ══════════════════════════════════════════
+     7. WELLNESS RITUALS
+══════════════════════════════════════════ -->
+<section id="wellness">
+  <!-- SWAP:IMG → wellness section background atmospheric forest | ratio: 16:9 -->
+  <img
+    class="wellness-bg-img"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c3291e180806a8ea8_Image%2067.png"
+    alt=""
+    aria-hidden="true"
+    loading="lazy"
+  />
+  <div class="wellness-inner">
+    <div class="wellness-header">
+      <p class="section-label">Wellness Rituals</p>
+      <h2 class="wellness-headline">The body knows when it's arrived.</h2>
+    </div>
+    <div class="wellness-grid">
+
+      <!-- SWAP:COPY → wellness rituals 1 -->
+      <div class="ritual-card">
+        <div class="ritual-glyph">~</div>
+        <p class="ritual-name">Pool Quiet Hours</p>
+        <p class="ritual-line">Early morning. No lanes, no timers — just the weight of warm water before the day begins.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness rituals 2 -->
+      <div class="ritual-card">
+        <div class="ritual-glyph">◎</div>
+        <p class="ritual-name">Sauna Protocol</p>
+        <p class="ritual-line">Heat, then cool air off the Warwickshire plain. Ancient rhythm, precisely tended.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness rituals 3 -->
+      <div class="ritual-card">
+        <div class="ritual-glyph">↑</div>
+        <p class="ritual-name">Strength &amp; Motion</p>
+        <p class="ritual-line">The gym as instrument, not obligation. Calibrated equipment, unhurried space.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness rituals 4 -->
+      <div class="ritual-card">
+        <div class="ritual-glyph">◇</div>
+        <p class="ritual-name">Burgundy Nourishment</p>
+        <p class="ritual-line">Sunday roast as ritual. Seasonal menu anchored to what the midlands actually grows.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness rituals 5 -->
+      <div class="ritual-card">
+        <div class="ritual-glyph">—</div>
+        <p class="ritual-name">Woodland Walk</p>
+        <p class="ritual-line">Forest of Arden paths, marked from the hotel. Five minutes and the city is theoretical.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness rituals 6 -->
+      <div class="ritual-card">
+        <div class="ritual-glyph">∞</div>
+        <p class="ritual-name">Deep Sleep Protocol</p>
+        <p class="ritual-line">Blackout curtains, cool linen, the peculiar silence of English woodland at 2 a.m.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     8. EDITORIAL QUOTE
+══════════════════════════════════════════ -->
+<section id="editorial-quote">
+  <!-- SWAP:IMG → editorial quote background forest mist | ratio: 16:9 -->
+  <img
+    class="quote-bg"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c20859ca462d94b77_Image%2064.png"
+    alt=""
+    aria-hidden="true"
+    loading="lazy"
+  />
+  <div class="quote-overlay"></div>
+  <div class="quote-content">
+    <span class="quote-mark">"</span>
+    <!-- SWAP:COPY → editorial quote -->
+    <p class="quote-text">
+      The best hotel isn't the loudest room in the building. It's the one where you sleep through breakfast and don't feel guilty.
+    </p>
+    <span class="quote-source">— Guest, Birmingham · Spring 2025</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     9. BOOKING CTA
+══════════════════════════════════════════ -->
+<section id="booking">
+  <!-- SWAP:IMG → booking CTA atmospheric forest Warwickshire | ratio: 16:9 -->
+  <img
+    class="booking-bg"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c025be27c5b40f2d7_Image%2061.png"
+    alt=""
+    aria-hidden="true"
+    loading="lazy"
+  />
+  <div class="booking-overlay"></div>
+  <div class="booking-content">
+    <!-- SWAP:COPY → booking CTA -->
+    <p class="booking-urgency">Limited availability — Summer 2026</p>
+    <h2 class="booking-headline">A room in the heart of England awaits.</h2>
+    <p class="booking-sub">Free parking. Free Wi-Fi. 50 years of knowing exactly what a guest needs before they ask.</p>
+    <div class="booking-btns">
+      <a href="https://ardenhotel.dbm.guestline.net/availability?hotel=ARDEN" class="btn-primary">Reserve Your Stay</a>
+      <a href="https://www.ardenhotel.co.uk/" class="btn-secondary">Download the Experience Guide</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     10. FOOTER
+══════════════════════════════════════════ -->
+<footer id="footer">
+  <!-- SWAP:LOGO -->
+  <a href="https://www.ardenhotel.co.uk/" class="footer-logo" aria-label="The Arden Hotel">
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69ee0e10ac95fdd15de75023_2025-web-logo-green-aa.jpg"
+      alt="The Arden Hotel"
+      loading="lazy"
+    />
+  </a>
+  <div class="footer-center">
+    <p class="footer-coords">52.4424° N · 1.7218° W · 105 m</p>
+    <p class="footer-copy">© The Arden Hotel Ltd 2026 · Heart of England</p>
+  </div>
+  <div class="footer-right">
+    <div class="footer-contact">
+      <a href="mailto:reservations@ardenhotel.co.uk">reservations@ardenhotel.co.uk</a>
+      <a href="tel:+441675443221">+44 (0)1675 44 3221</a>
+    </div>
+    <a href="https://www.instagram.com/ardenhotelnec/" class="footer-insta" target="_blank" rel="noopener">@ardenhotelnec</a>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  // ─── GSAP Registration ───
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ─── Header scroll state ───
+  const header = document.getElementById('arden-header');
+  window.addEventListener('scroll', function() {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // ─── Hero entrance animations ───
+  const heroTl = gsap.timeline({ delay: 0.3 });
+  heroTl
+    .to('.hero-logo img', { opacity: 1, duration: 1.2, ease: 'power2.out' })
+    .to('.hero-tagline .word', {
+      opacity: 1, y: 0,
+      stagger: 0.12,
+      duration: 0.9,
+      ease: 'power3.out'
+    }, '-=0.4')
+    .to('.hero-sub', { opacity: 1, duration: 0.8, ease: 'power2.out' }, '-=0.2')
+    .to('.hero-scroll-indicator', { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.2');
+
+  // Set initial states for hero words
+  gsap.set('.hero-tagline .word', { opacity: 0, y: 20 });
+
+  // ─── Manifesto scroll reveal ───
+  gsap.to('.manifesto-eyebrow', {
+    opacity: 1, duration: 0.8, ease: 'power2.out',
+    scrollTrigger: { trigger: '#manifesto', start: 'top 75%' }
+  });
+
+  gsap.to('.manifesto-line', {
+    opacity: 1, y: 0, stagger: 0.18, duration: 1, ease: 'power3.out',
+    scrollTrigger: { trigger: '#manifesto', start: 'top 70%' }
+  });
+
+  gsap.to('.manifesto-body', {
+    opacity: 1, y: 0, duration: 0.9, ease: 'power2.out',
+    scrollTrigger: { trigger: '.manifesto-body', start: 'top 80%' }
+  });
+
+  // ─── Experiences cards ───
+  gsap.from('.exp-card', {
+    opacity: 0, y: 40, stagger: 0.1, duration: 0.8, ease: 'power3.out',
+    scrollTrigger: { trigger: '.experiences-grid', start: 'top 80%' }
+  });
+
+  // ─── Place parallax ───
+  gsap.to('.place-image', {
+    y: '-10%',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#the-place',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
+
+  gsap.from('.place-copy > *', {
+    opacity: 0, x: 30, stagger: 0.15, duration: 0.9, ease: 'power3.out',
+    scrollTrigger: { trigger: '.place-copy', start: 'top 75%' }
+  });
+
+  // ─── Transformation counter animation ───
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target, 10);
+    gsap.to({ val: 0 }, {
+      val: target,
+      duration: 2,
+      ease: 'power2.out',
+      onUpdate: function() {
+        el.textContent = Math.round(this.targets()[0].val);
+      }
+    });
+  }
+
+  ScrollTrigger.create({
+    trigger: '#transformation',
+    start: 'top 70%',
+    onEnter: function() {
+      gsap.to('.stat-block', { opacity: 1, y: 0, stagger: 0.2, duration: 0.9, ease: 'power3.out' });
+      document.querySelectorAll('.counter').forEach(function(el) {
+        animateCounter(el);
+      });
+    }
+  });
+
+  // ─── Rooms grid entrance ───
+  gsap.from('.room-item', {
+    opacity: 0, scale: 0.97, stagger: 0.08, duration: 0.7, ease: 'power3.out',
+    scrollTrigger: { trigger: '.rooms-grid', start: 'top 80%' }
+  });
+
+  // ─── Lightbox ───
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  document.querySelectorAll('.room-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      const src = this.dataset.src;
+      if (src) {
+        lightboxImg.src = src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+  }
+
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox || e.target === lightboxClose) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // ─── Wellness rituals stagger ───
+  gsap.to('.ritual-card', {
+    opacity: 1, y: 0, stagger: 0.12, duration: 0.8, ease: 'power3.out',
+    scrollTrigger: { trigger: '.wellness-grid', start: 'top 80%' }
+  });
+
+  // ─── Editorial quote ───
+  gsap.to('.quote-text', {
+    opacity: 1, y: 0, duration: 1.1, ease: 'power3.out',
+    scrollTrigger: { trigger: '#editorial-quote', start: 'top 65%' }
+  });
+  gsap.to('.quote-source', {
+    opacity: 1, duration: 0.8, delay: 0.3, ease: 'power2.out',
+    scrollTrigger: { trigger: '#editorial-quote', start: 'top 65%' }
+  });
+
+  // ─── Booking CTA ───
+  const bookingTl = gsap.timeline({
+    scrollTrigger: { trigger: '#booking', start: 'top 70%' }
+  });
+  bookingTl
+    .to('.booking-urgency', { opacity: 1, duration: 0.6, ease: 'power2.out' })
+    .to('.booking-headline', { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }, '-=0.2')
+    .to('.booking-sub', { opacity: 1, duration: 0.7, ease: 'power2.out' }, '-=0.2')
+    .to('.booking-btns', { opacity: 1, duration: 0.7, ease: 'power2.out' }, '-=0.1');
+
+})();
+</script>
+
+<!-- ══════════════════════════════════════════
+     THREE.JS — 3D OAK LEAF OBJECT
+     SWAP:3D → mature oak leaf GLB | Forest archetype
+══════════════════════════════════════════ -->
+<script>
+(function() {
+  const canvas = document.getElementById('manifesto-canvas');
+  if (!canvas || typeof THREE === 'undefined') return;
+
+  const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+  renderer.setSize(280, 280);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
+  camera.position.set(0, 0, 4);
+
+  // Three-point light rig: warm key + cool fill + soft rim
+  const keyLight = new THREE.DirectionalLight(0xfff5e0, 1.8); // warm
+  keyLight.position.set(3, 5, 3);
+  scene.add(keyLight);
+
+  const fillLight = new THREE.DirectionalLight(0xd0e8ff, 0.7); // cool
+  fillLight.position.set(-4, 2, -2);
+  scene.add(fillLight);
+
+  const rimLight = new THREE.DirectionalLight(0xffffff, 0.4);
+  rimLight.position.set(0, -3, -4);
+  scene.add(rimLight);
+
+  const ambientLight = new THREE.AmbientLight(0x404040, 0.5);
+  scene.add(ambientLight);
+
+  let leafModel = null;
+  let isHovered = false;
+
+  const loader = new THREE.GLTFLoader();
+  // SWAP:3D → mature oak leaf | Forest
+  loader.load(
+    'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb',
+    function(gltf) {
+      leafModel = gltf.scene;
+      // Centre the model
+      const box = new THREE.Box3().setFromObject(leafModel);
+      const centre = box.getCenter(new THREE.Vector3());
+      leafModel.position.sub(centre);
+      const size = box.getSize(new THREE.Vector3()).length();
+      leafModel.scale.setScalar(2.2 / size);
+      scene.add(leafModel);
+    },
+    undefined,
+    function(err) { console.warn('3D GLB failed to load:', err); }
+  );
+
+  canvas.addEventListener('mouseenter', function() { isHovered = true; });
+  canvas.addEventListener('mouseleave', function() { isHovered = false; });
+
+  function animate() {
+    requestAnimationFrame(animate);
+    if (leafModel && !isHovered) {
+      leafModel.rotation.y += 0.002;
+    }
+    renderer.render(scene, camera);
+  }
+  animate();
+})();
+</script>
+
+<!--
+CUSTOMIZATION GUIDE
+========================
+Below is the complete SWAP marker checklist for production handoff.
+Items marked ⚠️ NO ASSET IN CSV require new media before going live.
+
+SWAP CHECKLIST
+──────────────
+ 1. SWAP:LOGO
+    · Header logo: img src = logo SRC provided ✓
+    · Hero logo: img src = logo SRC provided ✓
+    · Footer logo: img src = logo SRC provided ✓
+    ACTION: Confirm logo renders well on dark backgrounds. Consider SVG version for cleaner color control.
+
+ 2. SWAP:VIDEO → hero background | hero section
+    ⚠️ NO VIDEO IN CSV — hero uses atmospheric still image as fallback.
+    ACTION: Provide a 16:9 MP4/WebM hero video. Replace the hero-video-placeholder img with:
+      video autoplay muted loop playsinline poster="[current img src]"
+        source src="[video.mp4]" type="video/mp4"
+      /video
+
+ 3. SWAP:IMG → hero atmospheric forest | ratio: 16:9
+    ✓ Using: Image 62 (forest archetype from CSV)
+    ACTION: Replace with hotel-specific exterior or aerial shot if available.
+
+ 4. SWAP:3D → mature oak leaf | Forest
+    ✓ GLB: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb
+    ACTION: Confirm GLB renders correctly in production. Fallback: use coral or snowflake GLB from CSV.
+
+ 5. SWAP:COPY → manifesto
+    ✓ Written. Tone: warm, specific, family-owned narrative.
+    ACTION: Review with hotel team for brand accuracy.
+
+ 6. SWAP:IMG → experience card 1 | ratio: 4:5
+    ✓ Using: Image 58 (forest CSV)
+
+ 7. SWAP:IMG → experience card 2 | ratio: 4:5
+    ✓ Using: Image 59 (forest CSV)
+
+ 8. SWAP:IMG → experience card 3 | ratio: 4:5
+    ✓ Using: Image 57 (forest CSV)
+
+ 9. SWAP:IMG → experience card 4 | ratio: 4:5
+    ✓ Using: Image 60 (forest CSV)
+
+10. SWAP:IMG → experience card 5 | ratio: 4:5
+    ✓ Using: Image 74 (forest CSV)
+
+11. SWAP:IMG → experience card 6 | ratio: 4:5
+    ✓ Using: Image 76 (forest CSV)
+
+12. SWAP:IMG → the place | ratio: 3:2
+    ✓ Using: Image 75 (forest CSV)
+    ACTION: Replace with actual Arden Hotel exterior or grounds photography.
+
+13. SWAP:COPY → the place
+    ✓ Written. References Forest of Arden, Warwickshire, coordinates 52.44°N.
+    ACTION: Verify ecological/geographical details with hotel.
+
+14. SWAP:COPY → transformation stats 1–3
+    ✓ Stats: 50+ years / 216 rooms / 10 min to airport
+    ACTION: Verify numbers from hotel directly.
+
+15. SWAP:IMG → room/interior 1 | ratio: 3:2
+    ✓ Using: Image 71 (forest CSV)
+16. SWAP:IMG → room/interior 2 | ratio: 3:2
+    ✓ Using: Image 65
+17. SWAP:IMG → room/interior 3 | ratio: 3:2
+    ✓ Using: Image 73
+18. SWAP:IMG → room/interior 4 | ratio: 3:2
+    ✓ Using: Image 63
+19. SWAP:IMG → room/interior 5 | ratio: 3:2
+    ✓ Using: Image 66
+20. SWAP:IMG → room/interior 6 | ratio: 3:2
+    ✓ Using: Image 69
+    ACTION: All 6 room slots should use actual room photography from hotel asset library.
+
+21. SWAP:COPY → wellness rituals 1–6
+    ✓ Written.
+    ACTION: Confirm wellness facilities (pool, sauna, gym) are accurate with leisure club team.
+
+22. SWAP:IMG → editorial quote background | ratio: 16:9
+    ✓ Using: Image 64 (forest CSV)
+
+23. SWAP:COPY → editorial quote
+    ✓ Written. Placeholder guest quote.
+    ⚠️ ACTION: Replace with real guest testimonial or press review.
+
+24. SWAP:IMG → booking CTA | ratio: 16:9
+    ✓ Using: Image 61 (forest CSV)
+
+25. SWAP:COPY → booking CTA
+    ✓ Written.
+    ACTION: Update availability link and season copy as needed.
+
+26. SWAP:COLOR
+    Current palette:
+      --color-primary:   #2C4A2E  (deep forest green)
+      --color-secondary: #8B2035  (Burgundy)
+      --color-accent:    #C8A96E  (warm brass)
+      --color-bg:        #0E1610  (near-black forest)
+    ACTION: Adjust to exact brand hex codes from hotel design team if provided.
+
+NO ASSET IN CSV — PRODUCTION FLAGS
+────────────────────────────────────
+⚠️ HERO VIDEO: No video in CSV. Hero uses still image fallback.
+   Provide: 1920×1080 MP4, <60s loop, atmospheric hotel footage.
+⚠️ ROOM PHOTOGRAPHY: Forest archetype images are atmospheric placeholders.
+   Provide: Actual Arden Hotel room photographs (3:2 or 4:3 preferred).
+⚠️ EDITORIAL QUOTE: Placeholder text used.
+   Provide: Real guest or press quote with attribution.
+-->
+
+</body>
+</html>
