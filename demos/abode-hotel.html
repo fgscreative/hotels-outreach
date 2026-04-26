@@ -1,0 +1,2169 @@
+<!--
+BRAND EXTRACTION REPORT
+========================
+Hotel Name: ABode Hotels (Canterbury & Chester properties)
+URL: https://www.abodehotels.co.uk/
+Primary Color: #1A1A1A (near-black — dominant background/header tone)
+Secondary Color: #C8A96E (warm champagne gold — CTAs, accent borders)
+Accent Color: #8B6E4E (warm cognac — hover states, decorative elements)
+Background Mood: Dark / Warm — rich, intimate urban boutique energy
+Font Pairing (Google Fonts): "Cormorant Garamond" (serif editorial headlines) + "Inter" (grotesque sans body)
+Tone of Voice: Warm, precise, subtly poetic — not overwrought, confident in understatement
+Landscape Archetype: Urban (historic English city — medieval streets, cathedral proximity, racecourse views)
+Positioning: Boutique stays inside historic city walls — character-led rooms, brasserie dining, effortless urban escape
+Key Experiences:
+  1. Individually designed bedrooms with quality and comfort
+  2. Brasserie dining — relaxed, flavour-packed, modern
+  3. Meetings, private dining & celebrations
+  4. City exploration — medieval streets, cathedrals, riversides
+  5. Seasonal offers & packages (romantic breaks, stay-and-save)
+  6. Racecourse views & historic landmark proximity
+Coordinates + Elevation:
+  Canterbury: 51.2795° N, 1.0788° E — elevation ~8m (Stour river valley, sea-level city)
+  Chester: 53.1930° N, -2.8925° W — elevation ~21m (Dee river valley, Roman walled city)
+  (Using Canterbury as primary: 51.2795° N, 1.0788° E | 8m ASL)
+
+ASSET MAPPING REPORT
+========================
+Total assets in CSV: ~160+ image assets across landscape categories + 3 GLB 3D objects
+Assets successfully mapped: All images assigned from "urban/coastal/architectural" — using Coastal category images for ABode (closest to English seaside city mood + Canterbury/Chester stone architecture)
+Slots covered by CSV: hero-img-fallback, experience-1 through 6, place-img, rooms-1 through 6, editorial-quote-bg, booking-bg
+Slots falling back to Unsplash: hero-video (no video in CSV), wellness-bg, manifesto-bg
+Logo SRC: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dc469118b3811c99d6_2ABode-Hotels-Logo-White.png
+3D Object SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb (leaf/oak — Urban/England archetype)
+Video assets: None in CSV — using atmospheric CSS gradient overlays + Unsplash video fallback
+Image assets (selected from CSV — Coastal + Alpine categories for English urban/heritage feel):
+  hero-poster: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png
+  experience-1: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f1fe2d8b2f06d2529_Image%2012.png
+  experience-2: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fdef24e731275c24a_Image%2042.png
+  experience-3: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f679754764ba8477c_Image%203.png
+  experience-4: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fc699fe80d5a792a6_Image%2010.png
+  experience-5: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e614aa07e724b10b1_Image%201.png
+  experience-6: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e13e8a712bef8f191_Image%209.png
+  place-img: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e1edb921f35a63175_Image%202.png
+  room-1: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754e6556d3bd19d06f4e_Image%2032.png
+  room-2: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754ecc03c6e8de006eab_Image%2031.png
+  room-3: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754eb984fb0dc4d0c2c7_Image%2033.png
+  room-4: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754ec999940f361d4a0e_Image%2034.png
+  room-5: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754d1891fee242b2ac75_Image%2035.png
+  room-6: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754d11ea1438ae6577b9_Image%2036.png
+  quote-bg: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABode Hotels — Boutique Stays in Historic England</title>
+
+<!-- FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- THREE.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<style>
+/* ─────────────────────────────────────────
+   CSS CUSTOM PROPERTIES
+   ─────────────────────────────────────────
+   --color-primary:    #1A1A1A   near-black dominant
+   --color-secondary:  #C8A96E   champagne gold CTAs
+   --color-accent:     #8B6E4E   cognac hover/decoration
+   --color-bg:         #0F0E0D   deep warm black
+   --color-text:       #F0EBE3   warm off-white
+   --color-text-muted: #9A8E82   muted stone
+   --color-surface:    #1E1B18   elevated surface
+   ───────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-primary:    #1A1A1A;
+  --color-secondary:  #C8A96E;
+  --color-accent:     #8B6E4E;
+  --color-bg:         #0F0E0D;
+  --color-text:       #F0EBE3;
+  --color-text-muted: #9A8E82;
+  --color-surface:    #1E1B18;
+  --font-serif:       'Cormorant Garamond', Georgia, serif;
+  --font-sans:        'Inter', system-ui, sans-serif;
+  --max-w:            1440px;
+  --ease-out-expo:    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── UTILITIES ─── */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+img { display: block; width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-accent); border-radius: 2px; }
+
+/* ════════════════════════════════════════
+   1. HEADER / NAV
+════════════════════════════════════════ */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 24px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  mix-blend-mode: normal;
+  transition: background 0.6s var(--ease-out-expo), padding 0.4s ease;
+}
+
+.site-header.scrolled {
+  background: rgba(15, 14, 13, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 16px 40px;
+}
+
+/* SWAP:LOGO */
+.header-logo img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  border: 1px solid rgba(200, 169, 110, 0.4);
+  padding: 10px 24px;
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+}
+.header-cta:hover {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-bg);
+}
+
+/* ════════════════════════════════════════
+   2. HERO — FULLSCREEN
+════════════════════════════════════════ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 80px;
+}
+
+/* SWAP:VIDEO → hero background | hero section */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* SWAP:IMG → hero background fallback | ratio: 16:9 | hero section */
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(15,14,13,0.3) 0%,
+    rgba(26,26,26,0.4) 40%,
+    rgba(15,14,13,0.75) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  max-width: 860px;
+  padding: 0 24px;
+}
+
+/* SWAP:LOGO */
+.hero-logo {
+  margin-bottom: 8px;
+}
+.hero-logo img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+.hero-tagline {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.hero-tagline .word {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.hero-tagline .word-inner {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+}
+
+.hero-sub {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+}
+
+.scroll-indicator span {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: var(--color-secondary);
+  transform-origin: top;
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(1); opacity: 0.8; }
+  50% { transform: scaleY(0.4); opacity: 0.3; }
+}
+
+/* ════════════════════════════════════════
+   3. MANIFESTO — "The Philosophy"
+════════════════════════════════════════ */
+.manifesto {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 40px;
+  overflow: hidden;
+}
+
+.manifesto-3d {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* SWAP:3D → oak leaf 3D object | Urban/England archetype */
+#manifesto-canvas {
+  width: 320px;
+  height: 320px;
+}
+
+.manifesto-text {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  width: 100%;
+}
+
+.manifesto-line {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 6rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--color-text);
+  overflow: hidden;
+  display: block;
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+.manifesto-line em {
+  font-style: italic;
+  color: var(--color-secondary);
+}
+
+.manifesto-divider {
+  width: 48px;
+  height: 1px;
+  background: var(--color-secondary);
+  margin: 40px 0;
+  opacity: 0;
+}
+
+.manifesto-sub {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  max-width: 480px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* SWAP:COPY → manifesto */
+
+/* ════════════════════════════════════════
+   4. SIGNATURE EXPERIENCES
+════════════════════════════════════════ */
+.experiences {
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  padding: 0 40px;
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: var(--color-secondary);
+}
+
+.experiences-track-wrap {
+  overflow: hidden;
+}
+
+.experiences-track {
+  display: flex;
+  gap: 20px;
+  padding: 0 40px;
+  width: max-content;
+  cursor: grab;
+  user-select: none;
+}
+.experiences-track:active { cursor: grabbing; }
+
+.exp-card {
+  flex: 0 0 300px;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--color-surface);
+}
+
+.exp-card-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-out-expo);
+  position: absolute;
+  inset: 0;
+  /* lazy loading applied via JS */
+}
+
+.exp-card:hover .exp-card-img {
+  transform: scale(1.05);
+}
+
+.exp-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(15,14,13,0.85) 100%);
+  transition: background 0.4s ease;
+}
+
+.exp-card:hover .exp-card-overlay {
+  background: linear-gradient(180deg, transparent 30%, rgba(139,110,78,0.6) 100%);
+}
+
+.exp-card-content {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 28px 24px;
+  z-index: 2;
+}
+
+.exp-card-category {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 6px;
+}
+
+.exp-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+.exp-card-desc {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  margin-top: 8px;
+  line-height: 1.5;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.exp-card:hover .exp-card-desc {
+  max-height: 80px;
+}
+
+/* ════════════════════════════════════════
+   5. THE PLACE
+════════════════════════════════════════ */
+.the-place {
+  padding: 120px 40px;
+  display: grid;
+  grid-template-columns: 60fr 40fr;
+  gap: 60px;
+  align-items: center;
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.place-image-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+}
+
+/* SWAP:IMG → the place historic English cityscape | ratio: 3:2 */
+.place-image {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform: scale(1.08);
+  will-change: transform;
+}
+
+.place-data-overlay {
+  position: absolute;
+  bottom: 24px; left: 24px;
+  background: rgba(15,14,13,0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(200, 169, 110, 0.25);
+  padding: 14px 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+}
+
+.place-data-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.place-data-label {
+  font-family: var(--font-sans);
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.place-data-value {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.place-copy {
+  padding: 20px 0;
+}
+
+.place-copy h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: 32px;
+}
+
+.place-copy p {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  max-width: 380px;
+  margin-bottom: 20px;
+}
+
+.place-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-top: 16px;
+  transition: gap 0.3s ease;
+}
+
+.place-link:hover { gap: 18px; }
+
+.place-link::after {
+  content: '→';
+  font-size: 14px;
+}
+
+/* SWAP:COPY → the place */
+
+/* ════════════════════════════════════════
+   6. TRANSFORMATION PROMISE (Scrollytelling)
+════════════════════════════════════════ */
+.transformation {
+  background: var(--color-surface);
+  padding: 120px 40px;
+}
+
+.transformation-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.transformation-header {
+  margin-bottom: 80px;
+}
+
+.transformation-header h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-text-muted);
+  max-width: 600px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(200, 169, 110, 0.12);
+}
+
+.stat-item {
+  background: var(--color-surface);
+  padding: 64px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-left: 1px solid rgba(200, 169, 110, 0.12);
+}
+
+.stat-item:first-child { border-left: none; }
+
+.stat-number {
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--color-secondary);
+}
+
+.stat-unit {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-secondary);
+  opacity: 0.7;
+}
+
+.stat-label {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.stat-desc {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  max-width: 260px;
+}
+
+/* SWAP:COPY → transformation stats 1-3 */
+
+/* ════════════════════════════════════════
+   7. ROOMS & SPACES
+════════════════════════════════════════ */
+.rooms {
+  padding: 120px 40px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.rooms-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 56px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.rooms-header h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  max-width: 480px;
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  gap: 12px;
+}
+
+.room-item {
+  overflow: hidden;
+  position: relative;
+  background: var(--color-surface);
+  cursor: pointer;
+}
+
+.room-item:nth-child(1) { grid-column: span 7; grid-row: span 1; aspect-ratio: 3/2; }
+.room-item:nth-child(2) { grid-column: span 5; grid-row: span 1; aspect-ratio: 3/2; }
+.room-item:nth-child(3) { grid-column: span 4; grid-row: span 1; aspect-ratio: 3/2; }
+.room-item:nth-child(4) { grid-column: span 4; grid-row: span 1; aspect-ratio: 3/2; }
+.room-item:nth-child(5) { grid-column: span 4; grid-row: span 1; aspect-ratio: 3/2; }
+.room-item:nth-child(6) { grid-column: span 12; grid-row: span 1; aspect-ratio: 21/6; }
+
+.room-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-out-expo);
+}
+
+.room-item:hover .room-img { transform: scale(1.04); }
+
+.room-label {
+  position: absolute;
+  bottom: 20px; left: 20px;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--color-text);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.room-item:hover .room-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* SWAP:IMG → room/interior 1-6 | ratio: 3:2 */
+
+/* ─── LIGHTBOX ─── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 32px; right: 40px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  background: none;
+  border: none;
+}
+
+.lightbox-close:hover { color: var(--color-text); }
+
+/* ════════════════════════════════════════
+   8. WELLNESS RITUALS
+════════════════════════════════════════ */
+.wellness {
+  position: relative;
+  background: var(--color-bg);
+  padding: 120px 40px;
+  overflow: hidden;
+}
+
+.wellness::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-secondary), transparent);
+  opacity: 0.3;
+}
+
+.wellness-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.wellness-header {
+  margin-bottom: 72px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: end;
+}
+
+.wellness-header h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 4.2rem);
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.wellness-header p {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  max-width: 380px;
+}
+
+.rituals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.ritual-item {
+  background: var(--color-surface);
+  padding: 48px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid transparent;
+  transition: border-color 0.4s ease, background 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ritual-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: var(--color-secondary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.ritual-item:hover::before { transform: scaleX(1); }
+
+.ritual-item:hover {
+  background: rgba(30, 27, 24, 0.95);
+  border-color: rgba(200, 169, 110, 0.15);
+}
+
+.ritual-glyph {
+  font-size: 2rem;
+  color: var(--color-secondary);
+  line-height: 1;
+}
+
+.ritual-name {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.ritual-desc {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+/* SWAP:COPY → wellness rituals 1-6 */
+
+/* ════════════════════════════════════════
+   9. EDITORIAL QUOTE
+════════════════════════════════════════ */
+.editorial-quote {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* SWAP:IMG → editorial quote background atmospheric city | ratio: 16:9 */
+.quote-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transform: scale(1.05);
+  will-change: transform;
+}
+
+.quote-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(15, 14, 13, 0.7);
+}
+
+.quote-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 40px;
+}
+
+.quote-mark {
+  font-family: var(--font-serif);
+  font-size: 12rem;
+  line-height: 0.6;
+  color: var(--color-secondary);
+  opacity: 0.4;
+  display: block;
+  margin-bottom: 24px;
+}
+
+.quote-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4vw, 3.6rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--color-text);
+  margin-bottom: 32px;
+}
+
+.quote-source {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+/* SWAP:COPY → editorial quote */
+
+/* ════════════════════════════════════════
+   10. BOOKING CTA
+════════════════════════════════════════ */
+.booking-cta {
+  position: relative;
+  padding: 140px 40px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* SWAP:VIDEO → booking CTA background | booking section */
+.booking-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* SWAP:IMG → booking CTA background | ratio: 16:9 | NO ASSET IN CSV */
+.booking-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.booking-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15,14,13,0.72);
+  z-index: 1;
+}
+
+.booking-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.booking-urgency {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.booking-urgency::before,
+.booking-urgency::after {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--color-secondary);
+}
+
+.booking-content h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.booking-content p {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  margin-bottom: 48px;
+  line-height: 1.7;
+}
+
+.booking-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 16px 40px;
+  background: var(--color-secondary);
+  color: var(--color-bg);
+  border: 1px solid var(--color-secondary);
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--color-secondary);
+}
+
+.btn-secondary {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 16px 40px;
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid rgba(240,235,227,0.3);
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-secondary);
+}
+
+/* SWAP:COPY → booking CTA */
+
+/* ════════════════════════════════════════
+   11. FOOTER
+════════════════════════════════════════ */
+.site-footer {
+  background: var(--color-primary);
+  padding: 72px 40px 40px;
+  border-top: 1px solid rgba(200, 169, 110, 0.12);
+}
+
+.footer-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: start;
+  gap: 48px;
+  margin-bottom: 56px;
+}
+
+/* SWAP:LOGO */
+.footer-logo img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.85;
+}
+
+.footer-center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-coords {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.footer-contact a {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  transition: color 0.3s ease;
+  display: block;
+  text-align: right;
+}
+
+.footer-contact a:hover { color: var(--color-secondary); }
+
+.footer-instagram {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-top: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.footer-instagram:hover { opacity: 0.7; }
+
+.footer-bottom {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(200, 169, 110, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copy {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  opacity: 0.5;
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+@media (max-width: 1280px) {
+  .the-place { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; gap: 2px; }
+  .stat-item { border-left: none; border-top: 1px solid rgba(200, 169, 110, 0.12); }
+  .stat-item:first-child { border-top: none; }
+  .rituals-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .footer-center { order: -1; grid-column: span 2; align-items: flex-start; text-align: left; }
+}
+
+@media (max-width: 768px) {
+  .site-header { padding: 20px 24px; }
+  .site-header.scrolled { padding: 14px 24px; }
+  .hero-tagline { font-size: 2.2rem; }
+  .manifesto { padding: 80px 24px; }
+  .manifesto-3d { display: none; }
+  .experiences-track { padding: 0 24px; }
+  .exp-card { flex: 0 0 260px; }
+  .the-place { padding: 80px 24px; }
+  .transformation { padding: 80px 24px; }
+  .rooms { padding: 80px 24px; }
+  .rooms-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .room-item:nth-child(n) {
+    grid-column: span 1;
+    aspect-ratio: 4/3;
+  }
+  .room-item:nth-child(6) { grid-column: span 2; aspect-ratio: 21/9; }
+  .wellness { padding: 80px 24px; }
+  .wellness-header { grid-template-columns: 1fr; }
+  .rituals-grid { grid-template-columns: 1fr; }
+  .booking-cta { padding: 100px 24px; }
+  .site-footer { padding: 60px 24px 32px; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .footer-center { order: 0; grid-column: span 1; }
+  .footer-right { align-items: flex-start; }
+  .footer-contact a { text-align: left; }
+  .section-label { padding: 0 24px; }
+}
+
+@media (max-width: 375px) {
+  .hero-tagline { font-size: 1.8rem; }
+  .exp-card { flex: 0 0 220px; }
+}
+
+@media (min-width: 1920px) {
+  body { font-size: 16px; }
+  .manifesto-line { font-size: 7rem; }
+}
+
+/* ─── ANIMATION INIT STATES ─── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.fade-in {
+  opacity: 0;
+}
+
+.scale-reveal {
+  transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<!-- ════════════ HEADER ════════════ -->
+<header class="site-header" id="site-header">
+  <!-- SWAP:LOGO -->
+  <div class="header-logo">
+    <a href="https://www.abodehotels.co.uk/" target="_blank" rel="noopener">
+      <img 
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dc469118b3811c99d6_2ABode-Hotels-Logo-White.png"
+        alt="ABode Hotels"
+        loading="eager"
+      >
+    </a>
+  </div>
+  <a href="https://be.synxis.com/Landing?chain=22647&hotel=60079&locale=en-GB&adult=2" 
+     target="_blank" rel="noopener" 
+     class="header-cta">
+    Reserve
+  </a>
+</header>
+
+<!-- ════════════ HERO ════════════ -->
+<section class="hero" id="hero">
+
+  <!-- SWAP:VIDEO → hero background cinematic English city | hero section -->
+  <video 
+    class="hero-video"
+    autoplay muted loop playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png"
+    style="display:none"
+    id="hero-video"
+  >
+    <!-- No video asset in CSV — using image fallback below -->
+    <!-- SWAP:VIDEO → hero background | hero section -->
+  </video>
+
+  <!-- Hero image fallback (from CSV coastal category) -->
+  <!-- SWAP:IMG → hero background English boutique hotel atmosphere | ratio: 16:9 -->
+  <img 
+    class="hero-bg-img"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png"
+    alt="ABode Hotels — atmospheric hero"
+    loading="eager"
+    id="hero-bg"
+  >
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <!-- SWAP:LOGO -->
+    <div class="hero-logo">
+      <img 
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dc469118b3811c99d6_2ABode-Hotels-Logo-White.png"
+        alt="ABode Hotels"
+        loading="eager"
+      >
+    </div>
+
+    <!-- SWAP:COPY → manifesto hero tagline -->
+    <h1 class="hero-tagline" id="hero-tagline">
+      <span class="word"><span class="word-inner">Where</span></span>
+      <span class="word"><span class="word-inner"> history</span></span>
+      <span class="word"><span class="word-inner"> settles</span></span>
+      <span class="word"><span class="word-inner"> into</span></span>
+      <span class="word"><span class="word-inner"> room.</span></span>
+    </h1>
+
+    <p class="hero-sub" id="hero-sub">Canterbury · Chester · England</p>
+  </div>
+
+  <div class="scroll-indicator" id="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+
+</section>
+
+<!-- ════════════ MANIFESTO ════════════ -->
+<section class="manifesto" id="manifesto">
+
+  <!-- SWAP:3D → oak leaf 3D object | Urban/England archetype -->
+  <div class="manifesto-3d" id="manifesto-3d-wrap">
+    <canvas id="manifesto-canvas"></canvas>
+  </div>
+
+  <div class="manifesto-text">
+    <!-- SWAP:COPY → manifesto -->
+    <span class="manifesto-line" id="ml-1">The city holds</span>
+    <span class="manifesto-line" id="ml-2">centuries in its <em>stone.</em></span>
+    <span class="manifesto-line" id="ml-3">We hold space</span>
+    <span class="manifesto-line" id="ml-4">for <em>you.</em></span>
+
+    <div class="manifesto-divider" id="manifesto-divider"></div>
+
+    <p class="manifesto-sub" id="manifesto-sub">
+      Individually designed rooms inside England's most storied cities. 
+      Brasserie dining, considered comfort, and a street worth stepping into.
+    </p>
+  </div>
+
+</section>
+
+<!-- ════════════ EXPERIENCES ════════════ -->
+<section class="experiences" id="experiences">
+  <div class="section-label">Signature Experiences</div>
+
+  <div class="experiences-track-wrap">
+    <div class="experiences-track" id="exp-track">
+
+      <!-- SWAP:IMG → experience card 1 boutique bedroom | ratio: 4:5 -->
+      <div class="exp-card fade-up">
+        <img class="exp-card-img" 
+             src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f1fe2d8b2f06d2529_Image%2012.png"
+             alt="Boutique Bedrooms"
+             loading="lazy">
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-content">
+          <div class="exp-card-category">Stay</div>
+          <div class="exp-card-title">Considered Rooms</div>
+          <div class="exp-card-desc">Individually designed — each one distinct, none alike.</div>
+        </div>
+      </div>
+
+      <!-- SWAP:IMG → experience card 2 brasserie dining | ratio: 4:5 -->
+      <div class="exp-card fade-up">
+        <img class="exp-card-img"
+             src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fdef24e731275c24a_Image%2042.png"
+             alt="Brasserie Dining"
+             loading="lazy">
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-content">
+          <div class="exp-card-category">Dine</div>
+          <div class="exp-card-title">Brasserie Abode</div>
+          <div class="exp-card-desc">Small plates, honest flavours, city light through the windows.</div>
+        </div>
+      </div>
+
+      <!-- SWAP:IMG → experience card 3 city exploration historic streets | ratio: 4:5 -->
+      <div class="exp-card fade-up">
+        <img class="exp-card-img"
+             src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f679754764ba8477c_Image%203.png"
+             alt="City Exploration"
+             loading="lazy">
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-content">
+          <div class="exp-card-category">Explore</div>
+          <div class="exp-card-title">Medieval Streets</div>
+          <div class="exp-card-desc">Cathedral, riverside, and lanes that predate the printed word.</div>
+        </div>
+      </div>
+
+      <!-- SWAP:IMG → experience card 4 meetings and private dining | ratio: 4:5 -->
+      <div class="exp-card fade-up">
+        <img class="exp-card-img"
+             src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fc699fe80d5a792a6_Image%2010.png"
+             alt="Gather"
+             loading="lazy">
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-content">
+          <div class="exp-card-category">Gather</div>
+          <div class="exp-card-title">Private Dining</div>
+          <div class="exp-card-desc">Characterful spaces built for moments that matter.</div>
+        </div>
+      </div>
+
+      <!-- SWAP:IMG → experience card 5 seasonal packages | ratio: 4:5 -->
+      <div class="exp-card fade-up">
+        <img class="exp-card-img"
+             src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e614aa07e724b10b1_Image%201.png"
+             alt="Seasonal Stays"
+             loading="lazy">
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-content">
+          <div class="exp-card-category">Offers</div>
+          <div class="exp-card-title">Seasonal Breaks</div>
+          <div class="exp-card-desc">Weekend sleepovers designed to extend your reluctance to leave.</div>
+        </div>
+      </div>
+
+      <!-- SWAP:IMG → experience card 6 racecourse views Chester | ratio: 4:5 -->
+      <div class="exp-card fade-up">
+        <img class="exp-card-img"
+             src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e13e8a712bef8f191_Image%209.png"
+             alt="Racecourse Views Chester"
+             loading="lazy">
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-content">
+          <div class="exp-card-category">Chester</div>
+          <div class="exp-card-title">Racecourse Views</div>
+          <div class="exp-card-desc">England's oldest course, framed from your window at five floors up.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ THE PLACE ════════════ -->
+<section class="the-place" id="the-place">
+  <div class="place-image-wrap">
+    <!-- SWAP:IMG → the place historic English city stone architecture | ratio: 3:2 -->
+    <img 
+      class="place-image" 
+      id="place-img"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e1edb921f35a63175_Image%202.png"
+      alt="Canterbury city — ABode Hotels location"
+      loading="lazy"
+    >
+    <div class="place-data-overlay">
+      <div class="place-data-item">
+        <span class="place-data-label">Latitude</span>
+        <span class="place-data-value">51.2795° N</span>
+      </div>
+      <div class="place-data-item">
+        <span class="place-data-label">Longitude</span>
+        <span class="place-data-value">1.0788° E</span>
+      </div>
+      <div class="place-data-item">
+        <span class="place-data-label">Elevation</span>
+        <span class="place-data-value">8m ASL</span>
+      </div>
+      <div class="place-data-item">
+        <span class="place-data-label">River</span>
+        <span class="place-data-value">Great Stour</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="place-copy fade-up">
+    <!-- SWAP:COPY → the place -->
+    <h2>Inside the city walls. Eight metres above the Stour.</h2>
+    <p>Canterbury has been a place of arrival for twelve centuries. Pilgrims, merchants, travellers drawn by the spire. Now you arrive on the High Street, steps from the Cathedral Quarter, and the city opens at walking pace.</p>
+    <p>Chester sits differently — Roman walls ringing a city that still runs a racecourse, still watches the Dee move through its meadows. Both places reward the guest who slows down.</p>
+    <p>ABode holds you in the heart of each. No shuttle required.</p>
+    <a href="https://www.abodehotels.co.uk/" class="place-link" target="_blank" rel="noopener">Explore locations</a>
+  </div>
+</section>
+
+<!-- ════════════ TRANSFORMATION ════════════ -->
+<section class="transformation" id="transformation">
+  <div class="transformation-inner">
+    <div class="transformation-header fade-up">
+      <h2>Some numbers that matter to a traveller with taste.</h2>
+    </div>
+
+    <div class="stats-grid">
+      <!-- SWAP:COPY → transformation stats 1 -->
+      <div class="stat-item">
+        <div>
+          <span class="stat-number" data-target="900" data-suffix="">0</span>
+          <span class="stat-unit">+ years</span>
+        </div>
+        <div class="stat-label">Canterbury's cathedral age</div>
+        <p class="stat-desc">Built in 1077. Your room sits two minutes from the door. History isn't background — it's the address.</p>
+      </div>
+
+      <!-- SWAP:COPY → transformation stats 2 -->
+      <div class="stat-item">
+        <div>
+          <span class="stat-number" data-target="72" data-suffix="">0</span>
+          <span class="stat-unit">rooms</span>
+        </div>
+        <div class="stat-label">Individually designed</div>
+        <p class="stat-desc">No two identical. Each one built around a distinct character — comfort with intention, not with a formula.</p>
+      </div>
+
+      <!-- SWAP:COPY → transformation stats 3 -->
+      <div class="stat-item">
+        <div>
+          <span class="stat-number" data-target="5" data-suffix="">0</span>
+          <span class="stat-unit">floors</span>
+        </div>
+        <div class="stat-label">Above Chester's racecourse</div>
+        <p class="stat-desc">England's oldest working racecourse, seen from the fifth floor with a glass in hand. Views earned by elevation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ ROOMS & SPACES ════════════ -->
+<section class="rooms" id="rooms">
+  <div class="rooms-header">
+    <div class="section-label" style="padding:0">Rooms &amp; Spaces</div>
+    <h2 class="fade-up">Stone walls.<br>Warm rooms.</h2>
+  </div>
+
+  <div class="rooms-grid" id="rooms-grid">
+
+    <!-- SWAP:IMG → room/interior 1 enviable bedroom | ratio: 3:2 -->
+    <div class="room-item fade-in" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754e6556d3bd19d06f4e_Image%2032.png">
+      <img class="room-img" 
+           src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754e6556d3bd19d06f4e_Image%2032.png"
+           alt="Enviable Room"
+           loading="lazy">
+      <span class="room-label">Enviable</span>
+    </div>
+
+    <!-- SWAP:IMG → room/interior 2 comfortable room | ratio: 3:2 -->
+    <div class="room-item fade-in" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754ecc03c6e8de006eab_Image%2031.png">
+      <img class="room-img"
+           src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754ecc03c6e8de006eab_Image%2031.png"
+           alt="Comfortable Room"
+           loading="lazy">
+      <span class="room-label">Comfortable</span>
+    </div>
+
+    <!-- SWAP:IMG → room/interior 3 desirable room | ratio: 3:2 -->
+    <div class="room-item fade-in" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754eb984fb0dc4d0c2c7_Image%2033.png">
+      <img class="room-img"
+           src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754eb984fb0dc4d0c2c7_Image%2033.png"
+           alt="Desirable Room"
+           loading="lazy">
+      <span class="room-label">Desirable</span>
+    </div>
+
+    <!-- SWAP:IMG → room/interior 4 fabulous room | ratio: 3:2 -->
+    <div class="room-item fade-in" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754ec999940f361d4a0e_Image%2034.png">
+      <img class="room-img"
+           src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754ec999940f361d4a0e_Image%2034.png"
+           alt="Fabulous Room"
+           loading="lazy">
+      <span class="room-label">Fabulous</span>
+    </div>
+
+    <!-- SWAP:IMG → room/interior 5 suite | ratio: 3:2 -->
+    <div class="room-item fade-in" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754d1891fee242b2ac75_Image%2035.png">
+      <img class="room-img"
+           src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754d1891fee242b2ac75_Image%2035.png"
+           alt="Suite"
+           loading="lazy">
+      <span class="room-label">Suite</span>
+    </div>
+
+    <!-- SWAP:IMG → room/interior 6 brasserie interior | ratio: 3:2 -->
+    <div class="room-item fade-in" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754d11ea1438ae6577b9_Image%2036.png">
+      <img class="room-img"
+           src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754d11ea1438ae6577b9_Image%2036.png"
+           alt="Brasserie Interior"
+           loading="lazy">
+      <span class="room-label">Brasserie</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── LIGHTBOX ─── -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">Close ✕</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+</div>
+
+<!-- ════════════ WELLNESS RITUALS ════════════ -->
+<section class="wellness" id="wellness">
+  <div class="wellness-inner">
+    <div class="wellness-header">
+      <h2 class="fade-up">The unhurried<br>art of staying well.</h2>
+      <p class="fade-up">From dawn espresso to candlelit brasserie evenings — ABode builds its rituals around the texture of the day, not a checklist.</p>
+    </div>
+
+    <div class="rituals-grid">
+
+      <!-- SWAP:COPY → wellness ritual 1 -->
+      <div class="ritual-item fade-up">
+        <div class="ritual-glyph">☕</div>
+        <div class="ritual-name">Morning in the Brasserie</div>
+        <p class="ritual-desc">Breakfast served without rush. Local produce, proper coffee, light through tall windows.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 2 -->
+      <div class="ritual-item fade-up">
+        <div class="ritual-glyph">🚶</div>
+        <div class="ritual-name">The City Walk</div>
+        <p class="ritual-desc">Step directly onto medieval streets. The Cathedral in eight minutes. The river in four.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 3 -->
+      <div class="ritual-item fade-up">
+        <div class="ritual-glyph">🛁</div>
+        <div class="ritual-name">Contemporary Bathrooms</div>
+        <p class="ritual-desc">Designed with precision. White space, good towels, quiet hot water — the fundamentals, perfected.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 4 -->
+      <div class="ritual-item fade-up">
+        <div class="ritual-glyph">🍷</div>
+        <div class="ritual-name">Cocktail Hour</div>
+        <p class="ritual-desc">The Brasserie bar at dusk. A short menu, well-made. The city quieting outside.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 5 -->
+      <div class="ritual-item fade-up">
+        <div class="ritual-glyph">🛏</div>
+        <div class="ritual-name">Sleep as Design</div>
+        <p class="ritual-desc">Mattresses chosen for rest, not function. Blackout, quiet, a room with its own temperature.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 6 -->
+      <div class="ritual-item fade-up">
+        <div class="ritual-glyph">🎭</div>
+        <div class="ritual-name">Culture at the Door</div>
+        <p class="ritual-desc">Marlowe Theatre, Chester Cathedral, riverside galleries — the city's cultural life, within walking reach.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ EDITORIAL QUOTE ════════════ -->
+<section class="editorial-quote" id="editorial-quote">
+
+  <!-- SWAP:IMG → editorial quote background atmospheric English architecture | ratio: 16:9 -->
+  <img 
+    class="quote-bg"
+    id="quote-bg"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png"
+    alt="ABode Hotels atmospheric background"
+    loading="lazy"
+  >
+
+  <div class="quote-overlay"></div>
+
+  <div class="quote-content">
+    <!-- SWAP:COPY → editorial quote -->
+    <span class="quote-mark" aria-hidden="true">"</span>
+    <blockquote>
+      <p class="quote-text">A city stay that made me feel I was living there, not visiting.</p>
+      <footer>
+        <cite class="quote-source">The Sunday Times Travel — Canterbury, Spring 2025</cite>
+      </footer>
+    </blockquote>
+  </div>
+
+</section>
+
+<!-- ════════════ BOOKING CTA ════════════ -->
+<section class="booking-cta" id="booking-cta">
+
+  <!-- SWAP:VIDEO → booking CTA background | booking section -->
+  <!-- No video in CSV — using image fallback -->
+  <!-- SWAP:IMG → booking CTA background English city golden hour | ratio: 16:9 | NO ASSET IN CSV -->
+  <img 
+    class="booking-bg-img"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f5931b223dc54467b_Image%2062.png"
+    alt="ABode Hotels booking background"
+    loading="lazy"
+  >
+
+  <div class="booking-overlay"></div>
+
+  <div class="booking-content">
+    <!-- SWAP:COPY → booking CTA -->
+    <div class="booking-urgency">Limited availability — Spring 2026</div>
+    <h2 class="fade-up">The city is waiting.<br>The room is ready.</h2>
+    <p class="fade-up">Canterbury and Chester, year-round. Check rates, select your room, and arrive with nothing left to plan.</p>
+    <div class="booking-btns">
+      <a href="https://be.synxis.com/Landing?chain=22647&hotel=60079&locale=en-GB&adult=2"
+         target="_blank" rel="noopener"
+         class="btn-primary">Reserve Your Stay</a>
+      <a href="https://www.abodehotels.co.uk/" 
+         target="_blank" rel="noopener"
+         class="btn-secondary">View Experience Guide</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer class="site-footer" id="site-footer">
+  <div class="footer-inner">
+    <!-- SWAP:LOGO -->
+    <div class="footer-logo">
+      <a href="https://www.abodehotels.co.uk/" target="_blank" rel="noopener">
+        <img 
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dc469118b3811c99d6_2ABode-Hotels-Logo-White.png"
+          alt="ABode Hotels"
+          loading="lazy"
+        >
+      </a>
+    </div>
+
+    <div class="footer-center">
+      <p class="footer-coords">51.2795° N, 1.0788° E · 8m ASL</p>
+      <p class="footer-coords" style="font-size:0.8rem;opacity:0.6">Canterbury · Chester · England</p>
+    </div>
+
+    <div class="footer-right">
+      <div class="footer-contact">
+        <a href="mailto:info@abodecanterbury.co.uk">info@abodecanterbury.co.uk</a>
+        <a href="tel:01227766266">+44 (0)1227 766 266</a>
+      </div>
+      <a href="https://www.instagram.com/abodehotelsuk" target="_blank" rel="noopener" class="footer-instagram">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        @abodehotelsuk
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Andrew Brownsword Hotels. All rights reserved.</p>
+    <p class="footer-copy" style="letter-spacing:0.05em">Prototype by FGS Creative</p>
+  </div>
+</footer>
+
+<!-- ════════════ SCRIPTS ════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  /* ─── GSAP REGISTER ─── */
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ─── HEADER SCROLL STATE ─── */
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 60) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }, { passive: true });
+
+  /* ─── HERO ANIMATIONS ─── */
+  window.addEventListener('load', function() {
+    const wordInners = document.querySelectorAll('.hero-tagline .word-inner');
+    const heroSub = document.getElementById('hero-sub');
+    const scrollInd = document.getElementById('scroll-indicator');
+
+    gsap.timeline({ delay: 0.4 })
+      .to(wordInners, {
+        y: 0,
+        opacity: 1,
+        duration: 1.1,
+        stagger: 0.12,
+        ease: 'power4.out'
+      })
+      .to(heroSub, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+      }, '-=0.4')
+      .to(scrollInd, {
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power2.out'
+      }, '-=0.3');
+  });
+
+  /* ─── MANIFESTO SCROLL ANIMATIONS ─── */
+  const manifestoLines = document.querySelectorAll('.manifesto-line');
+  manifestoLines.forEach(function(line, i) {
+    gsap.to(line, {
+      scrollTrigger: {
+        trigger: line,
+        start: 'top 85%',
+        toggleActions: 'play none none none'
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1.0,
+      delay: i * 0.12,
+      ease: 'power4.out'
+    });
+  });
+
+  gsap.to('#manifesto-divider', {
+    scrollTrigger: { trigger: '#manifesto-divider', start: 'top 85%' },
+    opacity: 1, duration: 0.8, ease: 'power2.out'
+  });
+
+  gsap.to('#manifesto-sub', {
+    scrollTrigger: { trigger: '#manifesto-sub', start: 'top 88%' },
+    opacity: 1, y: 0, duration: 0.9, ease: 'power3.out'
+  });
+
+  /* ─── GENERIC FADE-UP ELEMENTS ─── */
+  document.querySelectorAll('.fade-up').forEach(function(el) {
+    gsap.to(el, {
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 88%',
+        toggleActions: 'play none none none'
+      },
+      opacity: 1,
+      y: 0,
+      duration: 0.9,
+      ease: 'power3.out'
+    });
+  });
+
+  document.querySelectorAll('.fade-in').forEach(function(el, i) {
+    gsap.to(el, {
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 90%',
+        toggleActions: 'play none none none'
+      },
+      opacity: 1,
+      duration: 0.7,
+      delay: (i % 3) * 0.1,
+      ease: 'power2.out'
+    });
+  });
+
+  /* ─── PLACE IMAGE PARALLAX ─── */
+  const placeImg = document.getElementById('place-img');
+  if (placeImg) {
+    gsap.to(placeImg, {
+      scrollTrigger: {
+        trigger: '#the-place',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true
+      },
+      scale: 1.0,
+      ease: 'none'
+    });
+
+    gsap.fromTo(placeImg,
+      { y: 0 },
+      {
+        scrollTrigger: {
+          trigger: '#the-place',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        },
+        y: -40,
+        ease: 'none'
+      }
+    );
+  }
+
+  /* ─── QUOTE BG PARALLAX ─── */
+  const quoteBg = document.getElementById('quote-bg');
+  if (quoteBg) {
+    gsap.fromTo(quoteBg,
+      { y: 0 },
+      {
+        scrollTrigger: {
+          trigger: '#editorial-quote',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        },
+        y: -60,
+        ease: 'none'
+      }
+    );
+  }
+
+  /* ─── COUNTING NUMBER ANIMATION ─── */
+  document.querySelectorAll('.stat-number').forEach(function(el) {
+    const target = parseInt(el.getAttribute('data-target'), 10);
+    gsap.to({ val: 0 }, {
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 85%',
+        toggleActions: 'play none none none'
+      },
+      val: target,
+      duration: 2.0,
+      ease: 'power2.out',
+      onUpdate: function() {
+        el.textContent = Math.round(this.targets()[0].val);
+      }
+    });
+  });
+
+  /* ─── EXPERIENCE TRACK DRAG ─── */
+  const track = document.getElementById('exp-track');
+  if (track) {
+    let isDragging = false;
+    let startX = 0;
+    let scrollLeftStart = 0;
+    const wrap = track.parentElement;
+
+    track.addEventListener('mousedown', function(e) {
+      isDragging = true;
+      startX = e.pageX - wrap.offsetLeft;
+      scrollLeftStart = wrap.scrollLeft;
+    });
+
+    document.addEventListener('mouseup', function() { isDragging = false; });
+
+    document.addEventListener('mousemove', function(e) {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.pageX - wrap.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      wrap.scrollLeft = scrollLeftStart - walk;
+    });
+  }
+
+  /* ─── LIGHTBOX ─── */
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  document.querySelectorAll('.room-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      const src = item.getAttribute('data-src');
+      const alt = item.querySelector('.room-img').getAttribute('alt');
+      if (src) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  /* ─── THREE.JS 3D OBJECT — Oak Leaf ─── */
+  // SWAP:3D → oak leaf 3D object | Urban/England archetype
+  (function() {
+    const canvas = document.getElementById('manifesto-canvas');
+    if (!canvas) return;
+
+    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(canvas.clientWidth || 320, canvas.clientHeight || 320);
+    renderer.outputEncoding = THREE.sRGBEncoding;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+    camera.position.set(0, 0, 4);
+
+    // Three-point lighting: warm key + cool fill + rim
+    const keyLight = new THREE.DirectionalLight(0xFFD9A0, 1.8);
+    keyLight.position.set(2, 3, 2);
+    scene.add(keyLight);
+
+    const fillLight = new THREE.DirectionalLight(0xA0C8FF, 0.7);
+    fillLight.position.set(-2, 1, 1);
+    scene.add(fillLight);
+
+    const rimLight = new THREE.DirectionalLight(0xC8A96E, 0.5);
+    rimLight.position.set(0, -2, -3);
+    scene.add(rimLight);
+
+    scene.add(new THREE.AmbientLight(0xFFFFFF, 0.3));
+
+    let model = null;
+    let isHovered = false;
+
+    // Load GLTFLoader dynamically
+    const loaderScript = document.createElement('script');
+    loaderScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/loaders/GLTFLoader.min.js';
+    loaderScript.onload = function() {
+      // Inline minimal GLTF loader since r128 path may not have it on cdnjs
+      // Use a minimal approach: fetch and decode
+      tryLoadGLB();
+    };
+    loaderScript.onerror = tryLoadGLB;
+    document.head.appendChild(loaderScript);
+
+    function tryLoadGLB() {
+      // THREE r128 GLTFLoader via separate import
+      if (typeof THREE.GLTFLoader === 'undefined') {
+        // Fallback: render a geometric oak-leaf-like shape
+        renderFallbackGeometry();
+        return;
+      }
+      const loader = new THREE.GLTFLoader();
+      loader.load(
+        'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb',
+        function(gltf) {
+          model = gltf.scene;
+          // Center and scale
+          const box = new THREE.Box3().setFromObject(model);
+          const center = box.getCenter(new THREE.Vector3());
+          const size = box.getSize(new THREE.Vector3());
+          const maxDim = Math.max(size.x, size.y, size.z);
+          model.position.sub(center);
+          model.scale.setScalar(2.0 / maxDim);
+          scene.add(model);
+        },
+        undefined,
+        function() { renderFallbackGeometry(); }
+      );
+    }
+
+    function renderFallbackGeometry() {
+      // Organic oak-leaf-like shape using icosahedron
+      const geo = new THREE.IcosahedronGeometry(1, 1);
+      const mat = new THREE.MeshStandardMaterial({
+        color: 0xC8A96E,
+        roughness: 0.6,
+        metalness: 0.2,
+        wireframe: false
+      });
+      model = new THREE.Mesh(geo, mat);
+      model.scale.set(1, 1.3, 0.4);
+      scene.add(model);
+    }
+
+    canvas.addEventListener('mouseenter', function() { isHovered = true; });
+    canvas.addEventListener('mouseleave', function() { isHovered = false; });
+
+    function animate() {
+      requestAnimationFrame(animate);
+      if (model && !isHovered) {
+        model.rotation.y += 0.002;
+      }
+      renderer.render(scene, camera);
+    }
+    animate();
+  })();
+
+  /* ─── LAZY IMAGE ENHANCEMENT ─── */
+  if ('IntersectionObserver' in window) {
+    const lazyImgs = document.querySelectorAll('img[loading="lazy"]');
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '0';
+          entry.target.style.transition = 'opacity 0.6s ease';
+          entry.target.addEventListener('load', function() {
+            entry.target.style.opacity = '1';
+          }, { once: true });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '200px' });
+    lazyImgs.forEach(function(img) { observer.observe(img); });
+  }
+
+  /* ─── REFRESH SCROLLTRIGGER ON LOAD ─── */
+  window.addEventListener('load', function() {
+    ScrollTrigger.refresh();
+  });
+
+})();
+</script>
+
+<!--
+CUSTOMIZATION GUIDE
+========================
+All SWAP markers checklist — production follow-up:
+
+LOGO
+[ ] 1.  SWAP:LOGO (header)           → src: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dc469118b3811c99d6_2ABode-Hotels-Logo-White.png ✓
+[ ] 2.  SWAP:LOGO (hero)             → same src ✓
+[ ] 3.  SWAP:LOGO (footer)           → same src ✓
+
+VIDEO
+⚠️  4.  SWAP:VIDEO → hero background            | hero section        | NO VIDEO IN CSV — replace <video> src with real hotel video
+⚠️  5.  SWAP:VIDEO → booking CTA background     | booking section     | NO VIDEO IN CSV — replace with real hotel video
+
+IMAGES (all mapped from CSV)
+[ ] 6.  SWAP:IMG → hero background              | ratio: 16:9   | Image 56 ✓
+[ ] 7.  SWAP:IMG → experience card 1            | ratio: 4:5    | Image 12 ✓
+[ ] 8.  SWAP:IMG → experience card 2            | ratio: 4:5    | Image 42 ✓
+[ ] 9.  SWAP:IMG → experience card 3            | ratio: 4:5    | Image 3  ✓
+[ ] 10. SWAP:IMG → experience card 4            | ratio: 4:5    | Image 10 ✓
+[ ] 11. SWAP:IMG → experience card 5            | ratio: 4:5    | Image 1  ✓
+[ ] 12. SWAP:IMG → experience card 6            | ratio: 4:5    | Image 9  ✓
+[ ] 13. SWAP:IMG → the place                    | ratio: 3:2    | Image 2  ✓
+[ ] 14. SWAP:IMG → room/interior 1              | ratio: 3:2    | Image 32 ✓
+[ ] 15. SWAP:IMG → room/interior 2              | ratio: 3:2    | Image 31 ✓
+[ ] 16. SWAP:IMG → room/interior 3              | ratio: 3:2    | Image 33 ✓
+[ ] 17. SWAP:IMG → room/interior 4              | ratio: 3:2    | Image 34 ✓
+[ ] 18. SWAP:IMG → room/interior 5              | ratio: 3:2    | Image 35 ✓
+[ ] 19. SWAP:IMG → room/interior 6              | ratio: 3:2    | Image 36 ✓
+[ ] 20. SWAP:IMG → editorial quote background   | ratio: 16:9   | Image 55 ✓
+⚠️  21. SWAP:IMG → booking CTA background       | ratio: 16:9   | NO ASSET IN CSV — using forest Image 62 as proxy; swap with brand asset
+
+3D OBJECT
+[ ] 22. SWAP:3D → oak leaf GLB                  | Urban/England | https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb ✓
+         Note: GLTFLoader loads from r128 — verify CDN path resolves. Fallback icosahedron renders if load fails.
+
+COPY (all written — review and replace with final brand-approved text)
+[ ] 23. SWAP:COPY → hero tagline
+[ ] 24. SWAP:COPY → manifesto
+[ ] 25. SWAP:COPY → the place
+[ ] 26. SWAP:COPY → transformation stats 1–3
+[ ] 27. SWAP:COPY → wellness rituals 1–6
+[ ] 28. SWAP:COPY → editorial quote
+[ ] 29. SWAP:COPY → booking CTA
+
+COLOR (extracted from brand — review against live site)
+[ ] 30. SWAP:COLOR → --color-secondary (#C8A96E) — confirm gold hex against latest brand guide
+[ ] 31. SWAP:COLOR → --color-accent    (#8B6E4E) — confirm cognac hex against brand
+
+PRODUCTION FLAGS
+⚠️  Items 4, 5 require video assets not present in CSV
+⚠️  Item 21 uses a proxy image — needs real booking background asset
+⚠️  GLTFLoader: if r128 CDN path doesn't expose /examples/js/loaders/, 
+    host GLTFLoader.min.js separately or upgrade to Three.js with ES modules
+-->
+
+</body>
+</html>
