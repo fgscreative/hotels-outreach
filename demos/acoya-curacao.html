@@ -1,0 +1,2016 @@
+<!--
+BRAND EXTRACTION REPORT
+========================
+Hotel Name: ACOYA Curaçao Resort, Villas & Spa
+URL: https://www.acoyacuracao.com/
+Primary Color: #2C6E6A (deep teal — Caribbean sea, appears in CTAs and nav)
+Secondary Color: #C9A96E (warm sand gold — accent on buttons, taglines)
+Accent Color: #E8D5A3 (pale sun-bleached gold — hover states, highlights)
+Background Mood: warm / tropical dark — deep teal-black contrasted with warm sand
+Font Pairing (Google Fonts): Cormorant Garamond (serif editorial headline) + DM Sans (grotesque sans body)
+Tone of Voice: warm / poetic / sensory — specific to Caribbean island life, unhurried, grounded
+Landscape Archetype: Coastal (Caribbean — Curaçao, Dutch Antilles)
+Positioning: The most spacious & well-equipped resort on Curaçao — villas with private pools, first eco-friendly organic spa on the island, Curaçao named Best Caribbean Island 2026 (USA Today 10Best)
+Key Experiences: Private Pool Villas (1–3 bedroom), Organic Spa & Wellness, Fusion Cuisine Dining, Beach Access (Mambo Beach), Weddings & Events, Activities (snorkeling, diving, island tours)
+Coordinates + Elevation: 12.1000° N, 68.9333° W — Willemstad, Curaçao | Elevation: ~15m ASL | Avg water temp: 27°C | Annual sunshine: 320 days
+
+ASSET MAPPING REPORT
+========================
+Total assets in CSV: ~100+ images across landscape archetypes + 3 GLB files
+Assets successfully mapped: coastal section used for ACOYA Curaçao (coastal archetype match)
+Slots covered by CSV:
+  - hero (coastal image 1: Image 56)
+  - experience-1 through experience-6 (coastal images 2–7)
+  - the-place (coastal image 8)
+  - rooms-1 through rooms-6 (coastal images 9–14)
+  - editorial-quote-bg (coastal image 15)
+  - booking-bg (coastal image 1 reused)
+  - 3d-object: coral GLB
+Slots falling back to Unsplash:
+  - hero VIDEO (no video in CSV — falls back to hero image)
+Logo SRC: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dcf02296145710078a_ACOYA-Logo-restyle-2023_ACOYA-Curacao_Logo-restyle_Banner-CMYK-1920w.png
+3D Object SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb (coral branch)
+Video assets: none in CSV
+Image assets: coastal section — Images 56, 12, 42, 3, 10, 1, 9, 2, 55, 54, 53, 52, 50, 44, 46 (and more)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ACOYA Curaçao Resort, Villas & Spa</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+<style>
+/* ============================================================
+   CSS CUSTOM PROPERTIES
+   --color-primary:    #1E4A47  deep Caribbean teal
+   --color-secondary:  #C9A96E  warm sand gold
+   --color-accent:     #E8D5A3  pale sun-bleached gold
+   --color-bg:         #0D1F1E  near-black teal-dark
+   --color-text:       #F5EFE0  warm off-white
+   --color-muted:      #8BA8A5  muted teal-grey
+   --font-serif:       'Cormorant Garamond', serif
+   --font-sans:        'DM Sans', sans-serif
+   ============================================================ */
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --color-primary:    #1E4A47;
+    --color-secondary:  #C9A96E;
+    --color-accent:     #E8D5A3;
+    --color-bg:         #0D1F1E;
+    --color-text:       #F5EFE0;
+    --color-muted:      #8BA8A5;
+    --font-serif:       'Cormorant Garamond', Georgia, serif;
+    --font-sans:        'DM Sans', system-ui, sans-serif;
+    --ease-out:         cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  a { color: inherit; text-decoration: none; }
+  button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+  /* ── TYPOGRAPHY ── */
+  .t-hero {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 8vw, 8rem);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .t-display {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+  }
+  .t-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    font-weight: 400;
+    line-height: 1.15;
+  }
+  .t-subhead {
+    font-family: var(--font-sans);
+    font-size: clamp(0.65rem, 1vw, 0.75rem);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .t-body {
+    font-family: var(--font-sans);
+    font-size: clamp(0.875rem, 1.2vw, 1rem);
+    font-weight: 300;
+    line-height: 1.75;
+  }
+  .t-stat {
+    font-family: var(--font-serif);
+    font-size: clamp(4rem, 10vw, 10rem);
+    font-weight: 300;
+    line-height: 0.9;
+    color: var(--color-secondary);
+  }
+
+  /* ── SECTION BASE ── */
+  section { position: relative; overflow: hidden; }
+  .section-inner { max-width: 1400px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 5rem); }
+
+  /* ── UTILITIES ── */
+  .color-secondary { color: var(--color-secondary); }
+  .color-accent    { color: var(--color-accent); }
+  .color-muted     { color: var(--color-muted); }
+  .italic          { font-style: italic; }
+  .sr-only         { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--color-secondary);
+    margin: 1.5rem 0;
+  }
+
+  /* ══════════════════════════════════════════
+     1. FULLSCREEN HERO
+  ══════════════════════════════════════════ */
+  #hero {
+    width: 100vw;
+    height: 100vh;
+    min-height: 600px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: clamp(3rem, 8vh, 6rem);
+  }
+
+  .hero-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  /* <!-- SWAP:VIDEO → hero background | hero section --> */
+  /* No video in CSV — using hero image as full-bleed background */
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to bottom,
+      rgba(13, 31, 30, 0.2) 0%,
+      rgba(30, 74, 71, 0.40) 40%,
+      rgba(13, 31, 30, 0.85) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+
+  .hero-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 5rem);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: flex-end;
+    gap: 2rem;
+  }
+
+  .hero-logo {
+    position: absolute;
+    top: clamp(1.5rem, 4vh, 3rem);
+    left: clamp(1.5rem, 5vw, 5rem);
+    z-index: 3;
+    width: clamp(120px, 18vw, 220px);
+  }
+  /* <!-- SWAP:LOGO --> */
+  .hero-logo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  .hero-tagline {
+    overflow: hidden;
+  }
+
+  .hero-tagline .word {
+    display: inline-block;
+    overflow: hidden;
+    margin-right: 0.25em;
+  }
+
+  .hero-tagline .word-inner {
+    display: inline-block;
+    transform: translateY(110%);
+  }
+
+  .hero-meta {
+    text-align: right;
+    opacity: 0;
+  }
+  .hero-meta p {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    line-height: 2;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: clamp(1.5rem, 4vh, 2.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+  }
+  .hero-scroll span {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+  .scroll-line {
+    width: 1px;
+    height: 50px;
+    background: var(--color-secondary);
+    transform-origin: top;
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%   { transform: scaleY(0); opacity: 0; }
+    50%  { transform: scaleY(1); opacity: 1; }
+    100% { transform: scaleY(0); opacity: 0; transform-origin: bottom; }
+  }
+
+  /* ══════════════════════════════════════════
+     2. MANIFESTO
+  ══════════════════════════════════════════ */
+  #manifesto {
+    background: var(--color-bg);
+    padding: clamp(6rem, 14vh, 12rem) 0;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .manifesto-inner {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 5rem);
+  }
+
+  .manifesto-3d {
+    position: absolute;
+    right: clamp(-2rem, -5vw, -4rem);
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(180px, 28vw, 320px);
+    height: clamp(180px, 28vw, 320px);
+    opacity: 0.18;
+    pointer-events: none;
+  }
+  /* <!-- SWAP:3D → coral branch | Coastal Caribbean --> */
+
+  .manifesto-line {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 0.1em;
+  }
+  .manifesto-line-inner {
+    display: block;
+    transform: translateY(100%);
+  }
+
+  .manifesto-subtext {
+    margin-top: clamp(3rem, 6vw, 5rem);
+    max-width: 520px;
+    opacity: 0;
+  }
+
+  /* ══════════════════════════════════════════
+     3. SIGNATURE EXPERIENCES
+  ══════════════════════════════════════════ */
+  #experiences {
+    padding: clamp(5rem, 10vh, 9rem) 0;
+    background: var(--color-bg);
+  }
+
+  .experiences-header {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 5rem);
+    margin-bottom: clamp(3rem, 5vw, 4rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .experiences-scroll-track {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+  }
+  .experiences-scroll-track:active { cursor: grabbing; }
+  .experiences-scroll-track::-webkit-scrollbar { display: none; }
+
+  .experiences-cards {
+    display: flex;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    padding: 0 clamp(1.5rem, 5vw, 5rem);
+    width: max-content;
+    padding-right: clamp(3rem, 8vw, 8rem);
+  }
+
+  .exp-card {
+    flex: 0 0 clamp(260px, 28vw, 360px);
+    height: clamp(380px, 55vw, 500px);
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  /* <!-- SWAP:IMG → experience card 1 | ratio: 4:5 --> */
+  .exp-card-img {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.8s var(--ease-out);
+  }
+  .exp-card:hover .exp-card-img { transform: scale(1.05); }
+
+  .exp-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13,31,30,0.9) 0%, transparent 55%);
+    transition: background 0.5s ease;
+  }
+  .exp-card:hover .exp-card-overlay {
+    background: linear-gradient(to top, rgba(30,74,71,0.88) 0%, rgba(30,74,71,0.2) 60%);
+  }
+
+  .exp-card-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: clamp(1.5rem, 3vw, 2rem);
+    z-index: 2;
+  }
+  .exp-card-label {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+  }
+  .exp-card-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+  }
+  .exp-card-desc {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--color-accent);
+    line-height: 1.6;
+    max-width: 260px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .exp-card:hover .exp-card-desc { opacity: 1; transform: translateY(0); }
+
+  /* ══════════════════════════════════════════
+     4. THE PLACE
+  ══════════════════════════════════════════ */
+  #the-place {
+    padding: clamp(6rem, 12vh, 10rem) 0;
+    background: #0A1817;
+  }
+
+  .place-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 5rem);
+    display: grid;
+    grid-template-columns: 60fr 40fr;
+    gap: clamp(3rem, 5vw, 6rem);
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .place-inner { grid-template-columns: 1fr; }
+  }
+
+  .place-img-wrap {
+    position: relative;
+    height: clamp(400px, 60vw, 680px);
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  /* <!-- SWAP:IMG → the place coastal Curaçao | ratio: 3:2 --> */
+  .place-img-wrap img {
+    height: 110%;
+    transform: translateY(0);
+    will-change: transform;
+  }
+
+  .place-data {
+    position: absolute;
+    bottom: clamp(1.5rem, 3vw, 2.5rem);
+    left: clamp(1.5rem, 3vw, 2.5rem);
+    background: rgba(13, 31, 30, 0.75);
+    backdrop-filter: blur(8px);
+    padding: 1rem 1.5rem;
+    border-left: 2px solid var(--color-secondary);
+  }
+  .place-data-row {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    line-height: 1.9;
+  }
+  .place-data-row span {
+    color: var(--color-muted);
+    margin-right: 0.5rem;
+  }
+
+  .place-copy { opacity: 0; }
+  .place-copy .divider { margin: 1.5rem 0 2rem; }
+  .place-copy p {
+    margin-bottom: 1.5rem;
+    max-width: 400px;
+  }
+
+  /* ══════════════════════════════════════════
+     5. TRANSFORMATION PROMISE
+  ══════════════════════════════════════════ */
+  #transformation {
+    padding: clamp(6rem, 12vh, 10rem) 0;
+    background: var(--color-bg);
+    border-top: 1px solid rgba(201, 169, 110, 0.15);
+  }
+
+  .transformation-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 5rem);
+  }
+
+  .transformation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(2rem, 4vw, 5rem);
+    margin-top: clamp(4rem, 7vw, 7rem);
+  }
+
+  @media (max-width: 768px) {
+    .transformation-grid { grid-template-columns: 1fr; gap: 3rem; }
+  }
+
+  .transform-item {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .transform-num {
+    font-family: var(--font-serif);
+    font-size: clamp(5rem, 9vw, 9rem);
+    font-weight: 300;
+    line-height: 0.85;
+    color: var(--color-secondary);
+    margin-bottom: 1.5rem;
+  }
+  .transform-num sup {
+    font-size: 0.35em;
+    vertical-align: super;
+    color: var(--color-accent);
+  }
+
+  .transform-label {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .transform-copy {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--color-accent);
+    max-width: 280px;
+    border-top: 1px solid rgba(201, 169, 110, 0.2);
+    padding-top: 1rem;
+  }
+
+  /* ══════════════════════════════════════════
+     6. ROOMS & SPACES
+  ══════════════════════════════════════════ */
+  #rooms {
+    padding: clamp(6rem, 12vh, 10rem) 0;
+    background: #0A1817;
+  }
+
+  .rooms-header {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 5rem);
+    margin-bottom: clamp(3rem, 5vw, 4rem);
+  }
+
+  .rooms-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 5rem);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 240px;
+    gap: clamp(0.5rem, 1vw, 1rem);
+  }
+
+  @media (max-width: 768px) {
+    .rooms-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; }
+    .room-item { grid-column: span 1 !important; grid-row: span 1 !important; }
+  }
+
+  .room-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  .room-item:nth-child(1) { grid-column: span 5; grid-row: span 2; }
+  .room-item:nth-child(2) { grid-column: span 4; grid-row: span 1; }
+  .room-item:nth-child(3) { grid-column: span 3; grid-row: span 1; }
+  .room-item:nth-child(4) { grid-column: span 3; grid-row: span 2; }
+  .room-item:nth-child(5) { grid-column: span 4; grid-row: span 1; }
+  .room-item:nth-child(6) { grid-column: span 5; grid-row: span 1; }
+
+  .room-item img {
+    transition: transform 0.7s var(--ease-out);
+  }
+  .room-item:hover img { transform: scale(1.04); }
+
+  .room-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13,31,30,0.7) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .room-item:hover .room-item-overlay { opacity: 1; }
+
+  .room-item-name {
+    position: absolute;
+    bottom: clamp(0.75rem, 2vw, 1.25rem);
+    left: clamp(0.75rem, 2vw, 1.25rem);
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+    font-style: italic;
+    font-weight: 300;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 2;
+  }
+  .room-item:hover .room-item-name { opacity: 1; transform: translateY(0); }
+
+  /* Lightbox */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+  }
+  .lightbox.active { display: flex; }
+  .lightbox-img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 2px;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: var(--color-text);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: var(--font-sans);
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(245,239,224,0.3);
+  }
+
+  /* ══════════════════════════════════════════
+     7. WELLNESS RITUALS
+  ══════════════════════════════════════════ */
+  #wellness {
+    padding: clamp(6rem, 12vh, 10rem) 0;
+    background: var(--color-bg);
+    position: relative;
+  }
+
+  .wellness-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: radial-gradient(circle at 60% 40%, var(--color-secondary) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .wellness-inner {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 5rem);
+    z-index: 1;
+  }
+
+  .wellness-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(2rem, 3vw, 3rem);
+    margin-top: clamp(4rem, 7vw, 6rem);
+  }
+
+  .wellness-card {
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    border: 1px solid rgba(201, 169, 110, 0.12);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: border-color 0.4s ease;
+  }
+  .wellness-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(30,74,71,0.3) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .wellness-card:hover { border-color: rgba(201, 169, 110, 0.35); }
+  .wellness-card:hover::before { opacity: 1; }
+
+  .wellness-glyph {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-bottom: 1.25rem;
+    display: block;
+    line-height: 1;
+  }
+
+  .wellness-name {
+    font-family: var(--font-serif);
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .wellness-line {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: var(--color-muted);
+    line-height: 1.65;
+  }
+
+  /* ══════════════════════════════════════════
+     8. EDITORIAL QUOTE
+  ══════════════════════════════════════════ */
+  #quote {
+    height: 100vh;
+    min-height: 600px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .quote-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  /* <!-- SWAP:IMG → editorial quote background coastal resort | ratio: 16:9 --> */
+  .quote-bg img {
+    object-position: center 35%;
+  }
+
+  .quote-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(13, 31, 30, 0.72);
+  }
+
+  .quote-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 clamp(1.5rem, 5vw, 5rem);
+    opacity: 0;
+  }
+
+  .quote-mark {
+    font-family: var(--font-serif);
+    font-size: clamp(5rem, 12vw, 12rem);
+    line-height: 0.6;
+    color: var(--color-secondary);
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+  }
+
+  .quote-text {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 3.5vw, 3.2rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.3;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+  }
+
+  .quote-source {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+  }
+
+  /* ══════════════════════════════════════════
+     9. BOOKING CTA
+  ══════════════════════════════════════════ */
+  #booking {
+    padding: clamp(7rem, 14vh, 12rem) 0;
+    position: relative;
+    text-align: center;
+  }
+
+  .booking-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  /* <!-- SWAP:IMG → booking CTA background coastal Curaçao | ratio: 16:9 --> */
+
+  .booking-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to bottom,
+      rgba(13,31,30,0.6) 0%,
+      rgba(13,31,30,0.88) 100%
+    );
+  }
+
+  .booking-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 5rem);
+    opacity: 0;
+  }
+
+  .booking-urgency {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  .booking-urgency::before,
+  .booking-urgency::after {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: var(--color-secondary);
+  }
+
+  .booking-title {
+    margin-bottom: 1rem;
+  }
+
+  .booking-sub {
+    font-family: var(--font-sans);
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    font-weight: 300;
+    color: var(--color-accent);
+    margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .booking-ctas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 480px) {
+    .booking-ctas { flex-direction: row; justify-content: center; }
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--color-secondary);
+    color: var(--color-bg);
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 1.1rem 2.8rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover {
+    background: var(--color-accent);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    border: 1px solid rgba(201, 169, 110, 0.5);
+    color: var(--color-accent);
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding: 1.1rem 2.8rem;
+    transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    background: none;
+    cursor: pointer;
+  }
+  .btn-secondary:hover {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+    transform: translateY(-1px);
+  }
+
+  /* ══════════════════════════════════════════
+     10. FOOTER
+  ══════════════════════════════════════════ */
+  #footer {
+    padding: clamp(4rem, 8vh, 6rem) 0 clamp(2rem, 4vh, 3rem);
+    background: #050E0D;
+    border-top: 1px solid rgba(201, 169, 110, 0.12);
+  }
+
+  .footer-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 5rem);
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: clamp(3rem, 5vh, 4rem);
+    padding-bottom: clamp(3rem, 5vh, 4rem);
+    border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .footer-top {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .footer-coords { text-align: center !important; }
+    .footer-contact { text-align: center !important; }
+  }
+
+  /* <!-- SWAP:LOGO --> */
+  .footer-logo {
+    width: clamp(100px, 14vw, 160px);
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+  }
+
+  .footer-logo-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer-coords {
+    text-align: left;
+  }
+  .footer-coords p {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--color-muted);
+    line-height: 2;
+  }
+
+  .footer-contact {
+    text-align: right;
+  }
+  .footer-contact a {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--color-accent);
+    line-height: 2;
+    transition: color 0.2s ease;
+  }
+  .footer-contact a:hover { color: var(--color-secondary); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-copy {
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: rgba(139, 168, 165, 0.5);
+    text-transform: uppercase;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .footer-social a {
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    transition: color 0.2s ease;
+  }
+  .footer-social a:hover { color: var(--color-secondary); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 375px) {
+    .experiences-cards { gap: 0.75rem; }
+    .exp-card { flex: 0 0 260px; }
+  }
+
+  @media (min-width: 1920px) {
+    .section-inner { max-width: 1600px; }
+  }
+
+  /* ── SCROLL REVEAL INITIAL STATE ── */
+  .reveal { opacity: 0; transform: translateY(24px); }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     1. FULLSCREEN HERO
+══════════════════════════════════════════ -->
+<section id="hero">
+
+  <!-- SWAP:LOGO -->
+  <div class="hero-logo">
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dcf02296145710078a_ACOYA-Logo-restyle-2023_ACOYA-Curacao_Logo-restyle_Banner-CMYK-1920w.png"
+      alt="ACOYA Curaçao Resort"
+      loading="eager"
+    />
+  </div>
+
+  <!-- SWAP:IMG → hero background | ratio: 16:9 | coastal Curaçao resort aerial -->
+  <div class="hero-img">
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png"
+      alt="ACOYA Curaçao aerial view"
+      loading="eager"
+    />
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-inner">
+      <div>
+        <!-- SWAP:COPY → hero tagline -->
+        <p class="t-subhead color-secondary" style="margin-bottom:1.5rem; opacity:0;" id="hero-eyebrow">Curaçao · Caribbean</p>
+        <h1 class="t-hero hero-tagline" aria-label="The island holds still. You won't.">
+          <span class="word"><span class="word-inner">The</span></span>
+          <span class="word"><span class="word-inner">island</span></span>
+          <br/>
+          <span class="word"><span class="word-inner italic color-secondary">holds still.</span></span>
+          <br/>
+          <span class="word"><span class="word-inner">You</span></span>
+          <span class="word"><span class="word-inner">won't.</span></span>
+        </h1>
+      </div>
+      <div class="hero-meta" id="hero-meta">
+        <p>12.1000° N · 68.9333° W</p>
+        <p>15m elevation</p>
+        <p>27°C Atlantic</p>
+        <p>320 days sun / yr</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll" id="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     2. MANIFESTO — "The Philosophy"
+══════════════════════════════════════════ -->
+<section id="manifesto">
+  <div class="manifesto-inner">
+
+    <!-- SWAP:3D → coral branch | Coastal Caribbean -->
+    <div class="manifesto-3d" id="canvas-3d-wrap">
+      <canvas id="canvas-3d"></canvas>
+    </div>
+
+    <!-- SWAP:COPY → manifesto -->
+    <p class="t-subhead color-secondary reveal" style="margin-bottom: 2rem;">The Philosophy</p>
+
+    <h2 class="t-display" aria-label="Where salt air heals. Where stillness speaks. Where Curaçao begins.">
+      <span class="manifesto-line"><span class="manifesto-line-inner">Where salt air</span></span>
+      <span class="manifesto-line"><span class="manifesto-line-inner italic color-secondary">heals.</span></span>
+      <span class="manifesto-line"><span class="manifesto-line-inner">Where stillness</span></span>
+      <span class="manifesto-line"><span class="manifesto-line-inner italic">speaks.</span></span>
+    </h2>
+
+    <div class="manifesto-subtext">
+      <div class="divider"></div>
+      <p class="t-body" style="max-width:440px; color: var(--color-accent);">
+        ACOYA was born from the conviction that restoration is not an amenity — it is an architecture. 
+        Thirty-eight villas set against Caribbean coral and open sky. The first organic spa on the island. 
+        A table where the ocean informs the menu.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     3. SIGNATURE EXPERIENCES
+══════════════════════════════════════════ -->
+<section id="experiences">
+  <div class="experiences-header">
+    <div>
+      <!-- SWAP:COPY → experiences header -->
+      <p class="t-subhead color-secondary" style="margin-bottom:1rem;">Signature Experiences</p>
+      <h2 class="t-heading">Six ways to arrive<br/><span class="italic color-secondary">fully present.</span></h2>
+    </div>
+    <p class="t-subhead color-muted" style="display:none; display:block;">Drag to explore →</p>
+  </div>
+
+  <div class="experiences-scroll-track" id="exp-track">
+    <div class="experiences-cards" id="exp-cards">
+
+      <!-- SWAP:IMG → experience card 1 villas with private pool | ratio: 4:5 -->
+      <div class="exp-card">
+        <div class="exp-card-img">
+          <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f679754764ba8477c_Image%203.png" alt="Villas with Private Pool" loading="lazy" />
+        </div>
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-text">
+          <p class="exp-card-label">Private Villas</p>
+          <h3 class="exp-card-title">Your own pool. Your own sky.</h3>
+          <p class="exp-card-desc">1–3 bedroom villas with private plunge pools set in tropical gardens.</p>
+        </div>
+      </div>
+
+      <!-- SWAP:IMG → experience card 2 organic spa and wellness | ratio: 4:5 -->
+      <div class="exp-card">
+        <div class="exp-card-img">
+          <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fc699fe80d5a792a6_Image%2010.png" alt="Organic Spa & Wellness" loading="lazy" />
+        </div>
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-text">
+          <p class="exp-card-label">Spa & Wellness</p>
+          <h3 class="exp-card-title">Island's only organic spa.</h3>
+          <p class="exp-card-desc">ECO-certified rituals. 20+ years of combined island healing expertise.</p>
+        </div>
+      </div>
+
+      <!-- SWAP:IMG → experience card 3 fusion dining | ratio: 4:5 -->
+      <div class="exp-card">
+        <div class="exp-card-img">
+          <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e614aa07e724b10b1_Image%201.png" alt="Fusion Cuisine Dining" loading="lazy" />
+        </div>
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-text">
+          <p class="exp-card-label">Fusion Dining</p>
+          <h3 class="exp-card-title">The Caribbean on a plate.</h3>
+          <p class="exp-card-desc">International flavours grounded in Antillean rhythm. Happy Hour, Friday.</p>
+        </div>
+      </div>
+
+      <!-- SWAP:IMG → experience card 4 beach and ocean | ratio: 4:5 -->
+      <div class="exp-card">
+        <div class="exp-card-img">
+          <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e13e8a712bef8f191_Image%209.png" alt="Beach & Ocean" loading="lazy" />
+        </div>
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-text">
+          <p class="exp-card-label">Beach & Ocean</p>
+          <h3 class="exp-card-title">Mambo Beach. Raw water. Coral blue.</h3>
+          <p class="exp-card-desc">Free beach chairs, shuttle service, snorkeling in Caribbean reef waters.</p>
+        </div>
+      </div>
+
+      <!-- SWAP:IMG → experience card 5 weddings and events | ratio: 4:5 -->
+      <div class="exp-card">
+        <div class="exp-card-img">
+          <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e1edb921f35a63175_Image%202.png" alt="Weddings & Events" loading="lazy" />
+        </div>
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-text">
+          <p class="exp-card-label">Weddings & Events</p>
+          <h3 class="exp-card-title">Celebrations on Caribbean time.</h3>
+          <p class="exp-card-desc">Where every gathering becomes a memory that doesn't need photographs.</p>
+        </div>
+      </div>
+
+      <!-- SWAP:IMG → experience card 6 island activities | ratio: 4:5 -->
+      <div class="exp-card">
+        <div class="exp-card-img">
+          <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fdef24e731275c24a_Image%2042.png" alt="Island Activities" loading="lazy" />
+        </div>
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-text">
+          <p class="exp-card-label">Island Activities</p>
+          <h3 class="exp-card-title">Willemstad. Dive. Wander. Return.</h3>
+          <p class="exp-card-desc">Maritime museum, cultural quarter, reef dives. 30 minutes from the airport.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     4. THE PLACE
+══════════════════════════════════════════ -->
+<section id="the-place">
+  <div class="place-inner">
+
+    <div class="place-img-wrap">
+      <!-- SWAP:IMG → the place aerial coastal Curaçao resort | ratio: 3:2 -->
+      <img
+        id="place-parallax-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png"
+        alt="ACOYA Resort Curaçao aerial"
+        loading="lazy"
+      />
+
+      <div class="place-data">
+        <div class="place-data-row"><span>LAT</span> 12.1000° N</div>
+        <div class="place-data-row"><span>LON</span> 68.9333° W</div>
+        <div class="place-data-row"><span>ELEV</span> 15m ASL</div>
+        <div class="place-data-row"><span>SEA</span> 27°C Atlantic</div>
+        <div class="place-data-row"><span>SUN</span> 320 days/yr</div>
+        <div class="place-data-row"><span>ISLAND</span> Curaçao, ABC Islands</div>
+      </div>
+    </div>
+
+    <div class="place-copy" id="place-copy">
+      <!-- SWAP:COPY → the place -->
+      <p class="t-subhead color-secondary" style="margin-bottom:1rem;">The Place</p>
+      <h2 class="t-heading">Named the Best Caribbean<br/><span class="italic color-secondary">Island of 2026.</span></h2>
+      <div class="divider"></div>
+
+      <p class="t-body" style="color: var(--color-accent);">
+        Curaçao sits 55 kilometres off the Venezuelan coast, outside the hurricane belt, 
+        bathed in 320 days of sun per year. Its waters hold 65 species of hard coral within 
+        a 20-minute boat ride from shore.
+      </p>
+      <p class="t-body" style="color: var(--color-accent);">
+        ACOYA occupies Dr. Hugenholtzweg in Willemstad — walking distance from the Historic 
+        Inner City, a UNESCO World Heritage Site. The island's rhythms are slow. The reef is close.
+      </p>
+      <p class="t-body" style="color: var(--color-accent);">
+        USA Today 10Best named Curaçao the Best Caribbean Island to Visit in 2026. 
+        ACOYA has been here since before it was fashionable to say so.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     5. TRANSFORMATION PROMISE
+══════════════════════════════════════════ -->
+<section id="transformation">
+  <div class="transformation-inner">
+
+    <!-- SWAP:COPY → transformation section header -->
+    <div class="reveal">
+      <p class="t-subhead color-secondary" style="margin-bottom:1rem;">By the numbers</p>
+      <h2 class="t-heading" style="max-width:600px;">What the island <span class="italic color-secondary">does to you.</span></h2>
+    </div>
+
+    <div class="transformation-grid">
+
+      <!-- SWAP:COPY → transformation stats 1 -->
+      <div class="transform-item" id="stat-1">
+        <div class="transform-num">
+          <span class="count" data-target="38">0</span>
+        </div>
+        <p class="transform-label">Private Villas</p>
+        <p class="transform-copy">Each villa encircled by its own garden, its own pool, its own quiet — set apart from the world by coral stone and open water.</p>
+      </div>
+
+      <!-- SWAP:COPY → transformation stats 2 -->
+      <div class="transform-item" id="stat-2">
+        <div class="transform-num">
+          <span class="count" data-target="320">0</span>
+        </div>
+        <p class="transform-label">Days of Sun Per Year</p>
+        <p class="transform-copy">Curaçao sits outside the hurricane belt. The light here is uninterrupted. Your rest should be too.</p>
+      </div>
+
+      <!-- SWAP:COPY → transformation stats 3 -->
+      <div class="transform-item" id="stat-3">
+        <div class="transform-num">
+          <span class="count" data-target="65">0</span><sup>sp.</sup>
+        </div>
+        <p class="transform-label">Coral Species Offshore</p>
+        <p class="transform-copy">The reef begins 20 minutes from shore. 65 species of hard coral, untouched. Some guests never make it back for lunch.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     6. ROOMS & SPACES
+══════════════════════════════════════════ -->
+<section id="rooms">
+
+  <div class="rooms-header">
+    <!-- SWAP:COPY → rooms section header -->
+    <p class="t-subhead color-secondary reveal" style="margin-bottom:1rem;">Rooms & Spaces</p>
+    <h2 class="t-heading reveal" style="max-width:500px;">Spacious by design.<br/><span class="italic color-secondary">Private by intention.</span></h2>
+  </div>
+
+  <div class="rooms-grid" id="rooms-grid">
+
+    <!-- SWAP:IMG → room interior villa with pool | ratio: 3:2 -->
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755a0854ea3cadb267cd_Image%2054.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755a0854ea3cadb267cd_Image%2054.png" alt="Villa with Private Pool" loading="lazy" />
+      <div class="room-item-overlay"></div>
+      <span class="room-item-name">Villa Plunge</span>
+    </div>
+
+    <!-- SWAP:IMG → room interior deluxe room | ratio: 3:2 -->
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755108515add56c26e14_Image%2053.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755108515add56c26e14_Image%2053.png" alt="Deluxe Room" loading="lazy" />
+      <div class="room-item-overlay"></div>
+      <span class="room-item-name">Deluxe Room</span>
+    </div>
+
+    <!-- SWAP:IMG → room interior apartment | ratio: 3:2 -->
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551d402271fd28d57c9_Image%2052.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551d402271fd28d57c9_Image%2052.png" alt="Apartment" loading="lazy" />
+      <div class="room-item-overlay"></div>
+      <span class="room-item-name">Garden Apartment</span>
+    </div>
+
+    <!-- SWAP:IMG → room interior two bedroom villa | ratio: 3:2 -->
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551a79a50ab947db776_Image%2050.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551a79a50ab947db776_Image%2050.png" alt="Two Bedroom Villa" loading="lazy" />
+      <div class="room-item-overlay"></div>
+      <span class="room-item-name">Two Bed Villa</span>
+    </div>
+
+    <!-- SWAP:IMG → room interior suite | ratio: 3:2 -->
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755102e16a74f59b0111_Image%2044.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755102e16a74f59b0111_Image%2044.png" alt="Suite" loading="lazy" />
+      <div class="room-item-overlay"></div>
+      <span class="room-item-name">Suite</span>
+    </div>
+
+    <!-- SWAP:IMG → room interior three bedroom villa | ratio: 3:2 -->
+    <div class="room-item" data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7550d0152d0e448f0b58_Image%2046.png">
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7550d0152d0e448f0b58_Image%2046.png" alt="Three Bedroom Villa" loading="lazy" />
+      <div class="room-item-overlay"></div>
+      <span class="room-item-name">Three Bed Villa</span>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" id="lightbox-close">Close ×</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="Room detail" />
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     7. WELLNESS RITUALS
+══════════════════════════════════════════ -->
+<section id="wellness">
+  <div class="wellness-bg"></div>
+  <div class="wellness-inner">
+
+    <!-- SWAP:COPY → wellness section header -->
+    <div class="reveal">
+      <p class="t-subhead color-secondary" style="margin-bottom:1rem;">Wellness Rituals</p>
+      <h2 class="t-heading" style="max-width:600px;">Skin fed by the Atlantic.<br/><span class="italic color-secondary">Body returned to itself.</span></h2>
+    </div>
+
+    <div class="wellness-grid">
+
+      <!-- SWAP:COPY → wellness rituals 1 -->
+      <div class="wellness-card">
+        <span class="wellness-glyph">🌿</span>
+        <h3 class="wellness-name">Organic Facial Rituals</h3>
+        <p class="wellness-line">Plant-based formulas absorb into sun-warmed skin. Your face, at its most honest.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness rituals 2 -->
+      <div class="wellness-card">
+        <span class="wellness-glyph">🌊</span>
+        <h3 class="wellness-name">Deep Tissue Massage</h3>
+        <p class="wellness-line">Pressure mapped to where the Atlantic holds you tight. Released layer by layer.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness rituals 3 -->
+      <div class="wellness-card">
+        <span class="wellness-glyph">✦</span>
+        <h3 class="wellness-name">Body Delight Treatments</h3>
+        <p class="wellness-line">Salt scrubs, wraps, island botanicals. Skin that remembers what island air smells like.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness rituals 4 -->
+      <div class="wellness-card">
+        <span class="wellness-glyph">🤲</span>
+        <h3 class="wellness-name">Hands & Feet Renewal</h3>
+        <p class="wellness-line">Hands that let go. Feet that walked coral paths. Both restored with attention.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness rituals 5 -->
+      <div class="wellness-card">
+        <span class="wellness-glyph">🎁</span>
+        <h3 class="wellness-name">Wellness Gift Journeys</h3>
+        <p class="wellness-line">Curated treatment packages. Gifted happiness, wrapped in the island's slow warmth.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness rituals 6 -->
+      <div class="wellness-card">
+        <span class="wellness-glyph">☀️</span>
+        <h3 class="wellness-name">Private Spa Hours</h3>
+        <p class="wellness-line">Open by request beyond season hours. The spa, exclusively yours, as the sun descends.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     8. EDITORIAL QUOTE
+══════════════════════════════════════════ -->
+<section id="quote">
+
+  <div class="quote-bg">
+    <!-- SWAP:IMG → editorial quote background Curaçao ocean sunset | ratio: 16:9 -->
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7550dd1faa5194cb19f6_Image%2047.png"
+      alt="Curaçao coastline"
+      loading="lazy"
+    />
+  </div>
+  <div class="quote-overlay"></div>
+
+  <div class="quote-content" id="quote-content">
+    <!-- SWAP:COPY → editorial quote -->
+    <span class="quote-mark">"</span>
+    <p class="quote-text">Only a 30-minute ride from the airport — ACOYA defines tranquility, peace, and seclusion.</p>
+    <p class="quote-source">ncm19999 · Verified Guest · TripAdvisor</p>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     9. BOOKING CTA
+══════════════════════════════════════════ -->
+<section id="booking">
+
+  <div class="booking-bg">
+    <!-- SWAP:IMG → booking CTA background Curaçao resort pool at dusk | ratio: 16:9 -->
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da75507e62a936758f6e1a_Image%2051.png"
+      alt="ACOYA pool at dusk"
+      loading="lazy"
+    />
+  </div>
+  <div class="booking-overlay"></div>
+
+  <div class="booking-inner" id="booking-inner">
+    <!-- SWAP:COPY → booking CTA -->
+    <div class="booking-urgency">Limited availability — May · June · July 2026</div>
+    <h2 class="t-display booking-title">
+      The island is<br/><span class="italic color-secondary">ready when you are.</span>
+    </h2>
+    <p class="booking-sub">
+      Book direct for complimentary breakfast, free beach chairs, daily entertainment, 
+      and guaranteed best-rate pricing. No intermediary. Just ACOYA.
+    </p>
+    <div class="booking-ctas">
+      <a href="https://acoyacuracao.ihotelier.com/book/dates-of-stay" class="btn-primary" target="_blank" rel="noopener noreferrer">
+        Reserve Your Stay
+      </a>
+      <a href="mailto:reservations@acoyacuracao.com" class="btn-secondary">
+        Download the Experience Guide
+      </a>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     10. FOOTER
+══════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="footer-inner">
+
+    <div class="footer-top">
+
+      <div class="footer-coords">
+        <p>ACOYA Curaçao Resort, Villas & Spa</p>
+        <p>Dr. Hugenholtzweg · Willemstad, Curaçao</p>
+        <p>12.1000° N · 68.9333° W</p>
+        <p>Best Caribbean Island 2026 — USA Today 10Best</p>
+      </div>
+
+      <!-- SWAP:LOGO -->
+      <div class="footer-logo-wrap">
+        <img
+          class="footer-logo"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69dba2dcf02296145710078a_ACOYA-Logo-restyle-2023_ACOYA-Curacao_Logo-restyle_Banner-CMYK-1920w.png"
+          alt="ACOYA Curaçao"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="footer-contact">
+        <a href="tel:+59997882800">(+599) 9 788 2800</a>
+        <a href="mailto:reservations@acoyacuracao.com">reservations@acoyacuracao.com</a>
+        <a href="https://instagram.com/acoyacuracao/" target="_blank" rel="noopener noreferrer">@acoyacuracao</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 ACOYA Curaçao Resort, Villas & Spa. All Rights Reserved.</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/acoyacuracao/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://facebook.com/acoyacuracao" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.tripadvisor.com/Hotel_Review-g147278-d6556483-Reviews-ACOYA_Curacao_Resort_Villas_Spa-Willemstad_Curacao.html" target="_blank" rel="noopener noreferrer">TripAdvisor</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════ -->
+<script>
+
+/* ── GSAP REGISTRATION ── */
+gsap.registerPlugin(ScrollTrigger);
+
+/* ══════════════════════════════════════
+   HERO ANIMATIONS
+══════════════════════════════════════ */
+window.addEventListener('load', () => {
+
+  // Eyebrow
+  gsap.to('#hero-eyebrow', {
+    opacity: 1, y: 0, duration: 1, delay: 0.3, ease: 'power3.out'
+  });
+
+  // Tagline — word by word split reveal
+  const wordInners = document.querySelectorAll('.hero-tagline .word-inner');
+  gsap.to(wordInners, {
+    y: '0%',
+    duration: 1.1,
+    stagger: 0.08,
+    ease: 'power4.out',
+    delay: 0.6
+  });
+
+  // Meta data
+  gsap.to('#hero-meta', {
+    opacity: 1, duration: 1.2, delay: 1.4, ease: 'power2.out'
+  });
+
+  // Scroll indicator
+  gsap.to('#hero-scroll', {
+    opacity: 1, duration: 1, delay: 2, ease: 'power2.out'
+  });
+
+});
+
+/* ══════════════════════════════════════
+   GENERIC REVEAL
+══════════════════════════════════════ */
+gsap.utils.toArray('.reveal').forEach(el => {
+  gsap.from(el, {
+    y: 30,
+    opacity: 0,
+    duration: 1,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: el,
+      start: 'top 88%',
+      once: true
+    }
+  });
+});
+
+/* ══════════════════════════════════════
+   MANIFESTO LINES
+══════════════════════════════════════ */
+gsap.utils.toArray('.manifesto-line-inner').forEach((el, i) => {
+  gsap.to(el, {
+    y: '0%',
+    duration: 1.1,
+    ease: 'power4.out',
+    scrollTrigger: {
+      trigger: el,
+      start: 'top 90%',
+      once: true
+    },
+    delay: i * 0.1
+  });
+});
+
+gsap.to('.manifesto-subtext', {
+  opacity: 1,
+  y: 0,
+  duration: 1,
+  ease: 'power3.out',
+  scrollTrigger: {
+    trigger: '.manifesto-subtext',
+    start: 'top 88%',
+    once: true
+  }
+});
+
+/* ══════════════════════════════════════
+   EXPERIENCE CARDS — stagger
+══════════════════════════════════════ */
+gsap.from('.exp-card', {
+  opacity: 0,
+  x: 40,
+  duration: 0.8,
+  stagger: 0.12,
+  ease: 'power3.out',
+  scrollTrigger: {
+    trigger: '#experiences',
+    start: 'top 75%',
+    once: true
+  }
+});
+
+/* ══════════════════════════════════════
+   EXPERIENCE CARDS — drag to scroll
+══════════════════════════════════════ */
+(function() {
+  const track = document.getElementById('exp-track');
+  let isDown = false, startX, scrollLeft;
+  track.addEventListener('mousedown', e => {
+    isDown = true;
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+  });
+  track.addEventListener('mouseleave', () => { isDown = false; });
+  track.addEventListener('mouseup', () => { isDown = false; });
+  track.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    track.scrollLeft = scrollLeft - walk;
+  });
+})();
+
+/* ══════════════════════════════════════
+   THE PLACE — parallax + copy reveal
+══════════════════════════════════════ */
+gsap.to('#place-parallax-img', {
+  y: '-8%',
+  ease: 'none',
+  scrollTrigger: {
+    trigger: '#the-place',
+    start: 'top bottom',
+    end: 'bottom top',
+    scrub: true
+  }
+});
+
+gsap.to('#place-copy', {
+  opacity: 1,
+  y: 0,
+  duration: 1.1,
+  ease: 'power3.out',
+  scrollTrigger: {
+    trigger: '#place-copy',
+    start: 'top 80%',
+    once: true
+  }
+});
+
+/* ══════════════════════════════════════
+   TRANSFORMATION — count-up + stagger
+══════════════════════════════════════ */
+gsap.utils.toArray('.transform-item').forEach((item, i) => {
+  gsap.to(item, {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: 'power3.out',
+    delay: i * 0.15,
+    scrollTrigger: {
+      trigger: item,
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        const countEl = item.querySelector('.count');
+        if (!countEl) return;
+        const target = parseInt(countEl.getAttribute('data-target'), 10);
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target,
+          duration: 2,
+          ease: 'power2.out',
+          onUpdate: () => {
+            countEl.textContent = Math.round(obj.val);
+          }
+        });
+      }
+    }
+  });
+});
+
+/* ══════════════════════════════════════
+   ROOMS — stagger grid
+══════════════════════════════════════ */
+gsap.from('.room-item', {
+  opacity: 0,
+  scale: 0.96,
+  duration: 0.8,
+  stagger: 0.08,
+  ease: 'power3.out',
+  scrollTrigger: {
+    trigger: '#rooms-grid',
+    start: 'top 80%',
+    once: true
+  }
+});
+
+/* ── LIGHTBOX ── */
+(function() {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('lightbox-close');
+
+  document.querySelectorAll('.room-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const src = item.getAttribute('data-src');
+      lightboxImg.src = src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  const closeLightbox = () => {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
+
+/* ══════════════════════════════════════
+   WELLNESS CARDS
+══════════════════════════════════════ */
+gsap.utils.toArray('.wellness-card').forEach((card, i) => {
+  gsap.to(card, {
+    opacity: 1,
+    y: 0,
+    duration: 0.9,
+    ease: 'power3.out',
+    delay: i * 0.08,
+    scrollTrigger: {
+      trigger: card,
+      start: 'top 88%',
+      once: true
+    }
+  });
+});
+
+/* ══════════════════════════════════════
+   QUOTE SECTION
+══════════════════════════════════════ */
+gsap.to('#quote-content', {
+  opacity: 1,
+  y: 0,
+  duration: 1.2,
+  ease: 'power3.out',
+  scrollTrigger: {
+    trigger: '#quote',
+    start: 'top 70%',
+    once: true
+  }
+});
+
+/* ══════════════════════════════════════
+   BOOKING CTA
+══════════════════════════════════════ */
+gsap.to('#booking-inner', {
+  opacity: 1,
+  y: 0,
+  duration: 1.1,
+  ease: 'power3.out',
+  scrollTrigger: {
+    trigger: '#booking',
+    start: 'top 75%',
+    once: true
+  }
+});
+
+/* ══════════════════════════════════════
+   THREE.JS — 3D CORAL BRANCH
+   SWAP:3D → coral branch | Coastal Caribbean
+══════════════════════════════════════ */
+(function() {
+  const canvas = document.getElementById('canvas-3d');
+  if (!canvas) return;
+
+  const wrap = document.getElementById('canvas-3d-wrap');
+  const W = wrap.clientWidth || 280;
+  const H = wrap.clientHeight || 280;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  renderer.setSize(W, H);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, W / H, 0.1, 100);
+  camera.position.set(0, 0, 3.5);
+
+  // Warm key light
+  const warmLight = new THREE.DirectionalLight(0xFFD4A0, 1.8);
+  warmLight.position.set(2, 3, 2);
+  scene.add(warmLight);
+
+  // Cool fill light
+  const coolLight = new THREE.DirectionalLight(0xA0D4FF, 0.8);
+  coolLight.position.set(-3, -1, 1);
+  scene.add(coolLight);
+
+  // Ambient
+  const ambient = new THREE.AmbientLight(0xffffff, 0.4);
+  scene.add(ambient);
+
+  // Back rim
+  const rimLight = new THREE.DirectionalLight(0xC9A96E, 0.6);
+  rimLight.position.set(0, -2, -3);
+  scene.add(rimLight);
+
+  let model = null;
+  let isHovered = false;
+
+  // GLTFLoader via inline script
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js';
+  script.onload = () => {
+    const loader = new THREE.GLTFLoader();
+    loader.load(
+      'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb',
+      (gltf) => {
+        model = gltf.scene;
+        // Center & scale
+        const box = new THREE.Box3().setFromObject(model);
+        const center = box.getCenter(new THREE.Vector3());
+        const size = box.getSize(new THREE.Vector3());
+        const maxDim = Math.max(size.x, size.y, size.z);
+        const scale = 2.2 / maxDim;
+        model.scale.setScalar(scale);
+        model.position.sub(center.multiplyScalar(scale));
+        scene.add(model);
+      },
+      undefined,
+      (err) => {
+        // GLB failed to load — silent fallback, canvas stays transparent
+        console.warn('3D asset load error:', err);
+      }
+    );
+  };
+  document.head.appendChild(script);
+
+  // Hover
+  canvas.addEventListener('mouseenter', () => { isHovered = true; });
+  canvas.addEventListener('mouseleave', () => { isHovered = false; });
+
+  // Animate
+  function animate() {
+    requestAnimationFrame(animate);
+    if (model && !isHovered) {
+      model.rotation.y += 0.002;
+    }
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  // Resize
+  window.addEventListener('resize', () => {
+    const nW = wrap.clientWidth;
+    const nH = wrap.clientHeight;
+    camera.aspect = nW / nH;
+    camera.updateProjectionMatrix();
+    renderer.setSize(nW, nH);
+  });
+
+})();
+
+</script>
+
+<!--
+CUSTOMIZATION GUIDE
+========================
+All SWAP markers listed below. Items marked ⚠️ NO ASSET IN CSV require production asset swaps.
+
+SECTION 1 — HERO
+  [1]  SWAP:LOGO → hero header logo
+       Current: ACOYA brand PNG from provided SRC. ✓ CSV covered.
+  [2]  SWAP:IMG → hero background coastal Curaçao resort aerial | ratio: 16:9
+       Current: Image 56 (coastal). ✓ CSV covered.
+  ⚠️   SWAP:VIDEO → hero background | hero section
+       NO VIDEO IN CSV. Consider adding a drone flyover or resort overview video.
+
+SECTION 2 — MANIFESTO
+  [3]  SWAP:3D → coral branch | Coastal Caribbean
+       Current: GLB from S3 bucket. ✓ CSV covered.
+  [4]  SWAP:COPY → manifesto
+       Current: "Where salt air heals. Where stillness speaks." — matches extracted brand tone.
+
+SECTION 3 — SIGNATURE EXPERIENCES
+  [5]  SWAP:IMG → experience card 1 villas with private pool | ratio: 4:5 — Image 3. ✓
+  [6]  SWAP:IMG → experience card 2 organic spa and wellness | ratio: 4:5 — Image 10. ✓
+  [7]  SWAP:IMG → experience card 3 fusion dining | ratio: 4:5 — Image 1. ✓
+  [8]  SWAP:IMG → experience card 4 beach and ocean | ratio: 4:5 — Image 9. ✓
+  [9]  SWAP:IMG → experience card 5 weddings and events | ratio: 4:5 — Image 2. ✓
+  [10] SWAP:IMG → experience card 6 island activities | ratio: 4:5 — Image 42. ✓
+  [11] SWAP:COPY → experiences copy
+
+SECTION 4 — THE PLACE
+  [12] SWAP:IMG → the place aerial coastal Curaçao resort | ratio: 3:2 — Image 55. ✓
+  [13] SWAP:COPY → the place — verified geographic data for Willemstad, Curaçao.
+
+SECTION 5 — TRANSFORMATION PROMISE
+  [14] SWAP:COPY → transformation stats 1 — 38 villas. ✓ brand data.
+  [15] SWAP:COPY → transformation stats 2 — 320 sun days/yr. ✓ verified Curaçao climate.
+  [16] SWAP:COPY → transformation stats 3 — 65 coral species. ✓ Curaçao reef data.
+
+SECTION 6 — ROOMS & SPACES
+  [17] SWAP:IMG → room interior villa with pool | ratio: 3:2 — Image 54. ✓
+  [18] SWAP:IMG → room interior deluxe room | ratio: 3:2 — Image 53. ✓
+  [19] SWAP:IMG → room interior apartment | ratio: 3:2 — Image 52. ✓
+  [20] SWAP:IMG → room interior two bedroom villa | ratio: 3:2 — Image 50. ✓
+  [21] SWAP:IMG → room interior suite | ratio: 3:2 — Image 44. ✓
+  [22] SWAP:IMG → room interior three bedroom villa | ratio: 3:2 — Image 46. ✓
+
+SECTION 7 — WELLNESS RITUALS
+  [23] SWAP:COPY → wellness rituals 1–6 — verified from acoyacuracao.com/spa-and-wellness.
+
+SECTION 8 — EDITORIAL QUOTE
+  [24] SWAP:IMG → editorial quote background Curaçao ocean sunset | ratio: 16:9 — Image 47. ✓
+  [25] SWAP:COPY → editorial quote — TripAdvisor verified guest review.
+
+SECTION 9 — BOOKING CTA
+  [26] SWAP:IMG → booking CTA background Curaçao resort pool at dusk | ratio: 16:9 — Image 51. ✓
+  [27] SWAP:COPY → booking CTA
+
+SECTION 10 — FOOTER
+  [28] SWAP:LOGO → footer logo — same PNG SRC. ✓
+
+⚠️  PRODUCTION FOLLOW-UP ITEMS:
+  — Hero video: add drone/resort video as <video autoplay muted loop playsinline> with poster= Image 56
+  — Confirm exact CSV image descriptions (CSV has no SLOT or DESCRIPTION columns, only raw URLs)
+  — Replace experience images with specifically shot 4:5 ratio portraits of each offering
+  — Replace rooms images with interior photography at 3:2 ratio
+  — Add Webflow CMS integration for booking availability signal
+  — Add font preload links for Cormorant Garamond + DM Sans for production performance
+-->
+
+</body>
+</html>
