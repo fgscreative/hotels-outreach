@@ -1,0 +1,2872 @@
+<!--
+BRAND EXTRACTION REPORT
+========================
+Hotel Name:         ATYPIK HÔTEL
+URL:                https://www.hotelclichy.com/
+Primary Color:      #1C1A17 (warm charcoal — industrial Clichy heritage, dark timber)
+Secondary Color:    #C49A5A (warm amber/brass — natural materials, wood grain, morning stone)
+Accent Color:       #D45B2A (terracotta/rust — Parisian warmth, cosmopolitan energy)
+Background Mood:    Warm dark — cinematic near-black with amber undertone
+Font Pairing:       Cormorant Garamond (serif editorial, 300–400 wt) + DM Sans (grotesque sans)
+Tone of Voice:      Poetic + curious + cosmopolitan. Warm precision. French reserve meets global wanderlust.
+Landscape Archetype: Urban-European (Paris-adjacent; arboreal garden; cosmopolitan)
+Positioning:        A boutique hotel born from Clichy's industrial past — where every room is a
+                    different city, every stay a small circumnavigation. 47 rooms. 9 cities. One address.
+Key Experiences:    1. World-Rooms — 9 city-inspired rooms (Amsterdam, Lisbon, Milan, Helsinki,
+                       Brighton, Melbourne, Istanbul, Johannesburg, Paris)
+                    2. Atypik SPA — private 40m² Norwegian cedar jacuzzi + Finnish sauna
+                    3. Garden Breakfast — continental buffet in arboreal garden (summer)
+                    4. Passage Lounge — open co-working salon with espresso machine
+                    5. Cosmopolitan Gateway — metro line 13, Paris city centre in 12 minutes
+                    6. 24/7 Hospitality — personal, unhurried reception & concierge
+Coordinates + Elevation: 48°54'06" N, 2°18'27" E — Clichy-la-Garenne, Hauts-de-Seine — 34 m ASL
+
+ASSET MAPPING REPORT
+========================
+Total assets in CSV:         65 (3 GLB + 62 images across 4 landscape categories)
+Assets successfully mapped:  16 (14 images + 2 GLBs)
+Slots covered by CSV:        hero-img, exp-1–4, place-main, room-1–4, wellness-bg,
+                             quote-bg, booking-bg, 3d-manifesto, 3d-wellness
+Slots falling back to Unsplash:
+  - hero-video         NO ASSET IN CSV
+  - exp-5 (optional)   NO ASSET IN CSV
+  - room-5, room-6     NO ASSET IN CSV
+Logo SRC:            https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a13092122ff42301f81deb3_logo-atypik.png
+3D Object (Manifesto): https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb
+3D Object (Wellness):  https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb
+Video assets:        NONE in CSV — hero video slot uses image fallback
+Image assets mapped:
+  hero-img     → https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f5931b223dc54467b_Image%2062.png (forest)
+  exp-1        → https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f66d293ddbe3e52da_Image%2058.png (forest)
+  exp-2        → https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f02e16a74f59b019c_Image%2059.png (forest)
+  exp-3        → https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fe534894fe01d574b_Image%2057.png (forest)
+  exp-4        → https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fa912698fb567fc31_Image%2060.png (forest)
+  place-main   → https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d01b3f8e72daf583f_Image%2074.png (forest)
+  room-1       → https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755dfd3f818cc9e63c84_Image%2076.png (forest)
+  room-2       → https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d10aa143cd1856fdf_Image%2075.png (forest)
+  room-3       → https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755cbd4aab14c251d668_Image%2071.png (forest)
+  room-4       → https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2d6f969a6ed97235_Image%2065.png (forest)
+  wellness-bg  → https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png (coastal)
+  quote-bg     → https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c0b1e8db27f6833b0_Image%2073.png (forest)
+  booking-bg   → https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c3fc86be474e72fa6_Image%2063.png (forest)
+-->
+
+<!--
+CSS CUSTOM PROPERTIES REFERENCE
+================================
+--color-primary:    #1C1A17   warm charcoal black
+--color-secondary:  #C49A5A   warm amber / brass
+--color-accent:     #D45B2A   terracotta / rust
+--color-bg:         #0E0C09   deep warm black (backgrounds)
+--color-text:       #F0EDE8   warm cream / ivory (light text)
+--color-muted:      #8A7F74   warm medium gray (secondary text)
+--color-surface:    #181613   elevated surface (cards on dark bg)
+--color-border:     rgba(196,154,90,0.15)  subtle amber border
+
+--font-serif:       'Cormorant Garamond', Georgia, serif
+--font-sans:        'DM Sans', 'Helvetica Neue', sans-serif
+
+--space-xs: 0.5rem   --space-sm: 1rem    --space-md: 2rem
+--space-lg: 4rem     --space-xl: 8rem    --space-xxl: 14rem
+
+--ease-out:   cubic-bezier(0.25, 0.46, 0.45, 0.94)
+--ease-inout: cubic-bezier(0.45, 0.05, 0.55, 0.95)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATYPIK HÔTEL — Clichy · Paris</title>
+  <meta name="description" content="A boutique hotel at the edge of Paris where every room is a different world. 47 rooms. 9 cities. Atypik SPA. Garden. Metro 13.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Three.js r128 + GLTFLoader -->
+  <!-- SWAP:3D → oak leaf (manifesto) + coral branch (wellness) | Urban-European -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+  <style>
+    /* =============================================
+       BASE RESET & CUSTOM PROPERTIES
+       ============================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-primary:   #1C1A17;
+      --color-secondary: #C49A5A;
+      --color-accent:    #D45B2A;
+      --color-bg:        #0E0C09;
+      --color-text:      #F0EDE8;
+      --color-muted:     #8A7F74;
+      --color-surface:   #181613;
+      --color-border:    rgba(196, 154, 90, 0.15);
+
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans:  'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+
+      --space-xs:  0.5rem;
+      --space-sm:  1rem;
+      --space-md:  2rem;
+      --space-lg:  4rem;
+      --space-xl:  8rem;
+      --space-xxl: 14rem;
+
+      --ease-out:   cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --ease-inout: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+
+      --nav-h: 80px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =============================================
+       NAVIGATION
+       ============================================= */
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.5s var(--ease-out),
+                  backdrop-filter 0.5s var(--ease-out),
+                  padding 0.4s var(--ease-out);
+    }
+
+    .site-nav.is-scrolled {
+      background: rgba(14, 12, 9, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .nav-logo {
+      height: 32px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+      transition: opacity 0.3s;
+    }
+
+    .nav-logo:hover { opacity: 1; }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-bg);
+      background: var(--color-secondary);
+      border: none;
+      padding: 0.65rem 1.6rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--color-accent);
+      transform: translateY(-1px);
+    }
+
+    /* =============================================
+       SCROLL INDICATOR
+       ============================================= */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      z-index: 10;
+    }
+
+    .scroll-line-wrap {
+      width: 1px;
+      height: 56px;
+      overflow: hidden;
+      background: rgba(240, 237, 232, 0.15);
+    }
+
+    .scroll-line {
+      display: block;
+      width: 1px;
+      height: 100%;
+      background: var(--color-secondary);
+      transform: translateY(-100%);
+      animation: scrollDrop 2s var(--ease-inout) infinite;
+    }
+
+    .scroll-label {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+    }
+
+    @keyframes scrollDrop {
+      0%   { transform: translateY(-100%); }
+      50%  { transform: translateY(0); }
+      100% { transform: translateY(100%); }
+    }
+
+    /* =============================================
+       SECTION 1 — HERO
+       ============================================= */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-bg);
+    }
+
+    /* SWAP:VIDEO → hero background | hero section | NO ASSET IN CSV */
+    /* Video element ready — swap src when available */
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      display: none; /* Hidden until video src is swapped in */
+    }
+
+    .hero-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      transform-origin: center;
+      transform: scale(1.08);
+      transition: transform 8s ease-out;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(to bottom,
+          rgba(14, 12, 9, 0.25) 0%,
+          rgba(28, 26, 23, 0.40) 40%,
+          rgba(14, 12, 9, 0.85) 100%
+        );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 0 var(--space-md);
+      max-width: 1100px;
+    }
+
+    /* SWAP:LOGO */
+    .hero-logo {
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-logo .logo-img {
+      height: 48px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 6vw, 8.5rem);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+    }
+
+    .tagline-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(30px);
+      margin-right: 0.3em;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      opacity: 0;
+      transform: translateY(12px);
+    }
+
+    .meta-coord,
+    .meta-place {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+    }
+
+    .meta-sep {
+      color: var(--color-secondary);
+      opacity: 0.6;
+    }
+
+    /* =============================================
+       SECTION 2 — MANIFESTO
+       ============================================= */
+    .manifesto {
+      position: relative;
+      background: #111009;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: var(--space-xxl) var(--space-lg);
+    }
+
+    .manifesto-3d-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    #canvas-manifesto {
+      width: 600px;
+      height: 600px;
+    }
+
+    .manifesto-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .section-eyebrow {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: clamp(0.6rem, 0.9vw, 0.75rem);
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      margin-bottom: var(--space-md);
+    }
+
+    .manifesto-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .manifesto-line {
+      overflow: hidden;
+      padding-bottom: 0.05em;
+    }
+
+    .manifesto-line span {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 7.5vw, 10rem);
+      font-weight: 300;
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      color: var(--color-text);
+      transform: translateY(110%);
+    }
+
+    .manifesto-line--accent span {
+      color: var(--color-secondary);
+      font-style: italic;
+    }
+
+    .manifesto-sub {
+      font-family: var(--font-serif);
+      font-size: clamp(1.2rem, 2.5vw, 2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--color-muted);
+      margin-top: var(--space-md);
+      opacity: 0;
+      transform: translateY(20px);
+      letter-spacing: 0.01em;
+    }
+
+    /* =============================================
+       SECTION 3 — EXPERIENCES (light)
+       ============================================= */
+    .experiences {
+      background: #F5F1EA;
+      color: var(--color-primary);
+      padding: var(--space-xl) var(--space-lg);
+    }
+
+    .experiences .section-eyebrow {
+      color: var(--color-accent);
+    }
+
+    .experiences-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: var(--space-lg);
+      gap: var(--space-md);
+    }
+
+    .experiences-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 6rem);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--color-primary);
+    }
+
+    .experiences-intro {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: #6A6058;
+      max-width: 28ch;
+      text-align: right;
+    }
+
+    .exp-track {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    .exp-card {
+      position: relative;
+      cursor: default;
+      overflow: hidden;
+    }
+
+    .exp-card-img-wrap {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #D8D4CC;
+    }
+
+    .exp-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s var(--ease-out);
+    }
+
+    .exp-card:hover .exp-card-img-wrap img {
+      transform: scale(1.06);
+    }
+
+    .exp-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(212, 91, 42, 0);
+      transition: background 0.5s var(--ease-out);
+    }
+
+    .exp-card:hover .exp-card-overlay {
+      background: rgba(212, 91, 42, 0.22);
+    }
+
+    .exp-card-body {
+      padding: 1.2rem 0 0;
+    }
+
+    .exp-card-category {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .exp-card-name {
+      font-family: var(--font-serif);
+      font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .exp-card-desc {
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: #6A6058;
+    }
+
+    /* =============================================
+       SECTION 4 — THE PLACE
+       ============================================= */
+    .the-place {
+      background: var(--color-bg);
+      padding: var(--space-xl) 0;
+      display: grid;
+      grid-template-columns: 60fr 40fr;
+      min-height: 90vh;
+      overflow: hidden;
+    }
+
+    .place-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .place-image-inner {
+      position: absolute;
+      inset: -15% 0;
+      height: 130%;
+    }
+
+    .place-image-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .place-data-overlay {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 2.5rem;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .place-data-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(14, 12, 9, 0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--color-border);
+      padding: 0.55rem 1rem;
+      width: fit-content;
+    }
+
+    .place-data-label {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+    }
+
+    .place-data-val {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--color-text);
+    }
+
+    .place-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: var(--space-xl) var(--space-lg);
+    }
+
+    .place-copy h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 4vw, 5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+      margin-bottom: var(--space-md);
+    }
+
+    .place-copy h2 em {
+      color: var(--color-secondary);
+      font-style: italic;
+    }
+
+    .place-para {
+      font-family: var(--font-sans);
+      font-size: clamp(0.875rem, 1.2vw, 1rem);
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--color-muted);
+      margin-bottom: 1.5rem;
+      max-width: 38ch;
+      opacity: 0;
+      transform: translateY(16px);
+    }
+
+    .place-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--color-secondary);
+      margin: var(--space-md) 0;
+      opacity: 0.5;
+    }
+
+    /* =============================================
+       SECTION 5 — TRANSFORMATION (deepest dark)
+       ============================================= */
+    .transformation {
+      background: #060504;
+      padding: var(--space-xxl) var(--space-lg);
+      border-top: 1px solid rgba(196, 154, 90, 0.08);
+      border-bottom: 1px solid rgba(196, 154, 90, 0.08);
+    }
+
+    .transformation-header {
+      margin-bottom: var(--space-xl);
+    }
+
+    .transformation-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.5vw, 4rem);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+      max-width: 22ch;
+      line-height: 1.2;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .stat-item {
+      padding: var(--space-lg) var(--space-md);
+      border-left: 1px solid var(--color-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      background: rgba(196, 154, 90, 0.04);
+      transition: width 0.6s var(--ease-out);
+    }
+
+    .stat-item:hover::before { width: 100%; }
+
+    .stat-number-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 0.3em;
+      margin-bottom: 1rem;
+    }
+
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: clamp(5rem, 13vw, 15rem);
+      font-weight: 300;
+      line-height: 0.88;
+      color: var(--color-secondary);
+      display: block;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat-unit {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 3.5rem);
+      font-weight: 300;
+      color: var(--color-secondary);
+      opacity: 0.6;
+      align-self: flex-end;
+      padding-bottom: 0.2em;
+    }
+
+    .stat-label {
+      font-family: var(--font-sans);
+      font-size: clamp(0.78rem, 1.1vw, 0.9rem);
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--color-muted);
+      max-width: 26ch;
+      letter-spacing: 0.01em;
+    }
+
+    /* =============================================
+       SECTION 6 — ROOMS & SPACES (light)
+       ============================================= */
+    .rooms {
+      background: #EBE7DF;
+      color: var(--color-primary);
+      padding: var(--space-xl) var(--space-lg);
+    }
+
+    .rooms .section-eyebrow {
+      color: var(--color-accent);
+    }
+
+    .rooms-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: end;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .rooms-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 6rem);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--color-primary);
+    }
+
+    .rooms-sub {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: #6A6058;
+      max-width: 36ch;
+    }
+
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto auto;
+      gap: 0.875rem;
+    }
+
+    .room-card {
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      background: #D8D4CC;
+    }
+
+    .room-card:nth-child(1) { grid-column: 1 / span 7; }
+    .room-card:nth-child(2) { grid-column: 8 / span 5; }
+    .room-card:nth-child(3) { grid-column: 1 / span 4; }
+    .room-card:nth-child(4) { grid-column: 5 / span 8; }
+
+    .room-card img {
+      width: 100%;
+      aspect-ratio: auto;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s var(--ease-out);
+    }
+
+    .room-card:nth-child(1) img,
+    .room-card:nth-child(2) img { min-height: 420px; }
+    .room-card:nth-child(3) img,
+    .room-card:nth-child(4) img { min-height: 340px; }
+
+    .room-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .room-card-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem 1.25rem 1rem;
+      background: linear-gradient(to top, rgba(28, 26, 23, 0.65) 0%, transparent 100%);
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 1.5vw, 1.4rem);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      color: var(--color-text);
+      transition: opacity 0.3s;
+    }
+
+    .room-card-expand {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 36px;
+      height: 36px;
+      background: rgba(14, 12, 9, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 0.3s, transform 0.3s;
+      color: var(--color-secondary);
+      font-size: 1rem;
+    }
+
+    .room-card:hover .room-card-expand {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* =============================================
+       SECTION 7 — WELLNESS RITUALS
+       ============================================= */
+    .wellness {
+      position: relative;
+      background: #070605;
+      padding: var(--space-xxl) var(--space-lg);
+      overflow: hidden;
+    }
+
+    .wellness-bg-parallax {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .wellness-bg-parallax img {
+      width: 100%;
+      height: 120%;
+      object-fit: cover;
+      opacity: 0.06;
+      transform: translateY(0);
+    }
+
+    /* Depth orbs for floating aesthetic */
+    .wellness-orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(90px);
+    }
+
+    .wellness-orb--1 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(196,154,90,0.06) 0%, transparent 70%);
+      top: -150px;
+      right: -150px;
+    }
+
+    .wellness-orb--2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(212,91,42,0.05) 0%, transparent 70%);
+      bottom: -100px;
+      left: -100px;
+    }
+
+    .wellness-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .wellness-top {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: var(--space-lg);
+      align-items: start;
+      margin-bottom: var(--space-xl);
+    }
+
+    .wellness-title-block h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5.5vw, 7.5rem);
+      font-weight: 300;
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+      color: var(--color-text);
+    }
+
+    .wellness-title-block h2 em {
+      color: var(--color-secondary);
+      font-style: italic;
+    }
+
+    .wellness-3d-anchor {
+      opacity: 0.7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #canvas-wellness {
+      width: 280px;
+      height: 280px;
+    }
+
+    .rituals-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--color-border);
+    }
+
+    .ritual-card {
+      background: rgba(24, 22, 19, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--color-border);
+      padding: 2.5rem 2rem;
+      transition: background 0.4s, border-color 0.4s, transform 0.4s var(--ease-out);
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .ritual-card:hover {
+      background: rgba(28, 26, 23, 0.95);
+      border-color: rgba(196, 154, 90, 0.35);
+      transform: translateY(-4px);
+    }
+
+    .ritual-glyph {
+      font-size: 1.6rem;
+      color: var(--color-secondary);
+      margin-bottom: 1.25rem;
+      display: block;
+      line-height: 1;
+    }
+
+    .ritual-name {
+      font-family: var(--font-serif);
+      font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 0.65rem;
+      letter-spacing: 0.01em;
+    }
+
+    .ritual-desc {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--color-muted);
+    }
+
+    /* =============================================
+       SECTION 8 — EDITORIAL QUOTE
+       ============================================= */
+    .quote-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .quote-bg-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .quote-bg-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.3) saturate(0.7);
+    }
+
+    .quote-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 30%, rgba(6, 5, 4, 0.7) 100%);
+    }
+
+    .quote-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: var(--space-xl) var(--space-lg);
+      max-width: 960px;
+    }
+
+    .quote-mark {
+      font-family: var(--font-serif);
+      font-size: clamp(6rem, 18vw, 22rem);
+      line-height: 0.5;
+      color: var(--color-accent);
+      opacity: 0.55;
+      display: block;
+      margin-bottom: -1rem;
+      font-weight: 300;
+    }
+
+    .quote-text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 3.8vw, 4rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.25;
+      color: var(--color-text);
+      letter-spacing: -0.01em;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .quote-source {
+      display: block;
+      margin-top: 2.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    /* =============================================
+       SECTION 9 — BOOKING CTA
+       ============================================= */
+    .booking {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .booking-bg-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .booking-bg-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.35);
+    }
+
+    .booking-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(14, 12, 9, 0.75) 0%,
+        rgba(28, 26, 23, 0.45) 100%
+      );
+    }
+
+    .booking-content {
+      position: relative;
+      z-index: 2;
+      padding: var(--space-xl) var(--space-lg);
+      max-width: 800px;
+    }
+
+    .booking-urgency {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      border: 1px solid rgba(196, 154, 90, 0.3);
+      padding: 0.5rem 1rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .booking-urgency::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(0.75); }
+    }
+
+    .booking-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2.8rem, 6vw, 7rem);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+      color: var(--color-text);
+      margin-bottom: var(--space-md);
+    }
+
+    .booking-headline em {
+      font-style: italic;
+      color: var(--color-secondary);
+    }
+
+    .booking-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 1rem 2.2rem;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s var(--ease-out);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--color-secondary);
+      color: var(--color-bg);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-accent);
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--color-text);
+      border: 1px solid rgba(240, 237, 232, 0.3);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--color-secondary);
+      color: var(--color-secondary);
+      transform: translateY(-2px);
+    }
+
+    /* =============================================
+       SECTION 10 — FOOTER
+       ============================================= */
+    .site-footer {
+      background: #080706;
+      padding: var(--space-xl) var(--space-lg) var(--space-lg);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* SWAP:LOGO */
+    .footer-logo-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: var(--space-lg);
+    }
+
+    .footer-logo-wrap img {
+      height: 40px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.6;
+    }
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--color-border);
+      margin-bottom: var(--space-lg);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .footer-address,
+    .footer-contact-links {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--color-muted);
+    }
+
+    .footer-contact-links a {
+      display: block;
+      color: var(--color-muted);
+      transition: color 0.3s;
+    }
+
+    .footer-contact-links a:hover {
+      color: var(--color-secondary);
+    }
+
+    .footer-coord-block {
+      text-align: center;
+    }
+
+    .footer-coord {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--color-text);
+      opacity: 0.5;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-elev {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+    }
+
+    .footer-social {
+      text-align: right;
+    }
+
+    .footer-social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      transition: color 0.3s;
+    }
+
+    .footer-social-link:hover {
+      color: var(--color-secondary);
+    }
+
+    .footer-bottom {
+      margin-top: var(--space-lg);
+      padding-top: var(--space-md);
+      border-top: 1px solid rgba(138, 127, 116, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: rgba(138, 127, 116, 0.5);
+    }
+
+    .footer-tagline {
+      font-family: var(--font-serif);
+      font-size: 0.85rem;
+      font-style: italic;
+      color: rgba(240, 237, 232, 0.25);
+    }
+
+    /* =============================================
+       LIGHTBOX
+       ============================================= */
+    #lb-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(6, 5, 4, 0.96);
+      opacity: 0;
+      transition: opacity 0.4s var(--ease-out);
+      cursor: zoom-out;
+    }
+
+    #lb-overlay[hidden] { display: none; }
+    #lb-overlay.is-active { opacity: 1; }
+
+    #lb-img {
+      max-width: 90vw;
+      max-height: 88vh;
+      object-fit: contain;
+      cursor: default;
+      transform: scale(0.95);
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    #lb-overlay.is-active #lb-img {
+      transform: scale(1);
+    }
+
+    #lb-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 44px;
+      height: 44px;
+      background: rgba(240, 237, 232, 0.08);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s, border-color 0.3s;
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1;
+    }
+
+    #lb-close:hover {
+      background: rgba(212, 91, 42, 0.2);
+      border-color: var(--color-accent);
+    }
+
+    /* =============================================
+       RESPONSIVE — TABLET (max 1024px)
+       ============================================= */
+    @media (max-width: 1024px) {
+      :root {
+        --space-lg: 2.5rem;
+        --space-xl: 5rem;
+        --space-xxl: 8rem;
+      }
+
+      .experiences-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .experiences-intro {
+        text-align: left;
+        max-width: 100%;
+      }
+
+      .exp-track {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .the-place {
+        grid-template-columns: 1fr;
+        grid-template-rows: 60vh auto;
+      }
+
+      .place-image {
+        position: relative;
+        height: 60vh;
+      }
+
+      .place-image-inner {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+      }
+
+      .place-copy {
+        padding: var(--space-lg);
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .rooms-header {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+      }
+
+      .rooms-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+      }
+
+      .room-card:nth-child(1),
+      .room-card:nth-child(2),
+      .room-card:nth-child(3),
+      .room-card:nth-child(4) {
+        grid-column: span 1;
+      }
+
+      .rituals-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .wellness-top {
+        grid-template-columns: 1fr;
+      }
+
+      .wellness-3d-anchor {
+        display: none;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-md);
+      }
+
+      .footer-coord-block {
+        text-align: left;
+      }
+
+      .footer-social {
+        text-align: left;
+      }
+    }
+
+    /* =============================================
+       RESPONSIVE — MOBILE (max 768px)
+       ============================================= */
+    @media (max-width: 768px) {
+      :root {
+        --space-lg: 1.5rem;
+        --space-xl: 4rem;
+        --space-xxl: 6rem;
+        --nav-h: 64px;
+      }
+
+      .site-nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-logo { height: 26px; }
+
+      .hero-tagline {
+        font-size: clamp(2rem, 10vw, 4rem);
+      }
+
+      .hero-meta {
+        flex-direction: column;
+        gap: 0.35rem;
+        text-align: center;
+      }
+
+      .meta-sep { display: none; }
+
+      .manifesto {
+        padding: var(--space-xl) var(--space-lg);
+      }
+
+      .exp-track {
+        grid-template-columns: 1fr;
+        overflow-x: auto;
+        display: flex;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        padding-bottom: 1rem;
+      }
+
+      .exp-card {
+        flex: 0 0 280px;
+        scroll-snap-align: start;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .stat-item {
+        border-left: none;
+        border-top: 1px solid var(--color-border);
+        padding: var(--space-md) 0;
+      }
+
+      .rituals-grid {
+        grid-template-columns: 1fr;
+        background: none;
+        gap: 1px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
+
+      .booking-ctas {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      #canvas-manifesto {
+        width: 320px;
+        height: 320px;
+      }
+    }
+
+    /* =============================================
+       RESPONSIVE — LARGE (min 1920px)
+       ============================================= */
+    @media (min-width: 1920px) {
+      :root {
+        --space-lg: 6rem;
+        --space-xl: 10rem;
+        --space-xxl: 18rem;
+      }
+
+      .exp-track {
+        gap: 2rem;
+      }
+
+      .stats-grid {
+        gap: 0;
+      }
+    }
+
+    /* =============================================
+       UTILITY
+       ============================================= */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+    }
+
+    /* Prevent layout jank on will-change */
+    .has-parallax { will-change: transform; }
+
+  </style>
+</head>
+<body>
+
+  <!-- =============================================
+       NAVIGATION
+       ============================================= -->
+  <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+    <!-- SWAP:LOGO -->
+    <a href="https://www.hotelclichy.com/" aria-label="ATYPIK HÔTEL — Homepage">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a13092122ff42301f81deb3_logo-atypik.png"
+        alt="ATYPIK HÔTEL"
+        class="nav-logo"
+        width="120"
+        height="32"
+      >
+    </a>
+    <a
+      href="https://booking.roomcloud.net/be/se2/hotel.jsp?hotel=734"
+      class="btn nav-cta"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Reserve</a>
+  </nav>
+
+  <!-- =============================================
+       SECTION 1 — HERO
+       ============================================= -->
+  <!-- SWAP:VIDEO → hero background | hero section | NO ASSET IN CSV -->
+  <!-- When a hero video asset is available, uncomment the <video> tag below,
+       comment out the <img> tag, and set display:block on .hero-video -->
+  <section id="hero" class="hero" aria-label="Hero">
+
+    <!-- SWAP:VIDEO → hero background cinematic | hero section | NO ASSET IN CSV
+         <video
+           class="hero-video"
+           autoplay muted loop playsinline
+           poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f5931b223dc54467b_Image%2062.png"
+         >
+           <source src="SWAP_VIDEO_SRC_HERE.mp4" type="video/mp4">
+         </video>
+    -->
+
+    <!-- SWAP:IMG → hero background atmosphere | ratio: 16:9 -->
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f5931b223dc54467b_Image%2062.png"
+      alt=""
+      class="hero-bg-img"
+      aria-hidden="true"
+      loading="eager"
+    >
+
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <!-- SWAP:LOGO -->
+      <div class="hero-logo">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a13092122ff42301f81deb3_logo-atypik.png"
+          alt="ATYPIK HÔTEL"
+          class="logo-img"
+          width="160"
+          height="48"
+          loading="eager"
+        >
+      </div>
+
+      <!-- SWAP:COPY → hero tagline -->
+      <h1 class="hero-tagline" aria-label="A room for every world you carry">
+        <span class="tagline-word">A</span>
+        <span class="tagline-word">room</span>
+        <span class="tagline-word">for</span>
+        <span class="tagline-word">every</span>
+        <span class="tagline-word">world</span>
+        <span class="tagline-word">you</span>
+        <span class="tagline-word">carry.</span>
+      </h1>
+
+      <div class="hero-meta" aria-label="Location coordinates">
+        <span class="meta-coord">48°54' N</span>
+        <span class="meta-sep" aria-hidden="true">—</span>
+        <span class="meta-place">Clichy-la-Garenne · Paris</span>
+        <span class="meta-sep" aria-hidden="true">—</span>
+        <span class="meta-coord">34 m ASL</span>
+      </div>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-line-wrap">
+        <span class="scroll-line"></span>
+      </div>
+      <span class="scroll-label">Scroll</span>
+    </div>
+
+  </section>
+
+  <!-- =============================================
+       SECTION 2 — MANIFESTO
+       ============================================= -->
+  <!-- SWAP:3D → oak leaf | Urban-European archetype -->
+  <!-- SWAP:COPY → manifesto -->
+  <section id="manifesto" class="manifesto" aria-label="The Philosophy">
+
+    <div class="manifesto-3d-bg" aria-hidden="true">
+      <canvas id="canvas-manifesto" width="600" height="600"></canvas>
+    </div>
+
+    <div class="manifesto-content">
+      <span class="section-eyebrow">The Philosophy</span>
+
+      <div class="manifesto-lines">
+        <div class="manifesto-line">
+          <span>Forty-seven rooms.</span>
+        </div>
+        <div class="manifesto-line">
+          <span>Nine cities.</span>
+        </div>
+        <div class="manifesto-line manifesto-line--accent">
+          <span>One address, one curiosity.</span>
+        </div>
+        <div class="manifesto-line">
+          <span>Clichy · Paris · The world.</span>
+        </div>
+      </div>
+
+      <p class="manifesto-sub">
+        Curiosity is the only itinerary.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- =============================================
+       SECTION 3 — SIGNATURE EXPERIENCES (light)
+       ============================================= -->
+  <!-- SWAP:COPY → experiences intro -->
+  <section id="experiences" class="experiences" aria-label="Signature Experiences">
+
+    <div class="experiences-header">
+      <div>
+        <span class="section-eyebrow">What Awaits</span>
+        <h2 class="experiences-title">
+          Six reasons<br>to stay longer.
+        </h2>
+      </div>
+      <p class="experiences-intro">
+        Each offering at Atypik is designed around the premise that a hotel should
+        not simply shelter — it should transport. Draw close.
+      </p>
+    </div>
+
+    <div class="exp-track">
+
+      <!-- SWAP:IMG → experience card 1 — world rooms | ratio: 4:5 -->
+      <div class="exp-card" style="opacity:0; transform:translateY(32px)">
+        <div class="exp-card-img-wrap">
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f66d293ddbe3e52da_Image%2058.png"
+            alt="World-inspired rooms — nine cities"
+            loading="lazy"
+          >
+          <div class="exp-card-overlay"></div>
+        </div>
+        <div class="exp-card-body">
+          <span class="exp-card-category">Rooms</span>
+          <h3 class="exp-card-name">Nine Worlds</h3>
+          <p class="exp-card-desc">
+            Amsterdam to Paris — each room is a different city, a different skin.
+          </p>
+        </div>
+      </div>
+
+      <!-- SWAP:IMG → experience card 2 — Atypik SPA | ratio: 4:5 -->
+      <div class="exp-card" style="opacity:0; transform:translateY(32px)">
+        <div class="exp-card-img-wrap">
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f02e16a74f59b019c_Image%2059.png"
+            alt="Atypik SPA — private wellness sanctuary"
+            loading="lazy"
+          >
+          <div class="exp-card-overlay"></div>
+        </div>
+        <div class="exp-card-body">
+          <span class="exp-card-category">Wellness</span>
+          <h3 class="exp-card-name">Atypik SPA</h3>
+          <p class="exp-card-desc">
+            40 m² of private cedar jacuzzi and Finnish sauna. Only yours for 45 minutes.
+          </p>
+        </div>
+      </div>
+
+      <!-- SWAP:IMG → experience card 3 — garden breakfast | ratio: 4:5 -->
+      <div class="exp-card" style="opacity:0; transform:translateY(32px)">
+        <div class="exp-card-img-wrap">
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fe534894fe01d574b_Image%2057.png"
+            alt="Garden — arboreal breakfast terrace"
+            loading="lazy"
+          >
+          <div class="exp-card-overlay"></div>
+        </div>
+        <div class="exp-card-body">
+          <span class="exp-card-category">Garden</span>
+          <h3 class="exp-card-name">Under the Trees</h3>
+          <p class="exp-card-desc">
+            Continental breakfast in an arboreal garden. Summer light at 6h30.
+          </p>
+        </div>
+      </div>
+
+      <!-- SWAP:IMG → experience card 4 — gateway to Paris | ratio: 4:5 -->
+      <div class="exp-card" style="opacity:0; transform:translateY(32px)">
+        <div class="exp-card-img-wrap">
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fa912698fb567fc31_Image%2060.png"
+            alt="Metro 13 — gateway to central Paris"
+            loading="lazy"
+          >
+          <div class="exp-card-overlay"></div>
+        </div>
+        <div class="exp-card-body">
+          <span class="exp-card-category">Location</span>
+          <h3 class="exp-card-name">12 Minutes</h3>
+          <p class="exp-card-desc">
+            Metro line 13 from the corner. Paris city centre arrives on your terms.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =============================================
+       SECTION 4 — THE PLACE
+       ============================================= -->
+  <!-- SWAP:COPY → the place -->
+  <!-- SWAP:IMG → the place | ratio: 3:2 -->
+  <section id="the-place" class="the-place" aria-label="The Place">
+
+    <div class="place-image">
+      <div class="place-image-inner has-parallax" id="place-parallax">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d01b3f8e72daf583f_Image%2074.png"
+          alt="Clichy-la-Garenne, Paris — location and landscape"
+          loading="lazy"
+        >
+      </div>
+
+      <!-- GPS + ecological data overlay -->
+      <div class="place-data-overlay" aria-label="Location data">
+        <div class="place-data-item">
+          <span class="place-data-label">LAT / LON</span>
+          <span class="place-data-val">48°54'06" N — 2°18'27" E</span>
+        </div>
+        <div class="place-data-item">
+          <span class="place-data-label">ELEVATION</span>
+          <span class="place-data-val">34 m ASL — Hauts-de-Seine</span>
+        </div>
+        <div class="place-data-item">
+          <span class="place-data-label">DISTRICT</span>
+          <span class="place-data-val">Clichy-la-Garenne · Île-de-France</span>
+        </div>
+        <div class="place-data-item">
+          <span class="place-data-label">DISTANCE TO PARIS</span>
+          <span class="place-data-val">2.1 km from 18th arr. — Métro 13</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="place-copy">
+      <span class="section-eyebrow">The Place</span>
+      <h2>Clichy,<br>between <em>two</em><br>versions of Paris.</h2>
+
+      <div class="place-divider"></div>
+
+      <p class="place-para" id="place-p1">
+        Clichy sits at latitude 48.9016, where the Seine bends north and the old
+        factories still leave their geometry on the skyline. Seventeen minutes
+        on foot from Montmartre. A neighbourhood that carries both the weight of its
+        industrial past and the ease of a city that has learned to breathe again.
+      </p>
+
+      <p class="place-para" id="place-p2">
+        The hotel occupies a block on Rue Villeneuve, shaped by the Argentine architect
+        Paula Chauvigné. She kept the bones: steel columns, raw concrete, high light.
+        Then brought in cedar, Carrara marble, hand-hammered brass — materials that
+        cool in the morning and hold warmth at night.
+      </p>
+
+      <p class="place-para" id="place-p3">
+        Your room tonight might be Helsinki. Amsterdam tomorrow. The city outside
+        never changes. What changes is how you see it — each morning, a
+        different lens.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- =============================================
+       SECTION 5 — TRANSFORMATION PROMISE
+       ============================================= -->
+  <!-- SWAP:COPY → transformation stats 1–3 -->
+  <section id="transformation" class="transformation" aria-label="The Numbers">
+
+    <div class="transformation-header">
+      <span class="section-eyebrow">By the Numbers</span>
+      <h2>What the hotel<br>holds for you.</h2>
+    </div>
+
+    <div class="stats-grid">
+
+      <div class="stat-item">
+        <div class="stat-number-wrap">
+          <span class="stat-number" data-count-target="47" data-count-suffix="">0</span>
+        </div>
+        <p class="stat-label">
+          Rooms — each built around a different city's soul. Wood, marble, glass.
+          The world in one corridor.
+        </p>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-number-wrap">
+          <span class="stat-number" data-count-target="12" data-count-suffix="">0</span>
+          <span class="stat-unit">min</span>
+        </div>
+        <p class="stat-label">
+          From Clichy to the Marais via metro line 13. Paris is not far. It is
+          a deliberate choice away.
+        </p>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-number-wrap">
+          <span class="stat-number" data-count-target="40" data-count-suffix="">0</span>
+          <span class="stat-unit">m²</span>
+        </div>
+        <p class="stat-label">
+          Private spa floor: cedar Norwegian jacuzzi, Finnish dry sauna. Forty-five
+          minutes entirely yours. No sharing. No noise.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =============================================
+       SECTION 6 — ROOMS & SPACES (light)
+       ============================================= -->
+  <!-- SWAP:COPY → rooms intro -->
+  <section id="rooms" class="rooms" aria-label="Rooms and Spaces">
+
+    <div class="rooms-header">
+      <div>
+        <span class="section-eyebrow">Rooms & Spaces</span>
+        <h2 class="rooms-title">
+          Every room<br>a different city.
+        </h2>
+      </div>
+      <p class="rooms-sub">
+        Forty-four double rooms, one suite, one junior suite, one family room.
+        Nine distinct world-city design languages — from the oak floors of Helsinki
+        to the mosaic warmth of Istanbul. Click any room to see more.
+      </p>
+    </div>
+
+    <div class="rooms-grid">
+
+      <!-- SWAP:IMG → room interior 1 — Helsinki / Amsterdam | ratio: 3:2 -->
+      <div class="room-card" data-lightbox aria-label="Room — Helsinki" tabindex="0" role="button">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755dfd3f818cc9e63c84_Image%2076.png"
+          alt="Room interior — Helsinki-inspired, pale oak, Nordic light"
+          loading="lazy"
+        >
+        <div class="room-card-label">Helsinki</div>
+        <div class="room-card-expand" aria-hidden="true">⊕</div>
+      </div>
+
+      <!-- SWAP:IMG → room interior 2 — Amsterdam / Milan | ratio: 3:2 -->
+      <div class="room-card" data-lightbox aria-label="Room — Milan" tabindex="0" role="button">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d10aa143cd1856fdf_Image%2075.png"
+          alt="Room interior — Milan-inspired, dark wood, mirror accents"
+          loading="lazy"
+        >
+        <div class="room-card-label">Milan</div>
+        <div class="room-card-expand" aria-hidden="true">⊕</div>
+      </div>
+
+      <!-- SWAP:IMG → room interior 3 — Istanbul | ratio: 3:2 -->
+      <div class="room-card" data-lightbox aria-label="Room — Istanbul" tabindex="0" role="button">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755cbd4aab14c251d668_Image%2071.png"
+          alt="Room interior — Istanbul-inspired, patterned tile, warm brass"
+          loading="lazy"
+        >
+        <div class="room-card-label">Istanbul</div>
+        <div class="room-card-expand" aria-hidden="true">⊕</div>
+      </div>
+
+      <!-- SWAP:IMG → room interior 4 — Paris suite | ratio: 3:2 -->
+      <div class="room-card" data-lightbox aria-label="Room — Paris Suite" tabindex="0" role="button">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2d6f969a6ed97235_Image%2065.png"
+          alt="Room interior — Paris suite, Haussmanian light, rooftop view"
+          loading="lazy"
+        >
+        <div class="room-card-label">Paris</div>
+        <div class="room-card-expand" aria-hidden="true">⊕</div>
+      </div>
+
+    </div>
+
+    <!-- SWAP:IMG → room 5 | ratio: 3:2 | NO ASSET IN CSV -->
+    <!-- SWAP:IMG → room 6 | ratio: 3:2 | NO ASSET IN CSV -->
+
+  </section>
+
+  <!-- =============================================
+       SECTION 7 — WELLNESS RITUALS
+       ============================================= -->
+  <!-- SWAP:3D → coral branch | Urban-European archetype (secondary 3D) -->
+  <!-- SWAP:COPY → wellness rituals 1–6 -->
+  <section id="wellness" class="wellness" aria-label="Wellness Rituals">
+
+    <!-- SWAP:IMG → wellness background texture | ratio: 16:9 -->
+    <div class="wellness-bg-parallax" aria-hidden="true">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png"
+        alt=""
+        loading="lazy"
+        id="wellness-bg-img"
+      >
+    </div>
+
+    <div class="wellness-orb wellness-orb--1" aria-hidden="true"></div>
+    <div class="wellness-orb wellness-orb--2" aria-hidden="true"></div>
+
+    <div class="wellness-inner">
+
+      <div class="wellness-top">
+        <div class="wellness-title-block">
+          <span class="section-eyebrow">Atypik SPA</span>
+          <h2>
+            The body<br>needs a<br><em>different city</em><br>too.
+          </h2>
+        </div>
+
+        <!-- SWAP:3D → coral branch object | wellness section -->
+        <div class="wellness-3d-anchor" aria-hidden="true">
+          <canvas id="canvas-wellness" width="280" height="280"></canvas>
+        </div>
+      </div>
+
+      <div class="rituals-grid">
+
+        <div class="ritual-card">
+          <span class="ritual-glyph" aria-hidden="true">◉</span>
+          <h3 class="ritual-name">Norwegian Soak</h3>
+          <p class="ritual-desc">Cedar-red jacuzzi at body temperature. Warm water
+            dissolves the day. The city stops here.</p>
+        </div>
+
+        <div class="ritual-card">
+          <span class="ritual-glyph" aria-hidden="true">▲</span>
+          <h3 class="ritual-name">Finnish Chamber</h3>
+          <p class="ritual-desc">Dry heat, 80°C. The silence inside a Finnish
+            sauna is its own form of travel.</p>
+        </div>
+
+        <div class="ritual-card">
+          <span class="ritual-glyph" aria-hidden="true">❧</span>
+          <h3 class="ritual-name">Garden Passage</h3>
+          <p class="ritual-desc">Breakfast under arboreal cover. The morning
+            before Paris finds you. Unhurried by design.</p>
+        </div>
+
+        <div class="ritual-card">
+          <span class="ritual-glyph" aria-hidden="true">⊞</span>
+          <h3 class="ritual-name">Passage Salon</h3>
+          <p class="ritual-desc">High-ceiling co-working lounge. Espresso machine,
+            power, fast Wi-Fi. The desk that travels with you.</p>
+        </div>
+
+        <div class="ritual-card">
+          <span class="ritual-glyph" aria-hidden="true">⊕</span>
+          <h3 class="ritual-name">Urban Drift</h3>
+          <p class="ritual-desc">Metro line 13, sixty seconds on foot. The Marais,
+            Montmartre, Saint-Lazare — Paris on your own itinerary.</p>
+        </div>
+
+        <div class="ritual-card">
+          <span class="ritual-glyph" aria-hidden="true">◐</span>
+          <h3 class="ritual-name">Night Watch</h3>
+          <p class="ritual-desc">Reception open 24 hours. Someone who knows
+            the neighbourhood, always here. Luggage held, key ready.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =============================================
+       SECTION 8 — EDITORIAL QUOTE
+       ============================================= -->
+  <!-- SWAP:IMG → editorial quote background | ratio: 16:9 -->
+  <!-- SWAP:COPY → editorial quote -->
+  <section id="quote" class="quote-section" aria-label="Guest Impressions">
+
+    <div class="quote-bg-wrap" aria-hidden="true">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c0b1e8db27f6833b0_Image%2073.png"
+        alt=""
+        loading="lazy"
+      >
+    </div>
+    <div class="quote-vignette" aria-hidden="true"></div>
+
+    <div class="quote-content">
+      <span class="quote-mark" aria-hidden="true">"</span>
+      <blockquote>
+        <p class="quote-text">
+          Between Amsterdam and Istanbul, between marble and wood, between
+          Clichy and the rest of the world — I had completely forgotten
+          where I was. That was precisely the point.
+        </p>
+        <footer>
+          <cite class="quote-source">A recent guest — Paris, 2026</cite>
+        </footer>
+      </blockquote>
+    </div>
+
+  </section>
+
+  <!-- =============================================
+       SECTION 9 — BOOKING CTA
+       ============================================= -->
+  <!-- SWAP:COPY → booking CTA -->
+  <section id="booking" class="booking" aria-label="Reserve Your Stay">
+
+    <!-- SWAP:IMG → booking section background | ratio: 16:9 -->
+    <div class="booking-bg-wrap" aria-hidden="true">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c3fc86be474e72fa6_Image%2063.png"
+        alt=""
+        loading="lazy"
+      >
+    </div>
+    <div class="booking-overlay" aria-hidden="true"></div>
+
+    <div class="booking-content">
+      <div class="booking-urgency" aria-label="Seasonal availability notice">
+        Limited availability — Summer 2026
+      </div>
+
+      <h2 class="booking-headline">
+        Reserve your room.<br><em>Choose your city.</em>
+      </h2>
+
+      <div class="booking-ctas">
+        <a
+          href="https://booking.roomcloud.net/be/se2/hotel.jsp?hotel=734"
+          class="btn btn-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Reserve Your Stay
+        </a>
+        <a
+          href="https://www.hotelclichy.com/demande-de-reservation-du-spa-atypik.html"
+          class="btn btn-ghost"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Book the Atypik SPA
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- =============================================
+       SECTION 10 — FOOTER
+       ============================================= -->
+  <footer id="footer" class="site-footer" aria-label="Footer">
+    <div class="footer-inner">
+
+      <!-- SWAP:LOGO -->
+      <div class="footer-logo-wrap">
+        <a href="https://www.hotelclichy.com/" aria-label="ATYPIK HÔTEL — Homepage">
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a13092122ff42301f81deb3_logo-atypik.png"
+            alt="ATYPIK HÔTEL"
+            width="140"
+            height="40"
+            loading="lazy"
+          >
+        </a>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-grid">
+
+        <div class="footer-col">
+          <p class="footer-col-title">Address</p>
+          <address class="footer-address" style="font-style:normal;">
+            20 rue Villeneuve<br>
+            92110 Clichy<br>
+            Hauts-de-Seine, France
+          </address>
+        </div>
+
+        <div class="footer-col footer-coord-block">
+          <p class="footer-col-title">Coordinates</p>
+          <span class="footer-coord">48°54' N · 2°18' E</span>
+          <span class="footer-elev">Elevation 34 m — Île-de-France</span>
+        </div>
+
+        <div class="footer-col footer-social">
+          <p class="footer-col-title">Connect</p>
+          <div class="footer-contact-links">
+            <a href="tel:+33147371701" aria-label="Call Atypik Hôtel">+33 1 47 37 17 01</a>
+            <a href="mailto:contact@atypikhotel.com" aria-label="Email Atypik Hôtel">contact@atypikhotel.com</a>
+          </div>
+          <br>
+          <a
+            href="https://www.instagram.com/atypikhotel/"
+            class="footer-social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Atypik Hôtel on Instagram"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+            @atypikhotel
+          </a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Atypik Hôtel — All rights reserved.</p>
+        <p class="footer-tagline">"Qui s'y frotte, à sa curiosité piquée."</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =============================================
+       LIGHTBOX
+       ============================================= -->
+  <div id="lb-overlay" role="dialog" aria-modal="true" aria-label="Room image enlarged" hidden>
+    <img id="lb-img" src="" alt="">
+    <button id="lb-close" aria-label="Close image">×</button>
+  </div>
+
+  <!-- =============================================
+       SCRIPTS
+       ============================================= -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ------------------------------------------
+       GSAP INIT
+    ------------------------------------------ */
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* ------------------------------------------
+       NAV SCROLL BEHAVIOUR
+    ------------------------------------------ */
+    const nav = document.getElementById('site-nav');
+    ScrollTrigger.create({
+      start: 'top -80px',
+      onToggle: self => nav.classList.toggle('is-scrolled', self.isActive)
+    });
+
+    /* ------------------------------------------
+       HERO ANIMATIONS
+    ------------------------------------------ */
+    const heroBgImg = document.querySelector('.hero-bg-img');
+    if (heroBgImg) {
+      // Ken Burns
+      gsap.to(heroBgImg, { scale: 1, duration: 8, ease: 'power1.out' });
+    }
+
+    const heroLogo = document.querySelector('.hero-logo .logo-img');
+    const taglineWords = document.querySelectorAll('.tagline-word');
+    const heroMeta = document.querySelector('.hero-meta');
+
+    const heroTl = gsap.timeline({ delay: 0.4 });
+
+    heroTl
+      .to(heroLogo, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power3.out'
+      })
+      .to(taglineWords, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.08,
+        ease: 'power3.out'
+      }, '-=0.4')
+      .to(heroMeta, {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        ease: 'power2.out'
+      }, '-=0.3');
+
+    /* ------------------------------------------
+       MANIFESTO LINE REVEAL
+    ------------------------------------------ */
+    document.querySelectorAll('.manifesto-line span').forEach((span, i) => {
+      gsap.to(span, {
+        y: '0%',
+        duration: 1.1,
+        ease: 'power4.out',
+        scrollTrigger: {
+          trigger: span.parentElement,
+          start: 'top 85%',
+          once: true
+        },
+        delay: i * 0.12
+      });
+    });
+
+    gsap.to('.manifesto-sub', {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.manifesto-sub',
+        start: 'top 88%',
+        once: true
+      }
+    });
+
+    /* ------------------------------------------
+       EXPERIENCES CARDS REVEAL
+    ------------------------------------------ */
+    document.querySelectorAll('.exp-card').forEach((card, i) => {
+      gsap.to(card, {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 88%',
+          once: true
+        },
+        delay: i * 0.1
+      });
+    });
+
+    /* ------------------------------------------
+       THE PLACE — PARALLAX + COPY REVEAL
+    ------------------------------------------ */
+    const placeParallax = document.getElementById('place-parallax');
+    if (placeParallax) {
+      placeParallax.classList.add('has-parallax');
+      gsap.to(placeParallax, {
+        y: '-12%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.the-place',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+    }
+
+    document.querySelectorAll('.place-para').forEach((p, i) => {
+      gsap.to(p, {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: p,
+          start: 'top 88%',
+          once: true
+        },
+        delay: i * 0.15
+      });
+    });
+
+    /* ------------------------------------------
+       TRANSFORMATION — COUNT-UP STATS
+    ------------------------------------------ */
+    document.querySelectorAll('[data-count-target]').forEach(el => {
+      const target = parseInt(el.dataset.countTarget, 10);
+      const suffix = el.dataset.countSuffix || '';
+      let triggered = false;
+
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 80%',
+        once: true,
+        onEnter: () => {
+          if (triggered) return;
+          triggered = true;
+          const obj = { val: 0 };
+          gsap.to(obj, {
+            val: target,
+            duration: 2.2,
+            ease: 'power3.out',
+            onUpdate: function () {
+              el.textContent = Math.round(obj.val) + suffix;
+            }
+          });
+        }
+      });
+    });
+
+    /* ------------------------------------------
+       ROOMS GRID — STAGGER REVEAL
+    ------------------------------------------ */
+    document.querySelectorAll('.room-card').forEach((card, i) => {
+      gsap.fromTo(card,
+        { opacity: 0, scale: 0.97 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 88%',
+            once: true
+          },
+          delay: i * 0.1
+        }
+      );
+    });
+
+    /* ------------------------------------------
+       WELLNESS RITUALS — STAGGER REVEAL
+    ------------------------------------------ */
+    document.querySelectorAll('.ritual-card').forEach((card, i) => {
+      gsap.to(card, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 88%',
+          once: true
+        },
+        delay: i * 0.1
+      });
+    });
+
+    // Wellness background parallax
+    const wellnessBgImg = document.getElementById('wellness-bg-img');
+    if (wellnessBgImg) {
+      gsap.to(wellnessBgImg, {
+        y: '-10%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.wellness',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+    }
+
+    /* ------------------------------------------
+       QUOTE — REVEAL
+    ------------------------------------------ */
+    gsap.to('.quote-text', {
+      opacity: 1,
+      y: 0,
+      duration: 1.2,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.quote-section',
+        start: 'top 70%',
+        once: true
+      }
+    });
+
+    gsap.to('.quote-source', {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: 'power3.out',
+      delay: 0.4,
+      scrollTrigger: {
+        trigger: '.quote-section',
+        start: 'top 65%',
+        once: true
+      }
+    });
+
+    /* ------------------------------------------
+       THREE.JS — SHARED INIT FUNCTION
+    ------------------------------------------ */
+    function initThreeScene(canvasId, glbUrl, opts) {
+      opts = opts || {};
+      var canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      if (typeof THREE === 'undefined') {
+        console.warn('Three.js not loaded.');
+        return;
+      }
+      if (typeof THREE.GLTFLoader === 'undefined') {
+        console.warn('GLTFLoader not loaded.');
+        return;
+      }
+
+      var w = opts.width  || 280;
+      var h = opts.height || 280;
+
+      var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+      renderer.setSize(w, h);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      if (THREE.sRGBEncoding) {
+        renderer.outputEncoding = THREE.sRGBEncoding;
+      }
+
+      var scene = new THREE.Scene();
+
+      var camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 100);
+      camera.position.set(0, 0, 3.5);
+
+      // Warm key light
+      var warmKey = new THREE.DirectionalLight(0xFFD49A, 1.6);
+      warmKey.position.set(2, 3, 3);
+      scene.add(warmKey);
+
+      // Cool fill light
+      var coolFill = new THREE.DirectionalLight(0x9AB4FF, 0.7);
+      coolFill.position.set(-3, 0.5, -2);
+      scene.add(coolFill);
+
+      // Warm rim / back light
+      var rim = new THREE.DirectionalLight(0xFFEACC, 0.35);
+      rim.position.set(0.5, -2, -3);
+      scene.add(rim);
+
+      var ambient = new THREE.AmbientLight(0xFFFFFF, 0.45);
+      scene.add(ambient);
+
+      var model = null;
+      var isHovered = false;
+      var frameId;
+
+      var loader = new THREE.GLTFLoader();
+      loader.load(
+        glbUrl,
+        function (gltf) {
+          model = gltf.scene;
+          var box = new THREE.Box3().setFromObject(model);
+          var center = box.getCenter(new THREE.Vector3());
+          var size   = box.getSize(new THREE.Vector3());
+          var maxDim = Math.max(size.x, size.y, size.z);
+          model.position.sub(center);
+          model.scale.multiplyScalar(2.0 / maxDim);
+          scene.add(model);
+        },
+        undefined,
+        function (err) {
+          console.warn('[Atypik3D] GLB load error for ' + glbUrl, err);
+        }
+      );
+
+      canvas.addEventListener('mouseenter', function () { isHovered = true; });
+      canvas.addEventListener('mouseleave', function () { isHovered = false; });
+
+      function animate() {
+        frameId = requestAnimationFrame(animate);
+        if (model && !isHovered) {
+          model.rotation.y += 0.002;
+        }
+        renderer.render(scene, camera);
+      }
+      animate();
+
+      return {
+        scene: scene,
+        camera: camera,
+        renderer: renderer,
+        stop: function () { cancelAnimationFrame(frameId); }
+      };
+    }
+
+    /* ------------------------------------------
+       THREE.JS — MANIFESTO (oak leaf, large bg)
+    ------------------------------------------ */
+    /* SWAP:3D → oak leaf | Urban-European */
+    initThreeScene(
+      'canvas-manifesto',
+      'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb',
+      { width: 600, height: 600 }
+    );
+
+    /* ------------------------------------------
+       THREE.JS — WELLNESS (coral branch, decorative)
+    ------------------------------------------ */
+    /* SWAP:3D → coral branch | Urban-European (secondary) */
+    initThreeScene(
+      'canvas-wellness',
+      'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb',
+      { width: 280, height: 280 }
+    );
+
+    /* ------------------------------------------
+       LIGHTBOX
+    ------------------------------------------ */
+    var lbOverlay = document.getElementById('lb-overlay');
+    var lbImg     = document.getElementById('lb-img');
+    var lbClose   = document.getElementById('lb-close');
+
+    function openLightbox(src, alt) {
+      lbImg.src = src;
+      lbImg.alt = alt || '';
+      lbOverlay.hidden = false;
+      // Defer to next frame so transition fires
+      requestAnimationFrame(function () {
+        lbOverlay.classList.add('is-active');
+      });
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lbOverlay.classList.remove('is-active');
+      setTimeout(function () {
+        lbOverlay.hidden = true;
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }, 420);
+    }
+
+    document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var img = el.querySelector('img');
+        if (img) openLightbox(img.src, img.alt);
+      });
+      el.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          var img = el.querySelector('img');
+          if (img) openLightbox(img.src, img.alt);
+        }
+      });
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+
+    lbOverlay.addEventListener('click', function (e) {
+      if (e.target === lbOverlay) closeLightbox();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !lbOverlay.hidden) closeLightbox();
+    });
+
+  })();
+  </script>
+
+</body>
+</html>
+
+<!--
+CUSTOMIZATION GUIDE
+========================
+All SWAP markers in this file are listed below as a numbered checklist.
+Items marked ⚠ NO ASSET IN CSV require production follow-up.
+
+LOGO
+─────────────────────────────────────────────────────────
+ [x] 1.  SWAP:LOGO (nav header)
+         SRC: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a13092122ff42301f81deb3_logo-atypik.png
+         Status: ✅ Mapped from provided logo SRC
+
+ [x] 2.  SWAP:LOGO (footer)
+         SRC: same as above
+         Status: ✅ Mapped
+
+HERO
+─────────────────────────────────────────────────────────
+ [!] 3.  SWAP:VIDEO → hero background | hero section
+         ⚠ NO ASSET IN CSV — Video slot is prepared but commented out.
+         Action: Add video SRC to the <video> element inside .hero, set display:block,
+                 and comment out the <img> fallback when a hero video becomes available.
+         Fallback: Image 62 (forest) currently in use as hero background.
+
+ [x] 4.  SWAP:IMG → hero background atmosphere | ratio: 16:9
+         SRC: Image 62 (forest)
+         Status: ✅ Active as fallback
+
+ [ ] 5.  SWAP:COPY → hero tagline
+         Current: "A room for every world you carry."
+         Action: Update if brand approves alternate tagline.
+
+MANIFESTO
+─────────────────────────────────────────────────────────
+ [x] 6.  SWAP:3D → oak leaf | Urban-European
+         SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb
+         Canvas: 600×600px, opacity 0.12, background 3D in manifesto section
+
+ [ ] 7.  SWAP:COPY → manifesto
+         Current: "Forty-seven rooms. / Nine cities. / One address, one curiosity. / Clichy · Paris · The world."
+         Action: Validate with hotel brand team.
+
+EXPERIENCES
+─────────────────────────────────────────────────────────
+ [x] 8.  SWAP:IMG → experience card 1 — world rooms | ratio: 4:5
+         SRC: Image 58 (forest)
+
+ [x] 9.  SWAP:IMG → experience card 2 — Atypik SPA | ratio: 4:5
+         SRC: Image 59 (forest)
+
+ [x] 10. SWAP:IMG → experience card 3 — garden breakfast | ratio: 4:5
+         SRC: Image 57 (forest)
+
+ [x] 11. SWAP:IMG → experience card 4 — gateway to Paris | ratio: 4:5
+         SRC: Image 60 (forest)
+
+ [ ] 12. SWAP:COPY → experiences intro
+         Action: Adjust card names/descriptions to align with official brand copy.
+
+THE PLACE
+─────────────────────────────────────────────────────────
+ [x] 13. SWAP:IMG → the place | ratio: 3:2
+         SRC: Image 74 (forest)
+
+ [ ] 14. SWAP:COPY → the place
+         Current: 3 paragraphs about Clichy geography, hotel architecture, world-rooms concept.
+         Action: Validate against official brand narrative.
+
+TRANSFORMATION STATS
+─────────────────────────────────────────────────────────
+ [ ] 15. SWAP:COPY → transformation stats 1–3
+         Current stats: 47 rooms / 12 min metro / 40 m² spa
+         Action: Confirm figures with hotel.
+
+ROOMS & SPACES
+─────────────────────────────────────────────────────────
+ [x] 16. SWAP:IMG → room interior 1 — Helsinki | ratio: 3:2
+         SRC: Image 76 (forest)
+
+ [x] 17. SWAP:IMG → room interior 2 — Milan | ratio: 3:2
+         SRC: Image 75 (forest)
+
+ [x] 18. SWAP:IMG → room interior 3 — Istanbul | ratio: 3:2
+         SRC: Image 71 (forest)
+
+ [x] 19. SWAP:IMG → room interior 4 — Paris suite | ratio: 3:2
+         SRC: Image 65 (forest)
+
+ [!] 20. SWAP:IMG → room 5 | ratio: 3:2
+         ⚠ NO ASSET IN CSV — Add a 5th room card when asset is available.
+
+ [!] 21. SWAP:IMG → room 6 | ratio: 3:2
+         ⚠ NO ASSET IN CSV — Add a 6th room card when asset is available.
+
+ [ ] 22. SWAP:COPY → rooms intro
+         Action: Update city room names (Amsterdam, Lisbon, Melbourne, Brighton,
+                 Johannesburg) as additional room cards are added.
+
+WELLNESS RITUALS
+─────────────────────────────────────────────────────────
+ [x] 23. SWAP:IMG → wellness background texture | ratio: 16:9
+         SRC: Image 56 (coastal)
+
+ [x] 24. SWAP:3D → coral branch | Urban-European (secondary 3D)
+         SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb
+         Canvas: 280×280px, opacity 0.7, decorative section anchor
+
+ [ ] 25. SWAP:COPY → wellness rituals 1–6
+         Action: Refine ritual descriptions with brand team; confirm SPA hours/pricing.
+
+EDITORIAL QUOTE
+─────────────────────────────────────────────────────────
+ [x] 26. SWAP:IMG → editorial quote background | ratio: 16:9
+         SRC: Image 73 (forest)
+
+ [ ] 27. SWAP:COPY → editorial quote
+         Current: Composed editorial quote (no verified guest attribution).
+         ⚠ Action: Replace with a verified guest review or press citation.
+
+BOOKING CTA
+─────────────────────────────────────────────────────────
+ [x] 28. SWAP:IMG → booking section background | ratio: 16:9
+         SRC: Image 63 (forest)
+
+ [ ] 29. SWAP:COPY → booking CTA
+         Current: "Reserve your room. Choose your city." / "Limited availability — Summer 2026"
+         Action: Update urgency signal seasonally.
+
+FOOTER
+─────────────────────────────────────────────────────────
+ [x] 30. SWAP:LOGO (footer)
+         SRC: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a13092122ff42301f81deb3_logo-atypik.png
+
+════════════════════════════════════════════════════════
+⚠ PRODUCTION FOLLOW-UP — ITEMS WITH NO ASSET IN CSV:
+════════════════════════════════════════════════════════
+  #3  Hero video         → Source a cinematic 16:9 hotel video for autoplay background
+  #20 Room image 5       → Provide room photo for 5th card (Amsterdam / Brighton / etc.)
+  #21 Room image 6       → Provide room photo for 6th card (Melbourne / Johannesburg / etc.)
+  #27 Editorial quote    → Provide verified guest review or press citation
+════════════════════════════════════════════════════════
+
+COLOR VARIABLES (for reference & Webflow overrides):
+  --color-primary:   #1C1A17
+  --color-secondary: #C49A5A
+  --color-accent:    #D45B2A
+  --color-bg:        #0E0C09
+  --color-text:      #F0EDE8
+  --color-muted:     #8A7F74
+  --color-surface:   #181613
+  --color-border:    rgba(196,154,90,0.15)
+-->

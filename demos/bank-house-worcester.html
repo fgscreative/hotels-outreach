@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank House Hotel, Spa &amp; Golf — Worcester</title>
+
+  <!-- Google Fonts: Cormorant Garamond (serif editorial) + DM Sans (grotesque sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Three.js r134 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+  <style>
+    /*
+    ================================================================
+    CSS CUSTOM PROPERTIES
+    ================================================================
+    --color-primary    : #2C4A3E  — Deep Malvern Green
+    --color-secondary  : #B89A6E  — Harvest Gold
+    --color-accent     : #E8D5B0  — Parchment / Cream
+    --color-bg         : #131E19  — Near-black forest depth
+    --color-text       : #F4EDE3  — Warm ivory
+    --font-serif       : 'Cormorant Garamond', Georgia, serif
+    --font-sans        : 'DM Sans', system-ui, sans-serif
+    ================================================================
+    */
+
+    :root {
+      --color-primary:    #2C4A3E;
+      --color-secondary:  #B89A6E;
+      --color-accent:     #E8D5B0;
+      --color-bg:         #131E19;
+      --color-text:       #F4EDE3;
+      --color-text-muted: rgba(244,237,227,0.52);
+      --font-serif:       'Cormorant Garamond', Georgia, serif;
+      --font-sans:        'DM Sans', system-ui, sans-serif;
+      --ease-out:         cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ── UTILITY ─────────────────────────────────────────────────── */
+
+    .section-label {
+      font-family: var(--font-sans);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      display: block;
+      margin-bottom: 1.25rem;
+    }
+
+    .fade-up  { opacity: 0; transform: translateY(36px); }
+    .fade-in  { opacity: 0; }
+
+    /* ── SECTION 1: HERO ─────────────────────────────────────────── */
+
+    #hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 560px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(44,74,62,0.30) 0%,
+        rgba(19,30,25,0.60) 55%,
+        rgba(13,20,16,0.94) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2rem clamp(1.5rem,5vw,4rem);
+      max-width: 920px;
+    }
+
+    /* SWAP:LOGO */
+    .hero-logo {
+      width: auto;
+      height: clamp(56px,8vw,88px);
+      margin: 0 auto 3.5rem;
+      filter: invert(1);
+      opacity: 0;
+      will-change: opacity;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5.8vw, 5.25rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+    }
+
+    .hero-tagline .word {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+      line-height: 1.2;
+    }
+
+    .hero-tagline .word-inner {
+      display: inline-block;
+      transform: translateY(110%);
+      will-change: transform;
+    }
+
+    .hero-sub {
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      margin-top: 2.25rem;
+      opacity: 0;
+      will-change: opacity;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      will-change: opacity;
+    }
+
+    .scroll-indicator span {
+      font-family: var(--font-sans);
+      font-size: 0.5625rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 44px;
+      background: linear-gradient(to bottom, var(--color-secondary), transparent);
+      animation: scrollPulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { transform: scaleY(1);   opacity: 0.65; }
+      50%       { transform: scaleY(0.4); opacity: 1;    }
+    }
+
+    /* ── SECTION 2: MANIFESTO ────────────────────────────────────── */
+
+    #manifesto {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(6rem,12vw,11rem) clamp(1.5rem,6vw,6rem);
+      overflow: hidden;
+    }
+
+    .manifesto-3d {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #manifesto-canvas {
+      opacity: 0.11;
+      width: 520px !important;
+      height: 520px !important;
+    }
+
+    .manifesto-content {
+      position: relative;
+      z-index: 1;
+      max-width: 880px;
+      text-align: center;
+    }
+
+    .manifesto-line {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 6.8vw, 6.75rem);
+      font-weight: 300;
+      line-height: 1.07;
+      letter-spacing: -0.02em;
+      overflow: hidden;
+      margin-bottom: 0.05em;
+    }
+
+    .manifesto-line-inner {
+      display: block;
+      transform: translateY(105%);
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+
+    .manifesto-line em {
+      font-style: italic;
+      color: var(--color-secondary);
+    }
+
+    /* ── SECTION 3: EXPERIENCES ──────────────────────────────────── */
+
+    #experiences {
+      padding: clamp(5rem,10vw,9rem) clamp(1.5rem,5vw,5rem);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: clamp(2.5rem,5vw,4.5rem);
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.25rem, 4.2vw, 3.75rem);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      line-height: 1.08;
+    }
+
+    .experiences-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px)  { .experiences-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1280px) { .experiences-grid { grid-template-columns: repeat(6, 1fr); } }
+
+    .exp-card {
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+
+    .exp-card-inner {
+      position: relative;
+      aspect-ratio: 4/5;
+      overflow: hidden;
+    }
+
+    .exp-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.85s var(--ease-out);
+    }
+
+    .exp-card:hover img { transform: scale(1.055); }
+
+    .exp-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 38%, rgba(13,20,16,0.88) 100%);
+      transition: background 0.55s ease;
+    }
+
+    .exp-card:hover .exp-card-overlay {
+      background: linear-gradient(180deg, rgba(44,74,62,0.18) 0%, rgba(13,20,16,0.92) 100%);
+    }
+
+    .exp-card-text {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.5rem 1.25rem;
+    }
+
+    .exp-category {
+      font-family: var(--font-sans);
+      font-size: 0.5625rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .exp-name {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--color-text);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .exp-desc {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .exp-card:hover .exp-desc { max-height: 64px; }
+
+    /* ── SECTION 4: THE PLACE ────────────────────────────────────── */
+
+    #the-place {
+      display: grid;
+      grid-template-columns: 1fr;
+      min-height: 80vh;
+    }
+
+    @media (min-width: 768px) { #the-place { grid-template-columns: 60fr 40fr; } }
+
+    .place-image-wrap {
+      position: relative;
+      overflow: hidden;
+      min-height: 52vh;
+    }
+
+    @media (min-width: 768px) { .place-image-wrap { min-height: auto; } }
+
+    #place-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform-origin: center center;
+      will-change: transform;
+    }
+
+    .place-data-overlay {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .data-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background: rgba(13,20,16,0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(184,154,110,0.28);
+      padding: 0.38rem 0.85rem;
+    }
+
+    .data-pill-label {
+      font-family: var(--font-sans);
+      font-size: 0.5rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+    }
+
+    .data-pill-value {
+      font-family: var(--font-serif);
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--color-text);
+    }
+
+    .place-content {
+      background: #0D150F;
+      padding: clamp(3rem,6vw,5.5rem) clamp(2rem,5vw,4.5rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .place-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem,3.8vw,3.25rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 2rem;
+    }
+
+    .place-body p {
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .place-body p:last-child { margin-bottom: 0; }
+
+    /* ── SECTION 5: TRANSFORMATION ───────────────────────────────── */
+
+    #transformation {
+      background: #080E0B;
+      padding: clamp(6rem,12vw,11rem) clamp(1.5rem,5vw,5rem);
+    }
+
+    .transform-intro {
+      font-family: var(--font-sans);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      margin-bottom: 4.5rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+
+    @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .stat-item {
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(184,154,110,0.18);
+    }
+
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: clamp(5.5rem, 10.5vw, 9.5rem);
+      font-weight: 300;
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .stat-counter { display: inline-block; }
+
+    .stat-unit {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      color: var(--color-secondary);
+    }
+
+    .stat-label {
+      font-family: var(--font-serif);
+      font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--color-text);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .stat-desc {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+    }
+
+    /* ── SECTION 6: ROOMS & SPACES ───────────────────────────────── */
+
+    #rooms {
+      padding: clamp(5rem,10vw,9rem) clamp(1.5rem,5vw,5rem);
+    }
+
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: clamp(2.5rem,5vw,4rem);
+    }
+
+    @media (min-width: 768px) { .rooms-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .room-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .room-item:first-child { grid-column: span 2; }
+
+    @media (min-width: 768px) {
+      .room-item:nth-child(4) { grid-column: span 2; }
+    }
+
+    .room-img-wrap {
+      aspect-ratio: 3/2;
+      overflow: hidden;
+    }
+
+    .room-item:first-child .room-img-wrap { aspect-ratio: 16/7; }
+
+    .room-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.95s var(--ease-out);
+    }
+
+    .room-item:hover .room-img-wrap img { transform: scale(1.04); }
+
+    .room-name {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--color-text-muted);
+      margin-top: 0.7rem;
+      display: block;
+    }
+
+    /* lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(8,14,11,0.97);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border: 1px solid rgba(184,154,110,0.12);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.75rem; right: 1.75rem;
+      background: none;
+      border: 1px solid rgba(244,237,227,0.22);
+      color: var(--color-text);
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s ease;
+    }
+
+    .lightbox-close:hover { border-color: var(--color-secondary); }
+
+    /* ── SECTION 7: WELLNESS RITUALS ─────────────────────────────── */
+
+    #wellness {
+      background: #080E0B;
+      padding: clamp(6rem,12vw,10rem) clamp(1.5rem,5vw,5rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wellness-bg-parallax {
+      position: absolute;
+      inset: -20%;
+      background-image: url('https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c025be27c5b40f2d7_Image%2061.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.045;
+      will-change: transform;
+    }
+
+    .wellness-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .wellness-header { margin-bottom: clamp(3rem,6vw,5rem); }
+
+    .wellness-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.75rem, 5.2vw, 4.75rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin-top: 0.6rem;
+    }
+
+    .rituals-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px)  { .rituals-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1280px) { .rituals-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .ritual-item {
+      padding: 2.5rem 2rem;
+      border-bottom: 1px solid rgba(184,154,110,0.1);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.5s ease;
+    }
+
+    @media (min-width: 768px) {
+      .ritual-item:nth-child(odd)  { border-right: 1px solid rgba(184,154,110,0.1); }
+    }
+
+    @media (min-width: 1280px) {
+      .ritual-item                 { border-right: 1px solid rgba(184,154,110,0.1); }
+      .ritual-item:nth-child(3n)   { border-right: none; }
+    }
+
+    .ritual-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(44,74,62,0.07);
+      opacity: 0;
+      transition: opacity 0.45s ease;
+    }
+
+    .ritual-item:hover::before { opacity: 1; }
+
+    .ritual-glyph {
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .ritual-name {
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      font-weight: 400;
+      color: var(--color-text);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .ritual-desc {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+    }
+
+    /* ── SECTION 8: EDITORIAL QUOTE ──────────────────────────────── */
+
+    #quote-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .quote-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .quote-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .quote-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(8,14,11,0.72);
+    }
+
+    .quote-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 880px;
+      padding: clamp(4rem,8vw,6rem) clamp(1.5rem,5vw,4rem);
+    }
+
+    .quote-mark {
+      font-family: var(--font-serif);
+      font-size: clamp(7rem,14vw,13rem);
+      font-weight: 300;
+      color: var(--color-secondary);
+      line-height: 0.45;
+      display: block;
+      margin-bottom: 1.2rem;
+      opacity: 0.55;
+    }
+
+    .quote-text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.85rem,3.6vw,3.4rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.22;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+      margin-bottom: 2rem;
+    }
+
+    .quote-source {
+      font-family: var(--font-sans);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      font-style: normal;
+    }
+
+    /* ── SECTION 9: BOOKING CTA ──────────────────────────────────── */
+
+    #booking {
+      position: relative;
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .booking-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .booking-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .booking-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(19,30,25,0.78) 0%, rgba(8,14,11,0.92) 100%);
+    }
+
+    .booking-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: clamp(4rem,8vw,6rem) clamp(1.5rem,5vw,4rem);
+      max-width: 680px;
+    }
+
+    .booking-urgency {
+      font-family: var(--font-sans);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .booking-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.75rem,5.5vw,5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+    }
+
+    .booking-subtitle {
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--color-text-muted);
+      max-width: 460px;
+      margin: 0 auto 2.75rem;
+    }
+
+    .booking-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    @media (min-width: 480px) {
+      .booking-actions { flex-direction: row; justify-content: center; }
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--color-secondary);
+      color: #0A1210;
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1.05rem 2.4rem;
+      border: 1px solid var(--color-secondary);
+      transition: background 0.5s var(--ease-out), color 0.5s var(--ease-out);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--color-secondary);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: transparent;
+      color: var(--color-accent);
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1.05rem 2.4rem;
+      border: 1px solid rgba(232,213,176,0.38);
+      transition: border-color 0.5s var(--ease-out), color 0.5s var(--ease-out);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--color-accent);
+      color: var(--color-text);
+    }
+
+    /* ── SECTION 10: FOOTER ──────────────────────────────────────── */
+
+    #footer {
+      background: #080E0B;
+      border-top: 1px solid rgba(184,154,110,0.14);
+      padding: clamp(4rem,8vw,6rem) clamp(1.5rem,5vw,5rem) clamp(2rem,4vw,3rem);
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .footer-inner {
+        grid-template-columns: 1fr auto 1fr;
+        align-items: start;
+      }
+    }
+
+    /* SWAP:LOGO */
+    .footer-logo img {
+      height: 60px;
+      width: auto;
+      filter: invert(1);
+      opacity: 0.8;
+    }
+
+    .footer-center { text-align: center; }
+
+    .footer-coords {
+      font-family: var(--font-serif);
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: var(--color-text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-location {
+      font-family: var(--font-sans);
+      font-size: 0.625rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+    }
+
+    .footer-right { text-align: right; }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-contact a {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-contact a:hover { color: var(--color-secondary); }
+
+    .footer-social {
+      font-family: var(--font-sans);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-social:hover { opacity: 0.7; }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 3rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(244,237,227,0.07);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-copy {
+      font-family: var(--font-sans);
+      font-size: 0.6875rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: rgba(244,237,227,0.28);
+    }
+
+    .footer-tagline {
+      font-family: var(--font-serif);
+      font-size: 0.875rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(244,237,227,0.28);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<!--
+==================================================================
+BRAND EXTRACTION REPORT
+==================================================================
+Hotel Name:          Bank House Hotel, Spa and Golf Club
+URL:                 https://www.bankhouseworcester.com
+Primary Color:       #2C4A3E  — Deep Malvern Green
+                     (Worcestershire countryside, ancient oak woodland)
+Secondary Color:     #B89A6E  — Harvest Gold
+                     (warm family hospitality, Worcestershire orchard tones)
+Accent Color:        #E8D5B0  — Parchment / Cream
+                     (soft luxury, aged linen, spa intimacy)
+Background Mood:     Dark / Warm / Nature-rooted
+Font Pairing:        Cormorant Garamond 300/400/600i + DM Sans 300/400/500
+Tone of Voice:       Warm, grounded, genuinely hospitable — family-run
+                     countryside luxury, specific rather than aspirational
+Landscape Archetype: Forest / Countryside
+                     (Worcestershire farmland, ancient oakwood, Malvern Hills
+                      backdrop, River Teme valley)
+Positioning:         A family-run countryside retreat with spa, golf and
+                     genuine warmth between the Malvern Hills and Worcester
+Key Experiences:     1. Malvern View Spa (Temple Spa, pool, thermal circuit)
+                     2. 18-hole Florida-style Golf Course
+                     3. Rooms & Suites (Standard to Penthouse)
+                     4. Contemporary Seasonal Dining
+                     5. Weddings & Events
+                     6. Business & Conference Facilities
+Coordinates:         52.1887°N · 2.2782°W
+Elevation:           ~42m ASL (Severn/Teme valley floor)
+Nearby:              Malvern Hills 425m · 6km SW · River Teme 0.4km E
+
+==================================================================
+ASSET MAPPING REPORT
+==================================================================
+Total assets in CSV:         19 forest-category images + 1 GLB (leaf)
+Assets successfully mapped:  19 images + 1 GLB = 20 assets
+Slots covered by CSV:
+  hero-poster, exp-1 through exp-6,
+  the-place, rooms-1 through rooms-6,
+  quote-bg, booking-bg, wellness-bg-parallax, 3d-object
+Slots falling back to Unsplash:
+  hero-video (NO ASSET IN CSV — top production priority)
+
+Logo SRC:
+  https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/
+  6a130920e1d9703da64139e8_Bank-House-logo-500.webp
+
+3D Object SRC (leaf / Forest archetype):
+  https://hotels3ds.s3.eu-north-1.amazonaws.com/
+  Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb
+
+Video assets in CSV: NONE
+
+Image assets used (forest category):
+  slot: hero-poster     → Image 62
+  slot: exp-spa         → Image 58
+  slot: exp-golf        → Image 59
+  slot: exp-dining      → Image 57
+  slot: exp-rooms       → Image 60
+  slot: exp-weddings    → Image 74
+  slot: exp-business    → Image 76
+  slot: the-place       → Image 75
+  slot: room-1 (hero)   → Image 71
+  slot: room-2          → Image 65
+  slot: room-3          → Image 73
+  slot: room-4 (span)   → Image 63
+  slot: room-5          → Image 66
+  slot: room-6          → Image 69
+  slot: quote-bg        → Image 64
+  slot: booking-bg      → Image 67
+  slot: wellness-parallax → Image 61
+==================================================================
+-->
+
+
+  <!-- ============================================================
+       SECTION 1 · FULLSCREEN HERO
+       ============================================================ -->
+  <!-- SWAP:VIDEO → cinematic Worcestershire countryside, dawn aerial | hero section | NO ASSET IN CSV -->
+  <!-- SWAP:LOGO -->
+
+  <section id="hero" aria-label="Hero — Bank House Hotel">
+
+    <video
+      id="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f5931b223dc54467b_Image%2062.png"
+    >
+      <!-- SWAP:VIDEO → Worcestershire countryside dawn aerial or spa gardens | hero section | NO ASSET IN CSV -->
+      <source src="" type="video/mp4">
+    </video>
+
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content">
+
+      <!-- SWAP:LOGO -->
+      <img
+        class="hero-logo"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a130920e1d9703da64139e8_Bank-House-logo-500.webp"
+        alt="Bank House Hotel, Spa and Golf Club"
+        width="320"
+        height="88"
+        loading="eager"
+        fetchpriority="high"
+      >
+
+      <!-- SWAP:COPY → hero tagline -->
+      <h1 class="hero-tagline" aria-label="Where the Malvern Hills meet still water">
+        <span class="word"><span class="word-inner">Where</span></span>&#8202;
+        <span class="word"><span class="word-inner">the</span></span>&#8202;
+        <span class="word"><span class="word-inner">Malvern</span></span>
+        <br aria-hidden="true">
+        <span class="word"><span class="word-inner">Hills</span></span>&#8202;
+        <span class="word"><span class="word-inner">meet</span></span>&#8202;
+        <span class="word"><span class="word-inner">still</span></span>&#8202;
+        <span class="word"><span class="word-inner">water</span></span>
+      </h1>
+
+      <p class="hero-sub">Bank House · Bransford · Worcestershire</p>
+
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>Discover</span>
+      <div class="scroll-line"></div>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 2 · MANIFESTO — "The Philosophy"
+       ============================================================ -->
+  <!-- SWAP:COPY → manifesto -->
+  <!-- SWAP:3D → oak leaf | Forest archetype -->
+
+  <section id="manifesto" aria-label="The Philosophy">
+
+    <div class="manifesto-3d" aria-hidden="true">
+      <!-- SWAP:3D → mature oak leaf | Forest archetype -->
+      <canvas id="manifesto-canvas"></canvas>
+    </div>
+
+    <div class="manifesto-content">
+      <span class="section-label">The Philosophy</span>
+
+      <p aria-label="Not a destination. A return. To ground, to warmth, to what already knows you.">
+        <span class="manifesto-line"><span class="manifesto-line-inner">Not a destination.</span></span>
+        <span class="manifesto-line"><span class="manifesto-line-inner"><em>A return.</em></span></span>
+        <span class="manifesto-line"><span class="manifesto-line-inner">To ground, to warmth,</span></span>
+        <span class="manifesto-line"><span class="manifesto-line-inner">to what already knows you.</span></span>
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 3 · SIGNATURE EXPERIENCES
+       ============================================================ -->
+  <!-- SWAP:IMG → experience cards 1–6 | ratio: 4:5 -->
+
+  <section id="experiences" aria-label="Signature Experiences">
+
+    <div class="section-header">
+      <span class="section-label">Signature Experiences</span>
+      <h2 class="section-title">Six ways<br>to stay</h2>
+    </div>
+
+    <div class="experiences-grid">
+
+      <!-- Card 1 · Spa -->
+      <article class="exp-card fade-up">
+        <div class="exp-card-inner">
+          <!-- SWAP:IMG → spa pool interior, warm light | ratio: 4:5 -->
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f66d293ddbe3e52da_Image%2058.png"
+            alt="Malvern View Spa at Bank House Hotel"
+            loading="lazy"
+            width="400" height="500"
+          >
+          <div class="exp-card-overlay" aria-hidden="true"></div>
+          <div class="exp-card-text">
+            <span class="exp-category">Spa</span>
+            <span class="exp-name">Still Waters</span>
+            <p class="exp-desc">Temple Spa treatments, hydrotherapy pool and panoramic views of the Malvern Hills.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 · Golf -->
+      <article class="exp-card fade-up">
+        <div class="exp-card-inner">
+          <!-- SWAP:IMG → golf course fairway at first light | ratio: 4:5 -->
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f02e16a74f59b019c_Image%2059.png"
+            alt="18-hole golf course at Bank House Hotel"
+            loading="lazy"
+            width="400" height="500"
+          >
+          <div class="exp-card-overlay" aria-hidden="true"></div>
+          <div class="exp-card-text">
+            <span class="exp-category">Golf</span>
+            <span class="exp-name">Open Ground</span>
+            <p class="exp-desc">Eighteen holes of Florida-style parkland golf set into Worcestershire meadow.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 · Dining -->
+      <article class="exp-card fade-up">
+        <div class="exp-card-inner">
+          <!-- SWAP:IMG → restaurant interior, candlelit evening | ratio: 4:5 -->
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fe534894fe01d574b_Image%2057.png"
+            alt="Contemporary dining at Bank House Hotel"
+            loading="lazy"
+            width="400" height="500"
+          >
+          <div class="exp-card-overlay" aria-hidden="true"></div>
+          <div class="exp-card-text">
+            <span class="exp-category">Dining</span>
+            <span class="exp-name">At the Table</span>
+            <p class="exp-desc">Seasonal menus drawn from the county — unhurried, generous, genuinely good.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4 · Rooms -->
+      <article class="exp-card fade-up">
+        <div class="exp-card-inner">
+          <!-- SWAP:IMG → bedroom suite with Worcestershire view | ratio: 4:5 -->
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fa912698fb567fc31_Image%2060.png"
+            alt="Rooms and Suites at Bank House Hotel"
+            loading="lazy"
+            width="400" height="500"
+          >
+          <div class="exp-card-overlay" aria-hidden="true"></div>
+          <div class="exp-card-text">
+            <span class="exp-category">Rooms</span>
+            <span class="exp-name">Held Space</span>
+            <p class="exp-desc">Rooms and suites that hold morning light and end the day in genuine quiet.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 5 · Weddings -->
+      <article class="exp-card fade-up">
+        <div class="exp-card-inner">
+          <!-- SWAP:IMG → wedding ceremony in landscaped gardens | ratio: 4:5 -->
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d01b3f8e72daf583f_Image%2074.png"
+            alt="Weddings at Bank House Hotel"
+            loading="lazy"
+            width="400" height="500"
+          >
+          <div class="exp-card-overlay" aria-hidden="true"></div>
+          <div class="exp-card-text">
+            <span class="exp-category">Weddings</span>
+            <span class="exp-name">First Days</span>
+            <p class="exp-desc">Landscaped grounds and a family team who remember every detail you trusted them with.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 6 · Business -->
+      <article class="exp-card fade-up">
+        <div class="exp-card-inner">
+          <!-- SWAP:IMG → conference or meeting room | ratio: 4:5 -->
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755dfd3f818cc9e63c84_Image%2076.png"
+            alt="Business and conference facilities at Bank House Hotel"
+            loading="lazy"
+            width="400" height="500"
+          >
+          <div class="exp-card-overlay" aria-hidden="true"></div>
+          <div class="exp-card-text">
+            <span class="exp-category">Business</span>
+            <span class="exp-name">Clear Focus</span>
+            <p class="exp-desc">Conference suites within reach of Birmingham, Bristol and Cardiff — calm and capable.</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 4 · THE PLACE
+       ============================================================ -->
+  <!-- SWAP:IMG → the place wide Worcestershire countryside | ratio: 3:2 -->
+  <!-- SWAP:COPY → the place -->
+
+  <section id="the-place" aria-label="The Place">
+
+    <div class="place-image-wrap">
+      <!-- SWAP:IMG → wide Worcestershire farmland, Malvern Hills horizon | ratio: 3:2 -->
+      <img
+        id="place-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d10aa143cd1856fdf_Image%2075.png"
+        alt="Worcestershire countryside near the Malvern Hills"
+        loading="lazy"
+        width="1200" height="800"
+      >
+
+      <div class="place-data-overlay" aria-label="Geographic data">
+        <div class="data-pill">
+          <span class="data-pill-label">Coordinates</span>
+          <span class="data-pill-value">52.1887°N · 2.2782°W</span>
+        </div>
+        <div class="data-pill">
+          <span class="data-pill-label">Elevation</span>
+          <span class="data-pill-value">~42m ASL</span>
+        </div>
+        <div class="data-pill">
+          <span class="data-pill-label">Malvern Hills</span>
+          <span class="data-pill-value">425m · 6km SW</span>
+        </div>
+        <div class="data-pill">
+          <span class="data-pill-label">River Teme</span>
+          <span class="data-pill-value">0.4km East</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="place-content">
+      <span class="section-label">The Place</span>
+      <!-- SWAP:COPY → the place -->
+      <h2 class="place-title fade-up">Bransford,<br>between hill and river</h2>
+
+      <div class="place-body">
+        <p class="fade-up">Set in the folds of Worcestershire farmland, the Bank House sits where the Malvern Hills break the horizon and the River Teme bends south toward the Wye. The land here has its own particular quality — dense, damp, ancient in the way that English countryside can be.</p>
+        <p class="fade-up">Six kilometres from Worcester's cathedral tower. Far enough from city rhythm to feel genuinely remote. The grounds give onto working orchards, a parkland golf course and the spa's sculpted gardens with their sightline to the hills.</p>
+        <p class="fade-up">Summer brings the smell of cut grass and warm stone. Winter brings mist along the valley floor and fires lit by early afternoon. Both are reasons enough.</p>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 5 · TRANSFORMATION PROMISE
+       ============================================================ -->
+  <!-- SWAP:COPY → transformation stats 1–3 -->
+
+  <section id="transformation" aria-label="The Measure of a Stay">
+
+    <p class="transform-intro">The measure of a stay</p>
+
+    <div class="stats-grid">
+
+      <div class="stat-item fade-up">
+        <!-- SWAP:COPY → transformation stats 1 -->
+        <span class="stat-number">
+          <span class="stat-counter" data-target="18">0</span><span class="stat-unit"> holes</span>
+        </span>
+        <span class="stat-label">of parkland golf</span>
+        <p class="stat-desc">A Florida-style course carved through Worcestershire meadow. Every round reads the landscape back to you in a different language.</p>
+      </div>
+
+      <div class="stat-item fade-up">
+        <!-- SWAP:COPY → transformation stats 2 -->
+        <span class="stat-number">
+          <span class="stat-counter" data-target="425">0</span><span class="stat-unit">m</span>
+        </span>
+        <span class="stat-label">Malvern Hills summit</span>
+        <p class="stat-desc">The Worcestershire Beacon watches over every spa session. Distance and altitude you can feel from the hot tub.</p>
+      </div>
+
+      <div class="stat-item fade-up">
+        <!-- SWAP:COPY → transformation stats 3 -->
+        <span class="stat-number">
+          <span class="stat-counter" data-target="60">0</span><span class="stat-unit"> min</span>
+        </span>
+        <span class="stat-label">from four cities</span>
+        <p class="stat-desc">Birmingham, Bristol, Cardiff, Oxford — all within reach. But once you check in, none of that matters anymore.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 6 · ROOMS & SPACES
+       ============================================================ -->
+  <!-- SWAP:IMG → room/interior 1–6 | ratio: 3:2 -->
+
+  <section id="rooms" aria-label="Rooms and Spaces">
+
+    <div class="section-header">
+      <span class="section-label">Rooms &amp; Spaces</span>
+      <h2 class="section-title">Where<br>sleep deepens</h2>
+    </div>
+
+    <div class="rooms-grid">
+
+      <!-- Room 1 — hero span (2 cols) -->
+      <div
+        class="room-item fade-in"
+        data-lightbox="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755cbd4aab14c251d668_Image%2071.png"
+        role="button"
+        tabindex="0"
+        aria-label="Open Superior Room image"
+      >
+        <div class="room-img-wrap">
+          <!-- SWAP:IMG → superior room wide angle, hills through window | ratio: 16:7 -->
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755cbd4aab14c251d668_Image%2071.png"
+            alt="Superior Room"
+            loading="lazy"
+            width="1200" height="525"
+          >
+        </div>
+        <span class="room-name">Superior Room</span>
+      </div>
+
+      <!-- Room 2 -->
+      <div
+        class="room-item fade-in"
+        data-lightbox="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2d6f969a6ed97235_Image%2065.png"
+        role="button"
+        tabindex="0"
+        aria-label="Open Deluxe Room image"
+      >
+        <div class="room-img-wrap">
+          <!-- SWAP:IMG → deluxe room interior, garden-facing | ratio: 3:2 -->
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2d6f969a6ed97235_Image%2065.png"
+            alt="Deluxe Room"
+            loading="lazy"
+            width="600" height="400"
+          >
+        </div>
+        <span class="room-name">Deluxe Room</span>
+      </div>
+
+      <!-- Room 3 -->
+      <div
+        class="room-item fade-in"
+        data-lightbox="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c0b1e8db27f6833b0_Image%2073.png"
+        role="button"
+        tabindex="0"
+        aria-label="Open Junior Suite image"
+      >
+        <div class="room-img-wrap">
+          <!-- SWAP:IMG → junior suite with sitting area | ratio: 3:2 -->
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c0b1e8db27f6833b0_Image%2073.png"
+            alt="Junior Suite"
+            loading="lazy"
+            width="600" height="400"
+          >
+        </div>
+        <span class="room-name">Junior Suite</span>
+      </div>
+
+      <!-- Room 4 — span 2 cols on tablet+ -->
+      <div
+        class="room-item fade-in"
+        data-lightbox="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c3fc86be474e72fa6_Image%2063.png"
+        role="button"
+        tabindex="0"
+        aria-label="Open Suite image"
+      >
+        <div class="room-img-wrap">
+          <!-- SWAP:IMG → suite interior, generous proportions | ratio: 3:2 -->
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c3fc86be474e72fa6_Image%2063.png"
+            alt="Suite"
+            loading="lazy"
+            width="800" height="533"
+          >
+        </div>
+        <span class="room-name">Suite</span>
+      </div>
+
+      <!-- Room 5 -->
+      <div
+        class="room-item fade-in"
+        data-lightbox="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755cbd621d9fe28acb20_Image%2066.png"
+        role="button"
+        tabindex="0"
+        aria-label="Open Penthouse image"
+      >
+        <div class="room-img-wrap">
+          <!-- SWAP:IMG → penthouse room with panoramic aspect | ratio: 3:2 -->
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755cbd621d9fe28acb20_Image%2066.png"
+            alt="Penthouse"
+            loading="lazy"
+            width="600" height="400"
+          >
+        </div>
+        <span class="room-name">Penthouse</span>
+      </div>
+
+      <!-- Room 6 -->
+      <div
+        class="room-item fade-in"
+        data-lightbox="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2795baeedff7f272_Image%2069.png"
+        role="button"
+        tabindex="0"
+        aria-label="Open Garden Room image"
+      >
+        <div class="room-img-wrap">
+          <!-- SWAP:IMG → garden-facing room, morning light | ratio: 3:2 -->
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2795baeedff7f272_Image%2069.png"
+            alt="Garden Room"
+            loading="lazy"
+            width="600" height="400"
+          >
+        </div>
+        <span class="room-name">Garden Room</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Lightbox overlay -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Room image viewer">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">&#10005;</button>
+    <img id="lightbox-img" src="" alt="" loading="lazy">
+  </div>
+
+
+  <!-- ============================================================
+       SECTION 7 · WELLNESS RITUALS
+       ============================================================ -->
+  <!-- SWAP:COPY → wellness rituals 1–6 -->
+
+  <section id="wellness" aria-label="Wellness Rituals — Malvern View Spa">
+
+    <div class="wellness-bg-parallax" aria-hidden="true"></div>
+
+    <div class="wellness-inner">
+
+      <div class="wellness-header">
+        <span class="section-label">Malvern View Spa</span>
+        <!-- SWAP:COPY → wellness heading -->
+        <h2 class="wellness-title fade-up">Six rituals.<br>One state of being.</h2>
+      </div>
+
+      <div class="rituals-grid">
+
+        <!-- SWAP:COPY → wellness ritual 1 -->
+        <div class="ritual-item fade-up">
+          <span class="ritual-glyph" aria-hidden="true">◈</span>
+          <span class="ritual-name">Temple Spa Treatment</span>
+          <p class="ritual-desc">Sixty minutes of Temple Spa craft — award-winning formulations delivered by unhurried hands in a room that holds the Malvern Hills in its window.</p>
+        </div>
+
+        <!-- SWAP:COPY → wellness ritual 2 -->
+        <div class="ritual-item fade-up">
+          <span class="ritual-glyph" aria-hidden="true">◎</span>
+          <span class="ritual-name">Thermal Circuit</span>
+          <p class="ritual-desc">Sauna, steam room, experience shower, jacuzzi — the body's own reset sequence. Take it in any order. Repeat as needed.</p>
+        </div>
+
+        <!-- SWAP:COPY → wellness ritual 3 -->
+        <div class="ritual-item fade-up">
+          <span class="ritual-glyph" aria-hidden="true">▽</span>
+          <span class="ritual-name">Pool &amp; Movement</span>
+          <p class="ritual-desc">A swimming pool set within landscaped spa gardens, the Malvern skyline visible on a clear morning through the glass.</p>
+        </div>
+
+        <!-- SWAP:COPY → wellness ritual 4 -->
+        <div class="ritual-item fade-up">
+          <span class="ritual-glyph" aria-hidden="true">⊕</span>
+          <span class="ritual-name">Cream Tea Recovery</span>
+          <p class="ritual-desc">Scones still warm. Clotted cream straight from the county. Restorative in the most honest way possible.</p>
+        </div>
+
+        <!-- SWAP:COPY → wellness ritual 5 -->
+        <div class="ritual-item fade-up">
+          <span class="ritual-glyph" aria-hidden="true">◬</span>
+          <span class="ritual-name">Countryside Walk</span>
+          <p class="ritual-desc">Footpaths from the hotel grounds through Worcestershire farmland — toward the Malvern ridge when you want the elevation.</p>
+        </div>
+
+        <!-- SWAP:COPY → wellness ritual 6 -->
+        <div class="ritual-item fade-up">
+          <span class="ritual-glyph" aria-hidden="true">◻</span>
+          <span class="ritual-name">Spa Membership</span>
+          <p class="ritual-desc">Full access extended beyond your stay. The hills don't change — only your relationship to the calm they carry.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 8 · EDITORIAL QUOTE
+       ============================================================ -->
+  <!-- SWAP:IMG → editorial quote background | ratio: 16:9 -->
+  <!-- SWAP:COPY → editorial quote -->
+
+  <section id="quote-section" aria-label="Guest Testimonial">
+
+    <div class="quote-bg">
+      <!-- SWAP:IMG → atmospheric misty Worcestershire hillside or spa exterior | ratio: 16:9 -->
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c20859ca462d94b77_Image%2064.png"
+        alt="Atmospheric Worcestershire landscape at dusk"
+        loading="lazy"
+        width="1920" height="1080"
+      >
+      <div class="quote-bg-overlay" aria-hidden="true"></div>
+    </div>
+
+    <div class="quote-content">
+      <!-- SWAP:COPY → editorial quote -->
+      <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+      <blockquote>
+        <p class="quote-text">The kind of place that makes you wonder why you don't do this more often.</p>
+        <footer>
+          <cite class="quote-source">TripAdvisor Travellers&rsquo; Choice &mdash; Guest Review, 2024</cite>
+        </footer>
+      </blockquote>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 9 · BOOKING CTA
+       ============================================================ -->
+  <!-- SWAP:COPY → booking CTA -->
+
+  <section id="booking" aria-label="Reserve Your Stay">
+
+    <div class="booking-bg">
+      <!-- SWAP:IMG → Bank House Hotel exterior in summer evening light | ratio: 16:9 -->
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c3291e180806a8ea8_Image%2067.png"
+        alt="Bank House Hotel at golden hour"
+        loading="lazy"
+        width="1920" height="1080"
+      >
+      <div class="booking-overlay" aria-hidden="true"></div>
+    </div>
+
+    <div class="booking-content fade-up">
+      <!-- SWAP:COPY → booking CTA urgency -->
+      <span class="booking-urgency">Limited availability &mdash; Summer 2026</span>
+      <!-- SWAP:COPY → booking CTA headline -->
+      <h2 class="booking-title">Come when<br>the hills are green</h2>
+      <!-- SWAP:COPY → booking CTA subtitle -->
+      <p class="booking-subtitle">Worcestershire in summer: long evenings, open fairways, warm stone. The spa is quietest midweek. The dining room fills on Friday.</p>
+      <div class="booking-actions">
+        <a
+          href="https://bankhouse.onejourney.travel/"
+          class="btn-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Reserve Your Stay</a>
+        <a
+          href="https://www.bankhouseworcester.com/malvern-view-spa"
+          class="btn-secondary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Explore the Spa</a>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 10 · FOOTER
+       ============================================================ -->
+  <!-- SWAP:LOGO -->
+
+  <footer id="footer" role="contentinfo">
+
+    <div class="footer-inner">
+
+      <div class="footer-logo">
+        <!-- SWAP:LOGO -->
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a130920e1d9703da64139e8_Bank-House-logo-500.webp"
+          alt="Bank House Hotel, Spa and Golf Club"
+          width="200" height="60"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="footer-center">
+        <p class="footer-coords">52.1887&deg;N &middot; 2.2782&deg;W</p>
+        <p class="footer-location">Bransford, Worcester &middot; WR6&nbsp;5JD</p>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-contact">
+          <a href="mailto:reception@bankhouseworcester.com">reception@bankhouseworcester.com</a>
+          <a href="tel:+441886833551">+44&nbsp;1886&nbsp;833&nbsp;551</a>
+        </div>
+        <a
+          class="footer-social"
+          href="https://www.instagram.com/bankhouseworcester/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >@bankhouseworcester</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; Bank House Hotel, Spa &amp; Golf Club. All rights reserved.</p>
+      <p class="footer-tagline">Where the hills hold their breath.</p>
+    </div>
+
+  </footer>
+
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script>
+  (function () {
+    'use strict';
+
+    // ============================================================
+    // THREE.JS — OAK LEAF 3D OBJECT
+    // SWAP:3D → mature oak leaf | Forest archetype
+    // SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/
+    //      Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb
+    // Canvas: 280×280px, transparent, auto-rotate Y at 0.002 rad/frame
+    // Pause on hover, resume on mouse leave.
+    // Light rig: warm key + cool fill + warm rim
+    // ============================================================
+
+    function initThreeJS() {
+      if (typeof THREE === 'undefined') return;
+      var canvas = document.getElementById('manifesto-canvas');
+      if (!canvas) return;
+
+      var W = 280, H = 280;
+      var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(W, H);
+      if (renderer.outputEncoding !== undefined) renderer.outputEncoding = THREE.sRGBEncoding;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.25;
+
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+      camera.position.set(0, 0, 3.8);
+
+      // Warm key light
+      var keyLight = new THREE.DirectionalLight(0xF5E4C0, 2.8);
+      keyLight.position.set(2.5, 3.5, 2.5);
+      scene.add(keyLight);
+
+      // Cool fill light
+      var fillLight = new THREE.DirectionalLight(0xC0CEF5, 1.0);
+      fillLight.position.set(-2.5, 0.5, -1.5);
+      scene.add(fillLight);
+
+      // Warm rim light
+      var rimLight = new THREE.DirectionalLight(0xE8D5B0, 0.7);
+      rimLight.position.set(0, -2.5, -3);
+      scene.add(rimLight);
+
+      var ambient = new THREE.AmbientLight(0x7AA87A, 0.55);
+      scene.add(ambient);
+
+      var leafModel = null;
+      var isHovered = false;
+      var rotY = 0;
+
+      // Load GLTFLoader from CDN
+      var loaderScript = document.createElement('script');
+      loaderScript.src = 'https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js';
+      loaderScript.onload = function () {
+        if (!THREE.GLTFLoader) return;
+        var loader = new THREE.GLTFLoader();
+        loader.load(
+          'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb',
+          function (gltf) {
+            leafModel = gltf.scene;
+            var box = new THREE.Box3().setFromObject(leafModel);
+            var center = box.getCenter(new THREE.Vector3());
+            var size   = box.getSize(new THREE.Vector3());
+            var maxDim = Math.max(size.x, size.y, size.z);
+            var s = 2.2 / maxDim;
+            leafModel.scale.setScalar(s);
+            leafModel.position.sub(center.multiplyScalar(s));
+            scene.add(leafModel);
+          },
+          undefined,
+          function () { canvas.style.display = 'none'; }
+        );
+      };
+      document.head.appendChild(loaderScript);
+
+      canvas.addEventListener('mouseenter', function () { isHovered = true;  });
+      canvas.addEventListener('mouseleave', function () { isHovered = false; });
+
+      function animate() {
+        requestAnimationFrame(animate);
+        if (leafModel && !isHovered) {
+          rotY += 0.002;
+          leafModel.rotation.y = rotY;
+        }
+        renderer.render(scene, camera);
+      }
+      animate();
+    }
+
+    initThreeJS();
+
+
+    // ============================================================
+    // GSAP — SCROLL-DRIVEN ANIMATIONS
+    // ============================================================
+
+    function initGSAP() {
+      if (typeof gsap === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero logo fade
+      gsap.to('.hero-logo', {
+        opacity: 1,
+        duration: 1.2,
+        delay: 0.4,
+        ease: 'power2.out'
+      });
+
+      // Hero tagline word reveal
+      gsap.to('.hero-tagline .word-inner', {
+        translateY: '0%',
+        duration: 1.15,
+        stagger: 0.07,
+        delay: 0.7,
+        ease: 'power4.out'
+      });
+
+      // Hero sub + scroll indicator
+      gsap.to(['.hero-sub', '.scroll-indicator'], {
+        opacity: 1,
+        duration: 1.0,
+        delay: 1.65,
+        ease: 'power2.out'
+      });
+
+      // Manifesto lines
+      gsap.utils.toArray('.manifesto-line-inner').forEach(function (el, i) {
+        gsap.to(el, {
+          translateY: '0%',
+          opacity: 1,
+          duration: 1.1,
+          delay: i * 0.14,
+          ease: 'power4.out',
+          scrollTrigger: {
+            trigger: '#manifesto',
+            start: 'top 75%',
+            once: true
+          }
+        });
+      });
+
+      // Generic fade-up
+      gsap.utils.toArray('.fade-up').forEach(function (el) {
+        gsap.fromTo(el,
+          { opacity: 0, y: 38 },
+          {
+            opacity: 1, y: 0,
+            duration: 0.95,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 86%',
+              once: true
+            }
+          }
+        );
+      });
+
+      // Generic fade-in
+      gsap.utils.toArray('.fade-in').forEach(function (el) {
+        gsap.fromTo(el,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 0.9,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 86%',
+              once: true
+            }
+          }
+        );
+      });
+
+      // The Place — image parallax
+      gsap.to('#place-img', {
+        y: '-9%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#the-place',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+
+      // Transformation — counter animation
+      gsap.utils.toArray('.stat-counter').forEach(function (el) {
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 82%',
+          once: true,
+          onEnter: function () {
+            gsap.fromTo(el,
+              { innerText: 0 },
+              {
+                innerText: target,
+                duration: 2.2,
+                ease: 'power2.out',
+                snap: { innerText: 1 },
+                onUpdate: function () {
+                  el.textContent = Math.round(parseFloat(el.textContent));
+                }
+              }
+            );
+          }
+        });
+      });
+
+      // Wellness background parallax
+      gsap.to('.wellness-bg-parallax', {
+        y: '18%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#wellness',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+
+    }
+
+    initGSAP();
+
+
+    // ============================================================
+    // LIGHTBOX
+    // ============================================================
+
+    function initLightbox() {
+      var lb      = document.getElementById('lightbox');
+      var lbImg   = document.getElementById('lightbox-img');
+      var lbClose = document.getElementById('lightbox-close');
+      if (!lb || !lbImg || !lbClose) return;
+
+      function openLB(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lb.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        lbClose.focus();
+      }
+
+      function closeLB() {
+        lb.classList.remove('active');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+      }
+
+      document.querySelectorAll('[data-lightbox]').forEach(function (item) {
+        function trigger() {
+          var src = item.getAttribute('data-lightbox');
+          var img = item.querySelector('img');
+          openLB(src, img ? img.getAttribute('alt') : '');
+        }
+        item.addEventListener('click', trigger);
+        item.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); trigger(); }
+        });
+      });
+
+      lbClose.addEventListener('click', closeLB);
+      lb.addEventListener('click', function (e) { if (e.target === lb) closeLB(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLB(); });
+    }
+
+    initLightbox();
+
+  }());
+  </script>
+
+<!--
+==================================================================
+CUSTOMIZATION GUIDE — SWAP MARKER CHECKLIST
+==================================================================
+
+Review every item below before client delivery.
+Items marked [NO ASSET IN CSV] require production follow-up.
+
+LOGOS
+──────────────────────────────────────────────────────────────────
+ 1. [ ] SWAP:LOGO — Hero header (line ~205)
+        Current SRC: Bank House logo .webp from Webflow CDN
+        Recommended: Request SVG for full CSS color control.
+
+ 2. [ ] SWAP:LOGO — Footer (line ~448)
+        Same SRC. Same recommendation.
+
+VIDEO
+──────────────────────────────────────────────────────────────────
+ 3. [!] SWAP:VIDEO → hero background | hero section | NO ASSET IN CSV
+        HIGHEST PRIORITY PRODUCTION ASSET.
+        The poster image (forest Image 62) is shown as full-bleed
+        static fallback. Page renders correctly without the video.
+        Ideal spec: 1920×1080, H.264 MP4, dawn aerial of hotel grounds
+        or Worcestershire countryside, under 15MB, no audio needed.
+
+3D OBJECT
+──────────────────────────────────────────────────────────────────
+ 4. [ ] SWAP:3D → mature oak leaf | Forest archetype
+        SRC: hotels3ds.s3.eu-north-1.amazonaws.com/ … oak leaf GLB
+        Placed in manifesto section, 11% opacity background.
+        Confirm GLB renders at acceptable quality.
+
+EXPERIENCE CARDS (ratio: 4:5 each)
+──────────────────────────────────────────────────────────────────
+ 5. [ ] SWAP:IMG → spa experience card | ratio: 4:5
+        Current: forest Image 58 (CSV)
+
+ 6. [ ] SWAP:IMG → golf experience card | ratio: 4:5
+        Current: forest Image 59 (CSV)
+
+ 7. [ ] SWAP:IMG → dining experience card | ratio: 4:5
+        Current: forest Image 57 (CSV)
+
+ 8. [ ] SWAP:IMG → rooms experience card | ratio: 4:5
+        Current: forest Image 60 (CSV)
+
+ 9. [ ] SWAP:IMG → weddings experience card | ratio: 4:5
+        Current: forest Image 74 (CSV)
+
+10. [ ] SWAP:IMG → business experience card | ratio: 4:5
+        Current: forest Image 76 (CSV)
+
+THE PLACE (ratio: 3:2)
+──────────────────────────────────────────────────────────────────
+11. [ ] SWAP:IMG → wide Worcestershire/Malvern landscape | ratio: 3:2
+        Current: forest Image 75 (CSV)
+
+12. [ ] SWAP:COPY → the place
+        Three paragraphs written from geographic extraction.
+        Review and adjust with client brand voice input.
+
+MANIFESTO
+──────────────────────────────────────────────────────────────────
+13. [ ] SWAP:COPY → manifesto
+        Lines: "Not a destination. A return.
+                To ground, to warmth, to what already knows you."
+        Review tone alignment with client.
+
+TRANSFORMATION STATS
+──────────────────────────────────────────────────────────────────
+14. [ ] SWAP:COPY → transformation stats 1: 18 holes
+15. [ ] SWAP:COPY → transformation stats 2: 425m Malvern Hills
+16. [ ] SWAP:COPY → transformation stats 3: 60 min from four cities
+        Verify all figures and descriptors with client.
+
+ROOMS (ratio: 3:2 each)
+──────────────────────────────────────────────────────────────────
+17. [ ] SWAP:IMG → room-1 superior room wide | ratio: 16:7
+        Current: forest Image 71 (CSV)
+
+18. [ ] SWAP:IMG → room-2 deluxe room | ratio: 3:2
+        Current: forest Image 65 (CSV)
+
+19. [ ] SWAP:IMG → room-3 junior suite | ratio: 3:2
+        Current: forest Image 73 (CSV)
+
+20. [ ] SWAP:IMG → room-4 suite | ratio: 3:2
+        Current: forest Image 63 (CSV)
+
+21. [ ] SWAP:IMG → room-5 penthouse | ratio: 3:2
+        Current: forest Image 66 (CSV)
+
+22. [ ] SWAP:IMG → room-6 garden room | ratio: 3:2
+        Current: forest Image 69 (CSV)
+
+NOTE: All room images should ideally be replaced with actual
+Bank House photography for client delivery.
+
+WELLNESS RITUALS
+──────────────────────────────────────────────────────────────────
+23. [ ] SWAP:COPY → wellness rituals 1–6
+        All ritual names/descriptions extracted from spa page.
+        Review alignment with Temple Spa brand language guidelines.
+
+EDITORIAL QUOTE
+──────────────────────────────────────────────────────────────────
+24. [ ] SWAP:IMG → quote background atmospheric | ratio: 16:9
+        Current: forest Image 64 (CSV)
+
+25. [ ] SWAP:COPY → editorial quote
+        Placeholder TripAdvisor quote used.
+        Replace with real guest/press quote before client delivery.
+
+BOOKING CTA
+──────────────────────────────────────────────────────────────────
+26. [ ] SWAP:IMG → booking CTA background | ratio: 16:9
+        Current: forest Image 67 (CSV)
+
+27. [ ] SWAP:COPY → booking CTA
+        Headline, subtitle, urgency signal — confirm with client.
+        Booking URL: bankhouse.onejourney.travel — confirm still live.
+
+COLOR
+──────────────────────────────────────────────────────────────────
+28. [ ] SWAP:COLOR — All custom properties at top of <style>
+        --color-primary:   #2C4A3E  (Deep Malvern Green)
+        --color-secondary: #B89A6E  (Harvest Gold)
+        --color-accent:    #E8D5B0  (Parchment Cream)
+        --color-bg:        #131E19  (Near-black forest depth)
+        --color-text:      #F4EDE3  (Warm ivory)
+        Adjust after client brand review if needed.
+
+==================================================================
+PRODUCTION PRIORITY SUMMARY
+==================================================================
+[CRITICAL]  Item 3  — Hero video (NO ASSET IN CSV)
+[IMPORTANT] Items 5–10 — Replace CSV forest images with actual
+            Bank House photography for all experience cards.
+[IMPORTANT] Items 17–22 — Replace CSV forest images with actual
+            Bank House room photography.
+[REVIEW]    Items 12,13,23,25,27 — All copy blocks need
+            client sign-off before delivery.
+==================================================================
+-->
+
+</body>
+</html>

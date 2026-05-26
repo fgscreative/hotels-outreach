@@ -1,0 +1,2338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bali Luxury Villas™ — The Island of the Gods. Privately Yours.</title>
+
+<!--
+═══════════════════════════════════════════════════════════════════
+BRAND EXTRACTION REPORT
+═══════════════════════════════════════════════════════════════════
+
+Hotel Name:         Bali Luxury Villas™
+URL:                https://www.baliluxuryvillas.com/
+Primary Color:      #1B3728  (deep Balinese jungle green — rice terrace / forest floor)
+Secondary Color:    #C2703C  (terracotta / volcanic sunset)
+Accent Color:       #D4A84B  (ceremonial gold / padi blossom / Balinese offering)
+Background Mood:    Dark warm — volcanic earth, jungle night, soft candlelight
+Font Pairing:       Cormorant Garamond (serif editorial — organic, literary, Kinfolk energy)
+                    + Jost (grotesque sans — precise, modern, editorial support)
+Tone of Voice:      Poetic, intimate, culturally specific — sanctuary language
+                    grounded in Balinese ecology and sensory detail
+Landscape Archetype: Coastal / Tropical (Indian Ocean shoreline + terraced inland jungle)
+Positioning:        Tailor-made luxury villa holidays in Bali, curated with care since 1999.
+                    Co-founded by the visionary behind Nihiwatu Resort.
+Key Experiences:    1. Private luxury villas (Canggu, Seminyak, Ubud, Jimbaran, Uluwatu)
+                    2. In-villa personal chef & private dining
+                    3. Surf access & Indian Ocean coastline
+                    4. Rice terrace & jungle immersion (Ubud highlands)
+                    5. Balinese cultural ceremonies & temple visits
+                    6. Spa, Jamu tonics & traditional wellness rituals
+Coordinates+Elev:  8.4090° S, 115.1889° E
+                    Elevation range: sea level (Canggu, Seminyak) to ~400m ASL (Ubud)
+                    Indian Ocean facing. Volcanic island. Tropical monsoon climate.
+
+═══════════════════════════════════════════════════════════════════
+ASSET MAPPING REPORT
+═══════════════════════════════════════════════════════════════════
+
+Total assets in CSV:        49 (3 GLB + 26 coastal images + 19 forest images + 1 logo)
+Assets successfully mapped: 17
+Slots covered by CSV:       hero-poster, experience-1 through experience-6,
+                            the-place, room-1 through room-6,
+                            quote-bg, cta-bg, wellness-bg, 3d-coral
+Slots falling back to Unsplash: NONE — all slots covered by CSV assets
+
+Logo SRC:     https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a1309211d9ac9bc9d8b99a3_logo_small.png
+3D Object:    https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb
+              (coral branch — matched to Coastal/Tropical archetype)
+
+Video assets: NONE IN CSV — all video slots marked SWAP:VIDEO, image posters render in their place
+
+Image assets used:
+  hero-poster:      Image 56 (coastal) — poster fallback for hero video
+  experience-1:     Image 12 (coastal)
+  experience-2:     Image 42 (coastal)
+  experience-3:     Image  3 (coastal)
+  experience-4:     Image 10 (coastal)
+  experience-5:     Image 62 (forest/tropical)
+  experience-6:     Image 58 (forest/tropical)
+  the-place:        Image 57 (forest/tropical — rice terrace landscape)
+  room-1:           Image  2 (coastal)
+  room-2:           Image 55 (coastal)
+  room-3:           Image 54 (coastal)
+  room-4:           Image 53 (coastal)
+  room-5:           Image 52 (coastal)
+  room-6:           Image 50 (coastal)
+  quote-bg:         Image 44 (coastal — atmospheric)
+  cta-bg:           Image 47 (coastal — dusk)
+  wellness-bg:      Image 59 (forest/tropical — jungle depth)
+-->
+
+<!-- Google Fonts — Cormorant Garamond + Jost -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- Three.js r128 (global build) + GLTFLoader -->
+<script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
+<script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+<style>
+/*
+═══════════════════════════════════════════════════════════════════
+CSS CUSTOM PROPERTIES — BRAND SYSTEM
+SWAP:COLOR — replace hex values below to retheme entirely
+═══════════════════════════════════════════════════════════════════
+*/
+:root {
+  --color-primary:    #1B3728;              /* Deep Balinese jungle green        */
+  --color-secondary:  #C2703C;              /* Volcanic terracotta / sunset       */
+  --color-accent:     #D4A84B;              /* Ceremonial gold / padi blossom     */
+  --color-bg:         #0C1110;              /* Near-black — forest floor night    */
+  --color-bg-mid:     #131A16;              /* Slightly lifted dark surface       */
+  --color-surface:    #1A2420;              /* Card / panel background            */
+  --color-text:       #EDE8DF;              /* Warm ivory                         */
+  --color-text-muted: #8A8278;              /* Warm gray — secondary text         */
+  --color-border:     rgba(237,232,223,0.1);/* Subtle ivory border                */
+  --color-overlay:    rgba(27,55,40,0.42);  /* Primary at 42% opacity             */
+
+  /* TYPOGRAPHY */
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans:  'Jost', system-ui, -apple-system, sans-serif;
+
+  /* SPACING */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  2rem;
+  --space-lg:  4rem;
+  --space-xl:  7rem;
+  --space-xxl: 12rem;
+
+  /* EASING */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --transition:  0.6s var(--ease-out);
+}
+
+/* ── RESET ─────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans); font-weight: 300; font-size: 16px; overflow-x: hidden; }
+img  { display: block; max-width: 100%; height: auto; }
+button { cursor: pointer; border: none; background: none; font: inherit; }
+a  { color: inherit; text-decoration: none; }
+
+/* ── SCROLLBAR ─────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-primary); border-radius: 2px; }
+
+/*
+══════════════════════════════════════════════════════
+SECTION 1 — HERO
+══════════════════════════════════════════════════════
+*/
+.blv-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.blv-hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.blv-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, var(--color-bg) 0%, rgba(12,17,16,0.3) 45%, transparent 70%),
+    var(--color-overlay);
+  z-index: 1;
+}
+.blv-hero__header {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5rem 3.5rem;
+  z-index: 10;
+}
+.blv-hero__logo img {
+  height: 34px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+.blv-hero__nav {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+.blv-hero__nav a {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  opacity: 0.72;
+  transition: opacity var(--transition);
+}
+.blv-hero__nav a:hover { opacity: 1; }
+.blv-hero__nav-cta {
+  padding: 0.55rem 1.5rem;
+  border: 1px solid rgba(237,232,223,0.35);
+  border-radius: 100px;
+  opacity: 1 !important;
+  transition: background var(--transition), border-color var(--transition) !important;
+}
+.blv-hero__nav-cta:hover {
+  background: var(--color-secondary) !important;
+  border-color: var(--color-secondary) !important;
+  opacity: 1 !important;
+}
+.blv-hero__content {
+  position: relative;
+  z-index: 5;
+  padding: 0 3.5rem 6rem;
+  max-width: 920px;
+}
+.blv-hero__eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+}
+.blv-hero__title {
+  font-family: var(--font-serif);
+  font-size: clamp(3.5rem, 8.5vw, 8rem);
+  font-weight: 300;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.75rem;
+}
+.blv-hero__title .word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.blv-hero__title .word span {
+  display: inline-block;
+  transform: translateY(110%);
+}
+.blv-hero__sub {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+  line-height: 1.75;
+  max-width: 460px;
+  opacity: 0;
+}
+.blv-hero__scroll {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  opacity: 0;
+}
+.blv-hero__scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--color-accent), transparent);
+  transform-origin: top;
+  animation: scrollPulse 2.6s var(--ease-in-out) infinite;
+}
+.blv-hero__scroll-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+@keyframes scrollPulse {
+  0%   { transform: scaleY(0); opacity: 0; }
+  40%  { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+
+/*
+══════════════════════════════════════════════════════
+SECTION 2 — MANIFESTO
+══════════════════════════════════════════════════════
+*/
+.blv-manifesto {
+  position: relative;
+  padding: var(--space-xxl) 3.5rem;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+.blv-manifesto__3d-wrap {
+  position: absolute;
+  right: 6%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 280px;
+  height: 280px;
+  opacity: 0.15;
+  pointer-events: auto;
+  z-index: 1;
+}
+.blv-manifesto__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 840px;
+}
+.blv-manifesto__eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 2.5rem;
+  opacity: 0;
+}
+.blv-manifesto__line {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  font-weight: 300;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  display: block;
+  overflow: hidden;
+  margin-bottom: 0.1em;
+}
+.blv-manifesto__line .inner {
+  display: block;
+  transform: translateY(110%);
+}
+.blv-manifesto__line.accent-line { font-style: italic; color: var(--color-accent); }
+.blv-manifesto__body {
+  margin-top: 3rem;
+  max-width: 500px;
+  font-size: 0.98rem;
+  line-height: 1.85;
+  color: var(--color-text-muted);
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/*
+══════════════════════════════════════════════════════
+SECTION 3 — SIGNATURE EXPERIENCES
+══════════════════════════════════════════════════════
+*/
+.blv-experiences {
+  padding: var(--space-xl) 0;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+.blv-experiences__header {
+  padding: 0 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+}
+.blv-experiences__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+}
+.blv-experiences__count {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding-bottom: 0.35rem;
+}
+.blv-experiences__scroll {
+  display: flex;
+  gap: 1.25rem;
+  padding: 0 3.5rem 1.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+}
+.blv-experiences__scroll::-webkit-scrollbar { display: none; }
+.blv-experiences__scroll:active { cursor: grabbing; }
+.blv-exp-card {
+  flex: 0 0 300px;
+  aspect-ratio: 4 / 5;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  opacity: 0;
+  transform: translateY(40px);
+}
+.blv-exp-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--ease-out);
+}
+.blv-exp-card:hover .blv-exp-card__img { transform: scale(1.055); }
+.blv-exp-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(12,17,16,0.92) 0%, rgba(12,17,16,0.1) 55%, transparent 100%);
+  transition: background 0.55s var(--ease-out);
+}
+.blv-exp-card:hover .blv-exp-card__overlay {
+  background: linear-gradient(to top, rgba(27,55,40,0.88) 0%, rgba(27,55,40,0.2) 55%, transparent 100%);
+}
+.blv-exp-card__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 1.75rem;
+}
+.blv-exp-card__tag {
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+.blv-exp-card__name {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  font-weight: 300;
+  line-height: 1.12;
+  margin-bottom: 0.5rem;
+}
+.blv-exp-card__desc {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  max-width: 240px;
+  transform: translateY(8px);
+  opacity: 0;
+  transition: transform 0.5s var(--ease-out), opacity 0.5s var(--ease-out);
+}
+.blv-exp-card:hover .blv-exp-card__desc { transform: translateY(0); opacity: 1; }
+
+/*
+══════════════════════════════════════════════════════
+SECTION 4 — THE PLACE
+══════════════════════════════════════════════════════
+*/
+.blv-place { background: var(--color-bg); }
+.blv-place__inner {
+  display: grid;
+  grid-template-columns: 60fr 40fr;
+  min-height: 80vh;
+  align-items: stretch;
+}
+.blv-place__image-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.blv-place__image {
+  width: 100%;
+  height: 100%;
+  min-height: 62vw;
+  object-fit: cover;
+  transform: scale(1.08);
+  will-change: transform;
+}
+.blv-place__data-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem;
+}
+.blv-place__data-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem 2rem;
+  background: rgba(12,17,16,0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  padding: 1.5rem 1.75rem;
+  max-width: 380px;
+}
+.blv-place__data-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 0.2rem;
+}
+.blv-place__data-value {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text);
+}
+.blv-place__copy {
+  padding: 5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--color-bg-mid);
+}
+.blv-place__eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(16px);
+}
+.blv-place__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.18;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+.blv-place__heading .place-line {
+  display: block;
+  transform: translateY(110%);
+}
+.blv-place__paragraphs { display: flex; flex-direction: column; gap: 1.25rem; }
+.blv-place__p {
+  font-size: 0.94rem;
+  line-height: 1.85;
+  color: var(--color-text-muted);
+  opacity: 0;
+  transform: translateY(20px);
+}
+.blv-place__coords {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  opacity: 0;
+  transform: translateY(16px);
+  line-height: 1.9;
+}
+
+/*
+══════════════════════════════════════════════════════
+SECTION 5 — TRANSFORMATION PROMISE
+══════════════════════════════════════════════════════
+*/
+.blv-transform {
+  background: var(--color-surface);
+  padding: var(--space-xxl) 3.5rem;
+  overflow: hidden;
+}
+.blv-transform__top { margin-bottom: 5rem; }
+.blv-transform__eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(16px);
+}
+.blv-transform__intro {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3.5vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.28;
+  max-width: 640px;
+  opacity: 0;
+  transform: translateY(24px);
+}
+.blv-transform__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.blv-stat {
+  padding: 4rem 3rem;
+  border: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: background 0.5s var(--ease-out);
+}
+.blv-stat::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(27,55,40,0.18) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.55s var(--ease-out);
+}
+.blv-stat:hover::before { opacity: 1; }
+.blv-stat__number {
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 7vw, 7.5rem);
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1;
+  margin-bottom: 0.25em;
+}
+.blv-stat__number .suffix {
+  font-size: 0.5em;
+  color: var(--color-accent);
+  vertical-align: super;
+  line-height: 0;
+}
+.blv-stat__label {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+.blv-stat__desc {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  max-width: 280px;
+}
+
+/*
+══════════════════════════════════════════════════════
+SECTION 6 — ROOMS & SPACES
+══════════════════════════════════════════════════════
+*/
+.blv-rooms {
+  padding: var(--space-xl) 3.5rem;
+  background: var(--color-bg);
+}
+.blv-rooms__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+}
+.blv-rooms__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+}
+.blv-rooms__note {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding-bottom: 0.25rem;
+}
+.blv-rooms__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0.875rem;
+}
+.blv-room {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 2px;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.blv-room:nth-child(1) { grid-column: span 7; }
+.blv-room:nth-child(2) { grid-column: span 5; }
+.blv-room:nth-child(3) { grid-column: span 4; }
+.blv-room:nth-child(4) { grid-column: span 4; }
+.blv-room:nth-child(5) { grid-column: span 4; }
+.blv-room:nth-child(6) { grid-column: span 12; max-height: 340px; }
+.blv-room__img {
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-out);
+  display: block;
+}
+.blv-room:nth-child(6) .blv-room__img { min-height: 260px; }
+.blv-room:hover .blv-room__img { transform: scale(1.042); }
+.blv-room__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(12,17,16,0.82) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.45s var(--ease-out);
+}
+.blv-room:hover .blv-room__overlay { opacity: 1; }
+.blv-room__label {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 300;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.45s var(--ease-out), transform 0.45s var(--ease-out);
+}
+.blv-room:hover .blv-room__label { opacity: 1; transform: translateY(0); }
+
+/*
+══════════════════════════════════════════════════════
+SECTION 7 — WELLNESS RITUALS
+══════════════════════════════════════════════════════
+*/
+.blv-wellness {
+  position: relative;
+  padding: var(--space-xxl) 3.5rem;
+  background: var(--color-bg-mid);
+  overflow: hidden;
+}
+.blv-wellness__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.07;
+  filter: saturate(0.4);
+  pointer-events: none;
+}
+.blv-wellness__float {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,168,75,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  animation: floatOrb 9s ease-in-out infinite alternate;
+}
+.blv-wellness__float:nth-child(2) { width: 400px; height: 400px; top: 5%; right: 3%; }
+.blv-wellness__float:nth-child(3) { width: 240px; height: 240px; bottom: 12%; left: 4%; animation-delay: -4.5s; }
+@keyframes floatOrb {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(18px, -28px) scale(1.08); }
+}
+.blv-wellness__inner { position: relative; z-index: 2; }
+.blv-wellness__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 5rem;
+  gap: 3rem;
+}
+.blv-wellness__eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(16px);
+}
+.blv-wellness__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  overflow: hidden;
+}
+.blv-wellness__title .w-line {
+  display: block;
+  transform: translateY(110%);
+}
+.blv-wellness__sub {
+  max-width: 360px;
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  padding-top: 0.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  flex-shrink: 0;
+}
+.blv-wellness__rituals {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--color-border);
+}
+.blv-ritual {
+  padding: 3rem 2.5rem;
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: background 0.5s var(--ease-out);
+}
+.blv-ritual:hover { background: rgba(27,55,40,0.25); }
+.blv-ritual:nth-child(3n)   { border-right: none; }
+.blv-ritual:nth-last-child(-n+3) { border-bottom: none; }
+.blv-ritual__glyph {
+  font-size: 1.6rem;
+  margin-bottom: 1.25rem;
+  color: var(--color-accent);
+  filter: drop-shadow(0 0 8px rgba(212,168,75,0.25));
+}
+.blv-ritual__name {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+.blv-ritual__line {
+  font-size: 0.84rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+/*
+══════════════════════════════════════════════════════
+SECTION 8 — EDITORIAL QUOTE
+══════════════════════════════════════════════════════
+*/
+.blv-quote {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.blv-quote__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.blv-quote__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8,12,10,0.7);
+  z-index: 1;
+}
+.blv-quote__inner {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  padding: 6rem 3.5rem;
+  max-width: 940px;
+}
+.blv-quote__mark {
+  font-family: var(--font-serif);
+  font-size: 9rem;
+  line-height: 0.55;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: scale(0.82);
+}
+.blv-quote__text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 4.5vw, 3.8rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+}
+.blv-quote__text .q-line {
+  display: block;
+  transform: translateY(110%);
+}
+.blv-quote__source {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  opacity: 0;
+  transform: translateY(12px);
+}
+.blv-quote__source span { color: var(--color-accent); }
+
+/*
+══════════════════════════════════════════════════════
+SECTION 9 — BOOKING CTA
+══════════════════════════════════════════════════════
+*/
+.blv-booking {
+  position: relative;
+  padding: var(--space-xxl) 3.5rem;
+  overflow: hidden;
+  text-align: center;
+}
+.blv-booking__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(0.35) saturate(0.8);
+}
+.blv-booking__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--color-bg) 0%,
+    rgba(12,17,16,0.55) 30%,
+    rgba(12,17,16,0.55) 70%,
+    var(--color-bg) 100%
+  );
+  z-index: 1;
+}
+.blv-booking__inner {
+  position: relative;
+  z-index: 5;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.blv-booking__tag {
+  display: inline-block;
+  font-size: 0.64rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  border: 1px solid rgba(212,168,75,0.4);
+  padding: 0.45rem 1.1rem;
+  border-radius: 100px;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(16px);
+}
+.blv-booking__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.08;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+.blv-booking__title .b-line {
+  display: block;
+  transform: translateY(110%);
+}
+.blv-booking__sub {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  max-width: 480px;
+  margin: 0 auto 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.blv-booking__actions {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.blv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  transition: all 0.5s var(--ease-out);
+  cursor: pointer;
+}
+.blv-btn--primary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+  border: 1px solid var(--color-secondary);
+}
+.blv-btn--primary:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(212,168,75,0.22);
+}
+.blv-btn--outline {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+.blv-btn--outline:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateY(-2px);
+}
+.blv-booking__urgency {
+  margin-top: 2.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  opacity: 0;
+  transform: translateY(12px);
+}
+.blv-booking__urgency em { color: var(--color-accent); font-style: normal; }
+
+/*
+══════════════════════════════════════════════════════
+SECTION 10 — FOOTER
+══════════════════════════════════════════════════════
+*/
+.blv-footer {
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  padding: 5.5rem 3.5rem 3rem;
+}
+.blv-footer__top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  align-items: start;
+}
+.blv-footer__logo img {
+  height: 30px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.65;
+  margin-bottom: 1.25rem;
+}
+.blv-footer__tagline {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+.blv-footer__col-title {
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.25rem;
+}
+.blv-footer__coords {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 2;
+}
+.blv-footer__coords span { display: block; font-size: 0.78rem; letter-spacing: 0.06em; }
+.blv-footer__contact a {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 2;
+  transition: color 0.3s;
+}
+.blv-footer__contact a:hover { color: var(--color-accent); }
+.blv-footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+.blv-footer__copy {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+.blv-footer__links { display: flex; gap: 2rem; }
+.blv-footer__links a {
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  transition: color 0.3s;
+}
+.blv-footer__links a:hover { color: var(--color-accent); }
+
+/*
+══════════════════════════════════════════════════════
+LIGHTBOX
+══════════════════════════════════════════════════════
+*/
+.blv-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(8,12,10,0.96);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-out);
+}
+.blv-lightbox.is-open { opacity: 1; pointer-events: all; }
+.blv-lightbox__img {
+  max-width: 90vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 2px;
+  transform: scale(0.91);
+  transition: transform 0.5s var(--ease-out);
+}
+.blv-lightbox.is-open .blv-lightbox__img { transform: scale(1); }
+.blv-lightbox__close {
+  position: absolute;
+  top: 1.75rem;
+  right: 2.25rem;
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  transition: color 0.3s, border-color 0.3s;
+}
+.blv-lightbox__close:hover { color: var(--color-accent); border-color: var(--color-accent); }
+
+/*
+══════════════════════════════════════════════════════
+RESPONSIVE
+══════════════════════════════════════════════════════
+*/
+@media (max-width: 1280px) {
+  .blv-place__copy { padding: 4rem 3rem; }
+  .blv-stat { padding: 3.5rem 2.5rem; }
+}
+@media (max-width: 1024px) {
+  .blv-room:nth-child(1),
+  .blv-room:nth-child(2) { grid-column: span 6; }
+  .blv-room:nth-child(3),
+  .blv-room:nth-child(4),
+  .blv-room:nth-child(5) { grid-column: span 4; }
+  .blv-transform__stats { grid-template-columns: 1fr; gap: 2px; }
+  .blv-wellness__rituals { grid-template-columns: repeat(2, 1fr); }
+  .blv-ritual:nth-child(3n)   { border-right: 1px solid var(--color-border); }
+  .blv-ritual:nth-child(2n)   { border-right: none; }
+  .blv-ritual:nth-last-child(-n+3) { border-bottom: 1px solid var(--color-border); }
+  .blv-ritual:nth-last-child(-n+2) { border-bottom: none; }
+}
+@media (max-width: 768px) {
+  .blv-hero__header { padding: 1.75rem 1.5rem; }
+  .blv-hero__nav    { display: none; }
+  .blv-hero__content { padding: 0 1.5rem 4rem; }
+  .blv-manifesto { padding: 6rem 1.5rem; }
+  .blv-manifesto__3d-wrap { display: none; }
+  .blv-experiences__header { padding: 0 1.5rem; }
+  .blv-experiences__scroll  { padding: 0 1.5rem 1.5rem; }
+  .blv-exp-card { flex: 0 0 72vw; }
+  .blv-place__inner { grid-template-columns: 1fr; }
+  .blv-place__image { min-height: 60vh; }
+  .blv-place__copy { padding: 3.5rem 1.5rem; }
+  .blv-transform { padding: 5rem 1.5rem; }
+  .blv-rooms  { padding: 5rem 1.5rem; }
+  .blv-rooms__grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .blv-room:nth-child(n) { grid-column: span 1 !important; max-height: none !important; }
+  .blv-room:nth-child(1) { grid-column: span 2 !important; }
+  .blv-wellness { padding: 5rem 1.5rem; }
+  .blv-wellness__header { flex-direction: column; gap: 1.5rem; margin-bottom: 3.5rem; }
+  .blv-booking  { padding: 5rem 1.5rem; }
+  .blv-footer   { padding: 4rem 1.5rem 2.5rem; }
+  .blv-footer__top    { grid-template-columns: 1fr; gap: 2.5rem; }
+  .blv-footer__bottom { flex-direction: column; gap: 1rem; text-align: center; }
+}
+@media (max-width: 480px) {
+  .blv-wellness__rituals { grid-template-columns: 1fr; }
+  .blv-ritual:nth-child(n)  { border-right: none; border-bottom: 1px solid var(--color-border); }
+  .blv-ritual:last-child    { border-bottom: none; }
+  .blv-booking__actions { flex-direction: column; align-items: center; }
+}
+@media (min-width: 1920px) {
+  body { font-size: 18px; }
+  .blv-experiences__header { padding: 0 5vw; }
+  .blv-experiences__scroll  { padding: 0 5vw 1.5rem; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 1 — FULLSCREEN HERO
+     SWAP:LOGO
+     SWAP:VIDEO → hero background aerial Bali coastal villa | hero section
+═══════════════════════════════════════════════════════ -->
+<section class="blv-hero" id="home">
+
+  <!-- SWAP:VIDEO → aerial Bali coastal villa drone shot | hero section -->
+  <!-- NO VIDEO ASSET IN CSV — add <source src="[url]" type="video/mp4"> below to activate -->
+  <video class="blv-hero__video"
+         autoplay muted loop playsinline
+         poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png">
+    <!-- SWAP:VIDEO → hero aerial 30-60s H.264 MP4 | hero section -->
+  </video>
+
+  <!-- SWAP:IMG → hero poster fallback, Bali coastal villa | ratio: 16:9 -->
+  <!-- Poster above (Image 56, coastal) renders as fullscreen bg until video loads -->
+
+  <div class="blv-hero__overlay"></div>
+
+  <header class="blv-hero__header">
+    <!-- SWAP:LOGO -->
+    <div class="blv-hero__logo">
+      <a href="https://www.baliluxuryvillas.com/" target="_blank" rel="noopener noreferrer">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a1309211d9ac9bc9d8b99a3_logo_small.png"
+          alt="Bali Luxury Villas™"
+          width="160"
+          height="34"
+          loading="eager"
+        >
+      </a>
+    </div>
+
+    <nav class="blv-hero__nav" aria-label="Primary navigation">
+      <a href="#experiences">Experiences</a>
+      <a href="#place">The Place</a>
+      <a href="#villas">Villas</a>
+      <a href="#wellness">Wellness</a>
+      <a href="#booking" class="blv-hero__nav-cta">Reserve</a>
+    </nav>
+  </header>
+
+  <div class="blv-hero__content">
+    <!-- SWAP:COPY → hero eyebrow line -->
+    <p class="blv-hero__eyebrow" aria-label="Location coordinates">8.4090° S · 115.1889° E · Island of the Gods</p>
+
+    <!-- SWAP:COPY → hero tagline -->
+    <h1 class="blv-hero__title" id="hero-title" aria-label="Bali, as it was meant to be.">
+      <span class="word"><span>Bali,</span></span>&#32;<span class="word"><span>as it</span></span><br>
+      <span class="word"><span>was meant</span></span>&#32;<span class="word"><span>to be.</span></span>
+    </h1>
+
+    <!-- SWAP:COPY → hero sub-headline -->
+    <p class="blv-hero__sub">
+      Private villas across Bali's most coveted landscapes — curated by hand since 1999.
+    </p>
+  </div>
+
+  <div class="blv-hero__scroll" aria-hidden="true">
+    <div class="blv-hero__scroll-line"></div>
+    <span class="blv-hero__scroll-label">Scroll</span>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 2 — MANIFESTO
+     SWAP:COPY → manifesto
+     SWAP:3D → coral branch | Coastal/Tropical
+═══════════════════════════════════════════════════════ -->
+<section class="blv-manifesto" id="manifesto">
+
+  <!-- SWAP:3D → coral branch 3D object | Coastal/Tropical archetype -->
+  <!-- GLB: hotels3ds.s3.eu-north-1.amazonaws.com/...coral.glb | 280×280px, 15% opacity -->
+  <div class="blv-manifesto__3d-wrap" id="manifesto-3d" aria-hidden="true"></div>
+
+  <div class="blv-manifesto__inner">
+    <p class="blv-manifesto__eyebrow">The Philosophy</p>
+
+    <!-- SWAP:COPY → manifesto lines -->
+    <span class="blv-manifesto__line"><span class="inner">The Indian Ocean breathes</span></span>
+    <span class="blv-manifesto__line"><span class="inner">through every villa here.</span></span>
+    <span class="blv-manifesto__line accent-line"><span class="inner">You arrive as a guest.</span></span>
+    <span class="blv-manifesto__line"><span class="inner">You leave changed.</span></span>
+
+    <!-- SWAP:COPY → manifesto body paragraph -->
+    <p class="blv-manifesto__body">
+      Since 1999, we have selected each villa for what it holds: the angle of light
+      at 6am, the sound of the gamelan drifting from three fields over, the weight
+      of night-blooming jasmine in the garden. This is Bali with intention — not distance.
+    </p>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 3 — SIGNATURE EXPERIENCES
+     SWAP:IMG → experience cards 1–6 | ratio: 4:5
+═══════════════════════════════════════════════════════ -->
+<section class="blv-experiences" id="experiences">
+
+  <div class="blv-experiences__header">
+    <!-- SWAP:COPY → experiences section heading -->
+    <h2 class="blv-experiences__title">Signature<br>Experiences</h2>
+    <span class="blv-experiences__count">06 Offerings</span>
+  </div>
+
+  <div class="blv-experiences__scroll" id="exp-scroll" role="list">
+
+    <!-- SWAP:IMG → experience 1, private villa coastal pool | ratio: 4:5 -->
+    <article class="blv-exp-card" role="listitem">
+      <img class="blv-exp-card__img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f1fe2d8b2f06d2529_Image%2012.png"
+        alt="Private villa infinity pool, Bali">
+      <div class="blv-exp-card__overlay"></div>
+      <div class="blv-exp-card__content">
+        <!-- SWAP:COPY → experience 1 copy -->
+        <p class="blv-exp-card__tag">01 · Villas</p>
+        <h3 class="blv-exp-card__name">Private<br>Villas</h3>
+        <p class="blv-exp-card__desc">Handpicked estates where every morning begins with your pool and nothing else.</p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → experience 2, Bali infinity pool coastal | ratio: 4:5 -->
+    <article class="blv-exp-card" role="listitem">
+      <img class="blv-exp-card__img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fdef24e731275c24a_Image%2042.png"
+        alt="Bali coastal infinity pool at sunset">
+      <div class="blv-exp-card__overlay"></div>
+      <div class="blv-exp-card__content">
+        <!-- SWAP:COPY → experience 2 copy -->
+        <p class="blv-exp-card__tag">02 · Water</p>
+        <h3 class="blv-exp-card__name">Infinity<br>Pools</h3>
+        <p class="blv-exp-card__desc">Water meeting horizon — the Indian Ocean at your terrace edge, morning to dusk.</p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → experience 3, Bali surf beach Canggu coastline | ratio: 4:5 -->
+    <article class="blv-exp-card" role="listitem">
+      <img class="blv-exp-card__img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f679754764ba8477c_Image%203.png"
+        alt="Canggu surf beach, Bali coastline">
+      <div class="blv-exp-card__overlay"></div>
+      <div class="blv-exp-card__content">
+        <!-- SWAP:COPY → experience 3 copy -->
+        <p class="blv-exp-card__tag">03 · Ocean</p>
+        <h3 class="blv-exp-card__name">Surf &<br>Sea</h3>
+        <p class="blv-exp-card__desc">From Canggu's barrel breaks to Jimbaran's glassy bays — the ocean on your terms.</p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → experience 4, in-villa private chef dining | ratio: 4:5 -->
+    <article class="blv-exp-card" role="listitem">
+      <img class="blv-exp-card__img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fc699fe80d5a792a6_Image%2010.png"
+        alt="In-villa private chef, Bali dining experience">
+      <div class="blv-exp-card__overlay"></div>
+      <div class="blv-exp-card__content">
+        <!-- SWAP:COPY → experience 4 copy -->
+        <p class="blv-exp-card__tag">04 · Culinary</p>
+        <h3 class="blv-exp-card__name">In-Villa<br>Chef</h3>
+        <p class="blv-exp-card__desc">Balinese and international cuisine prepared in your kitchen, for your table only.</p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → experience 5, Ubud rice terrace jungle valley | ratio: 4:5 -->
+    <article class="blv-exp-card" role="listitem">
+      <img class="blv-exp-card__img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f5931b223dc54467b_Image%2062.png"
+        alt="Ubud rice terrace jungle valley, Bali highlands">
+      <div class="blv-exp-card__overlay"></div>
+      <div class="blv-exp-card__content">
+        <!-- SWAP:COPY → experience 5 copy -->
+        <p class="blv-exp-card__tag">05 · Nature</p>
+        <h3 class="blv-exp-card__name">Rice &<br>Jungle</h3>
+        <p class="blv-exp-card__desc">Ubud's terraced valleys at dawn — volcanic earth, tiered green, deep silence.</p>
+      </div>
+    </article>
+
+    <!-- SWAP:IMG → experience 6, Balinese temple ceremony cultural | ratio: 4:5 -->
+    <article class="blv-exp-card" role="listitem">
+      <img class="blv-exp-card__img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f66d293ddbe3e52da_Image%2058.png"
+        alt="Balinese temple ceremony, cultural immersion">
+      <div class="blv-exp-card__overlay"></div>
+      <div class="blv-exp-card__content">
+        <!-- SWAP:COPY → experience 6 copy -->
+        <p class="blv-exp-card__tag">06 · Culture</p>
+        <h3 class="blv-exp-card__name">Sacred<br>Bali</h3>
+        <p class="blv-exp-card__desc">Ceremonies, temples, gamelan — the spiritual island your concierge will reveal.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 4 — THE PLACE
+     SWAP:IMG → the place, rice terrace forest landscape | ratio: 3:2
+     SWAP:COPY → the place
+═══════════════════════════════════════════════════════ -->
+<section class="blv-place" id="place">
+  <div class="blv-place__inner">
+
+    <div class="blv-place__image-wrap">
+      <!-- SWAP:IMG → the place, Bali rice terrace landscape, Ubud | ratio: 3:2 -->
+      <img class="blv-place__image" id="place-img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fe534894fe01d574b_Image%2057.png"
+        alt="Bali rice terrace landscape at golden hour, Ubud highlands">
+
+      <div class="blv-place__data-overlay">
+        <div class="blv-place__data-grid" aria-label="Geographic location data">
+          <div>
+            <p class="blv-place__data-label">Coordinates</p>
+            <p class="blv-place__data-value">8.4090° S, 115.1889° E</p>
+          </div>
+          <div>
+            <p class="blv-place__data-label">Elevation Range</p>
+            <p class="blv-place__data-value">SL → 400m ASL</p>
+          </div>
+          <div>
+            <p class="blv-place__data-label">Ecosystem</p>
+            <p class="blv-place__data-value">Tropical Monsoon</p>
+          </div>
+          <div>
+            <p class="blv-place__data-label">Ocean</p>
+            <p class="blv-place__data-value">Indian Ocean</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="blv-place__copy">
+      <!-- SWAP:COPY → the place heading + paragraphs -->
+      <p class="blv-place__eyebrow">The Place</p>
+
+      <h2 class="blv-place__heading">
+        <span class="place-line">An island that</span>
+        <span class="place-line">rewires the senses.</span>
+      </h2>
+
+      <div class="blv-place__paragraphs">
+        <p class="blv-place__p">
+          Bali holds more in a single square kilometre than most destinations deliver
+          in a week. Volcanic soil this fertile turns rice gold in three months. The sea
+          runs warm at 28°C year-round, breaking clean on black sand at Canggu and
+          white limestone at Uluwatu.
+        </p>
+        <p class="blv-place__p">
+          Inland, the terraced valleys of Ubud — carved over centuries above the Ayung
+          River — carry a quality of silence the coast cannot. Mornings begin with
+          offering smoke rising from temple gates. Afternoons belong to the jungle.
+        </p>
+        <p class="blv-place__p">
+          We have selected villas across eight distinct Bali landscapes. Each one
+          positioned for what the island does best at that address, at that hour.
+        </p>
+      </div>
+
+      <p class="blv-place__coords">
+        Canggu · Seminyak · Ubud · Jimbaran<br>
+        Uluwatu · Sanur · Nusa Dua · Pemuteran
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 5 — TRANSFORMATION PROMISE
+     SWAP:COPY → transformation stats 1–3
+═══════════════════════════════════════════════════════ -->
+<section class="blv-transform" id="transform">
+
+  <div class="blv-transform__top">
+    <p class="blv-transform__eyebrow">By the Numbers</p>
+    <!-- SWAP:COPY → transformation intro -->
+    <p class="blv-transform__intro">
+      Twenty-five years of choosing villas the way you would choose them —
+      for the view from the bed, not the spec sheet.
+    </p>
+  </div>
+
+  <div class="blv-transform__stats">
+
+    <!-- SWAP:COPY → transformation stat 1 -->
+    <div class="blv-stat">
+      <div class="blv-stat__number">
+        <span class="counter" data-target="25">0</span><span class="suffix">+</span>
+      </div>
+      <p class="blv-stat__label">Years Curating Bali</p>
+      <p class="blv-stat__desc">
+        Since 1999. Co-founded by the visionary behind Nihiwatu —
+        Bali's most celebrated private resort.
+      </p>
+    </div>
+
+    <!-- SWAP:COPY → transformation stat 2 -->
+    <div class="blv-stat">
+      <div class="blv-stat__number">
+        <span class="counter" data-target="50">0</span><span class="suffix">+</span>
+      </div>
+      <p class="blv-stat__label">Private Villas</p>
+      <p class="blv-stat__desc">
+        Each managed with direct oversight. Your villa is known to us
+        by its kitchen, its garden, its particular morning light.
+      </p>
+    </div>
+
+    <!-- SWAP:COPY → transformation stat 3 -->
+    <div class="blv-stat">
+      <div class="blv-stat__number">
+        <span class="counter" data-target="8">0</span>
+      </div>
+      <p class="blv-stat__label">Distinct Landscapes</p>
+      <p class="blv-stat__desc">
+        From surf-break Canggu to sacred Ubud to the limestone cliffs
+        of Uluwatu — eight Balis, each genuinely different.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 6 — ROOMS & SPACES
+     SWAP:IMG → room/interior 1–6 | ratio: 3:2
+═══════════════════════════════════════════════════════ -->
+<section class="blv-rooms" id="villas">
+
+  <div class="blv-rooms__header">
+    <h2 class="blv-rooms__title">Rooms &<br>Spaces</h2>
+    <span class="blv-rooms__note">Tap to expand</span>
+  </div>
+
+  <div class="blv-rooms__grid" id="rooms-grid">
+
+    <!-- SWAP:IMG → room 1, villa master suite interior | ratio: 3:2 -->
+    <div class="blv-room" role="button" tabindex="0"
+         data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e1edb921f35a63175_Image%202.png"
+         aria-label="Open villa master suite image">
+      <img class="blv-room__img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e1edb921f35a63175_Image%202.png"
+        alt="Villa master suite interior, Bali">
+      <div class="blv-room__overlay"></div>
+      <!-- SWAP:COPY → room 1 label -->
+      <span class="blv-room__label">Master Suite</span>
+    </div>
+
+    <!-- SWAP:IMG → room 2, villa pool terrace at sunset | ratio: 3:2 -->
+    <div class="blv-room" role="button" tabindex="0"
+         data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png"
+         aria-label="Open pool terrace image">
+      <img class="blv-room__img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png"
+        alt="Villa pool terrace at golden hour">
+      <div class="blv-room__overlay"></div>
+      <!-- SWAP:COPY → room 2 label -->
+      <span class="blv-room__label">Pool Terrace</span>
+    </div>
+
+    <!-- SWAP:IMG → room 3, villa garden tropical view | ratio: 3:2 -->
+    <div class="blv-room" role="button" tabindex="0"
+         data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755a0854ea3cadb267cd_Image%2054.png"
+         aria-label="Open garden view image">
+      <img class="blv-room__img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755a0854ea3cadb267cd_Image%2054.png"
+        alt="Villa tropical garden view">
+      <div class="blv-room__overlay"></div>
+      <!-- SWAP:COPY → room 3 label -->
+      <span class="blv-room__label">Garden View</span>
+    </div>
+
+    <!-- SWAP:IMG → room 4, villa open living pavilion | ratio: 3:2 -->
+    <div class="blv-room" role="button" tabindex="0"
+         data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755108515add56c26e14_Image%2053.png"
+         aria-label="Open living pavilion image">
+      <img class="blv-room__img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755108515add56c26e14_Image%2053.png"
+        alt="Villa open-air living pavilion">
+      <div class="blv-room__overlay"></div>
+      <!-- SWAP:COPY → room 4 label -->
+      <span class="blv-room__label">Open Pavilion</span>
+    </div>
+
+    <!-- SWAP:IMG → room 5, villa outdoor private dining | ratio: 3:2 -->
+    <div class="blv-room" role="button" tabindex="0"
+         data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551d402271fd28d57c9_Image%2052.png"
+         aria-label="Open private dining image">
+      <img class="blv-room__img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551d402271fd28d57c9_Image%2052.png"
+        alt="Outdoor private villa dining setting">
+      <div class="blv-room__overlay"></div>
+      <!-- SWAP:COPY → room 5 label -->
+      <span class="blv-room__label">Private Dining</span>
+    </div>
+
+    <!-- SWAP:IMG → room 6, villa aerial grounds wide shot | ratio: 3:2 -->
+    <div class="blv-room" role="button" tabindex="0"
+         data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551a79a50ab947db776_Image%2050.png"
+         aria-label="Open villa grounds image">
+      <img class="blv-room__img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551a79a50ab947db776_Image%2050.png"
+        alt="Villa grounds aerial, private gardens">
+      <div class="blv-room__overlay"></div>
+      <!-- SWAP:COPY → room 6 label -->
+      <span class="blv-room__label">The Grounds</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 7 — WELLNESS RITUALS
+     SWAP:COPY → wellness rituals 1–6
+═══════════════════════════════════════════════════════ -->
+<section class="blv-wellness" id="wellness">
+
+  <!-- depth orbs -->
+  <div class="blv-wellness__float" aria-hidden="true"></div>
+  <div class="blv-wellness__float" aria-hidden="true"></div>
+
+  <!-- SWAP:IMG → wellness background, Bali jungle depth | ratio: 16:9 -->
+  <img class="blv-wellness__bg" loading="lazy" aria-hidden="true"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f02e16a74f59b019c_Image%2059.png"
+    alt="">
+
+  <div class="blv-wellness__inner">
+
+    <div class="blv-wellness__header">
+      <div>
+        <p class="blv-wellness__eyebrow">Balinese Wellness</p>
+        <!-- SWAP:COPY → wellness heading -->
+        <h2 class="blv-wellness__title">
+          <span class="w-line">Ancient rituals.</span>
+          <span class="w-line">Modern spaces.</span>
+        </h2>
+      </div>
+      <!-- SWAP:COPY → wellness intro paragraph -->
+      <p class="blv-wellness__sub">
+        Bali has practiced the science of restoration for centuries.
+        We bring those traditions into your villa — not into a hotel corridor.
+      </p>
+    </div>
+
+    <div class="blv-wellness__rituals">
+
+      <!-- SWAP:COPY → wellness ritual 1 -->
+      <div class="blv-ritual">
+        <div class="blv-ritual__glyph" aria-hidden="true">◈</div>
+        <h3 class="blv-ritual__name">Balinese Massage</h3>
+        <p class="blv-ritual__line">Long strokes, deep pressure, frangipani oil — the full body reset you came for.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 2 -->
+      <div class="blv-ritual">
+        <div class="blv-ritual__glyph" aria-hidden="true">◇</div>
+        <h3 class="blv-ritual__name">Jamu Ceremony</h3>
+        <p class="blv-ritual__line">Turmeric, ginger, tamarind — traditional herbal tonics prepared at your table each morning.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 3 -->
+      <div class="blv-ritual">
+        <div class="blv-ritual__glyph" aria-hidden="true">◉</div>
+        <h3 class="blv-ritual__name">Lulur Body Ritual</h3>
+        <p class="blv-ritual__line">Volcanic sand exfoliation and jasmine milk soak — a Javanese royal court tradition.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 4 -->
+      <div class="blv-ritual">
+        <div class="blv-ritual__glyph" aria-hidden="true">○</div>
+        <h3 class="blv-ritual__name">Tirta Cleansing</h3>
+        <p class="blv-ritual__line">Holy water purification at a temple spring — guided by our Balinese cultural team.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 5 -->
+      <div class="blv-ritual">
+        <div class="blv-ritual__glyph" aria-hidden="true">◐</div>
+        <h3 class="blv-ritual__name">Morning Yoga</h3>
+        <p class="blv-ritual__line">Private practice with an Ubud-trained teacher — rice fields below, open sky above.</p>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 6 -->
+      <div class="blv-ritual">
+        <div class="blv-ritual__glyph" aria-hidden="true">◑</div>
+        <h3 class="blv-ritual__name">Melukat Ritual</h3>
+        <p class="blv-ritual__line">Ceremonial spiritual cleansing — offered to guests with deep cultural respect and care.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 8 — EDITORIAL QUOTE
+     SWAP:IMG → editorial quote background | ratio: 16:9
+     SWAP:COPY → editorial quote
+═══════════════════════════════════════════════════════ -->
+<section class="blv-quote" id="quote">
+
+  <!-- SWAP:IMG → editorial quote background, coastal Bali atmospheric | ratio: 16:9 -->
+  <img class="blv-quote__bg" loading="lazy" aria-hidden="true"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755102e16a74f59b0111_Image%2044.png"
+    alt="">
+
+  <div class="blv-quote__overlay"></div>
+
+  <div class="blv-quote__inner">
+    <!-- SWAP:COPY → editorial quote -->
+    <span class="blv-quote__mark" aria-hidden="true">&ldquo;</span>
+
+    <blockquote class="blv-quote__text">
+      <span class="q-line">There is a particular quality of</span>
+      <span class="q-line">stillness only Bali offers — the feeling</span>
+      <span class="q-line">that the island is breathing with you.</span>
+    </blockquote>
+
+    <!-- SWAP:COPY → quote attribution -->
+    <p class="blv-quote__source">
+      — <span>Petra Graves</span>, Founder · Bali Luxury Villas™ &amp; Nihiwatu Resort
+    </p>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 9 — BOOKING CTA
+     SWAP:COPY → booking CTA
+═══════════════════════════════════════════════════════ -->
+<section class="blv-booking" id="booking">
+
+  <!-- SWAP:IMG → booking CTA background, Bali villa coastal dusk | ratio: 16:9 -->
+  <img class="blv-booking__bg" loading="lazy" aria-hidden="true"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7550dd1faa5194cb19f6_Image%2047.png"
+    alt="">
+
+  <div class="blv-booking__overlay"></div>
+
+  <div class="blv-booking__inner">
+    <!-- SWAP:COPY → booking urgency tag -->
+    <span class="blv-booking__tag">Limited Availability — Dry Season 2026</span>
+
+    <!-- SWAP:COPY → booking title -->
+    <h2 class="blv-booking__title">
+      <span class="b-line">Reserve your</span>
+      <span class="b-line">private Bali.</span>
+    </h2>
+
+    <!-- SWAP:COPY → booking sub-headline -->
+    <p class="blv-booking__sub">
+      Tell us the dates, the number of guests, and what you want the week to feel like.
+      We will find — or find you — the right villa.
+    </p>
+
+    <div class="blv-booking__actions">
+      <a href="https://www.baliluxuryvillas.com/en/browsebetter"
+         class="blv-btn blv-btn--primary"
+         target="_blank" rel="noopener noreferrer">
+        Reserve Your Stay
+      </a>
+      <a href="mailto:info@baliluxuryvillas.com?subject=Experience%20Guide%20Request"
+         class="blv-btn blv-btn--outline">
+        Download the Experience Guide
+      </a>
+    </div>
+
+    <!-- SWAP:COPY → booking urgency footer line -->
+    <p class="blv-booking__urgency">
+      Peak season villas fill by <em>April</em> — enquire early for July–September availability
+    </p>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 10 — FOOTER
+     SWAP:LOGO
+═══════════════════════════════════════════════════════ -->
+<footer class="blv-footer">
+
+  <div class="blv-footer__top">
+
+    <div>
+      <!-- SWAP:LOGO -->
+      <div class="blv-footer__logo">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a1309211d9ac9bc9d8b99a3_logo_small.png"
+          alt="Bali Luxury Villas™"
+          width="140"
+          height="30"
+          loading="lazy"
+        >
+      </div>
+      <!-- SWAP:COPY → footer tagline -->
+      <p class="blv-footer__tagline">
+        The Island of the Gods.<br>Privately yours, since 1999.
+      </p>
+    </div>
+
+    <div>
+      <p class="blv-footer__col-title">Location</p>
+      <div class="blv-footer__coords">
+        <span>8.4090° S, 115.1889° E</span>
+        <span>Bali, Indonesia</span>
+        <span>Indian Ocean · Tropical</span>
+        <span>GMT +8</span>
+      </div>
+    </div>
+
+    <div>
+      <p class="blv-footer__col-title">Contact</p>
+      <div class="blv-footer__contact">
+        <a href="mailto:info@baliluxuryvillas.com">info@baliluxuryvillas.com</a>
+        <a href="https://www.instagram.com/baliluxuryvillas_blv" target="_blank" rel="noopener noreferrer">@baliluxuryvillas_blv</a>
+        <a href="https://www.baliluxuryvillas.com/" target="_blank" rel="noopener noreferrer">baliluxuryvillas.com</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="blv-footer__bottom">
+    <p class="blv-footer__copy">© 2026 Bali Luxury Villas™ · All rights reserved</p>
+    <nav class="blv-footer__links" aria-label="Legal links">
+      <a href="https://www.baliluxuryvillas.com/en/page/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
+      <a href="https://www.baliluxuryvillas.com/en/page/reservations-procedure-terms" target="_blank" rel="noopener noreferrer">Terms</a>
+      <a href="https://www.baliluxuryvillas.com/en/sitemap" target="_blank" rel="noopener noreferrer">Sitemap</a>
+    </nav>
+  </div>
+
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     LIGHTBOX OVERLAY
+═══════════════════════════════════════════════════════ -->
+<div class="blv-lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Villa image viewer">
+  <button class="blv-lightbox__close" id="lightbox-close" aria-label="Close image viewer">&#10005;</button>
+  <img class="blv-lightbox__img" id="lightbox-img" src="" alt="Villa space detail">
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     JAVASCRIPT — GSAP + ScrollTrigger + Three.js
+═══════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  document.addEventListener('DOMContentLoaded', function () {
+
+    /* ── Guard: GSAP required ─────────────────────────── */
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+      console.warn('BLV: GSAP or ScrollTrigger not loaded.');
+      return;
+    }
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* ═══════════════════════════════════════════════════
+       HERO — entrance sequence
+    ═══════════════════════════════════════════════════ */
+    var heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    heroTl
+      .to('.blv-hero__eyebrow', { opacity: 1, duration: 0.9, delay: 0.5 })
+      .to('.blv-hero__title .word span', {
+        y: '0%',
+        stagger: 0.13,
+        duration: 1.15,
+        ease: 'power4.out'
+      }, '-=0.5')
+      .to('.blv-hero__sub', { opacity: 1, duration: 0.9 }, '-=0.55')
+      .to('.blv-hero__scroll', { opacity: 1, duration: 0.7 }, '-=0.4');
+
+    /* ═══════════════════════════════════════════════════
+       MANIFESTO — line reveals on scroll
+    ═══════════════════════════════════════════════════ */
+    ScrollTrigger.create({
+      trigger: '.blv-manifesto',
+      start: 'top 78%',
+      once: true,
+      onEnter: function () {
+        var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        tl
+          .to('.blv-manifesto__eyebrow', { opacity: 1, duration: 0.7 })
+          .to('.blv-manifesto__line .inner', {
+            y: '0%',
+            stagger: 0.18,
+            duration: 1.05,
+            ease: 'power4.out'
+          }, '-=0.35')
+          .to('.blv-manifesto__body', { opacity: 1, y: 0, duration: 0.9 }, '-=0.45');
+      }
+    });
+
+    /* ═══════════════════════════════════════════════════
+       EXPERIENCE CARDS — drag scroll + stagger reveal
+    ═══════════════════════════════════════════════════ */
+    var expScroll = document.getElementById('exp-scroll');
+    if (expScroll) {
+      /* Drag-to-scroll */
+      var isDragging = false, dragStartX = 0, scrollStart = 0;
+      expScroll.addEventListener('mousedown', function (e) {
+        isDragging = true;
+        dragStartX = e.pageX - expScroll.offsetLeft;
+        scrollStart = expScroll.scrollLeft;
+        expScroll.style.cursor = 'grabbing';
+        expScroll.style.userSelect = 'none';
+      });
+      document.addEventListener('mouseup', function () {
+        isDragging = false;
+        if (expScroll) { expScroll.style.cursor = 'grab'; expScroll.style.userSelect = ''; }
+      });
+      expScroll.addEventListener('mousemove', function (e) {
+        if (!isDragging) return;
+        e.preventDefault();
+        var x = e.pageX - expScroll.offsetLeft;
+        expScroll.scrollLeft = scrollStart - (x - dragStartX) * 1.4;
+      });
+
+      /* Stagger reveal */
+      ScrollTrigger.create({
+        trigger: expScroll,
+        start: 'top 85%',
+        once: true,
+        onEnter: function () {
+          gsap.to('.blv-exp-card', {
+            opacity: 1, y: 0,
+            stagger: 0.1,
+            duration: 0.8,
+            ease: 'power3.out'
+          });
+        }
+      });
+    }
+
+    /* ═══════════════════════════════════════════════════
+       THE PLACE — parallax image + copy reveals
+    ═══════════════════════════════════════════════════ */
+    var placeImg = document.getElementById('place-img');
+    if (placeImg) {
+      gsap.to(placeImg, {
+        y: '-8%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.blv-place__image-wrap',
+          start: 'top bottom',
+          end:   'bottom top',
+          scrub: 1.2
+        }
+      });
+    }
+
+    ScrollTrigger.create({
+      trigger: '.blv-place__copy',
+      start: 'top 80%',
+      once: true,
+      onEnter: function () {
+        var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        tl
+          .to('.blv-place__eyebrow', { opacity: 1, y: 0, duration: 0.7 })
+          .to('.blv-place__heading .place-line', {
+            y: '0%',
+            stagger: 0.15,
+            duration: 1.0,
+            ease: 'power4.out'
+          }, '-=0.3')
+          .to('.blv-place__p', { opacity: 1, y: 0, stagger: 0.14, duration: 0.8 }, '-=0.5')
+          .to('.blv-place__coords', { opacity: 1, y: 0, duration: 0.7 }, '-=0.3');
+      }
+    });
+
+    /* ═══════════════════════════════════════════════════
+       TRANSFORMATION — eyebrow + intro + stat reveals + count-up
+    ═══════════════════════════════════════════════════ */
+    ScrollTrigger.create({
+      trigger: '.blv-transform',
+      start: 'top 78%',
+      once: true,
+      onEnter: function () {
+        var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        tl
+          .to('.blv-transform__eyebrow', { opacity: 1, y: 0, duration: 0.7 })
+          .to('.blv-transform__intro',   { opacity: 1, y: 0, duration: 0.9 }, '-=0.3')
+          .to('.blv-stat', { opacity: 1, y: 0, stagger: 0.12, duration: 0.8 }, '-=0.4');
+
+        /* Animated count-up */
+        setTimeout(function () {
+          document.querySelectorAll('.counter').forEach(function (el) {
+            var target = parseInt(el.getAttribute('data-target'), 10) || 0;
+            var startTime = null;
+            var duration  = 2000;
+            function tick(ts) {
+              if (!startTime) startTime = ts;
+              var progress = Math.min((ts - startTime) / duration, 1);
+              var eased    = 1 - Math.pow(1 - progress, 3); /* ease-out-cubic */
+              el.textContent = Math.round(target * eased);
+              if (progress < 1) requestAnimationFrame(tick);
+              else el.textContent = target;
+            }
+            requestAnimationFrame(tick);
+          });
+        }, 700);
+      }
+    });
+
+    /* ═══════════════════════════════════════════════════
+       ROOMS — stagger reveal + lightbox
+    ═══════════════════════════════════════════════════ */
+    ScrollTrigger.create({
+      trigger: '#rooms-grid',
+      start: 'top 85%',
+      once: true,
+      onEnter: function () {
+        gsap.to('.blv-room', { opacity: 1, y: 0, stagger: 0.07, duration: 0.75, ease: 'power3.out' });
+      }
+    });
+
+    /* Lightbox */
+    var lightbox      = document.getElementById('lightbox');
+    var lightboxImg   = document.getElementById('lightbox-img');
+    var lightboxClose = document.getElementById('lightbox-close');
+
+    function openLightbox(src, alt) {
+      if (!lightbox || !lightboxImg) return;
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || 'Villa space detail';
+      lightbox.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      if (!lightbox) return;
+      lightbox.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.blv-room').forEach(function (room) {
+      room.addEventListener('click', function () {
+        var src = room.getAttribute('data-img');
+        var alt = room.querySelector('img') ? room.querySelector('img').getAttribute('alt') : '';
+        if (src) openLightbox(src, alt);
+      });
+      room.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); room.click(); }
+      });
+    });
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightbox)      lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+
+    /* ═══════════════════════════════════════════════════
+       WELLNESS — stagger reveals
+    ═══════════════════════════════════════════════════ */
+    ScrollTrigger.create({
+      trigger: '.blv-wellness',
+      start: 'top 78%',
+      once: true,
+      onEnter: function () {
+        var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        tl
+          .to('.blv-wellness__eyebrow', { opacity: 1, y: 0, duration: 0.7 })
+          .to('.blv-wellness__title .w-line', {
+            y: '0%',
+            stagger: 0.15,
+            duration: 1.0,
+            ease: 'power4.out'
+          }, '-=0.3')
+          .to('.blv-wellness__sub',  { opacity: 1, y: 0, duration: 0.8 }, '-=0.4')
+          .to('.blv-ritual', { opacity: 1, y: 0, stagger: 0.08, duration: 0.75 }, '-=0.4');
+      }
+    });
+
+    /* ═══════════════════════════════════════════════════
+       EDITORIAL QUOTE — reveal sequence
+    ═══════════════════════════════════════════════════ */
+    ScrollTrigger.create({
+      trigger: '.blv-quote',
+      start: 'top 75%',
+      once: true,
+      onEnter: function () {
+        var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        tl
+          .to('.blv-quote__mark', { opacity: 0.4, scale: 1, duration: 0.85 })
+          .to('.blv-quote__text .q-line', {
+            y: '0%',
+            stagger: 0.2,
+            duration: 1.15,
+            ease: 'power4.out'
+          }, '-=0.4')
+          .to('.blv-quote__source', { opacity: 1, y: 0, duration: 0.8 }, '-=0.35');
+      }
+    });
+
+    /* ═══════════════════════════════════════════════════
+       BOOKING CTA — reveal sequence
+    ═══════════════════════════════════════════════════ */
+    ScrollTrigger.create({
+      trigger: '.blv-booking',
+      start: 'top 80%',
+      once: true,
+      onEnter: function () {
+        var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        tl
+          .to('.blv-booking__tag',   { opacity: 1, y: 0, duration: 0.7 })
+          .to('.blv-booking__title .b-line', {
+            y: '0%',
+            stagger: 0.15,
+            duration: 1.0,
+            ease: 'power4.out'
+          }, '-=0.3')
+          .to('.blv-booking__sub',     { opacity: 1, y: 0, duration: 0.8 }, '-=0.4')
+          .to('.blv-booking__actions', { opacity: 1, y: 0, duration: 0.7 }, '-=0.35')
+          .to('.blv-booking__urgency', { opacity: 1, y: 0, duration: 0.6 }, '-=0.25');
+      }
+    });
+
+    ScrollTrigger.refresh();
+
+    /* ═══════════════════════════════════════════════════
+       THREE.JS — 3D CORAL OBJECT
+       SWAP:3D → coral branch | Coastal/Tropical
+       GLB: hotels3ds.s3.eu-north-1.amazonaws.com/...coral.glb
+    ═══════════════════════════════════════════════════ */
+    var container3d = document.getElementById('manifesto-3d');
+    if (
+      container3d &&
+      typeof THREE !== 'undefined' &&
+      typeof THREE.GLTFLoader !== 'undefined'
+    ) {
+      var W = 280, H = 280;
+
+      var renderer3d = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer3d.setSize(W, H);
+      renderer3d.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer3d.setClearColor(0x000000, 0);
+      container3d.style.width  = W + 'px';
+      container3d.style.height = H + 'px';
+      container3d.appendChild(renderer3d.domElement);
+
+      var scene3d  = new THREE.Scene();
+      var camera3d = new THREE.PerspectiveCamera(35, W / H, 0.1, 100);
+      camera3d.position.set(0, 0, 6);
+
+      /* Three-point warm/cool light rig */
+      scene3d.add(new THREE.AmbientLight(0xfff0e0, 0.4));
+
+      var keyLight = new THREE.DirectionalLight(0xffd0a0, 1.8); /* warm key */
+      keyLight.position.set(3, 4, 2);
+      scene3d.add(keyLight);
+
+      var fillLight = new THREE.DirectionalLight(0xa0c8ff, 0.65); /* cool fill */
+      fillLight.position.set(-4, 1, -2);
+      scene3d.add(fillLight);
+
+      var rimLight = new THREE.PointLight(0xd4a84b, 1.3, 18); /* gold rim */
+      rimLight.position.set(0, -3, 3);
+      scene3d.add(rimLight);
+
+      var mesh3d    = null;
+      var hovering3d = false;
+
+      var loader3d = new THREE.GLTFLoader();
+      loader3d.load(
+        /* SWAP:3D → coral branch | Coastal/Tropical */
+        'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb',
+        function (gltf) {
+          mesh3d = gltf.scene;
+          /* Centre geometry */
+          var box = new THREE.Box3().setFromObject(mesh3d);
+          var ctr = box.getCenter(new THREE.Vector3());
+          mesh3d.position.sub(ctr);
+          scene3d.add(mesh3d);
+        },
+        undefined,
+        function (err) { console.warn('BLV 3D load error:', err); }
+      );
+
+      container3d.addEventListener('mouseenter', function () { hovering3d = true;  });
+      container3d.addEventListener('mouseleave', function () { hovering3d = false; });
+
+      (function loop3d() {
+        requestAnimationFrame(loop3d);
+        if (mesh3d && !hovering3d) {
+          mesh3d.rotation.y += 0.002;
+          mesh3d.rotation.x += 0.0005;
+        }
+        renderer3d.render(scene3d, camera3d);
+      }());
+
+    } else if (container3d) {
+      container3d.style.display = 'none'; /* graceful fallback */
+    }
+
+  }); /* end DOMContentLoaded */
+
+}());
+</script>
+
+
+<!--
+═══════════════════════════════════════════════════════════════════════
+CUSTOMIZATION GUIDE — SWAP MARKER CHECKLIST
+═══════════════════════════════════════════════════════════════════════
+Use this checklist to swap placeholder content for final production assets.
+
+─────────────────────────────
+HERO
+─────────────────────────────
+ [1]  SWAP:LOGO
+       Replace logo <img> src in .blv-hero__header
+       Current: cdn.prod.website-files.com/...logo_small.png
+
+ [2]  SWAP:VIDEO → hero background aerial Bali coastal villa | hero section
+       ⚠ NO VIDEO ASSET IN CSV
+       Add <source src="[mp4-url]" type="video/mp4"> inside <video class="blv-hero__video">
+       Recommend: 30–60s aerial drone clip, 16:9, H.264 MP4, ≤12 MB
+       Poster (Image 56, coastal) renders correctly as static fallback in the meantime.
+
+ [3]  SWAP:COPY → hero tagline
+       Current: "Bali, as it was meant to be."  |  Sub: "Private villas across Bali's most coveted landscapes..."
+
+─────────────────────────────
+MANIFESTO
+─────────────────────────────
+ [4]  SWAP:3D → coral branch | Coastal/Tropical
+       GLB SRC: hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb
+       Canvas: #manifesto-3d | 280×280px | 15% opacity | auto-rotate Y-axis | pause on hover
+
+ [5]  SWAP:COPY → manifesto (4 lines + body paragraph)
+       Current: "The Indian Ocean breathes / through every villa here. / You arrive as a guest. / You leave changed."
+
+─────────────────────────────
+EXPERIENCES (6 cards)
+─────────────────────────────
+ [6]  SWAP:IMG → experience 1, private villa coastal pool | ratio: 4:5
+       Current: Image 12 (coastal)
+ [7]  SWAP:IMG → experience 2, Bali infinity pool coastal | ratio: 4:5
+       Current: Image 42 (coastal)
+ [8]  SWAP:IMG → experience 3, Canggu surf beach | ratio: 4:5
+       Current: Image 3 (coastal)
+ [9]  SWAP:IMG → experience 4, in-villa private chef dining | ratio: 4:5
+       Current: Image 10 (coastal)
+ [10] SWAP:IMG → experience 5, Ubud rice terrace jungle | ratio: 4:5
+       Current: Image 62 (forest/tropical)
+ [11] SWAP:IMG → experience 6, Balinese temple ceremony | ratio: 4:5
+       Current: Image 58 (forest/tropical)
+ [12] SWAP:COPY → 6× experience card (tag label, name, 1-sentence descriptor)
+
+─────────────────────────────
+THE PLACE
+─────────────────────────────
+ [13] SWAP:IMG → the place, Bali rice terrace landscape | ratio: 3:2
+       Current: Image 57 (forest/tropical)
+ [14] SWAP:COPY → the place (section heading + 3 body paragraphs + location list)
+
+─────────────────────────────
+TRANSFORMATION
+─────────────────────────────
+ [15] SWAP:COPY → transformation intro paragraph
+ [16] SWAP:COPY → transformation stat 1  (25+ Years Curating Bali)
+ [17] SWAP:COPY → transformation stat 2  (50+ Private Villas)
+ [18] SWAP:COPY → transformation stat 3  (8 Distinct Landscapes)
+
+─────────────────────────────
+ROOMS & SPACES (6 images)
+─────────────────────────────
+ [19] SWAP:IMG → room 1, villa master suite interior | ratio: 3:2
+       Current: Image 2 (coastal)
+ [20] SWAP:IMG → room 2, villa pool terrace | ratio: 3:2
+       Current: Image 55 (coastal)
+ [21] SWAP:IMG → room 3, villa garden view | ratio: 3:2
+       Current: Image 54 (coastal)
+ [22] SWAP:IMG → room 4, villa open living pavilion | ratio: 3:2
+       Current: Image 53 (coastal)
+ [23] SWAP:IMG → room 5, villa outdoor private dining | ratio: 3:2
+       Current: Image 52 (coastal)
+ [24] SWAP:IMG → room 6, villa aerial grounds | ratio: 3:2
+       Current: Image 50 (coastal)
+ [25] SWAP:COPY → 6× room label names
+
+─────────────────────────────
+WELLNESS RITUALS
+─────────────────────────────
+ [26] SWAP:IMG → wellness background, Bali jungle depth | ratio: 16:9
+       Current: Image 59 (forest/tropical)
+ [27] SWAP:COPY → wellness section heading + intro paragraph
+ [28] SWAP:COPY → 6× ritual (glyph symbol, ritual name, 1-line evocative description)
+
+─────────────────────────────
+EDITORIAL QUOTE
+─────────────────────────────
+ [29] SWAP:IMG → editorial quote background, coastal atmospheric | ratio: 16:9
+       Current: Image 44 (coastal)
+ [30] SWAP:COPY → editorial quote text + attribution
+       Current: Attributed to Petra Graves, Founder — confirm with client for accuracy.
+
+─────────────────────────────
+BOOKING CTA
+─────────────────────────────
+ [31] SWAP:IMG → booking CTA background, coastal dusk | ratio: 16:9
+       Current: Image 47 (coastal)
+ [32] SWAP:COPY → booking urgency signal (season / availability)
+ [33] SWAP:COPY → booking title, sub-headline, button labels
+
+─────────────────────────────
+FOOTER
+─────────────────────────────
+ [34] SWAP:LOGO
+       Replace logo <img> src in .blv-footer__logo
+       Current: same cdn.prod.website-files.com/...logo_small.png
+
+ [35] SWAP:COLOR
+       Retheme by replacing CSS custom properties in :root block
+       --color-primary / --color-secondary / --color-accent / --color-bg / --color-text
+
+─────────────────────────────
+⚠ PRODUCTION FOLLOW-UP — ITEMS REQUIRING ATTENTION
+─────────────────────────────
+
+  ⚠ [2]  VIDEO HERO — No video asset in CSV.
+          Source a 30–60s aerial villa drone clip (16:9, H.264 MP4, ≤12 MB)
+          and add as <source src="[url]" type="video/mp4"> inside the hero <video> tag.
+
+  ⚠ [4]  3D OBJECT — The coral GLB is from a shared asset library.
+          Confirm with client whether to use a bespoke Bali-specific object
+          (lotus flower, offering basket, Balinese gate glyph, sea turtle)
+          for deeper brand alignment.
+
+  ⚠ [30] EDITORIAL QUOTE — Currently attributed to Petra Graves (Founder).
+          Verify with client for accuracy or replace with a confirmed guest
+          or press quote. Do NOT publish without written approval.
+
+═══════════════════════════════════════════════════════════════════════
+END OF CUSTOMIZATION GUIDE
+═══════════════════════════════════════════════════════════════════════
+-->
+
+</body>
+</html>

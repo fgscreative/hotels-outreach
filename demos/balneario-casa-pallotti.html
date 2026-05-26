@@ -1,0 +1,2354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Balneario Casa Pallotti — Termas del Molinar, Valle de Carranza</title>
+
+  <!--
+  ╔══════════════════════════════════════════════════════════════════════════════╗
+  ║  BRAND EXTRACTION REPORT                                                   ║
+  ╠══════════════════════════════════════════════════════════════════════════════╣
+  ║  Hotel Name:         Balneario Casa Pallotti — Termas del Molinar          ║
+  ║  URL:                https://www.casavicentepallotti.com/                  ║
+  ║  Primary Color:      #2D4A3A  — Deep Basque Forest Green                  ║
+  ║  Secondary Color:    #C4A06B  — Mineral Spring Amber / Travertine Gold     ║
+  ║  Accent Color:       #7FAF8E  — Spring Moss / Sage Mist                   ║
+  ║  Background Mood:    Warm dark — deep forest night, near-black green tint  ║
+  ║  Font Pairing:       Playfair Display (serif editorial) + Inter (grotesque)║
+  ║  Tone of Voice:      Warm, poetic, grounded — tradition elevated to        ║
+  ║                      sanctuary; specific sensory language rooted in        ║
+  ║                      Basque geography and mineral science                  ║
+  ║  Landscape Archetype: Forest / Valley (lush Basque mountain river valley)  ║
+  ║  Positioning:        A thermal spring sanctuary in the Valle de Carranza — ║
+  ║                      where mineral waters declared of public utility in    ║
+  ║                      1843 meet the quiet cadence of Basque mountain living ║
+  ║  Key Experiences:    1. Termas Mineromedicinales (mineral springs)         ║
+  ║                      2. Circuitos Termales (hydrotherapy circuits)         ║
+  ║                      3. Masajes y Tratamientos (massage & body treatments) ║
+  ║                      4. Restaurante Pallottienea (traditional Basque fare) ║
+  ║                      5. Valle de Carranza (river trails, mountain air)     ║
+  ║                      6. Habitaciones con Encanto (1847 character rooms)    ║
+  ║  Coordinates:        43°11′N 3°22′W — Valle de Carranza, Bizkaia          ║
+  ║  Elevation:          ~190m above sea level — Bosobrón, Río Mayor valley    ║
+  ╠══════════════════════════════════════════════════════════════════════════════╣
+  ║  ASSET MAPPING REPORT                                                      ║
+  ╠══════════════════════════════════════════════════════════════════════════════╣
+  ║  Total assets in CSV:        3 GLB (3D) + ~100 images across 7 archetypes  ║
+  ║  Assets successfully mapped: 14 images (forest + alpine) + 1 GLB           ║
+  ║                                                                            ║
+  ║  Slots covered by CSV:                                                     ║
+  ║    hero-bg, experience-1–6, the-place, rooms-1–6, quote-bg,               ║
+  ║    cta-bg, wellness-bg, manifesto-3d                                       ║
+  ║                                                                            ║
+  ║  Slots falling back to Unsplash: NONE — all slots filled from CSV          ║
+  ║  (Hero video: NO VIDEO IN CSV — hero uses forest image + CSS animation)    ║
+  ║                                                                            ║
+  ║  Logo SRC:                                                                 ║
+  ║    https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/           ║
+  ║    6a1309211a9da04ec894e077_Log_Balneario-Casa-Pallotti.png                ║
+  ║                                                                            ║
+  ║  3D Object SRC (oak leaf — Forest archetype match):                        ║
+  ║    https://hotels3ds.s3.eu-north-1.amazonaws.com/                         ║
+  ║    Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb                   ║
+  ║                                                                            ║
+  ║  Video assets: NONE IN CSV                                                 ║
+  ║                                                                            ║
+  ║  Image assets used (selected from forest + alpine categories):             ║
+  ║    Forest-62  → Hero background                                            ║
+  ║    Forest-58  → Experience card 1 (Termas)                                 ║
+  ║    Forest-59  → Experience card 2 (Circuitos)                              ║
+  ║    Forest-57  → Experience card 3 (Masajes)                                ║
+  ║    Forest-60  → Experience card 4 (Mesa)                                   ║
+  ║    Forest-74  → Experience card 5 (Valle)                                  ║
+  ║    Alpine-32  → Experience card 6 (Habitaciones) / CTA background          ║
+  ║    Forest-76  → The Place section (left image)                             ║
+  ║    Forest-75  → Editorial Quote background                                 ║
+  ║    Forest-71  → Room 1                                                     ║
+  ║    Forest-65  → Room 2                                                     ║
+  ║    Forest-73  → Room 3                                                     ║
+  ║    Forest-63  → Room 4                                                     ║
+  ║    Alpine-31  → Room 5                                                     ║
+  ║    Alpine-33  → Room 6 / Wellness background                               ║
+  ╚══════════════════════════════════════════════════════════════════════════════╝
+  -->
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
+  <!-- Three.js + GLTFLoader -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js" defer></script>
+
+  <style>
+    /*
+    ─────────────────────────────────────────────────────────────────────────────
+    CSS CUSTOM PROPERTIES — BALNEARIO CASA PALLOTTI
+    ─────────────────────────────────────────────────────────────────────────────
+    --color-primary:     #2D4A3A  (Deep Basque Forest Green)
+    --color-secondary:   #C4A06B  (Mineral Spring Amber / Travertine Gold)
+    --color-accent:      #7FAF8E  (Spring Moss / Sage Mist)
+    --color-bg:          #0C1810  (Near-black, deep forest night)
+    --color-bg-mid:      #1A2E20  (Lifted dark — mid-tone forest)
+    --color-text:        #F0EAE0  (Warm natural ivory)
+    --color-text-muted:  #A09880  (Warm grey, muted)
+    --font-display:      'Playfair Display', Georgia, serif
+    --font-body:         'Inter', system-ui, sans-serif
+    ─────────────────────────────────────────────────────────────────────────────
+    <!-- SWAP:COLOR -->
+    */
+
+    :root {
+      --color-primary:    #2D4A3A;
+      --color-secondary:  #C4A06B;
+      --color-accent:     #7FAF8E;
+      --color-bg:         #0C1810;
+      --color-bg-mid:     #1A2E20;
+      --color-text:       #F0EAE0;
+      --color-text-muted: #A09880;
+      --font-display:     'Playfair Display', Georgia, serif;
+      --font-body:        'Inter', system-ui, sans-serif;
+      --ease-smooth:      cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-base:  0.4s var(--ease-smooth);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-weight: 300;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ─── TYPOGRAPHY ─────────────────────────────────────── */
+    .cp-label {
+      font-family: var(--font-body);
+      font-size: clamp(0.6rem, 1vw, 0.72rem);
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+    }
+
+    .cp-display {
+      font-family: var(--font-display);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .cp-body {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+      line-height: 1.75;
+      color: var(--color-text-muted);
+    }
+
+    /* ─── BUTTONS ─────────────────────────────────────────── */
+    .cp-btn {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: clamp(0.7rem, 1.2vw, 0.8rem);
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 1em 2.4em;
+      border: 1px solid currentColor;
+      cursor: pointer;
+      transition: background var(--transition-base), color var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cp-btn-primary {
+      background: var(--color-secondary);
+      color: var(--color-bg);
+      border-color: var(--color-secondary);
+    }
+    .cp-btn-primary:hover {
+      background: transparent;
+      color: var(--color-secondary);
+    }
+
+    .cp-btn-ghost {
+      background: transparent;
+      color: var(--color-text);
+      border-color: rgba(240, 234, 224, 0.35);
+    }
+    .cp-btn-ghost:hover {
+      background: rgba(240, 234, 224, 0.08);
+      border-color: rgba(240, 234, 224, 0.6);
+    }
+
+    /* ─── NAV ─────────────────────────────────────────────── */
+    #cp-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: clamp(1.2rem, 3vw, 2rem) clamp(1.5rem, 6vw, 5rem);
+      transition: background 0.5s ease, padding 0.4s ease;
+    }
+
+    #cp-nav.cp-nav-scrolled {
+      background: rgba(12, 24, 16, 0.92);
+      backdrop-filter: blur(12px);
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .cp-nav-logo {
+      height: clamp(32px, 5vw, 48px);
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+
+    .cp-nav-cta {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text);
+      border: 1px solid rgba(240, 234, 224, 0.4);
+      padding: 0.55em 1.5em;
+      transition: all var(--transition-base);
+    }
+    .cp-nav-cta:hover {
+      background: var(--color-secondary);
+      color: var(--color-bg);
+      border-color: var(--color-secondary);
+    }
+
+    /* ─── SECTION 1: HERO ─────────────────────────────────── */
+    #cp-hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cp-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .cp-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      animation: cpKenBurns 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes cpKenBurns {
+      from { transform: scale(1.08) translateX(0); }
+      to   { transform: scale(1.0) translateX(-2%); }
+    }
+
+    .cp-hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        175deg,
+        rgba(12, 24, 16, 0.15) 0%,
+        rgba(45, 74, 58, 0.40) 40%,
+        rgba(12, 24, 16, 0.75) 100%
+      );
+    }
+
+    .cp-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 clamp(1.5rem, 6vw, 6rem);
+      max-width: 1100px;
+    }
+
+    .cp-hero-logo {
+      width: clamp(140px, 22vw, 240px);
+      height: auto;
+      margin: 0 auto 2.5rem;
+      filter: brightness(0) invert(1);
+      opacity: 0;
+    }
+
+    .cp-hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 7vw, 7rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.2em;
+      margin-bottom: 1.8rem;
+    }
+
+    .cp-word {
+      display: inline-block;
+      overflow: hidden;
+    }
+    .cp-word-inner {
+      display: block;
+      transform: translateY(100%);
+      opacity: 0;
+    }
+
+    .cp-hero-sub {
+      font-family: var(--font-body);
+      font-size: clamp(0.75rem, 1.4vw, 0.9rem);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(240, 234, 224, 0.65);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+    }
+
+    .cp-hero-coords {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .cp-hero-coord-item {
+      font-family: var(--font-body);
+      font-size: clamp(0.6rem, 1vw, 0.7rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(240, 234, 224, 0.5);
+      opacity: 0;
+    }
+
+    .cp-hero-coord-sep {
+      width: 1px;
+      height: 12px;
+      background: rgba(240, 234, 224, 0.25);
+    }
+
+    .cp-scroll-indicator {
+      position: absolute;
+      bottom: clamp(2rem, 5vh, 3.5rem);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      opacity: 0;
+    }
+
+    .cp-scroll-label {
+      font-family: var(--font-body);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(240, 234, 224, 0.45);
+    }
+
+    .cp-scroll-line {
+      width: 1px;
+      height: 50px;
+      background: rgba(240, 234, 224, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .cp-scroll-line::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--color-secondary);
+      animation: cpScrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes cpScrollPulse {
+      0%   { top: -100%; }
+      50%  { top: 100%; }
+      100% { top: 100%; }
+    }
+
+    /* ─── SECTION 2: MANIFESTO ───────────────────────────── */
+    #cp-manifesto {
+      position: relative;
+      padding: clamp(6rem, 14vw, 14rem) clamp(1.5rem, 8vw, 10rem);
+      overflow: hidden;
+      background: var(--color-bg);
+    }
+
+    .cp-manifesto-3d-wrap {
+      position: absolute;
+      top: 50%;
+      right: clamp(-60px, 5vw, 0px);
+      transform: translateY(-50%);
+      width: 280px;
+      height: 280px;
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #cp-3d-canvas {
+      width: 280px !important;
+      height: 280px !important;
+      pointer-events: auto;
+    }
+
+    .cp-manifesto-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .cp-manifesto-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+
+    .cp-manifesto-eyebrow::after {
+      content: '';
+      flex: 1;
+      max-width: 80px;
+      height: 1px;
+      background: var(--color-secondary);
+      opacity: 0.6;
+    }
+
+    .cp-manifesto-line {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 6.5vw, 6.5rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      color: var(--color-text);
+      display: block;
+      overflow: hidden;
+    }
+
+    .cp-manifesto-line em {
+      font-style: italic;
+      color: var(--color-secondary);
+    }
+
+    .cp-manifesto-body {
+      margin-top: clamp(2.5rem, 5vw, 4.5rem);
+      max-width: 520px;
+    }
+
+    /* ─── SECTION 3: EXPERIENCES ─────────────────────────── */
+    #cp-experiences {
+      padding: clamp(5rem, 10vw, 10rem) 0;
+      background: var(--color-bg);
+    }
+
+    .cp-experiences-header {
+      padding: 0 clamp(1.5rem, 6vw, 6rem);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+      gap: 2rem;
+    }
+
+    .cp-experiences-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .cp-experiences-scroll-track {
+      display: flex;
+      gap: clamp(1rem, 2vw, 1.5rem);
+      padding: 0 clamp(1.5rem, 6vw, 6rem) clamp(1.5rem, 3vw, 2rem);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .cp-experiences-scroll-track::-webkit-scrollbar { display: none; }
+
+    .cp-exp-card {
+      flex: 0 0 clamp(240px, 30vw, 340px);
+      scroll-snap-align: start;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .cp-exp-card-img {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .cp-exp-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s var(--ease-smooth);
+      will-change: transform;
+    }
+
+    .cp-exp-card:hover .cp-exp-card-img img {
+      transform: scale(1.06);
+    }
+
+    .cp-exp-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(12,24,16,0.72) 0%, transparent 55%);
+      transition: opacity 0.4s ease;
+    }
+    .cp-exp-card:hover .cp-exp-card-overlay {
+      opacity: 0.85;
+    }
+
+    .cp-exp-card-copy {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.8rem 1.6rem;
+    }
+
+    .cp-exp-card-category {
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .cp-exp-card-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--color-text);
+      margin-bottom: 0.6rem;
+    }
+
+    .cp-exp-card-desc {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 300;
+      line-height: 1.55;
+      color: rgba(240, 234, 224, 0.7);
+      max-width: 260px;
+      transform: translateY(8px);
+      opacity: 0;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .cp-exp-card:hover .cp-exp-card-desc {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── SECTION 4: THE PLACE ───────────────────────────── */
+    #cp-place {
+      padding: clamp(5rem, 10vw, 10rem) clamp(1.5rem, 6vw, 6rem);
+      background: var(--color-bg-mid);
+    }
+
+    .cp-place-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2.5rem, 5vw, 6rem);
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .cp-place-grid { grid-template-columns: 1fr; }
+    }
+
+    .cp-place-img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3 / 2;
+    }
+
+    .cp-place-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      will-change: transform;
+    }
+
+    .cp-place-data-overlay {
+      position: absolute;
+      top: 1.8rem;
+      left: 1.8rem;
+      background: rgba(12, 24, 16, 0.75);
+      backdrop-filter: blur(8px);
+      padding: 1rem 1.4rem;
+      border-left: 2px solid var(--color-secondary);
+    }
+
+    .cp-place-data-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      margin-bottom: 0.8rem;
+    }
+    .cp-place-data-row:last-child { margin-bottom: 0; }
+
+    .cp-place-data-key {
+      font-family: var(--font-body);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+    }
+
+    .cp-place-data-val {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--color-text);
+      line-height: 1.2;
+    }
+
+    .cp-place-copy {
+      padding: clamp(1rem, 3vw, 2rem) 0;
+    }
+
+    .cp-place-headline {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .cp-place-headline em { 
+      font-style: italic; 
+      color: var(--color-secondary);
+    }
+
+    .cp-place-p {
+      font-family: var(--font-body);
+      font-size: clamp(0.85rem, 1.5vw, 1rem);
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+      margin-bottom: 1.2rem;
+    }
+    .cp-place-p:last-of-type { margin-bottom: 0; }
+
+    /* ─── SECTION 5: TRANSFORMATION STATS ───────────────── */
+    #cp-stats {
+      padding: clamp(6rem, 12vw, 12rem) clamp(1.5rem, 6vw, 6rem);
+      background: var(--color-bg);
+      border-top: 1px solid rgba(196, 160, 107, 0.2);
+      border-bottom: 1px solid rgba(196, 160, 107, 0.2);
+    }
+
+    .cp-stats-eyebrow {
+      margin-bottom: clamp(3rem, 6vw, 6rem);
+    }
+
+    .cp-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(2rem, 5vw, 6rem);
+    }
+
+    @media (max-width: 768px) {
+      .cp-stats-grid { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    .cp-stat-item {
+      border-top: 1px solid rgba(196, 160, 107, 0.3);
+      padding-top: 2rem;
+    }
+
+    .cp-stat-number {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 8vw, 8rem);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--color-text);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.1em;
+    }
+
+    .cp-stat-number .cp-stat-unit {
+      font-family: var(--font-body);
+      font-size: 0.3em;
+      font-weight: 300;
+      color: var(--color-secondary);
+      margin-top: 0.4em;
+      letter-spacing: 0.05em;
+    }
+
+    .cp-stat-claim {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      font-weight: 400;
+      color: var(--color-text);
+      line-height: 1.3;
+      margin-bottom: 0.7rem;
+    }
+
+    .cp-stat-desc {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+
+    /* ─── SECTION 6: ROOMS ───────────────────────────────── */
+    #cp-rooms {
+      padding: clamp(5rem, 10vw, 10rem) clamp(1.5rem, 6vw, 6rem);
+      background: var(--color-bg-mid);
+    }
+
+    .cp-rooms-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+      gap: 2rem;
+    }
+
+    .cp-rooms-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .cp-rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: clamp(0.5rem, 1.5vw, 1rem);
+    }
+
+    @media (max-width: 768px) {
+      .cp-rooms-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .cp-room-item:nth-child(1),
+      .cp-room-item:nth-child(4) {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cp-rooms-grid { grid-template-columns: 1fr; }
+    }
+
+    .cp-room-item:nth-child(1) { grid-row: span 2; }
+    .cp-room-item:nth-child(4) { grid-column: span 2; }
+
+    .cp-room-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--color-bg);
+    }
+
+    .cp-room-item-img {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      object-fit: cover;
+      transition: transform 0.9s var(--ease-smooth);
+      will-change: transform;
+      display: block;
+    }
+    .cp-room-item:hover .cp-room-item-img { transform: scale(1.04); }
+
+    .cp-room-item-name {
+      position: absolute;
+      bottom: 1.2rem;
+      left: 1.2rem;
+      font-family: var(--font-display);
+      font-size: clamp(0.85rem, 1.6vw, 1.1rem);
+      font-weight: 400;
+      color: var(--color-text);
+      text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+    }
+
+    .cp-room-expand-icon {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 28px;
+      height: 28px;
+      background: rgba(12,24,16,0.6);
+      border: 1px solid rgba(240,234,224,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .cp-room-item:hover .cp-room-expand-icon { opacity: 1; }
+
+    .cp-room-expand-icon svg {
+      width: 12px;
+      height: 12px;
+      stroke: var(--color-text);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    /* ─── LIGHTBOX ───────────────────────────────────────── */
+    #cp-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(12, 24, 16, 0.95);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    #cp-lightbox.active { display: flex; }
+
+    .cp-lightbox-img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+    }
+
+    .cp-lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: 1px solid rgba(240,234,224,0.3);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-base);
+    }
+    .cp-lightbox-close:hover { background: rgba(240,234,224,0.08); }
+    .cp-lightbox-close svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--color-text);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    /* ─── SECTION 7: WELLNESS ────────────────────────────── */
+    #cp-wellness {
+      position: relative;
+      padding: clamp(6rem, 12vw, 12rem) clamp(1.5rem, 6vw, 6rem);
+      background: var(--color-bg);
+      overflow: hidden;
+    }
+
+    .cp-wellness-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .cp-wellness-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.07;
+    }
+
+    .cp-wellness-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cp-wellness-header {
+      margin-bottom: clamp(3rem, 6vw, 6rem);
+      max-width: 600px;
+    }
+
+    .cp-wellness-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-top: 1rem;
+    }
+
+    .cp-wellness-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1.5rem, 3vw, 3rem);
+    }
+
+    @media (max-width: 900px) {
+      .cp-wellness-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .cp-wellness-grid { grid-template-columns: 1fr; }
+    }
+
+    .cp-ritual-item {
+      padding: 2rem 0;
+      border-top: 1px solid rgba(196, 160, 107, 0.2);
+      transition: border-color var(--transition-base);
+    }
+    .cp-ritual-item:hover { border-color: var(--color-secondary); }
+
+    .cp-ritual-glyph {
+      font-size: 1.4rem;
+      color: var(--color-secondary);
+      margin-bottom: 1rem;
+      display: block;
+      line-height: 1;
+    }
+
+    .cp-ritual-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 0.6rem;
+    }
+
+    .cp-ritual-desc {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+    }
+
+    /* ─── SECTION 8: EDITORIAL QUOTE ─────────────────────── */
+    #cp-quote {
+      position: relative;
+      height: 100vh;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .cp-quote-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .cp-quote-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cp-quote-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: rgba(12, 24, 16, 0.72);
+    }
+
+    .cp-quote-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2rem clamp(2rem, 8vw, 10rem);
+      max-width: 1000px;
+    }
+
+    .cp-quote-mark {
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 12vw, 16rem);
+      line-height: 0.6;
+      color: var(--color-secondary);
+      opacity: 0.6;
+      display: block;
+      margin-bottom: -0.4em;
+    }
+
+    .cp-quote-text {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3.5vw, 3.5rem);
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      font-style: italic;
+      color: var(--color-text);
+      margin-bottom: 2rem;
+    }
+
+    .cp-quote-source {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+    }
+
+    /* ─── SECTION 9: BOOKING CTA ─────────────────────────── */
+    #cp-booking {
+      position: relative;
+      padding: clamp(6rem, 12vw, 12rem) clamp(1.5rem, 6vw, 6rem);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .cp-booking-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .cp-booking-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cp-booking-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: rgba(12, 24, 16, 0.8);
+    }
+
+    .cp-booking-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cp-booking-urgency {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .cp-booking-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 7vw, 7rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+    }
+
+    .cp-booking-headline em { 
+      font-style: italic;
+      color: var(--color-secondary);
+    }
+
+    .cp-booking-sub {
+      font-family: var(--font-body);
+      font-size: clamp(0.85rem, 1.5vw, 1.05rem);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      margin-bottom: 3rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cp-booking-actions {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ─── SECTION 10: FOOTER ─────────────────────────────── */
+    #cp-footer {
+      padding: clamp(3.5rem, 7vw, 6rem) clamp(1.5rem, 6vw, 6rem);
+      background: var(--color-bg);
+      border-top: 1px solid rgba(196, 160, 107, 0.15);
+    }
+
+    .cp-footer-inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .cp-footer-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2.5rem;
+      }
+    }
+
+    .cp-footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .cp-footer-coord {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    .cp-footer-email {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--color-text-muted);
+      transition: color var(--transition-base);
+    }
+    .cp-footer-email:hover { color: var(--color-secondary); }
+
+    .cp-footer-logo-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .cp-footer-logo {
+      height: clamp(36px, 5vw, 52px);
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.7;
+    }
+
+    .cp-footer-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.6rem;
+    }
+
+    @media (max-width: 768px) {
+      .cp-footer-right { align-items: center; }
+    }
+
+    .cp-footer-social {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      transition: color var(--transition-base);
+    }
+    .cp-footer-social:hover { color: var(--color-secondary); }
+
+    .cp-footer-copy {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 300;
+      color: rgba(160, 152, 128, 0.5);
+    }
+
+    .cp-footer-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(196, 160, 107, 0.1);
+      margin-top: clamp(2rem, 4vw, 3.5rem);
+    }
+
+    .cp-footer-bottom {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ─── REVEAL ANIMATIONS ──────────────────────────────── */
+    .cp-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    /* ─── RESPONSIVE TWEAKS ──────────────────────────────── */
+    @media (max-width: 480px) {
+      .cp-manifesto-3d-wrap { display: none; }
+      .cp-hero-coords { flex-direction: column; gap: 0.5rem; }
+      .cp-hero-coord-sep { display: none; }
+    }
+
+    @media (min-width: 1920px) {
+      .cp-experiences-scroll-track,
+      .cp-experiences-header {
+        padding-left: max(6rem, calc((100vw - 1600px) / 2));
+        padding-right: max(6rem, calc((100vw - 1600px) / 2));
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LIGHTBOX -->
+  <div id="cp-lightbox" role="dialog" aria-modal="true" aria-label="Room image lightbox">
+    <button class="cp-lightbox-close" id="cp-lightbox-close" aria-label="Close lightbox">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img class="cp-lightbox-img" id="cp-lightbox-img" src="" alt="" />
+  </div>
+
+  <!-- NAV -->
+  <!-- SWAP:LOGO -->
+  <nav id="cp-nav" aria-label="Primary navigation">
+    <img
+      class="cp-nav-logo"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a1309211a9da04ec894e077_Log_Balneario-Casa-Pallotti.png"
+      alt="Balneario Casa Pallotti — Termas del Molinar"
+      loading="eager"
+    />
+    <a href="https://casavicentepallotti.greenchannel.es/" target="_blank" rel="noopener" class="cp-nav-cta">Reservar</a>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SECTION 1: HERO                                            -->
+  <!-- SWAP:VIDEO → hero background | hero section               -->
+  <!-- NO ASSET IN CSV — using Forest-62 image + CSS animation   -->
+  <!-- SWAP:LOGO -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section id="cp-hero" aria-label="Hero">
+
+    <div class="cp-hero-bg">
+      <!-- SWAP:IMG → hero background forest valley | ratio: 16:9 | from CSV Forest-62 -->
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f5931b223dc54467b_Image%2062.png"
+        alt="Valle de Carranza — Basque forest valley"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+
+    <div class="cp-hero-overlay"></div>
+
+    <div class="cp-hero-content">
+      <!-- SWAP:LOGO -->
+      <img
+        class="cp-hero-logo"
+        id="cp-hero-logo"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a1309211a9da04ec894e077_Log_Balneario-Casa-Pallotti.png"
+        alt="Balneario Casa Pallotti"
+        loading="eager"
+      />
+
+      <!-- SWAP:COPY → hero tagline -->
+      <h1 class="cp-hero-headline" aria-label="Ancient springs. Mountain silence. The valley restores.">
+        <span class="cp-word"><span class="cp-word-inner">Ancient</span></span>
+        <span class="cp-word"><span class="cp-word-inner">springs.</span></span>
+        <span class="cp-word cp-word-italic" style="font-style:italic;color:var(--color-secondary)"><span class="cp-word-inner">Mountain</span></span>
+        <span class="cp-word cp-word-italic" style="font-style:italic;color:var(--color-secondary)"><span class="cp-word-inner">silence.</span></span>
+        <span class="cp-word"><span class="cp-word-inner">The</span></span>
+        <span class="cp-word"><span class="cp-word-inner">valley</span></span>
+        <span class="cp-word"><span class="cp-word-inner">restores.</span></span>
+      </h1>
+
+      <p class="cp-hero-sub" id="cp-hero-sub">
+        Termas del Molinar · Valle de Carranza · Bizkaia
+      </p>
+
+      <div class="cp-hero-coords">
+        <span class="cp-hero-coord-item" id="cp-coord-1">43°11′N 3°22′W</span>
+        <div class="cp-hero-coord-sep"></div>
+        <span class="cp-hero-coord-item" id="cp-coord-2">190 m elevation</span>
+        <div class="cp-hero-coord-sep"></div>
+        <span class="cp-hero-coord-item" id="cp-coord-3">Est. 1847</span>
+      </div>
+    </div>
+
+    <div class="cp-scroll-indicator" id="cp-scroll-indicator" aria-hidden="true">
+      <span class="cp-scroll-label">Scroll</span>
+      <div class="cp-scroll-line"></div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SECTION 2: MANIFESTO / THE PHILOSOPHY                      -->
+  <!-- SWAP:COPY → manifesto                                       -->
+  <!-- SWAP:3D → oak leaf | Forest archetype                      -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section id="cp-manifesto" aria-label="The Philosophy">
+
+    <!-- SWAP:3D → oak leaf branch | Forest / Valley archetype -->
+    <div class="cp-manifesto-3d-wrap" id="cp-3d-wrap" aria-hidden="true">
+      <canvas id="cp-3d-canvas"></canvas>
+    </div>
+
+    <div class="cp-manifesto-inner">
+      <div class="cp-manifesto-eyebrow">
+        <span class="cp-label">The Philosophy</span>
+      </div>
+
+      <p class="cp-manifesto-line cp-reveal" id="cp-ml-1">Water older than</p>
+      <p class="cp-manifesto-line cp-reveal" id="cp-ml-2">the building that holds it.</p>
+      <p class="cp-manifesto-line cp-reveal" id="cp-ml-3"><em>A valley that remembers</em></p>
+      <p class="cp-manifesto-line cp-reveal" id="cp-ml-4"><em>what rest means.</em></p>
+
+      <div class="cp-manifesto-body cp-reveal" id="cp-manifesto-body">
+        <p class="cp-body">
+          The Molinar spring has surfaced at 30°C since before the word wellness existed.
+          Classified by scientists in 1798, declared of public utility in 1843 — 
+          this water carries no marketing. Only mineral truth.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SECTION 3: SIGNATURE EXPERIENCES                           -->
+  <!-- SWAP:COPY → experience cards 1–6                          -->
+  <!-- SWAP:IMG → experience cards 1–6 | ratio: 4:5              -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section id="cp-experiences" aria-label="Signature Experiences">
+    <div class="cp-experiences-header">
+      <div>
+        <span class="cp-label cp-reveal">What awaits</span>
+        <h2 class="cp-experiences-title cp-reveal" style="transition-delay:0.1s">Six ways<br/><em style="font-style:italic;color:var(--color-secondary)">to arrive.</em></h2>
+      </div>
+      <span class="cp-label" style="white-space:nowrap;opacity:0.45">Scroll to explore →</span>
+    </div>
+
+    <div class="cp-experiences-scroll-track" role="list">
+
+      <!-- Card 1: Termas -->
+      <!-- SWAP:IMG → experience-1 thermal spring waters | ratio: 4:5 | Forest-58 -->
+      <article class="cp-exp-card" role="listitem">
+        <div class="cp-exp-card-img">
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f66d293ddbe3e52da_Image%2058.png"
+            alt="Thermal mineral springs"
+            loading="lazy"
+          />
+          <div class="cp-exp-card-overlay"></div>
+        </div>
+        <div class="cp-exp-card-copy">
+          <span class="cp-exp-card-category">Termas</span>
+          <h3 class="cp-exp-card-title">Mineral Springs</h3>
+          <p class="cp-exp-card-desc">Water declared of public utility in 1843 still rises at 30°C — chlorosodic, anti-inflammatory, unchanged.</p>
+        </div>
+      </article>
+
+      <!-- Card 2: Circuitos -->
+      <!-- SWAP:IMG → experience-2 hydrotherapy circuits | ratio: 4:5 | Forest-59 -->
+      <article class="cp-exp-card" role="listitem">
+        <div class="cp-exp-card-img">
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f02e16a74f59b019c_Image%2059.png"
+            alt="Hydrotherapy thermal circuits"
+            loading="lazy"
+          />
+          <div class="cp-exp-card-overlay"></div>
+        </div>
+        <div class="cp-exp-card-copy">
+          <span class="cp-exp-card-category">Circuitos</span>
+          <h3 class="cp-exp-card-title">Hydrotherapy</h3>
+          <p class="cp-exp-card-desc">Eight targeted thermal stations: circular showers, jet streams, vapor baths, bithermal contrast.</p>
+        </div>
+      </article>
+
+      <!-- Card 3: Masajes -->
+      <!-- SWAP:IMG → experience-3 massage and treatments | ratio: 4:5 | Forest-57 -->
+      <article class="cp-exp-card" role="listitem">
+        <div class="cp-exp-card-img">
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fe534894fe01d574b_Image%2057.png"
+            alt="Massage and body treatments"
+            loading="lazy"
+          />
+          <div class="cp-exp-card-overlay"></div>
+        </div>
+        <div class="cp-exp-card-copy">
+          <span class="cp-exp-card-category">Masajes</span>
+          <h3 class="cp-exp-card-title">Body Treatments</h3>
+          <p class="cp-exp-card-desc">Hands trained in Vichy, Fango, and chocolate therapy. Each technique grounded in the spring's own mineral logic.</p>
+        </div>
+      </article>
+
+      <!-- Card 4: Mesa -->
+      <!-- SWAP:IMG → experience-4 Basque cuisine restaurant | ratio: 4:5 | Forest-60 -->
+      <article class="cp-exp-card" role="listitem">
+        <div class="cp-exp-card-img">
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fa912698fb567fc31_Image%2060.png"
+            alt="Restaurante Pallottienea — traditional Basque cuisine"
+            loading="lazy"
+          />
+          <div class="cp-exp-card-overlay"></div>
+        </div>
+        <div class="cp-exp-card-copy">
+          <span class="cp-exp-card-category">Mesa</span>
+          <h3 class="cp-exp-card-title">Pallottienea</h3>
+          <p class="cp-exp-card-desc">Chefs from the valley. Ingredients from the valley. Traditional Basque cooking with nothing to prove.</p>
+        </div>
+      </article>
+
+      <!-- Card 5: Valle -->
+      <!-- SWAP:IMG → experience-5 Valle de Carranza nature trails | ratio: 4:5 | Forest-74 -->
+      <article class="cp-exp-card" role="listitem">
+        <div class="cp-exp-card-img">
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d01b3f8e72daf583f_Image%2074.png"
+            alt="Valle de Carranza forest trails"
+            loading="lazy"
+          />
+          <div class="cp-exp-card-overlay"></div>
+        </div>
+        <div class="cp-exp-card-copy">
+          <span class="cp-exp-card-category">Valle</span>
+          <h3 class="cp-exp-card-title">The Valley</h3>
+          <p class="cp-exp-card-desc">The Río Mayor trail begins at our door. Peñas de Ranero close the horizon. The Basque coast is 40 minutes away.</p>
+        </div>
+      </article>
+
+      <!-- Card 6: Habitaciones -->
+      <!-- SWAP:IMG → experience-6 character rooms 1847 building | ratio: 4:5 | Alpine-32 -->
+      <article class="cp-exp-card" role="listitem">
+        <div class="cp-exp-card-img">
+          <img
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754e6556d3bd19d06f4e_Image%2032.png"
+            alt="Character rooms in the 1847 building"
+            loading="lazy"
+          />
+          <div class="cp-exp-card-overlay"></div>
+        </div>
+        <div class="cp-exp-card-copy">
+          <span class="cp-exp-card-category">Habitaciones</span>
+          <h3 class="cp-exp-card-title">The Rooms</h3>
+          <p class="cp-exp-card-desc">56 rooms in a building raised in 1847. Views to river, garden, mountain. The patina is part of the offer.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SECTION 4: THE PLACE                                       -->
+  <!-- SWAP:IMG → the place — forest valley river | ratio: 3:2   -->
+  <!-- SWAP:COPY → the place                                      -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section id="cp-place" aria-label="The Place">
+    <div class="cp-place-grid">
+
+      <div class="cp-place-img-wrap">
+        <!-- SWAP:IMG → the place left image forest valley | ratio: 3:2 | Forest-76 -->
+        <img
+          class="cp-place-img"
+          id="cp-place-img"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755dfd3f818cc9e63c84_Image%2076.png"
+          alt="Valle de Carranza — Río Mayor, Bizkaia"
+          loading="lazy"
+        />
+
+        <div class="cp-place-data-overlay">
+          <div class="cp-place-data-row">
+            <span class="cp-place-data-key">Coordinates</span>
+            <span class="cp-place-data-val">43°11′N · 3°22′W</span>
+          </div>
+          <div class="cp-place-data-row">
+            <span class="cp-place-data-key">Elevation</span>
+            <span class="cp-place-data-val">190 m · Bosobrón</span>
+          </div>
+          <div class="cp-place-data-row">
+            <span class="cp-place-data-key">Ecology</span>
+            <span class="cp-place-data-val">Cantabrian Oak Forest</span>
+          </div>
+          <div class="cp-place-data-row">
+            <span class="cp-place-data-key">River</span>
+            <span class="cp-place-data-val">Río Mayor · Carranza</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cp-place-copy">
+        <span class="cp-label cp-reveal">The Place</span>
+        <!-- SWAP:COPY → the place headline -->
+        <h2 class="cp-place-headline cp-reveal" style="transition-delay:0.1s">
+          Fifty kilometres from Bilbao.<br/><em>A different pace entirely.</em>
+        </h2>
+
+        <!-- SWAP:COPY → the place body text -->
+        <p class="cp-place-p cp-reveal" style="transition-delay:0.2s">
+          The Valle de Carranza opens into a green corridor where the Río Mayor runs cold and clear between limestone bluffs. The Bosobrón hillside holds the spring that has fed this balneario since before the word wellness existed.
+        </p>
+        <p class="cp-place-p cp-reveal" style="transition-delay:0.3s">
+          The water surfaces at a constant 30°C — chlorosodic, bicarbonated, mildly mineralised — classified as anti-inflammatory and sedative by the chemists of 1798. It has not changed. You may.
+        </p>
+        <p class="cp-place-p cp-reveal" style="transition-delay:0.4s">
+          Casa Pallotti was built in 1847 around this spring. The building carries its age deliberately — stone floors that hold the mountain cold, windows that frame the mountain green, rooms that exist on the scale of rest.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SECTION 5: TRANSFORMATION PROMISE (STATS)                  -->
+  <!-- SWAP:COPY → transformation stats 1–3                      -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section id="cp-stats" aria-label="Transformation Promise">
+
+    <div class="cp-stats-eyebrow">
+      <span class="cp-label cp-reveal">The promise</span>
+    </div>
+
+    <div class="cp-stats-grid">
+
+      <!-- Stat 1 -->
+      <!-- SWAP:COPY → transformation stat 1 -->
+      <div class="cp-stat-item cp-reveal">
+        <div class="cp-stat-number">
+          <span class="cp-counter" data-target="1843">0</span>
+          <span class="cp-stat-unit">year</span>
+        </div>
+        <p class="cp-stat-claim">Springs declared of public utility.</p>
+        <p class="cp-stat-desc">The Molinar waters have been scientifically classified as therapeutic for over two centuries. Some things earn their reputation slowly.</p>
+      </div>
+
+      <!-- Stat 2 -->
+      <!-- SWAP:COPY → transformation stat 2 -->
+      <div class="cp-stat-item cp-reveal" style="transition-delay:0.15s">
+        <div class="cp-stat-number">
+          <span class="cp-counter" data-target="30">0</span>
+          <span class="cp-stat-unit">°C</span>
+        </div>
+        <p class="cp-stat-claim">The constant spring temperature.</p>
+        <p class="cp-stat-desc">Year-round, winter and summer, the Molinar spring emerges from the hillside at exactly 30°C. Geology does not fluctuate with the calendar.</p>
+      </div>
+
+      <!-- Stat 3 -->
+      <!-- SWAP:COPY → transformation stat 3 -->
+      <div class="cp-stat-item cp-reveal" style="transition-delay:0.3s">
+        <div class="cp-stat-number">
+          <span class="cp-counter" data-target="56">0</span>
+          <span class="cp-stat-unit">rooms</span>
+        </div>
+        <p class="cp-stat-claim">Each facing river, garden, or mountain.</p>
+        <p class="cp-stat-desc">56 rooms across four floors of a building built in 1847. No two views identical. Every window a different argument for staying longer.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SECTION 6: ROOMS & SPACES                                  -->
+  <!-- SWAP:IMG → rooms 1–6 | ratio: 3:2                         -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section id="cp-rooms" aria-label="Rooms and Spaces">
+
+    <div class="cp-rooms-header">
+      <div>
+        <span class="cp-label cp-reveal">Rooms &amp; Spaces</span>
+        <h2 class="cp-rooms-title cp-reveal" style="transition-delay:0.1s">The rooms<br/><em style="font-style:italic;color:var(--color-secondary)">that hold you.</em></h2>
+      </div>
+      <a href="https://casavicentepallotti.greenchannel.es/" target="_blank" rel="noopener" class="cp-btn cp-btn-ghost cp-reveal" style="transition-delay:0.2s">View all rooms</a>
+    </div>
+
+    <div class="cp-rooms-grid" id="cp-rooms-grid">
+
+      <!-- Room 1 (spans 2 rows) -->
+      <!-- SWAP:IMG → room-1 junior suite forest valley view | ratio: 3:2 | Forest-71 -->
+      <div class="cp-room-item" data-room="Junior Suite" tabindex="0" role="button" aria-label="Open Junior Suite image">
+        <img class="cp-room-item-img" src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755cbd4aab14c251d668_Image%2071.png" alt="Junior Suite" loading="lazy" />
+        <span class="cp-room-item-name">Junior Suite</span>
+        <div class="cp-room-expand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+        </div>
+      </div>
+
+      <!-- Room 2 -->
+      <!-- SWAP:IMG → room-2 double superior room | ratio: 3:2 | Forest-65 -->
+      <div class="cp-room-item" data-room="Habitación Doble Superior" tabindex="0" role="button" aria-label="Open Habitación Doble Superior image">
+        <img class="cp-room-item-img" src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2d6f969a6ed97235_Image%2065.png" alt="Habitación Doble Superior" loading="lazy" />
+        <span class="cp-room-item-name">Doble Superior</span>
+        <div class="cp-room-expand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+        </div>
+      </div>
+
+      <!-- Room 3 -->
+      <!-- SWAP:IMG → room-3 standard double room | ratio: 3:2 | Forest-73 -->
+      <div class="cp-room-item" data-room="Habitación Doble Estándar" tabindex="0" role="button" aria-label="Open Habitación Doble Estándar image">
+        <img class="cp-room-item-img" src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c0b1e8db27f6833b0_Image%2073.png" alt="Habitación Doble Estándar" loading="lazy" />
+        <span class="cp-room-item-name">Doble Estándar</span>
+        <div class="cp-room-expand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+        </div>
+      </div>
+
+      <!-- Room 4 (spans 2 columns) -->
+      <!-- SWAP:IMG → room-4 triple room garden view | ratio: 3:2 | Forest-63 -->
+      <div class="cp-room-item" data-room="Habitación Triple" tabindex="0" role="button" aria-label="Open Habitación Triple image">
+        <img class="cp-room-item-img" src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c3fc86be474e72fa6_Image%2063.png" alt="Habitación Triple" loading="lazy" />
+        <span class="cp-room-item-name">Habitación Triple</span>
+        <div class="cp-room-expand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+        </div>
+      </div>
+
+      <!-- Room 5 -->
+      <!-- SWAP:IMG → room-5 individual room mountain view | ratio: 3:2 | Alpine-31 -->
+      <div class="cp-room-item" data-room="Habitación Individual Superior" tabindex="0" role="button" aria-label="Open Habitación Individual Superior image">
+        <img class="cp-room-item-img" src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754ecc03c6e8de006eab_Image%2031.png" alt="Habitación Individual Superior" loading="lazy" />
+        <span class="cp-room-item-name">Individual Superior</span>
+        <div class="cp-room-expand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+        </div>
+      </div>
+
+      <!-- Room 6 -->
+      <!-- SWAP:IMG → room-6 family room river view | ratio: 3:2 | Alpine-33 -->
+      <div class="cp-room-item" data-room="Habitación Familiar" tabindex="0" role="button" aria-label="Open Habitación Familiar image">
+        <img class="cp-room-item-img" src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754eb984fb0dc4d0c2c7_Image%2033.png" alt="Habitación Familiar" loading="lazy" />
+        <span class="cp-room-item-name">Familiar</span>
+        <div class="cp-room-expand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SECTION 7: WELLNESS RITUALS                                -->
+  <!-- SWAP:COPY → wellness rituals 1–6                          -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section id="cp-wellness" aria-label="Wellness Rituals">
+
+    <!-- SWAP:IMG → wellness section background forest valley | ratio: 16:9 | Alpine-33 -->
+    <div class="cp-wellness-bg" aria-hidden="true">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754eb984fb0dc4d0c2c7_Image%2033.png"
+        alt=""
+        loading="lazy"
+      />
+    </div>
+
+    <div class="cp-wellness-inner">
+      <div class="cp-wellness-header">
+        <span class="cp-label cp-reveal">Wellness Rituals</span>
+        <h2 class="cp-wellness-title cp-reveal" style="transition-delay:0.1s">
+          Termal medicine.<br/><em style="font-style:italic;color:var(--color-secondary)">Applied with intention.</em>
+        </h2>
+      </div>
+
+      <div class="cp-wellness-grid">
+
+        <!-- Ritual 1 -->
+        <!-- SWAP:COPY → wellness ritual 1 balneoterapia -->
+        <div class="cp-ritual-item cp-reveal">
+          <span class="cp-ritual-glyph" aria-hidden="true">◈</span>
+          <h3 class="cp-ritual-name">Balneoterapia</h3>
+          <p class="cp-ritual-desc">Immersion in the Molinar spring itself. Full-body mineral absorption. The most direct form of treatment available here.</p>
+        </div>
+
+        <!-- Ritual 2 -->
+        <!-- SWAP:COPY → wellness ritual 2 ducha vichy -->
+        <div class="cp-ritual-item cp-reveal" style="transition-delay:0.1s">
+          <span class="cp-ritual-glyph" aria-hidden="true">⬡</span>
+          <h3 class="cp-ritual-name">Ducha Vichy</h3>
+          <p class="cp-ritual-desc">Seven rainfall jets along the full length of the spine. Systematic. Slow. The body receives before the mind understands what happened.</p>
+        </div>
+
+        <!-- Ritual 3 -->
+        <!-- SWAP:COPY → wellness ritual 3 fangoterapia -->
+        <div class="cp-ritual-item cp-reveal" style="transition-delay:0.2s">
+          <span class="cp-ritual-glyph" aria-hidden="true">◇</span>
+          <h3 class="cp-ritual-name">Fangoterapia</h3>
+          <p class="cp-ritual-desc">Thermal mud drawn from the valley floor, applied warm to joints and overworked tissue. Ancient mineral logic, freshly prepared.</p>
+        </div>
+
+        <!-- Ritual 4 -->
+        <!-- SWAP:COPY → wellness ritual 4 masaje termal -->
+        <div class="cp-ritual-item cp-reveal" style="transition-delay:0.3s">
+          <span class="cp-ritual-glyph" aria-hidden="true">○</span>
+          <h3 class="cp-ritual-name">Masaje Termal</h3>
+          <p class="cp-ritual-desc">The signature Termas de Molinar technique — developed specifically for guests who arrive carrying more than their luggage.</p>
+        </div>
+
+        <!-- Ritual 5 -->
+        <!-- SWAP:COPY → wellness ritual 5 chocolaterapia -->
+        <div class="cp-ritual-item cp-reveal" style="transition-delay:0.4s">
+          <span class="cp-ritual-glyph" aria-hidden="true">⬢</span>
+          <h3 class="cp-ritual-name">Chocolaterapia</h3>
+          <p class="cp-ritual-desc">Basque cacao butter and mineral clay. An indulgence that happens to be effective. Warmth from outside in, then from inside out.</p>
+        </div>
+
+        <!-- Ritual 6 -->
+        <!-- SWAP:COPY → wellness ritual 6 inhaloterapia -->
+        <div class="cp-ritual-item cp-reveal" style="transition-delay:0.5s">
+          <span class="cp-ritual-glyph" aria-hidden="true">△</span>
+          <h3 class="cp-ritual-name">Inhaloterapia</h3>
+          <p class="cp-ritual-desc">Mineral vapors drawn through the respiratory tract via the inhalation room. Old medicine. Thoroughly rediscovered.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SECTION 8: EDITORIAL QUOTE                                 -->
+  <!-- SWAP:IMG → editorial quote background forest valley | ratio: 16:9 -->
+  <!-- SWAP:COPY → editorial quote                               -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section id="cp-quote" aria-label="Guest testimonial">
+
+    <!-- SWAP:IMG → quote background — atmospheric forest | ratio: 16:9 | Forest-75 -->
+    <div class="cp-quote-bg">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d10aa143cd1856fdf_Image%2075.png"
+        alt="Valle de Carranza — atmospheric forest"
+        loading="lazy"
+      />
+    </div>
+    <div class="cp-quote-overlay"></div>
+
+    <div class="cp-quote-content">
+      <!-- SWAP:COPY → editorial quote text -->
+      <span class="cp-quote-mark" aria-hidden="true">"</span>
+      <blockquote>
+        <p class="cp-quote-text cp-reveal">
+          Un lugar fantástico donde conectar con la naturaleza
+          y un agua excelente.
+        </p>
+        <footer class="cp-quote-source cp-reveal" style="transition-delay:0.2s">
+          — Jose Luis Eraña &nbsp;·&nbsp; Guest, Balneario Casa Pallotti
+        </footer>
+      </blockquote>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SECTION 9: BOOKING CTA                                     -->
+  <!-- SWAP:COPY → booking CTA                                    -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section id="cp-booking" aria-label="Reserve your stay">
+
+    <!-- SWAP:IMG → booking CTA background alpine valley | ratio: 16:9 | Alpine-32 -->
+    <div class="cp-booking-bg">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754e6556d3bd19d06f4e_Image%2032.png"
+        alt="Valle de Carranza — alpine valley backdrop"
+        loading="lazy"
+      />
+    </div>
+    <div class="cp-booking-overlay"></div>
+
+    <div class="cp-booking-content">
+      <!-- SWAP:COPY → booking CTA urgency signal -->
+      <p class="cp-booking-urgency cp-reveal">
+        Summer 2026 — limited availability by the Río Mayor
+      </p>
+
+      <!-- SWAP:COPY → booking CTA headline -->
+      <h2 class="cp-booking-headline cp-reveal" style="transition-delay:0.1s">
+        The valley<br/><em>awaits.</em>
+      </h2>
+
+      <!-- SWAP:COPY → booking CTA subtext -->
+      <p class="cp-booking-sub cp-reveal" style="transition-delay:0.2s">
+        Fifty kilometres from Bilbao. A building raised in 1847. 
+        Water rising at 30°C since 1843.
+        The week you've been meaning to take.
+      </p>
+
+      <div class="cp-booking-actions cp-reveal" style="transition-delay:0.3s">
+        <a
+          href="https://casavicentepallotti.greenchannel.es/"
+          target="_blank"
+          rel="noopener"
+          class="cp-btn cp-btn-primary"
+        >Reserve Your Stay</a>
+        <a
+          href="https://www.casavicentepallotti.com/balneario/"
+          target="_blank"
+          rel="noopener"
+          class="cp-btn cp-btn-ghost"
+        >Explore the Balneario</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SECTION 10: FOOTER                                         -->
+  <!-- SWAP:LOGO -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <footer id="cp-footer" aria-label="Site footer">
+
+    <div class="cp-footer-inner">
+
+      <div class="cp-footer-left">
+        <span class="cp-footer-coord">43°11′N · 3°22′W · 190 m</span>
+        <span class="cp-footer-coord">Valle de Carranza, Bizkaia, País Vasco</span>
+        <a href="tel:+34946806002" class="cp-footer-email">+34 94 680 60 02</a>
+        <a href="mailto:inforeservas@casavicentepallotti.com" class="cp-footer-email">inforeservas@casavicentepallotti.com</a>
+      </div>
+
+      <div class="cp-footer-logo-wrap">
+        <!-- SWAP:LOGO -->
+        <img
+          class="cp-footer-logo"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a1309211a9da04ec894e077_Log_Balneario-Casa-Pallotti.png"
+          alt="Balneario Casa Pallotti"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="cp-footer-right">
+        <a
+          href="https://www.instagram.com/balneario_casa_pallotti"
+          target="_blank"
+          rel="noopener"
+          class="cp-footer-social"
+        >@balneario_casa_pallotti</a>
+        <a
+          href="https://www.facebook.com/BalnearioCasaPallotti/"
+          target="_blank"
+          rel="noopener"
+          class="cp-footer-social"
+        >Facebook</a>
+        <span class="cp-footer-copy">HBI01076 · Pensión 1*</span>
+      </div>
+
+    </div>
+
+    <div class="cp-footer-divider"></div>
+
+    <div class="cp-footer-bottom">
+      <span class="cp-footer-copy">
+        © Balneario Casa Pallotti 2026 · Todos los derechos reservados
+      </span>
+    </div>
+
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- JAVASCRIPT                                                 -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ─── WAIT FOR ALL SCRIPTS TO LOAD ─────────────────────────── */
+    function waitForLibs(callback) {
+      var attempts = 0;
+      var check = function () {
+        attempts++;
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && typeof THREE !== 'undefined') {
+          callback();
+        } else if (attempts < 100) {
+          setTimeout(check, 80);
+        }
+      };
+      check();
+    }
+
+    /* ─── NAV SCROLL BEHAVIOR ────────────────────────────────── */
+    var nav = document.getElementById('cp-nav');
+    var scrollThreshold = 60;
+    function onScroll() {
+      if (window.scrollY > scrollThreshold) {
+        nav.classList.add('cp-nav-scrolled');
+      } else {
+        nav.classList.remove('cp-nav-scrolled');
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* ─── LIGHTBOX ─────────────────────────────────────────────── */
+    var lightbox = document.getElementById('cp-lightbox');
+    var lightboxImg = document.getElementById('cp-lightbox-img');
+    var lightboxClose = document.getElementById('cp-lightbox-close');
+
+    document.querySelectorAll('.cp-room-item').forEach(function (item) {
+      function openLightbox() {
+        var img = item.querySelector('img');
+        var name = item.dataset.room || '';
+        if (img) {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = name;
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          if (typeof gsap !== 'undefined') {
+            gsap.fromTo(lightbox, { opacity: 0 }, { opacity: 1, duration: 0.35 });
+          }
+        }
+      }
+      item.addEventListener('click', openLightbox);
+      item.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(); }
+      });
+    });
+
+    function closeLightbox() {
+      if (typeof gsap !== 'undefined') {
+        gsap.to(lightbox, {
+          opacity: 0,
+          duration: 0.25,
+          onComplete: function () {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        });
+      } else {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+    });
+
+    /* ─── MAIN ANIMATIONS (requires GSAP + ScrollTrigger) ─────── */
+    waitForLibs(function () {
+      gsap.registerPlugin(ScrollTrigger);
+
+      /* ── HERO ENTRANCE ────────────────────────────────────── */
+      var heroLogo = document.getElementById('cp-hero-logo');
+      var heroSub = document.getElementById('cp-hero-sub');
+      var scrollIndicator = document.getElementById('cp-scroll-indicator');
+      var wordInners = document.querySelectorAll('.cp-word-inner');
+      var coords = [
+        document.getElementById('cp-coord-1'),
+        document.getElementById('cp-coord-2'),
+        document.getElementById('cp-coord-3')
+      ];
+
+      var heroTl = gsap.timeline({ delay: 0.3 });
+
+      heroTl
+        .to(heroLogo, {
+          opacity: 1,
+          y: 0,
+          duration: 1.0,
+          ease: 'power3.out'
+        })
+        .to(wordInners, {
+          y: '0%',
+          opacity: 1,
+          stagger: 0.085,
+          duration: 1.0,
+          ease: 'power3.out'
+        }, '-=0.4')
+        .to(heroSub, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out'
+        }, '-=0.5')
+        .to(coords, {
+          opacity: 1,
+          y: 0,
+          stagger: 0.1,
+          duration: 0.7,
+          ease: 'power2.out'
+        }, '-=0.4')
+        .to(scrollIndicator, {
+          opacity: 1,
+          duration: 0.6,
+          ease: 'power2.out'
+        }, '-=0.2');
+
+      /* ── GENERIC SCROLL REVEALS ────────────────────────────── */
+      gsap.utils.toArray('.cp-reveal').forEach(function (el) {
+        gsap.to(el, {
+          opacity: 1,
+          y: 0,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 82%',
+            toggleActions: 'play none none none'
+          }
+        });
+      });
+
+      /* ── MANIFESTO LINE STAGGER ─────────────────────────────── */
+      var manifestoLines = document.querySelectorAll('.cp-manifesto-line');
+      gsap.from(manifestoLines, {
+        y: 50,
+        opacity: 0,
+        stagger: 0.18,
+        duration: 1.1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#cp-manifesto',
+          start: 'top 72%',
+          toggleActions: 'play none none none'
+        }
+      });
+
+      /* ── PLACE IMAGE PARALLAX ───────────────────────────────── */
+      var placeImg = document.getElementById('cp-place-img');
+      if (placeImg) {
+        gsap.to(placeImg, {
+          yPercent: -12,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#cp-place',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1.5
+          }
+        });
+      }
+
+      /* ── EXPERIENCE CARDS STAGGER ───────────────────────────── */
+      gsap.from('.cp-exp-card', {
+        opacity: 0,
+        y: 40,
+        stagger: 0.12,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#cp-experiences',
+          start: 'top 75%',
+          toggleActions: 'play none none none'
+        }
+      });
+
+      /* ── STAT COUNTERS ─────────────────────────────────────── */
+      document.querySelectorAll('.cp-counter').forEach(function (el) {
+        var target = parseFloat(el.dataset.target);
+        var obj = { val: 0 };
+        gsap.to(obj, {
+          val: target,
+          duration: 2.8,
+          ease: 'power2.out',
+          onUpdate: function () {
+            el.textContent = Math.round(obj.val).toLocaleString();
+          },
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+          }
+        });
+      });
+
+      /* ── STAT ITEMS STAGGER ─────────────────────────────────── */
+      gsap.from('.cp-stat-item', {
+        opacity: 0,
+        y: 35,
+        stagger: 0.18,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#cp-stats',
+          start: 'top 75%',
+          toggleActions: 'play none none none'
+        }
+      });
+
+      /* ── ROOMS GRID STAGGER ─────────────────────────────────── */
+      gsap.from('.cp-room-item', {
+        opacity: 0,
+        scale: 0.97,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#cp-rooms-grid',
+          start: 'top 78%',
+          toggleActions: 'play none none none'
+        }
+      });
+
+      /* ── WELLNESS RITUALS STAGGER ───────────────────────────── */
+      gsap.from('.cp-ritual-item', {
+        opacity: 0,
+        y: 30,
+        stagger: 0.1,
+        duration: 0.85,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#cp-wellness',
+          start: 'top 72%',
+          toggleActions: 'play none none none'
+        }
+      });
+
+      /* ── QUOTE REVEAL ───────────────────────────────────────── */
+      gsap.from('.cp-quote-text', {
+        opacity: 0,
+        y: 30,
+        duration: 1.1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#cp-quote',
+          start: 'top 68%',
+          toggleActions: 'play none none none'
+        }
+      });
+
+      /* ── BOOKING HEADLINE PARALLAX ──────────────────────────── */
+      gsap.from('.cp-booking-headline', {
+        opacity: 0,
+        y: 40,
+        duration: 1.0,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#cp-booking',
+          start: 'top 72%',
+          toggleActions: 'play none none none'
+        }
+      });
+
+    }); /* end waitForLibs */
+
+    /* ─── THREE.JS: 3D OAK LEAF ─────────────────────────────── */
+    function initThreeD() {
+      if (typeof THREE === 'undefined') return;
+
+      var canvas = document.getElementById('cp-3d-canvas');
+      if (!canvas) return;
+
+      var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+      renderer.setSize(280, 280);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.outputEncoding = THREE.sRGBEncoding;
+
+      var scene = new THREE.Scene();
+
+      var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+      camera.position.set(0, 0.2, 3.5);
+      camera.lookAt(0, 0, 0);
+
+      /* Three-point light rig: warm key + cool fill + soft rim */
+      var ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+      scene.add(ambientLight);
+
+      var warmKey = new THREE.DirectionalLight(0xffd4a3, 2.0); /* warm amber key */
+      warmKey.position.set(2.5, 3, 2);
+      scene.add(warmKey);
+
+      var coolFill = new THREE.DirectionalLight(0xa8c8e8, 0.9); /* cool blue fill */
+      coolFill.position.set(-2.5, 1, -1.5);
+      scene.add(coolFill);
+
+      var rimLight = new THREE.DirectionalLight(0xffffff, 0.6); /* soft rim */
+      rimLight.position.set(0, -2, -2.5);
+      scene.add(rimLight);
+
+      var model = null;
+      var isHovered = false;
+
+      /* Load GLB */
+      /* SWAP:3D → oak leaf branch | Forest / Valley archetype */
+      function tryLoad() {
+        if (typeof THREE.GLTFLoader === 'undefined') {
+          setTimeout(tryLoad, 200);
+          return;
+        }
+        var loader = new THREE.GLTFLoader();
+        loader.load(
+          'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb',
+          function (gltf) {
+            model = gltf.scene;
+
+            /* Auto-fit the model into the view */
+            var box = new THREE.Box3().setFromObject(model);
+            var center = box.getCenter(new THREE.Vector3());
+            var size = box.getSize(new THREE.Vector3());
+            var maxDim = Math.max(size.x, size.y, size.z);
+            var fitScale = 2.2 / maxDim;
+            model.scale.setScalar(fitScale);
+            center.multiplyScalar(fitScale);
+            model.position.sub(center);
+
+            scene.add(model);
+          },
+          undefined,
+          function (err) {
+            console.warn('[Casa Pallotti 3D] GLB load error:', err);
+          }
+        );
+      }
+      tryLoad();
+
+      /* Hover pause/resume */
+      canvas.addEventListener('mouseenter', function () { isHovered = true; });
+      canvas.addEventListener('mouseleave', function () { isHovered = false; });
+
+      /* Render loop */
+      function animate() {
+        requestAnimationFrame(animate);
+        if (model && !isHovered) {
+          model.rotation.y += 0.002;
+          model.rotation.x += 0.0005;
+        }
+        renderer.render(scene, camera);
+      }
+      animate();
+    }
+
+    /* Init Three.js after a short delay to allow scripts to settle */
+    setTimeout(initThreeD, 400);
+
+  })();
+  </script>
+
+  <!--
+  ╔══════════════════════════════════════════════════════════════════════════════╗
+  ║  CUSTOMIZATION GUIDE — BALNEARIO CASA PALLOTTI                             ║
+  ╠══════════════════════════════════════════════════════════════════════════════╣
+  ║  Complete SWAP marker checklist for production hand-off.                   ║
+  ║  Markers prefixed ⚠ FLAG require attention (no CSV asset).                ║
+  ╠══════════════════════════════════════════════════════════════════════════════╣
+  ║                                                                            ║
+  ║  LOGO                                                                      ║
+  ║  ─────────────────────────────────────────────────────────────             ║
+  ║  [✓] 1.  SWAP:LOGO — Nav bar                                               ║
+  ║          Current: PNG from Webflow CDN                                     ║
+  ║          Recommend: SVG inline for full CSS color control                  ║
+  ║  [✓] 2.  SWAP:LOGO — Hero section                                          ║
+  ║  [✓] 3.  SWAP:LOGO — Footer                                                ║
+  ║                                                                            ║
+  ║  COLORS                                                                    ║
+  ║  ─────────────────────────────────────────────────────────────             ║
+  ║  [✓] 4.  SWAP:COLOR — CSS custom properties (lines 58–68)                  ║
+  ║          --color-primary:   #2D4A3A                                        ║
+  ║          --color-secondary: #C4A06B                                        ║
+  ║          --color-accent:    #7FAF8E                                        ║
+  ║          --color-bg:        #0C1810                                        ║
+  ║          --color-text:      #F0EAE0                                        ║
+  ║                                                                            ║
+  ║  VIDEO                                                                     ║
+  ║  ─────────────────────────────────────────────────────────────             ║
+  ║  [⚠] 5.  SWAP:VIDEO → hero background | hero section                      ║
+  ║          !! NO VIDEO IN CSV — Currently using Forest-62 image +            ║
+  ║          !! CSS Ken Burns animation. Replace with a real .mp4              ║
+  ║          !! or .webm hero video when available.                            ║
+  ║          Format: <video autoplay muted loop playsinline                    ║
+  ║                    poster="[forest-62 img url]">                           ║
+  ║                    <source src="[video.mp4]" type="video/mp4">             ║
+  ║                  </video>                                                  ║
+  ║                                                                            ║
+  ║  3D OBJECT                                                                 ║
+  ║  ─────────────────────────────────────────────────────────────             ║
+  ║  [✓] 6.  SWAP:3D → oak leaf branch | Forest / Valley archetype            ║
+  ║          SRC: hotels3ds.s3.eu-north-1.amazonaws.com/                      ║
+  ║               Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb        ║
+  ║          Location: manifesto section background (15% opacity)              ║
+  ║                                                                            ║
+  ║  IMAGES                                                                    ║
+  ║  ─────────────────────────────────────────────────────────────             ║
+  ║  [✓] 7.  SWAP:IMG → hero background forest valley | 16:9 | Forest-62      ║
+  ║  [✓] 8.  SWAP:IMG → experience-1 thermal spring waters | 4:5 | Forest-58  ║
+  ║  [✓] 9.  SWAP:IMG → experience-2 hydrotherapy circuits | 4:5 | Forest-59  ║
+  ║  [✓] 10. SWAP:IMG → experience-3 massage & treatments | 4:5 | Forest-57   ║
+  ║  [✓] 11. SWAP:IMG → experience-4 Basque cuisine | 4:5 | Forest-60         ║
+  ║  [✓] 12. SWAP:IMG → experience-5 Valle de Carranza | 4:5 | Forest-74      ║
+  ║  [✓] 13. SWAP:IMG → experience-6 character rooms 1847 | 4:5 | Alpine-32   ║
+  ║  [✓] 14. SWAP:IMG → the place left image | 3:2 | Forest-76                ║
+  ║  [✓] 15. SWAP:IMG → room-1 junior suite | 3:2 | Forest-71                 ║
+  ║  [✓] 16. SWAP:IMG → room-2 double superior | 3:2 | Forest-65              ║
+  ║  [✓] 17. SWAP:IMG → room-3 standard double | 3:2 | Forest-73              ║
+  ║  [✓] 18. SWAP:IMG → room-4 triple room | 3:2 | Forest-63                  ║
+  ║  [✓] 19. SWAP:IMG → room-5 individual superior | 3:2 | Alpine-31          ║
+  ║  [✓] 20. SWAP:IMG → room-6 family room | 3:2 | Alpine-33                  ║
+  ║  [✓] 21. SWAP:IMG → wellness background | 16:9 | Alpine-33                ║
+  ║  [✓] 22. SWAP:IMG → quote background | 16:9 | Forest-75                   ║
+  ║  [✓] 23. SWAP:IMG → booking CTA background | 16:9 | Alpine-32             ║
+  ║                                                                            ║
+  ║  COPY                                                                      ║
+  ║  ─────────────────────────────────────────────────────────────             ║
+  ║  [✓] 24. SWAP:COPY → hero tagline                                          ║
+  ║          "Ancient springs. Mountain silence. The valley restores."         ║
+  ║  [✓] 25. SWAP:COPY → manifesto                                             ║
+  ║          "Water older than the building that holds it."                    ║
+  ║  [✓] 26. SWAP:COPY → experience cards 1–6                                  ║
+  ║  [✓] 27. SWAP:COPY → the place (3 paragraphs)                              ║
+  ║  [✓] 28. SWAP:COPY → transformation stats 1–3                              ║
+  ║          1843 / 30°C / 56 rooms                                            ║
+  ║  [✓] 29. SWAP:COPY → wellness rituals 1–6                                  ║
+  ║  [✓] 30. SWAP:COPY → editorial quote                                       ║
+  ║          José Luis Eraña guest testimonial                                 ║
+  ║  [✓] 31. SWAP:COPY → booking CTA                                           ║
+  ║                                                                            ║
+  ║  PRODUCTION FOLLOW-UP — PRIORITY FLAGS                                     ║
+  ║  ─────────────────────────────────────────────────────────────             ║
+  ║  ⚠ ITEM 5:  Source a hero video (MP4/WebM) — the most impactful upgrade.  ║
+  ║             Ideal: drone footage of Valle de Carranza or spring interior.  ║
+  ║  ⚠ REVIEW:  Swap all landscape-archetype images (forest/alpine from        ║
+  ║             master CSV) with the hotel's own photography once available.   ║
+  ║  ⚠ REVIEW:  Confirm booking URL (currently greenchannel.es) is active.    ║
+  ╚══════════════════════════════════════════════════════════════════════════════╝
+  -->
+
+</body>
+</html>

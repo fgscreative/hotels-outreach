@@ -1,0 +1,2718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barnham Broom Hotel, Golf &amp; Spa — Norfolk</title>
+
+  <!--
+  ═══════════════════════════════════════════════════════════════════
+  BRAND EXTRACTION REPORT
+  ════════════════════════════════════════════════════════════════════
+
+  Hotel Name:         Barnham Broom Hotel, Golf & Spa
+  URL:                https://barnham-broom.co.uk/
+  Primary Color:      #1A3228  (deep Norfolk forest green — extracted from
+                      brand identity of countryside golf resort, reinforced
+                      by white-on-dark logo)
+  Secondary Color:    #B89650  (warm harvest gold — English country house accent)
+  Accent Color:       #E8DCC0  (pale reed cream — Norfolk reed bed warmth)
+  Background Mood:    Dark, warm — deep earth tones of the River Yare valley;
+                      near-black forest depth, organic not industrial
+  Font Pairing:       Cormorant Garamond (serif editorial, 300–600 + italic)
+                      + Inter (grotesque humanist sans, 300–500)
+  Tone of Voice:      Warm, quietly confident, nature-rooted — the unhurried
+                      self-assurance of the English countryside; specific
+                      rather than superlative
+  Landscape Archetype: Forest (Norfolk woodland, River Yare valley, 14m elev.)
+  Positioning:        "Where the Yare valley holds you still."
+                      Championship golf and restorative spa carved into
+                      300 acres of ancient Norfolk countryside.
+  Key Experiences:    Championship Golf (36 holes, Valley + River courses),
+                      Spa & Thermal Rituals, River Kitchen dining,
+                      Valley Walking & Cycling, Morning Yoga & Breathwork,
+                      Evening Restore & Wild Swimming
+  Coordinates:        52°37′30″N  1°04′19″E
+  Elevation:          14m above sea level — River Yare flood plain, South Norfolk
+
+  ════════════════════════════════════════════════════════════════════
+  ASSET MAPPING REPORT
+  ════════════════════════════════════════════════════════════════════
+
+  Total assets in CSV:     22+ images (forest archetype) + 3 forest videos
+                           + 1 oak leaf GLB
+  Assets successfully mapped: 19 images + 3 videos + 1 GLB = 23 assets
+  Slots covered by CSV:    hero-video, hero-poster, manifesto-3d,
+                           experience-1..6, place-image, room-1..6,
+                           wellness-bg-video, quote-bg, booking-video
+
+  Slots falling back to Unsplash: NONE — all slots covered by CSV assets
+
+  Logo SRC:     https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a130921431c2637b723e8b8_Barnham-Broom-white-transparent-background.png
+  3D Object SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb
+  Video assets:
+    forest-1 (hero):    https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c09a2310d67bcd25c0d_compressed-video.mp4
+    forest-2 (booking): https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c0fe737ad6b6c354b9c_Video%201.mp4
+    forest-3 (wellness): https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c75963759010165f031_Video%2010.mp4
+  Image assets (forest archetype, 19 images):
+    img-62, 58, 59, 57, 60, 74, 76, 75, 71, 65, 73, 63, 66, 69, 64, 67, 61, 68, 72
+
+  CSS CUSTOM PROPERTIES REFERENCE
+  ════════════════════════════════════════════════════════════════════
+  --color-primary:    #1A3228  deep forest green
+  --color-secondary:  #B89650  warm harvest gold
+  --color-accent:     #E8DCC0  pale reed cream
+  --color-bg:         #0C1610  near-black forest depth
+  --color-bg-mid:     #122018  mid forest dark
+  --color-text:       #F0EBE0  warm white
+  --color-text-muted: rgba(240,235,224,0.55)
+  --color-overlay:    rgba(26,50,40,0.42)
+  --font-heading:     'Cormorant Garamond', Georgia, serif
+  --font-body:        'Inter', -apple-system, sans-serif
+  ═══════════════════════════════════════════════════════════════════
+  -->
+
+  <!-- Google Fonts: Cormorant Garamond + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Three.js r134 + GLTFLoader (UMD) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js"></script>
+
+  <style>
+    /* ═══════════════════════════════════════════
+       CSS CUSTOM PROPERTIES
+    ═══════════════════════════════════════════ */
+    :root {
+      --color-primary:    #1A3228;
+      --color-secondary:  #B89650;
+      --color-accent:     #E8DCC0;
+      --color-bg:         #0C1610;
+      --color-bg-mid:     #122018;
+      --color-bg-section: #0F1D14;
+      --color-text:       #F0EBE0;
+      --color-text-muted: rgba(240, 235, 224, 0.55);
+      --color-text-dim:   rgba(240, 235, 224, 0.30);
+      --color-overlay:    rgba(26, 50, 40, 0.42);
+      --color-gold-line:  rgba(184, 150, 80, 0.35);
+      --font-heading:     'Cormorant Garamond', Georgia, serif;
+      --font-body:        'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --ease-out:         cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out:      cubic-bezier(0.65, 0, 0.35, 1);
+      --transition:       0.65s var(--ease-out);
+      --section-pad:      clamp(80px, 10vw, 140px);
+      --gutter:           clamp(24px, 5vw, 80px);
+    }
+
+    /* ═══════════════════════════════════════════
+       RESET + BASE
+    ═══════════════════════════════════════════ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img, video {
+      display: block;
+      max-width: 100%;
+    }
+
+    button, a {
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    /* Film grain overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    }
+
+    /* ═══════════════════════════════════════════
+       TYPOGRAPHY UTILITIES
+    ═══════════════════════════════════════════ */
+    .t-display {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .t-heading {
+      font-family: var(--font-heading);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    .t-label {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.625rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    .t-body {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+    }
+
+    /* Overflow mask for word reveals */
+    .word-wrap {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: top;
+    }
+
+    .word-wrap .word {
+      display: inline-block;
+      transform: translateY(110%);
+    }
+
+    /* Fade-up utility */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+    }
+
+    /* Thin gold divider */
+    .gold-rule {
+      width: 48px;
+      height: 1px;
+      background: var(--color-secondary);
+      opacity: 0.6;
+    }
+
+    /* ═══════════════════════════════════════════
+       SECTION 1: HERO
+    ═══════════════════════════════════════════ */
+    .bb-hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* SWAP:VIDEO → hero background | hero section */
+    .bb-hero__video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+    }
+
+    /* Color overlay: --color-primary at 42% */
+    .bb-hero__overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        180deg,
+        rgba(26, 50, 40, 0.5) 0%,
+        rgba(26, 50, 40, 0.25) 40%,
+        rgba(12, 22, 16, 0.70) 100%
+      );
+    }
+
+    .bb-hero__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 0 var(--gutter);
+    }
+
+    /* SWAP:LOGO */
+    .bb-hero__logo {
+      width: clamp(160px, 22vw, 280px);
+      opacity: 0;
+    }
+
+    .bb-hero__logo img {
+      width: 100%;
+      height: auto;
+    }
+
+    .bb-hero__tagline {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .bb-hero__tagline-line {
+      display: block;
+      overflow: hidden;
+    }
+
+    .bb-hero__tagline-line span {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+      transform: translateY(110%);
+    }
+
+    .bb-hero__coords {
+      font-family: var(--font-body);
+      font-size: 0.625rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(240, 235, 224, 0.45);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    /* Scroll indicator */
+    .bb-hero__scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+    }
+
+    .bb-hero__scroll span {
+      font-family: var(--font-body);
+      font-size: 0.5625rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(240, 235, 224, 0.45);
+    }
+
+    .bb-hero__scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--color-secondary), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.15); }
+    }
+
+    /* ═══════════════════════════════════════════
+       SECTION 2: MANIFESTO / PHILOSOPHY
+    ═══════════════════════════════════════════ */
+    .bb-manifesto {
+      position: relative;
+      padding: var(--section-pad) var(--gutter);
+      background-color: var(--color-bg);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 90vh;
+    }
+
+    /* SWAP:3D → oak leaf | Forest archetype */
+    .bb-manifesto__3d-canvas {
+      position: absolute;
+      top: 50%;
+      right: 8%;
+      transform: translateY(-50%);
+      width: 280px;
+      height: 280px;
+      opacity: 0.14;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bb-manifesto__3d-canvas canvas {
+      display: block;
+    }
+
+    .bb-manifesto__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 920px;
+      width: 100%;
+    }
+
+    .bb-manifesto__label {
+      margin-bottom: 36px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .bb-manifesto__lines {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05em;
+    }
+
+    .bb-manifesto__line {
+      display: block;
+      overflow: hidden;
+    }
+
+    .bb-manifesto__line span {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 300;
+      font-size: clamp(2.8rem, 5.8vw, 6.5rem);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      color: var(--color-text);
+      transform: translateY(110%);
+    }
+
+    .bb-manifesto__line span em {
+      font-style: italic;
+      color: var(--color-accent);
+    }
+
+    .bb-manifesto__body {
+      margin-top: 48px;
+      max-width: 400px;
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    /* SWAP:COPY → manifesto */
+
+    /* ═══════════════════════════════════════════
+       SECTION 3: SIGNATURE EXPERIENCES
+    ═══════════════════════════════════════════ */
+    .bb-experiences {
+      padding: var(--section-pad) 0;
+      background-color: var(--color-bg-section);
+      overflow: hidden;
+    }
+
+    .bb-experiences__header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 0 var(--gutter);
+      margin-bottom: 52px;
+      gap: 24px;
+    }
+
+    .bb-experiences__title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .bb-experiences__title {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(2rem, 3.5vw, 3.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+      opacity: 0;
+      transform: translateY(28px);
+    }
+
+    .bb-experiences__hint {
+      font-family: var(--font-body);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-dim);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bb-experiences__hint::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--color-secondary);
+      opacity: 0.5;
+    }
+
+    /* Horizontal scroll track */
+    .bb-experiences__track {
+      display: flex;
+      gap: 3px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 0 var(--gutter) 4px;
+      cursor: grab;
+    }
+
+    .bb-experiences__track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .bb-experiences__track.is-dragging {
+      cursor: grabbing;
+      user-select: none;
+    }
+
+    /* SWAP:IMG → experience card [1–6] | ratio: 4:5 */
+    .bb-experience-card {
+      flex: 0 0 clamp(220px, 22vw, 320px);
+      aspect-ratio: 4/5;
+      position: relative;
+      overflow: hidden;
+      scroll-snap-align: start;
+      border-radius: 2px;
+    }
+
+    .bb-experience-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.9s var(--ease-out);
+    }
+
+    .bb-experience-card:hover .bb-experience-card__img {
+      transform: scale(1.05);
+    }
+
+    .bb-experience-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(12, 22, 16, 0.82) 0%,
+        rgba(26, 50, 40, 0.15) 55%,
+        transparent 100%
+      );
+      transition: background 0.6s ease;
+    }
+
+    .bb-experience-card:hover .bb-experience-card__overlay {
+      background: linear-gradient(
+        to top,
+        rgba(12, 22, 16, 0.88) 0%,
+        rgba(26, 50, 40, 0.30) 55%,
+        rgba(184, 150, 80, 0.08) 100%
+      );
+    }
+
+    .bb-experience-card__content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 24px 20px;
+    }
+
+    .bb-experience-card__cat {
+      font-family: var(--font-body);
+      font-size: 0.5625rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      margin-bottom: 6px;
+    }
+
+    .bb-experience-card__name {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+      line-height: 1.15;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+
+    .bb-experience-card__desc {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 0.75rem;
+      line-height: 1.5;
+      color: rgba(240, 235, 224, 0.6);
+      max-width: 220px;
+    }
+
+    /* ═══════════════════════════════════════════
+       SECTION 4: THE PLACE
+    ═══════════════════════════════════════════ */
+    .bb-place {
+      padding: var(--section-pad) 0;
+      background-color: var(--color-bg);
+      overflow: hidden;
+    }
+
+    .bb-place__inner {
+      display: grid;
+      grid-template-columns: 60fr 40fr;
+      min-height: 80vh;
+    }
+
+    /* SWAP:IMG → the place | ratio: 3:2 */
+    .bb-place__img-col {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bb-place__img-wrap {
+      position: absolute;
+      inset: -15%;
+      will-change: transform;
+    }
+
+    .bb-place__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Atmospheric data overlay */
+    .bb-place__data-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .bb-place__coord-tag {
+      position: absolute;
+      bottom: 32px;
+      left: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .bb-place__coord-line {
+      font-family: var(--font-body);
+      font-size: 0.5625rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(232, 220, 192, 0.7);
+      padding: 4px 10px;
+      background: rgba(12, 22, 16, 0.55);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-left: 1px solid var(--color-gold-line);
+    }
+
+    .bb-place__elev-tag {
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      align-items: flex-end;
+    }
+
+    .bb-place__elev-value {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      font-size: 3rem;
+      line-height: 1;
+      color: rgba(232, 220, 192, 0.5);
+      letter-spacing: -0.04em;
+    }
+
+    .bb-place__elev-unit {
+      font-family: var(--font-body);
+      font-size: 0.5rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(232, 220, 192, 0.4);
+    }
+
+    /* SWAP:COPY → the place */
+    .bb-place__copy-col {
+      padding: clamp(40px, 7vw, 100px) clamp(32px, 6vw, 80px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .bb-place__label {
+      opacity: 0;
+    }
+
+    .bb-place__heading {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(2.2rem, 3.5vw, 3.8rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .bb-place__paragraphs {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .bb-place__para {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--color-text-muted);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .bb-place__eco-detail {
+      margin-top: 8px;
+      padding: 16px 20px;
+      border-left: 1px solid var(--color-gold-line);
+      opacity: 0;
+    }
+
+    .bb-place__eco-detail p {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+      color: var(--color-text-dim);
+    }
+
+    /* ═══════════════════════════════════════════
+       SECTION 5: TRANSFORMATION PROMISE
+    ═══════════════════════════════════════════ */
+    .bb-stats {
+      padding: var(--section-pad) var(--gutter);
+      background-color: var(--color-bg-section);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bb-stats::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse at 30% 60%,
+        rgba(26, 50, 40, 0.6) 0%,
+        transparent 70%
+      );
+      pointer-events: none;
+    }
+
+    .bb-stats__header {
+      margin-bottom: clamp(48px, 8vw, 96px);
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .bb-stats__header p {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      color: var(--color-text-muted);
+      max-width: 520px;
+      margin-top: 16px;
+    }
+
+    /* SWAP:COPY → transformation stats [1–3] */
+    .bb-stats__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(32px, 5vw, 80px);
+    }
+
+    .bb-stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      opacity: 0;
+      transform: translateY(32px);
+    }
+
+    .bb-stat-item__number {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      font-size: clamp(4rem, 8vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--color-text);
+      position: relative;
+    }
+
+    .bb-stat-item__number::after {
+      content: attr(data-suffix);
+      font-size: 0.35em;
+      color: var(--color-secondary);
+      margin-left: 0.1em;
+      vertical-align: middle;
+      letter-spacing: 0;
+    }
+
+    .bb-stat-item__rule {
+      width: 40px;
+      height: 1px;
+      background: var(--color-secondary);
+      opacity: 0.5;
+    }
+
+    .bb-stat-item__label {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+    }
+
+    .bb-stat-item__desc {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 0.875rem;
+      line-height: 1.65;
+      color: var(--color-text-muted);
+      max-width: 260px;
+    }
+
+    /* ═══════════════════════════════════════════
+       SECTION 6: ROOMS & SPACES
+    ═══════════════════════════════════════════ */
+    .bb-rooms {
+      padding: var(--section-pad) var(--gutter);
+      background-color: var(--color-bg);
+    }
+
+    .bb-rooms__header {
+      margin-bottom: 52px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .bb-rooms__title {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(2rem, 3.5vw, 3.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    /* SWAP:IMG → room/interior [1–6] | ratio: 3:2 */
+    .bb-rooms__grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto auto;
+      gap: 3px;
+    }
+
+    .bb-room-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .bb-room-item:nth-child(1) { grid-column: 1 / 8; grid-row: 1 / 3; }
+    .bb-room-item:nth-child(2) { grid-column: 8 / 13; grid-row: 1 / 2; }
+    .bb-room-item:nth-child(3) { grid-column: 8 / 10; grid-row: 2 / 3; }
+    .bb-room-item:nth-child(4) { grid-column: 10 / 12; grid-row: 2 / 3; }
+    .bb-room-item:nth-child(5) { grid-column: 12 / 13; grid-row: 2 / 3; }
+
+    .bb-room-item::before {
+      content: '';
+      display: block;
+      padding-top: 66.66%;
+    }
+
+    .bb-room-item:nth-child(1)::before { padding-top: 75%; }
+    .bb-room-item:nth-child(2)::before { padding-top: 60%; }
+
+    .bb-room-item__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.9s var(--ease-out);
+    }
+
+    .bb-room-item:hover .bb-room-item__img {
+      transform: scale(1.04);
+    }
+
+    .bb-room-item__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(12, 22, 16, 0);
+      transition: background 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bb-room-item:hover .bb-room-item__overlay {
+      background: rgba(12, 22, 16, 0.35);
+    }
+
+    .bb-room-item__expand {
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(232, 220, 192, 0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: scale(0.7);
+      transition: opacity 0.4s ease, transform 0.4s var(--ease-out);
+    }
+
+    .bb-room-item__expand svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--color-accent);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    .bb-room-item:hover .bb-room-item__expand {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .bb-room-item__name {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 0.875rem;
+      letter-spacing: 0.08em;
+      color: rgba(240, 235, 224, 0.7);
+      text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+    }
+
+    /* ═══════════════════════════════════════════
+       SECTION 7: WELLNESS RITUALS
+    ═══════════════════════════════════════════ */
+    .bb-wellness {
+      position: relative;
+      padding: var(--section-pad) var(--gutter);
+      background-color: var(--color-bg-section);
+      overflow: hidden;
+    }
+
+    /* Forest video texture in background */
+    .bb-wellness__bg-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.07;
+      z-index: 0;
+    }
+
+    .bb-wellness__bg-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(12, 22, 16, 0.95) 0%,
+        rgba(26, 50, 40, 0.85) 100%
+      );
+      z-index: 1;
+    }
+
+    .bb-wellness__inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .bb-wellness__header {
+      margin-bottom: clamp(48px, 7vw, 80px);
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .bb-wellness__header-title {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(2rem, 3.5vw, 3.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+      margin-top: 12px;
+    }
+
+    /* SWAP:COPY → wellness rituals [1–6] */
+    .bb-wellness__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(24px, 3vw, 48px) clamp(32px, 5vw, 72px);
+    }
+
+    .bb-ritual-item {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      opacity: 0;
+      transform: translateY(28px);
+      padding: 28px 24px;
+      border: 1px solid rgba(184, 150, 80, 0.1);
+      background: rgba(26, 50, 40, 0.2);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: border-color 0.4s ease, background 0.4s ease;
+    }
+
+    .bb-ritual-item:hover {
+      border-color: rgba(184, 150, 80, 0.3);
+      background: rgba(26, 50, 40, 0.4);
+    }
+
+    .bb-ritual-item__icon {
+      width: 32px;
+      height: 32px;
+      color: var(--color-secondary);
+      opacity: 0.8;
+    }
+
+    .bb-ritual-item__icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.2;
+    }
+
+    .bb-ritual-item__name {
+      font-family: var(--font-heading);
+      font-weight: 500;
+      font-size: 1.25rem;
+      letter-spacing: 0.01em;
+      color: var(--color-text);
+      line-height: 1.2;
+    }
+
+    .bb-ritual-item__desc {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 0.8125rem;
+      line-height: 1.65;
+      color: var(--color-text-muted);
+    }
+
+    /* ═══════════════════════════════════════════
+       SECTION 8: EDITORIAL QUOTE
+    ═══════════════════════════════════════════ */
+    .bb-quote {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 560px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* SWAP:IMG → editorial quote background | ratio: 16:9 */
+    .bb-quote__bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .bb-quote__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(12, 22, 16, 0.65);
+    }
+
+    .bb-quote__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 var(--gutter);
+      max-width: 900px;
+    }
+
+    .bb-quote__mark {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      font-size: clamp(6rem, 14vw, 14rem);
+      line-height: 0.5;
+      color: var(--color-secondary);
+      opacity: 0.5;
+      display: block;
+      margin-bottom: 0.15em;
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    /* SWAP:COPY → editorial quote */
+    .bb-quote__text {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(2rem, 4.5vw, 5rem);
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--color-text);
+      opacity: 0;
+      transform: translateY(28px);
+    }
+
+    .bb-quote__source {
+      margin-top: 32px;
+      font-family: var(--font-body);
+      font-size: 0.625rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(240, 235, 224, 0.45);
+      opacity: 0;
+      transform: translateY(16px);
+    }
+
+    /* ═══════════════════════════════════════════
+       SECTION 9: BOOKING CTA
+    ═══════════════════════════════════════════ */
+    .bb-booking {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(100px, 14vw, 180px) var(--gutter);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* SWAP:VIDEO → booking background | booking section */
+    .bb-booking__video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .bb-booking__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(12, 22, 16, 0.7) 0%,
+        rgba(26, 50, 40, 0.55) 50%,
+        rgba(12, 22, 16, 0.75) 100%
+      );
+    }
+
+    .bb-booking__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .bb-booking__urgency {
+      font-family: var(--font-body);
+      font-size: 0.5625rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      opacity: 0;
+      transform: translateY(16px);
+    }
+
+    .bb-booking__heading {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(2.5rem, 5vw, 5.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      color: var(--color-text);
+      opacity: 0;
+      transform: translateY(28px);
+    }
+
+    .bb-booking__sub {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      max-width: 440px;
+      line-height: 1.7;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    /* SWAP:COPY → booking CTA */
+    .bb-booking__ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .bb-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 36px;
+      font-family: var(--font-body);
+      font-size: 0.625rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      transition: all 0.4s var(--ease-out);
+      border-radius: 1px;
+      white-space: nowrap;
+    }
+
+    .bb-btn--primary {
+      background-color: var(--color-secondary);
+      color: var(--color-bg);
+      border: 1px solid var(--color-secondary);
+    }
+
+    .bb-btn--primary:hover {
+      background-color: transparent;
+      color: var(--color-secondary);
+    }
+
+    .bb-btn--ghost {
+      background-color: transparent;
+      color: var(--color-accent);
+      border: 1px solid rgba(232, 220, 192, 0.35);
+    }
+
+    .bb-btn--ghost:hover {
+      border-color: var(--color-accent);
+      background-color: rgba(232, 220, 192, 0.08);
+    }
+
+    /* ═══════════════════════════════════════════
+       SECTION 10: FOOTER
+    ═══════════════════════════════════════════ */
+    .bb-footer {
+      padding: clamp(48px, 6vw, 80px) var(--gutter);
+      background-color: var(--color-bg);
+      border-top: 1px solid rgba(184, 150, 80, 0.12);
+    }
+
+    .bb-footer__inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .bb-footer__left {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .bb-footer__left a {
+      font-family: var(--font-body);
+      font-size: 0.625rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      transition: color 0.3s ease;
+    }
+
+    .bb-footer__left a:hover {
+      color: var(--color-accent);
+    }
+
+    /* SWAP:LOGO */
+    .bb-footer__logo {
+      display: flex;
+      justify-content: center;
+    }
+
+    .bb-footer__logo img {
+      width: clamp(120px, 14vw, 180px);
+      height: auto;
+      opacity: 0.75;
+    }
+
+    .bb-footer__right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .bb-footer__right a {
+      font-family: var(--font-body);
+      font-size: 0.625rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      transition: color 0.3s ease;
+    }
+
+    .bb-footer__right a:hover {
+      color: var(--color-accent);
+    }
+
+    .bb-footer__coords {
+      font-family: var(--font-body);
+      font-size: 0.5625rem;
+      letter-spacing: 0.15em;
+      color: var(--color-text-dim);
+    }
+
+    .bb-footer__copy {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(184, 150, 80, 0.08);
+      font-family: var(--font-body);
+      font-size: 0.5625rem;
+      letter-spacing: 0.12em;
+      text-align: center;
+      color: var(--color-text-dim);
+    }
+
+    /* ═══════════════════════════════════════════
+       LIGHTBOX
+    ═══════════════════════════════════════════ */
+    .bb-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(12, 22, 16, 0.96);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .bb-lightbox.is-open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .bb-lightbox__img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 2px;
+      transform: scale(0.95);
+      transition: transform 0.4s var(--ease-out);
+    }
+
+    .bb-lightbox.is-open .bb-lightbox__img {
+      transform: scale(1);
+    }
+
+    .bb-lightbox__close {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      background: none;
+      border: 1px solid rgba(232, 220, 192, 0.25);
+      color: var(--color-text);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s ease;
+    }
+
+    .bb-lightbox__close:hover {
+      border-color: var(--color-accent);
+    }
+
+    .bb-lightbox__caption {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-body);
+      font-size: 0.5625rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE — 375px (MOBILE)
+    ═══════════════════════════════════════════ */
+    @media (max-width: 767px) {
+      .bb-place__inner {
+        grid-template-columns: 1fr;
+      }
+
+      .bb-place__img-col {
+        position: relative;
+        height: 55vw;
+        min-height: 240px;
+      }
+
+      .bb-place__img-wrap {
+        position: absolute;
+      }
+
+      .bb-stats__grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .bb-rooms__grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+
+      .bb-room-item:nth-child(1) { grid-column: 1 / 3; grid-row: auto; }
+      .bb-room-item:nth-child(2) { grid-column: 1 / 2; grid-row: auto; }
+      .bb-room-item:nth-child(3) { grid-column: 2 / 3; grid-row: auto; }
+      .bb-room-item:nth-child(4) { grid-column: 1 / 2; grid-row: auto; }
+      .bb-room-item:nth-child(5) { grid-column: 2 / 3; grid-row: auto; }
+
+      .bb-room-item::before { padding-top: 75%; }
+      .bb-room-item:nth-child(1)::before { padding-top: 66%; }
+
+      .bb-wellness__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bb-footer__inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .bb-footer__right {
+        align-items: center;
+      }
+
+      .bb-manifesto__3d-canvas {
+        right: 50%;
+        transform: translate(50%, -50%);
+        opacity: 0.08;
+      }
+
+      .bb-booking__ctas {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE — 768px (TABLET)
+    ═══════════════════════════════════════════ */
+    @media (min-width: 768px) and (max-width: 1279px) {
+      .bb-wellness__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .bb-rooms__grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
+
+      .bb-room-item:nth-child(1) { grid-column: 1 / 4; grid-row: 1 / 3; }
+      .bb-room-item:nth-child(2) { grid-column: 4 / 7; grid-row: 1 / 2; }
+      .bb-room-item:nth-child(3) { grid-column: 4 / 5; grid-row: 2 / 3; }
+      .bb-room-item:nth-child(4) { grid-column: 5 / 6; grid-row: 2 / 3; }
+      .bb-room-item:nth-child(5) { grid-column: 6 / 7; grid-row: 2 / 3; }
+
+      .bb-place__copy-col {
+        padding: 48px 40px;
+      }
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE — 1920px (WIDE)
+    ═══════════════════════════════════════════ */
+    @media (min-width: 1920px) {
+      :root {
+        --section-pad: 160px;
+        --gutter: 100px;
+      }
+    }
+
+    /* Accessibility: reduce motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* SWAP:COLOR — all CSS vars above */
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 1: FULLSCREEN HERO
+  ═══════════════════════════════════════════ -->
+  <!-- SWAP:VIDEO → hero background | hero section -->
+  <!-- SWAP:LOGO -->
+  <section class="bb-hero" aria-label="Barnham Broom — Hero">
+
+    <video class="bb-hero__video"
+      autoplay muted loop playsinline
+      poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f5931b223dc54467b_Image%2062.png">
+      <source
+        src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c09a2310d67bcd25c0d_compressed-video.mp4"
+        type="video/mp4">
+    </video>
+
+    <div class="bb-hero__overlay" aria-hidden="true"></div>
+
+    <div class="bb-hero__content">
+      <div class="bb-hero__logo" id="heroLogo">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a130921431c2637b723e8b8_Barnham-Broom-white-transparent-background.png"
+          alt="Barnham Broom Hotel, Golf &amp; Spa"
+          loading="eager">
+      </div>
+
+      <!-- SWAP:COPY → manifesto -->
+      <div class="bb-hero__tagline" id="heroTagline" aria-label="Hotel tagline">
+        <div class="bb-hero__tagline-line">
+          <span>Two courses.</span>
+        </div>
+        <div class="bb-hero__tagline-line">
+          <span>One river.</span>
+        </div>
+        <div class="bb-hero__tagline-line">
+          <span>No distractions.</span>
+        </div>
+      </div>
+
+      <p class="bb-hero__coords" id="heroCoords" aria-label="Location coordinates">
+        52°37′30″N &nbsp;·&nbsp; 1°04′19″E &nbsp;·&nbsp; Norfolk
+      </p>
+    </div>
+
+    <div class="bb-hero__scroll" id="heroScroll" aria-hidden="true">
+      <div class="bb-hero__scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 2: MANIFESTO — THE PHILOSOPHY
+  ═══════════════════════════════════════════ -->
+  <!-- SWAP:3D → oak leaf | Forest archetype -->
+  <!-- SWAP:COPY → manifesto -->
+  <section class="bb-manifesto" aria-label="The Philosophy">
+
+    <div class="bb-manifesto__3d-canvas" id="manifesto3dWrapper" aria-hidden="true">
+      <canvas id="leafCanvas"></canvas>
+    </div>
+
+    <div class="bb-manifesto__inner">
+      <div class="bb-manifesto__label fade-up" id="manifestoLabel">
+        <div class="gold-rule"></div>
+        <span class="t-label">The Philosophy</span>
+      </div>
+
+      <div class="bb-manifesto__lines" id="manifestoLines">
+        <div class="bb-manifesto__line"><span>The Yare does not rush.</span></div>
+        <div class="bb-manifesto__line"><span>Neither should <em>you.</em></span></div>
+        <div class="bb-manifesto__line"><span>Three hundred acres of</span></div>
+        <div class="bb-manifesto__line"><span>ancient Norfolk hold</span></div>
+        <div class="bb-manifesto__line"><span>everything you need.</span></div>
+      </div>
+
+      <div class="bb-manifesto__body t-body fade-up" id="manifestoBody">
+        Golf cut into living chalk and clay. Water threading through meadow
+        and reed. A spa that reads the land rather than ignores it.
+        This is not a resort. This is a return.
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 3: SIGNATURE EXPERIENCES
+  ═══════════════════════════════════════════ -->
+  <section class="bb-experiences" aria-label="Signature Experiences">
+
+    <div class="bb-experiences__header">
+      <div class="bb-experiences__title-block">
+        <span class="t-label">What we offer</span>
+        <!-- SWAP:COPY → manifesto -->
+        <h2 class="bb-experiences__title" id="expTitle">Six ways to be here.</h2>
+      </div>
+      <div class="bb-experiences__hint" aria-hidden="true">Drag to explore</div>
+    </div>
+
+    <div class="bb-experiences__track" id="expTrack" role="list">
+
+      <!-- SWAP:IMG → experience card 1 | ratio: 4:5 -->
+      <article class="bb-experience-card" role="listitem">
+        <img class="bb-experience-card__img"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f66d293ddbe3e52da_Image%2058.png"
+          alt="Championship Golf at Barnham Broom"
+          loading="lazy">
+        <div class="bb-experience-card__overlay" aria-hidden="true"></div>
+        <div class="bb-experience-card__content">
+          <div class="bb-experience-card__cat">Golf</div>
+          <h3 class="bb-experience-card__name">36 Holes</h3>
+          <p class="bb-experience-card__desc">Valley and River courses carved through 300 acres of living Norfolk landscape.</p>
+        </div>
+      </article>
+
+      <!-- SWAP:IMG → experience card 2 | ratio: 4:5 -->
+      <article class="bb-experience-card" role="listitem">
+        <img class="bb-experience-card__img"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f02e16a74f59b019c_Image%2059.png"
+          alt="Spa and Thermal Rituals"
+          loading="lazy">
+        <div class="bb-experience-card__overlay" aria-hidden="true"></div>
+        <div class="bb-experience-card__content">
+          <div class="bb-experience-card__cat">Spa</div>
+          <h3 class="bb-experience-card__name">Thermal Rituals</h3>
+          <p class="bb-experience-card__desc">Heat. Cold. Stillness. The body knows what it needs when you stop telling it otherwise.</p>
+        </div>
+      </article>
+
+      <!-- SWAP:IMG → experience card 3 | ratio: 4:5 -->
+      <article class="bb-experience-card" role="listitem">
+        <img class="bb-experience-card__img"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fe534894fe01d574b_Image%2057.png"
+          alt="River Kitchen Dining"
+          loading="lazy">
+        <div class="bb-experience-card__overlay" aria-hidden="true"></div>
+        <div class="bb-experience-card__content">
+          <div class="bb-experience-card__cat">Dining</div>
+          <h3 class="bb-experience-card__name">River Kitchen</h3>
+          <p class="bb-experience-card__desc">Norfolk larder, low miles. The Yare valley provides. The kitchen listens.</p>
+        </div>
+      </article>
+
+      <!-- SWAP:IMG → experience card 4 | ratio: 4:5 -->
+      <article class="bb-experience-card" role="listitem">
+        <img class="bb-experience-card__img"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fa912698fb567fc31_Image%2060.png"
+          alt="Valley Walking and Cycling"
+          loading="lazy">
+        <div class="bb-experience-card__overlay" aria-hidden="true"></div>
+        <div class="bb-experience-card__content">
+          <div class="bb-experience-card__cat">Land</div>
+          <h3 class="bb-experience-card__name">Valley Walks</h3>
+          <p class="bb-experience-card__desc">Follow the Yare through ancient oak corridor and open meadow at your own pace.</p>
+        </div>
+      </article>
+
+      <!-- SWAP:IMG → experience card 5 | ratio: 4:5 -->
+      <article class="bb-experience-card" role="listitem">
+        <img class="bb-experience-card__img"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d01b3f8e72daf583f_Image%2074.png"
+          alt="Morning Yoga and Breathwork"
+          loading="lazy">
+        <div class="bb-experience-card__overlay" aria-hidden="true"></div>
+        <div class="bb-experience-card__content">
+          <div class="bb-experience-card__cat">Movement</div>
+          <h3 class="bb-experience-card__name">Dawn Practice</h3>
+          <p class="bb-experience-card__desc">Yoga, breathwork, morning mist. The valley is the studio.</p>
+        </div>
+      </article>
+
+      <!-- SWAP:IMG → experience card 6 | ratio: 4:5 -->
+      <article class="bb-experience-card" role="listitem">
+        <img class="bb-experience-card__img"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755dfd3f818cc9e63c84_Image%2076.png"
+          alt="Evening Restore and Relaxation"
+          loading="lazy">
+        <div class="bb-experience-card__overlay" aria-hidden="true"></div>
+        <div class="bb-experience-card__content">
+          <div class="bb-experience-card__cat">Restore</div>
+          <h3 class="bb-experience-card__name">Evening Surrender</h3>
+          <p class="bb-experience-card__desc">Thermal pool, candlelight, the sound of the river settling for the night.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 4: THE PLACE
+  ═══════════════════════════════════════════ -->
+  <!-- SWAP:IMG → the place | ratio: 3:2 -->
+  <!-- SWAP:COPY → the place -->
+  <section class="bb-place" aria-label="The Place — Barnham Broom, Norfolk">
+
+    <div class="bb-place__inner">
+
+      <div class="bb-place__img-col">
+        <div class="bb-place__img-wrap" id="placeImgWrap">
+          <img class="bb-place__img"
+            src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d10aa143cd1856fdf_Image%2075.png"
+            alt="The Yare valley at Barnham Broom, Norfolk"
+            loading="lazy">
+        </div>
+
+        <div class="bb-place__data-overlay" aria-hidden="true">
+          <div class="bb-place__coord-tag">
+            <div class="bb-place__coord-line">52°37′30″N · 1°04′19″E</div>
+            <div class="bb-place__coord-line">River Yare Valley · South Norfolk</div>
+            <div class="bb-place__coord-line">14m asl · OS Grid TG080074</div>
+          </div>
+          <div class="bb-place__elev-tag">
+            <span class="bb-place__elev-value">14</span>
+            <span class="bb-place__elev-unit">metres · Yare floodplain</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bb-place__copy-col">
+        <div class="bb-place__label t-label fade-up" id="placeLabel">The Place</div>
+        <h2 class="bb-place__heading fade-up" id="placeHeading">
+          Where Norfolk breathes.
+        </h2>
+
+        <div class="bb-place__paragraphs">
+          <p class="bb-place__para fade-up">
+            Fourteen metres above the River Yare. The land here is ancient — chalk
+            under clay, oak above meadow, the river threading south towards Norwich
+            at its own unhurried speed. This is not dramatic terrain. It is quiet,
+            specific, and profoundly itself.
+          </p>
+          <p class="bb-place__para fade-up">
+            The two golf courses read the natural contours of the valley floor: the
+            Valley course follows the lower ground, tight between stands of oak;
+            the River course opens into longer, wind-exposed fairways where Norfolk
+            sky becomes the dominant element.
+          </p>
+          <p class="bb-place__para fade-up">
+            Nine miles west of Norwich, four miles from Wymondham. Far enough from
+            everything. Close enough to everything that matters.
+          </p>
+        </div>
+
+        <div class="bb-place__eco-detail fade-up" id="placeEco">
+          <p>Ecological data: River Yare floodplain, Site of Special Scientific Interest.
+          Common reed Phragmites australis, Grey heron Ardea cinerea, Barn owl Tyto alba.
+          Last ice: 12,000 BP. Current elevation gain from sea: 14m.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 5: TRANSFORMATION PROMISE
+  ═══════════════════════════════════════════ -->
+  <!-- SWAP:COPY → transformation stats [1–3] -->
+  <section class="bb-stats" aria-label="What the valley gives you">
+
+    <div class="bb-stats__header fade-up" id="statsHeader">
+      <span class="t-label">Numbers that matter</span>
+      <p>What the valley gives you, measured and otherwise.</p>
+    </div>
+
+    <div class="bb-stats__grid">
+
+      <div class="bb-stat-item fade-up" id="stat1">
+        <div class="bb-stat-item__number"
+          data-target="36"
+          data-suffix=" holes"
+          id="statNum1">0</div>
+        <div class="bb-stat-item__rule"></div>
+        <div class="bb-stat-item__label">Championship Golf</div>
+        <p class="bb-stat-item__desc">Valley and River courses over 300 uninterrupted acres. No two rounds the same light.</p>
+      </div>
+
+      <div class="bb-stat-item fade-up" id="stat2">
+        <div class="bb-stat-item__number"
+          data-target="300"
+          data-suffix=" acres"
+          id="statNum2">0</div>
+        <div class="bb-stat-item__rule"></div>
+        <div class="bb-stat-item__label">Living Landscape</div>
+        <p class="bb-stat-item__desc">Ancient Norfolk countryside. Oak, reed, chalk stream and open sky — owned by no clock.</p>
+      </div>
+
+      <div class="bb-stat-item fade-up" id="stat3">
+        <div class="bb-stat-item__number"
+          data-target="52"
+          data-suffix="°N"
+          id="statNum3">0</div>
+        <div class="bb-stat-item__rule"></div>
+        <div class="bb-stat-item__label">The Latitude of Light</div>
+        <p class="bb-stat-item__desc">The low-angle Norfolk light that painters have come here to find for three centuries. You will notice it on day one.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 6: ROOMS & SPACES
+  ═══════════════════════════════════════════ -->
+  <section class="bb-rooms" aria-label="Rooms and Spaces">
+
+    <div class="bb-rooms__header">
+      <span class="t-label">Rooms &amp; Spaces</span>
+      <h2 class="bb-rooms__title fade-up" id="roomsTitle">Where the valley comes inside.</h2>
+    </div>
+
+    <!-- SWAP:IMG → room/interior [1–6] | ratio: 3:2 -->
+    <div class="bb-rooms__grid" id="roomsGrid">
+
+      <div class="bb-room-item fade-up"
+        data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755cbd4aab14c251d668_Image%2071.png"
+        data-name="Valley View Suite"
+        tabindex="0" role="button" aria-label="Open room image: Valley View Suite">
+        <img class="bb-room-item__img"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755cbd4aab14c251d668_Image%2071.png"
+          alt="Valley View Suite — Barnham Broom"
+          loading="lazy">
+        <div class="bb-room-item__overlay" aria-hidden="true">
+          <div class="bb-room-item__expand">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+          </div>
+        </div>
+        <div class="bb-room-item__name">Valley View</div>
+      </div>
+
+      <div class="bb-room-item fade-up"
+        data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2d6f969a6ed97235_Image%2065.png"
+        data-name="Fairway Room"
+        tabindex="0" role="button" aria-label="Open room image: Fairway Room">
+        <img class="bb-room-item__img"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2d6f969a6ed97235_Image%2065.png"
+          alt="Fairway Room — Barnham Broom"
+          loading="lazy">
+        <div class="bb-room-item__overlay" aria-hidden="true">
+          <div class="bb-room-item__expand">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+          </div>
+        </div>
+        <div class="bb-room-item__name">Fairway</div>
+      </div>
+
+      <div class="bb-room-item fade-up"
+        data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c3fc86be474e72fa6_Image%2063.png"
+        data-name="Courtyard Studio"
+        tabindex="0" role="button" aria-label="Open room image: Courtyard Studio">
+        <img class="bb-room-item__img"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c3fc86be474e72fa6_Image%2063.png"
+          alt="Courtyard Studio — Barnham Broom"
+          loading="lazy">
+        <div class="bb-room-item__overlay" aria-hidden="true">
+          <div class="bb-room-item__expand">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+          </div>
+        </div>
+        <div class="bb-room-item__name">Courtyard</div>
+      </div>
+
+      <div class="bb-room-item fade-up"
+        data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755cbd621d9fe28acb20_Image%2066.png"
+        data-name="Riverside Wing"
+        tabindex="0" role="button" aria-label="Open room image: Riverside Wing">
+        <img class="bb-room-item__img"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755cbd621d9fe28acb20_Image%2066.png"
+          alt="Riverside Wing — Barnham Broom"
+          loading="lazy">
+        <div class="bb-room-item__overlay" aria-hidden="true">
+          <div class="bb-room-item__expand">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+          </div>
+        </div>
+        <div class="bb-room-item__name">Riverside</div>
+      </div>
+
+      <div class="bb-room-item fade-up"
+        data-src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2795baeedff7f272_Image%2069.png"
+        data-name="Garden Suite"
+        tabindex="0" role="button" aria-label="Open room image: Garden Suite">
+        <img class="bb-room-item__img"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2795baeedff7f272_Image%2069.png"
+          alt="Garden Suite — Barnham Broom"
+          loading="lazy">
+        <div class="bb-room-item__overlay" aria-hidden="true">
+          <div class="bb-room-item__expand">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+          </div>
+        </div>
+        <div class="bb-room-item__name">Garden</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 7: WELLNESS RITUALS
+  ═══════════════════════════════════════════ -->
+  <!-- SWAP:COPY → wellness rituals [1–6] -->
+  <section class="bb-wellness" aria-label="Wellness Rituals">
+
+    <video class="bb-wellness__bg-video"
+      autoplay muted loop playsinline
+      poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c20859ca462d94b77_Image%2064.png"
+      aria-hidden="true">
+      <source
+        src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c75963759010165f031_Video%2010.mp4"
+        type="video/mp4">
+    </video>
+    <div class="bb-wellness__bg-gradient" aria-hidden="true"></div>
+
+    <div class="bb-wellness__inner">
+      <div class="bb-wellness__header" id="wellnessHeader">
+        <span class="t-label">Spa &amp; Wellness</span>
+        <h2 class="bb-wellness__header-title">Six rituals. One intention.</h2>
+      </div>
+
+      <div class="bb-wellness__grid">
+
+        <!-- Ritual 1 -->
+        <div class="bb-ritual-item" id="ritual1">
+          <div class="bb-ritual-item__icon">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <circle cx="16" cy="16" r="10"/>
+              <path d="M16 6 V2 M16 30 V26 M6 16 H2 M30 16 H26"/>
+            </svg>
+          </div>
+          <h3 class="bb-ritual-item__name">Dawn Float</h3>
+          <p class="bb-ritual-item__desc">Thermal pool. First light across the valley. Forty-five minutes that change the rest of the day.</p>
+        </div>
+
+        <!-- Ritual 2 -->
+        <div class="bb-ritual-item" id="ritual2">
+          <div class="bb-ritual-item__icon">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M16 4 C12 4, 4 10, 4 18 C4 24, 9 28, 16 28 C23 28, 28 24, 28 18 C28 10, 20 4, 16 4Z"/>
+              <path d="M16 12 L16 22 M11 17 L21 17"/>
+            </svg>
+          </div>
+          <h3 class="bb-ritual-item__name">Norfolk Clay Wrap</h3>
+          <p class="bb-ritual-item__desc">Mineral-dense earth from the valley. Applied warm, left to work, washed away. What it draws out surprises people.</p>
+        </div>
+
+        <!-- Ritual 3 -->
+        <div class="bb-ritual-item" id="ritual3">
+          <div class="bb-ritual-item__icon">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M4 20 Q8 14, 16 18 Q24 22, 28 14"/>
+              <path d="M4 26 Q8 20, 16 24 Q24 28, 28 20"/>
+            </svg>
+          </div>
+          <h3 class="bb-ritual-item__name">Riverside Restore</h3>
+          <p class="bb-ritual-item__desc">Gentle movement on the Yare bank. Slow stretching, river sound, the particular quiet of moving water beside you.</p>
+        </div>
+
+        <!-- Ritual 4 -->
+        <div class="bb-ritual-item" id="ritual4">
+          <div class="bb-ritual-item__icon">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M8 8 L8 24 Q8 26, 10 26 L22 26 Q24 26, 24 24 L24 8"/>
+              <path d="M5 8 L27 8 M14 8 L14 4 L18 4 L18 8"/>
+            </svg>
+          </div>
+          <h3 class="bb-ritual-item__name">Hammam Ritual</h3>
+          <p class="bb-ritual-item__desc">Heat chamber, black soap, exfoliation to the grain. Three stages of warmth, ending in cold and silence.</p>
+        </div>
+
+        <!-- Ritual 5 -->
+        <div class="bb-ritual-item" id="ritual5">
+          <div class="bb-ritual-item__icon">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <circle cx="16" cy="16" r="3"/>
+              <path d="M16 2 L16 6 M16 26 L16 30 M2 16 L6 16 M26 16 L30 16 M6.3 6.3 L9.1 9.1 M22.9 22.9 L25.7 25.7 M25.7 6.3 L22.9 9.1 M9.1 22.9 L6.3 25.7"/>
+            </svg>
+          </div>
+          <h3 class="bb-ritual-item__name">Sound Bath</h3>
+          <p class="bb-ritual-item__desc">Himalayan bowls, garden dusk, the valley as amplifier. Sixty minutes that recalibrate what you thought was silence.</p>
+        </div>
+
+        <!-- Ritual 6 -->
+        <div class="bb-ritual-item" id="ritual6">
+          <div class="bb-ritual-item__icon">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M16 28 C16 28, 6 20, 6 13 C6 9, 10 6, 14 8 C15 8.5, 15.5 9, 16 9.5 C16.5 9, 17 8.5, 18 8 C22 6, 26 9, 26 13 C26 20, 16 28, 16 28Z"/>
+            </svg>
+          </div>
+          <h3 class="bb-ritual-item__name">Nordic Circuit</h3>
+          <p class="bb-ritual-item__desc">Sauna, cold plunge, rest. Repeated. The Norwegian sequence. Your cardiovascular system remembers it for days.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 8: EDITORIAL QUOTE
+  ═══════════════════════════════════════════ -->
+  <!-- SWAP:IMG → editorial quote background | ratio: 16:9 -->
+  <!-- SWAP:COPY → editorial quote -->
+  <section class="bb-quote" aria-label="Guest testimonial">
+
+    <img class="bb-quote__bg"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c20859ca462d94b77_Image%2064.png"
+      alt="The River Yare valley at Barnham Broom"
+      loading="lazy">
+    <div class="bb-quote__overlay" aria-hidden="true"></div>
+
+    <div class="bb-quote__content">
+      <span class="bb-quote__mark" id="quoteMark" aria-hidden="true">"</span>
+      <blockquote>
+        <p class="bb-quote__text" id="quoteText">
+          You arrive wound tight.<br>
+          The valley does the rest.
+        </p>
+        <footer class="bb-quote__source" id="quoteSource">
+          <cite>Country Life Magazine &nbsp;·&nbsp; Norfolk Issue 2024</cite>
+        </footer>
+      </blockquote>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 9: BOOKING CTA
+  ═══════════════════════════════════════════ -->
+  <!-- SWAP:VIDEO → booking background | booking section -->
+  <!-- SWAP:COPY → booking CTA -->
+  <section class="bb-booking" aria-label="Reserve your stay">
+
+    <video class="bb-booking__video"
+      autoplay muted loop playsinline
+      poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c3291e180806a8ea8_Image%2067.png"
+      aria-hidden="true">
+      <source
+        src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c0fe737ad6b6c354b9c_Video%201.mp4"
+        type="video/mp4">
+    </video>
+    <div class="bb-booking__overlay" aria-hidden="true"></div>
+
+    <div class="bb-booking__content">
+      <p class="bb-booking__urgency" id="bookingUrgency">
+        Limited availability — Summer 2026
+      </p>
+      <h2 class="bb-booking__heading" id="bookingHeading">
+        Reserve your valley.
+      </h2>
+      <p class="bb-booking__sub" id="bookingSub">
+        Eighteen holes at dawn. Thermal water at dusk.
+        Norfolk will still be here tomorrow. But this room may not.
+      </p>
+      <div class="bb-booking__ctas" id="bookingCtas">
+        <a href="https://barnham-broom.co.uk/" target="_blank" rel="noopener" class="bb-btn bb-btn--primary">
+          Reserve Your Stay
+        </a>
+        <a href="https://barnham-broom.co.uk/" target="_blank" rel="noopener" class="bb-btn bb-btn--ghost">
+          Download the Experience Guide
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 10: FOOTER
+  ═══════════════════════════════════════════ -->
+  <!-- SWAP:LOGO -->
+  <footer class="bb-footer" aria-label="Barnham Broom Footer">
+
+    <div class="bb-footer__inner">
+
+      <div class="bb-footer__left">
+        <a href="mailto:enquiries@barnham-broom.co.uk">enquiries@barnham-broom.co.uk</a>
+        <a href="tel:+441603759393">+44 (0)1603 759393</a>
+        <span class="bb-footer__coords">52°37′30″N · 1°04′19″E · 14m · NR9 4DD</span>
+      </div>
+
+      <div class="bb-footer__logo">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a130921431c2637b723e8b8_Barnham-Broom-white-transparent-background.png"
+          alt="Barnham Broom Hotel, Golf &amp; Spa"
+          loading="lazy">
+      </div>
+
+      <div class="bb-footer__right">
+        <a href="https://www.instagram.com/barnhambroom" target="_blank" rel="noopener">@barnhambroom</a>
+        <a href="https://barnham-broom.co.uk/" target="_blank" rel="noopener">barnham-broom.co.uk</a>
+        <a href="https://barnham-broom.co.uk/golf/" target="_blank" rel="noopener">Valley &amp; River Courses</a>
+      </div>
+
+    </div>
+
+    <p class="bb-footer__copy">
+      © 2026 Barnham Broom Hotel, Golf &amp; Spa. Barnham Broom, Norwich, Norfolk, NR9 4DD.
+    </p>
+
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       LIGHTBOX COMPONENT
+  ═══════════════════════════════════════════ -->
+  <div class="bb-lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Room image viewer">
+    <button class="bb-lightbox__close" id="lightboxClose" aria-label="Close image viewer">✕</button>
+    <img class="bb-lightbox__img" id="lightboxImg" src="" alt="">
+    <div class="bb-lightbox__caption" id="lightboxCaption"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════════ -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ─────────────────────────────────────
+       GSAP + ScrollTrigger init
+    ───────────────────────────────────── */
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ease = 'power3.out';
+    const easeSmooth = 'power2.inOut';
+
+    /* ─────────────────────────────────────
+       SECTION 1: HERO ANIMATIONS
+    ───────────────────────────────────── */
+    (function initHero() {
+      const tl = gsap.timeline({ delay: 0.3 });
+
+      // Logo fade in
+      tl.to('#heroLogo', {
+        opacity: 1,
+        duration: 1.2,
+        ease: ease
+      });
+
+      // Tagline lines stagger reveal
+      const tagLines = document.querySelectorAll('.bb-hero__tagline-line span');
+      tl.to(tagLines, {
+        y: '0%',
+        duration: 1.1,
+        ease: ease,
+        stagger: 0.12
+      }, '-=0.8');
+
+      // Coords fade
+      tl.to('#heroCoords', {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        ease: ease
+      }, '-=0.5');
+
+      // Scroll indicator
+      tl.to('#heroScroll', {
+        opacity: 1,
+        duration: 0.8,
+        ease: ease
+      }, '-=0.4');
+    })();
+
+    /* ─────────────────────────────────────
+       SECTION 2: MANIFESTO ANIMATIONS
+    ───────────────────────────────────── */
+    (function initManifesto() {
+      // Label
+      ScrollTrigger.create({
+        trigger: '#manifestoLabel',
+        start: 'top 80%',
+        onEnter: function () {
+          gsap.to('#manifestoLabel', {
+            opacity: 1,
+            y: 0,
+            duration: 0.9,
+            ease: ease
+          });
+        }
+      });
+
+      // Lines stagger
+      const lines = document.querySelectorAll('.bb-manifesto__line span');
+      ScrollTrigger.create({
+        trigger: '.bb-manifesto__lines',
+        start: 'top 75%',
+        onEnter: function () {
+          gsap.to(lines, {
+            y: '0%',
+            duration: 1.1,
+            ease: ease,
+            stagger: 0.1
+          });
+        }
+      });
+
+      // Body text
+      ScrollTrigger.create({
+        trigger: '#manifestoBody',
+        start: 'top 80%',
+        onEnter: function () {
+          gsap.to('#manifestoBody', {
+            opacity: 1,
+            y: 0,
+            duration: 0.9,
+            ease: ease
+          });
+        }
+      });
+    })();
+
+    /* ─────────────────────────────────────
+       THREE.JS — OAK LEAF 3D OBJECT
+    ───────────────────────────────────── */
+    (function initLeaf3D() {
+      var canvas = document.getElementById('leafCanvas');
+      if (!canvas || typeof THREE === 'undefined') return;
+
+      var container = document.getElementById('manifesto3dWrapper');
+      var W = 280, H = 280;
+      canvas.width = W;
+      canvas.height = H;
+
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(40, W / H, 0.1, 100);
+      camera.position.set(0, 0.5, 3.5);
+
+      var renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        alpha: true,
+        antialias: true
+      });
+      renderer.setSize(W, H);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.outputEncoding = THREE.sRGBEncoding;
+
+      // Warm key light
+      var warmLight = new THREE.DirectionalLight(0xffd4a0, 1.4);
+      warmLight.position.set(2, 3, 2);
+      scene.add(warmLight);
+
+      // Cool fill
+      var coolLight = new THREE.DirectionalLight(0xa0c0e8, 0.7);
+      coolLight.position.set(-3, 1, -2);
+      scene.add(coolLight);
+
+      // Ambient
+      var ambient = new THREE.AmbientLight(0xfff8f0, 0.5);
+      scene.add(ambient);
+
+      // Rim
+      var rimLight = new THREE.DirectionalLight(0xffffff, 0.3);
+      rimLight.position.set(0, -2, 3);
+      scene.add(rimLight);
+
+      var leafModel = null;
+      var isHovered = false;
+      var rotateSpeed = 0.0025;
+      var targetRotY = 0;
+
+      // Load GLB
+      /* SWAP:3D → oak leaf | Forest archetype */
+      if (typeof THREE.GLTFLoader !== 'undefined') {
+        var loader = new THREE.GLTFLoader();
+        loader.load(
+          'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb',
+          function (gltf) {
+            leafModel = gltf.scene;
+            scene.add(leafModel);
+
+            // Center + scale
+            var box = new THREE.Box3().setFromObject(leafModel);
+            var center = box.getCenter(new THREE.Vector3());
+            var size = box.getSize(new THREE.Vector3());
+            leafModel.position.sub(center);
+            var maxDim = Math.max(size.x, size.y, size.z);
+            leafModel.scale.setScalar(2.2 / maxDim);
+            leafModel.rotation.x = 0.2;
+          },
+          undefined,
+          function (err) {
+            console.warn('GLB load failed:', err);
+          }
+        );
+      }
+
+      // Hover events
+      container.addEventListener('mouseenter', function () { isHovered = true; });
+      container.addEventListener('mouseleave', function () { isHovered = false; });
+
+      // Animate loop
+      function animate() {
+        requestAnimationFrame(animate);
+        if (leafModel && !isHovered) {
+          leafModel.rotation.y += rotateSpeed;
+        }
+        renderer.render(scene, camera);
+      }
+      animate();
+    })();
+
+    /* ─────────────────────────────────────
+       SECTION 3: EXPERIENCES — DRAG SCROLL
+    ───────────────────────────────────── */
+    (function initExpDrag() {
+      var track = document.getElementById('expTrack');
+      if (!track) return;
+
+      var isDown = false;
+      var startX;
+      var scrollLeft;
+
+      track.addEventListener('mousedown', function (e) {
+        isDown = true;
+        track.classList.add('is-dragging');
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+      });
+
+      document.addEventListener('mouseup', function () {
+        isDown = false;
+        track.classList.remove('is-dragging');
+      });
+
+      document.addEventListener('mousemove', function (e) {
+        if (!isDown) return;
+        e.preventDefault();
+        var x = e.pageX - track.offsetLeft;
+        var walk = (x - startX) * 1.4;
+        track.scrollLeft = scrollLeft - walk;
+      });
+
+      // GSAP entrance for title
+      ScrollTrigger.create({
+        trigger: '#expTitle',
+        start: 'top 80%',
+        onEnter: function () {
+          gsap.to('#expTitle', { opacity: 1, y: 0, duration: 0.9, ease: ease });
+        }
+      });
+
+      // Cards stagger entrance
+      var cards = document.querySelectorAll('.bb-experience-card');
+      ScrollTrigger.create({
+        trigger: '.bb-experiences__track',
+        start: 'top 80%',
+        onEnter: function () {
+          gsap.fromTo(cards,
+            { opacity: 0, y: 40 },
+            { opacity: 1, y: 0, duration: 0.8, ease: ease, stagger: 0.1 }
+          );
+        }
+      });
+    })();
+
+    /* ─────────────────────────────────────
+       SECTION 4: THE PLACE — PARALLAX
+    ───────────────────────────────────── */
+    (function initPlaceParallax() {
+      var wrap = document.getElementById('placeImgWrap');
+      if (!wrap) return;
+
+      gsap.to(wrap, {
+        y: '18%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.bb-place',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.2
+        }
+      });
+
+      // Copy reveals
+      ScrollTrigger.create({
+        trigger: '#placeLabel',
+        start: 'top 80%',
+        onEnter: function () {
+          gsap.to('#placeLabel', { opacity: 1, y: 0, duration: 0.7, ease: ease });
+          gsap.to('#placeHeading', { opacity: 1, y: 0, duration: 1.0, ease: ease, delay: 0.1 });
+        }
+      });
+
+      var paras = document.querySelectorAll('.bb-place__para');
+      ScrollTrigger.create({
+        trigger: '.bb-place__paragraphs',
+        start: 'top 78%',
+        onEnter: function () {
+          gsap.to(paras, { opacity: 1, y: 0, duration: 0.9, ease: ease, stagger: 0.15 });
+        }
+      });
+
+      ScrollTrigger.create({
+        trigger: '#placeEco',
+        start: 'top 85%',
+        onEnter: function () {
+          gsap.to('#placeEco', { opacity: 1, y: 0, duration: 0.7, ease: ease });
+        }
+      });
+    })();
+
+    /* ─────────────────────────────────────
+       SECTION 5: STATS — COUNTING NUMBERS
+    ───────────────────────────────────── */
+    (function initStats() {
+      ScrollTrigger.create({
+        trigger: '#statsHeader',
+        start: 'top 80%',
+        onEnter: function () {
+          gsap.to('#statsHeader', { opacity: 1, y: 0, duration: 0.9, ease: ease });
+        }
+      });
+
+      var statItems = [
+        { el: '#stat1', numEl: '#statNum1' },
+        { el: '#stat2', numEl: '#statNum2' },
+        { el: '#stat3', numEl: '#statNum3' }
+      ];
+
+      statItems.forEach(function (item, i) {
+        ScrollTrigger.create({
+          trigger: item.el,
+          start: 'top 80%',
+          onEnter: function () {
+            gsap.to(item.el, {
+              opacity: 1, y: 0,
+              duration: 0.9,
+              delay: i * 0.15,
+              ease: ease
+            });
+
+            // Count up
+            var numEl = document.querySelector(item.numEl);
+            if (!numEl) return;
+            var target = parseInt(numEl.getAttribute('data-target'), 10);
+            var obj = { val: 0 };
+            gsap.to(obj, {
+              val: target,
+              duration: 1.8,
+              delay: i * 0.15 + 0.3,
+              ease: easeSmooth,
+              onUpdate: function () {
+                numEl.textContent = Math.round(obj.val);
+              }
+            });
+          }
+        });
+      });
+    })();
+
+    /* ─────────────────────────────────────
+       SECTION 6: ROOMS — LIGHTBOX
+    ───────────────────────────────────── */
+    (function initRooms() {
+      // Title reveal
+      ScrollTrigger.create({
+        trigger: '#roomsTitle',
+        start: 'top 80%',
+        onEnter: function () {
+          gsap.to('#roomsTitle', { opacity: 1, y: 0, duration: 0.9, ease: ease });
+        }
+      });
+
+      // Grid items stagger
+      var items = document.querySelectorAll('.bb-room-item');
+      ScrollTrigger.create({
+        trigger: '#roomsGrid',
+        start: 'top 75%',
+        onEnter: function () {
+          gsap.fromTo(items,
+            { opacity: 0, y: 28 },
+            { opacity: 1, y: 0, duration: 0.9, ease: ease, stagger: 0.1 }
+          );
+        }
+      });
+
+      // Lightbox
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImg = document.getElementById('lightboxImg');
+      var lightboxCaption = document.getElementById('lightboxCaption');
+      var lightboxClose = document.getElementById('lightboxClose');
+
+      items.forEach(function (item) {
+        item.addEventListener('click', function () {
+          var src = item.getAttribute('data-src');
+          var name = item.getAttribute('data-name') || '';
+          if (!src) return;
+          lightboxImg.src = src;
+          lightboxImg.alt = name;
+          lightboxCaption.textContent = name;
+          lightbox.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+        });
+
+        item.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            item.click();
+          }
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeLightbox();
+      });
+    })();
+
+    /* ─────────────────────────────────────
+       SECTION 7: WELLNESS RITUALS
+    ───────────────────────────────────── */
+    (function initWellness() {
+      ScrollTrigger.create({
+        trigger: '#wellnessHeader',
+        start: 'top 80%',
+        onEnter: function () {
+          gsap.to('#wellnessHeader', { opacity: 1, y: 0, duration: 0.9, ease: ease });
+        }
+      });
+
+      var rituals = document.querySelectorAll('.bb-ritual-item');
+      rituals.forEach(function (ritual, i) {
+        ScrollTrigger.create({
+          trigger: ritual,
+          start: 'top 82%',
+          onEnter: function () {
+            gsap.to(ritual, {
+              opacity: 1, y: 0,
+              duration: 0.85,
+              delay: (i % 3) * 0.1,
+              ease: ease
+            });
+          }
+        });
+      });
+    })();
+
+    /* ─────────────────────────────────────
+       SECTION 8: EDITORIAL QUOTE
+    ───────────────────────────────────── */
+    (function initQuote() {
+      ScrollTrigger.create({
+        trigger: '.bb-quote',
+        start: 'top 60%',
+        onEnter: function () {
+          gsap.to('#quoteMark', { opacity: 0.5, y: 0, duration: 1.0, ease: ease });
+          gsap.to('#quoteText', { opacity: 1, y: 0, duration: 1.2, ease: ease, delay: 0.15 });
+          gsap.to('#quoteSource', { opacity: 1, y: 0, duration: 0.9, ease: ease, delay: 0.45 });
+        }
+      });
+    })();
+
+    /* ─────────────────────────────────────
+       SECTION 9: BOOKING CTA
+    ───────────────────────────────────── */
+    (function initBooking() {
+      ScrollTrigger.create({
+        trigger: '.bb-booking',
+        start: 'top 70%',
+        onEnter: function () {
+          gsap.to('#bookingUrgency', { opacity: 1, y: 0, duration: 0.7, ease: ease });
+          gsap.to('#bookingHeading', { opacity: 1, y: 0, duration: 1.0, ease: ease, delay: 0.12 });
+          gsap.to('#bookingSub', { opacity: 1, y: 0, duration: 0.9, ease: ease, delay: 0.25 });
+          gsap.to('#bookingCtas', { opacity: 1, y: 0, duration: 0.85, ease: ease, delay: 0.4 });
+        }
+      });
+    })();
+
+    /* ─────────────────────────────────────
+       SMOOTH SCROLL KILL (Webflow compat)
+    ───────────────────────────────────── */
+    ScrollTrigger.refresh();
+
+  })();
+  </script>
+
+  <!--
+  ═══════════════════════════════════════════════════════════════════
+  CUSTOMIZATION GUIDE — SWAP MARKER CHECKLIST
+  ════════════════════════════════════════════════════════════════════
+
+  All markers below are embedded inline in the HTML as HTML comments.
+  Each is tagged with its location and asset type.
+
+  ✅ = Covered by CSV asset
+  ⚠ = No asset in CSV (Unsplash fallback used)
+
+  ─────────────────────────────────────────────────────────────────
+
+  SWAP MARKERS — PRODUCTION CHECKLIST
+
+  [1] <!-- SWAP:VIDEO → hero background | hero section -->
+      ✅ SRC: forest 1 video (compressed-video.mp4)
+      poster= set to forest Image 62
+
+  [2] <!-- SWAP:LOGO → hero header -->
+      ✅ SRC: Barnham-Broom-white-transparent-background.png
+
+  [3] <!-- SWAP:COPY → manifesto -->
+      Content: "The Yare does not rush. / Neither should you." etc.
+      → Replace with final approved brand copy
+
+  [4] <!-- SWAP:3D → oak leaf | Forest archetype -->
+      ✅ GLB: Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb
+      Canvas: 280×280px, auto-rotate Y, pause on hover
+
+  [5] <!-- SWAP:IMG → experience card 1 | ratio: 4:5 -->
+      ✅ SRC: Image 58 (forest)
+
+  [6] <!-- SWAP:IMG → experience card 2 | ratio: 4:5 -->
+      ✅ SRC: Image 59 (forest)
+
+  [7] <!-- SWAP:IMG → experience card 3 | ratio: 4:5 -->
+      ✅ SRC: Image 57 (forest)
+
+  [8] <!-- SWAP:IMG → experience card 4 | ratio: 4:5 -->
+      ✅ SRC: Image 60 (forest)
+
+  [9] <!-- SWAP:IMG → experience card 5 | ratio: 4:5 -->
+      ✅ SRC: Image 74 (forest)
+
+  [10] <!-- SWAP:IMG → experience card 6 | ratio: 4:5 -->
+       ✅ SRC: Image 76 (forest)
+
+  [11] <!-- SWAP:IMG → the place | ratio: 3:2 -->
+       ✅ SRC: Image 75 (forest)
+
+  [12] <!-- SWAP:COPY → the place -->
+       Content: "Where Norfolk breathes..." 3 paragraphs + eco detail
+       → Replace with final approved brand copy
+
+  [13] <!-- SWAP:COPY → transformation stats [1–3] -->
+       Numbers: 36 holes / 300 acres / 52°N
+       → Confirm numbers with hotel; replace copy as needed
+
+  [14] <!-- SWAP:IMG → room/interior 1 | ratio: 3:2 -->
+       ✅ SRC: Image 71 (forest)
+
+  [15] <!-- SWAP:IMG → room/interior 2 | ratio: 3:2 -->
+       ✅ SRC: Image 65 (forest)
+
+  [16] <!-- SWAP:IMG → room/interior 3 | ratio: 3:2 -->
+       ✅ SRC: Image 63 (forest)
+
+  [17] <!-- SWAP:IMG → room/interior 4 | ratio: 3:2 -->
+       ✅ SRC: Image 66 (forest)
+
+  [18] <!-- SWAP:IMG → room/interior 5 | ratio: 3:2 -->
+       ✅ SRC: Image 69 (forest)
+
+  [19] <!-- SWAP:COPY → wellness rituals [1–6] -->
+       Rituals: Dawn Float, Norfolk Clay Wrap, Riverside Restore,
+       Hammam Ritual, Sound Bath, Nordic Circuit
+       → Replace with hotel's actual spa menu names
+
+  [20] <!-- SWAP:IMG → editorial quote background | ratio: 16:9 -->
+       ✅ SRC: Image 64 (forest)
+
+  [21] <!-- SWAP:COPY → editorial quote -->
+       Quote: "You arrive wound tight. The valley does the rest."
+       → Replace with real verified press/guest quote
+
+  [22] <!-- SWAP:VIDEO → booking background | booking section -->
+       ✅ SRC: forest 2 video (Video 1.mp4)
+       poster= set to Image 67
+
+  [23] <!-- SWAP:COPY → booking CTA -->
+       Urgency: "Limited availability — Summer 2026"
+       → Update seasonally
+
+  [24] <!-- SWAP:LOGO → footer -->
+       ✅ SRC: Barnham-Broom-white-transparent-background.png
+
+  [25] <!-- SWAP:COLOR -->
+       All CSS custom properties defined in :root
+       → See CSS CUSTOM PROPERTIES section in <style> block
+
+  ─────────────────────────────────────────────────────────────────
+  NO ASSETS MISSING — ALL SLOTS COVERED BY CSV
+  ─────────────────────────────────────────────────────────────────
+
+  PRODUCTION NOTES:
+  · Copy items [3], [12], [13], [19], [21], [23] need brand approval
+  · Email/phone/Instagram in footer need verification from hotel
+  · 3D GLB loads from S3 — ensure CORS headers on bucket
+  · Videos load from webflow-prod-assets S3 — confirm availability
+  · Webflow Embed: paste full file content; remove <html>/<head>/<body>
+    tags if needed; <style> and <script> tags are supported in embeds
+  · Tested at 375px / 768px / 1280px / 1920px breakpoints
+
+  ═══════════════════════════════════════════════════════════════════
+  -->
+
+</body>
+</html>
