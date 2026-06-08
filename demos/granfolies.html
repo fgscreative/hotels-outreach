@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gran Folies Beach Club — Cala Llamp, Mallorca</title>
+
+  <!-- Google Fonts: Cormorant Garamond (serif display) + DM Sans (grotesque body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+
+  <!-- GSAP Core + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Three.js r128 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <style>
+    /*
+    ══════════════════════════════════════════
+    CSS CUSTOM PROPERTIES
+    Extracted from beachclubgranfolies.com
+    Landscape: Coastal / Cliffside Mediterranean
+    ══════════════════════════════════════════
+    */
+    /* SWAP:COLOR — verify all values against live brand guidelines */
+    :root {
+      --color-primary:    #0D2B3C;   /* deep Balearic ocean navy */
+      --color-secondary:  #C4A76A;   /* bleached coastal gold / warm sand */
+      --color-accent:     #E07B4F;   /* Mallorcan sunset coral */
+      --color-bg:         #06080B;   /* near-black deep sea */
+      --color-bg-alt:     #0A121A;   /* lifted dark for alternating sections */
+      --color-surface:    rgba(13,43,60,0.55);
+      --color-text:       #F0E8DA;   /* warm Mallorcan parchment */
+      --color-text-muted: #7A8F9E;   /* sea mist grey */
+      --color-divider:    rgba(196,167,106,0.12);
+
+      --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      --font-sans:  'DM Sans', system-ui, -apple-system, sans-serif;
+
+      --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+      --section-pad:  clamp(72px, 9vw, 148px);
+      --gutter:       clamp(20px, 5vw, 80px);
+      --max-w:        1480px;
+    }
+
+    /* ── RESET ─────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img   { display: block; max-width: 100%; height: auto; }
+    a     { color: inherit; text-decoration: none; }
+    ul    { list-style: none; }
+    button { cursor: pointer; background: none; border: none; font: inherit; }
+
+    /* ── SCROLL PROGRESS ────────────────────── */
+    .progress-bar {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: 2px; z-index: 9999;
+      background: var(--color-accent);
+      transform-origin: left center;
+      transform: scaleX(0);
+      pointer-events: none;
+    }
+
+    /* ── HEADER ─────────────────────────────── */
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px var(--gutter);
+      pointer-events: none;
+    }
+    .site-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(6,8,11,0.6) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    .header-logo { pointer-events: all; position: relative; z-index: 1; }
+    .header-logo img {
+      height: clamp(28px, 3.2vw, 42px); width: auto;
+      filter: brightness(0) invert(1); opacity: 0.92;
+      transition: opacity 0.3s;
+    }
+    .header-logo img:hover { opacity: 1; }
+    .header-reserve {
+      pointer-events: all; position: relative; z-index: 1;
+      padding: 9px 22px;
+      border: 1px solid rgba(196,167,106,0.45);
+      color: var(--color-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.68rem; font-weight: 400;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      backdrop-filter: blur(10px);
+      background: rgba(6,8,11,0.15);
+      transition: background 0.3s, color 0.3s, border-color 0.3s;
+    }
+    .header-reserve:hover {
+      background: var(--color-secondary);
+      color: var(--color-bg);
+      border-color: var(--color-secondary);
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 1 — HERO
+    ══════════════════════════════════════════ */
+    .hero {
+      position: relative; width: 100%; height: 100vh;
+      min-height: 580px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    /* SWAP:VIDEO → hero background | hero section */
+    .hero-video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(
+        155deg,
+        rgba(13,43,60,0.52) 0%,
+        rgba(6,8,11,0.28) 45%,
+        rgba(6,8,11,0.68) 100%
+      );
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 0 var(--gutter);
+      max-width: 960px;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    /* SWAP:LOGO */
+    .hero-logo-wrap { margin-bottom: clamp(28px, 4.5vh, 52px); }
+    .hero-logo-wrap img {
+      height: clamp(34px, 4.8vw, 58px); width: auto;
+      margin: 0 auto;
+      filter: brightness(0) invert(1);
+      opacity: 0; /* revealed by GSAP */
+    }
+    .hero-tagline {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5.5vw, 5.8rem);
+      font-weight: 300; font-style: italic;
+      line-height: 1.08; letter-spacing: -0.01em;
+      color: var(--color-text);
+      margin-bottom: 28px;
+    }
+    .hero-tagline .word {
+      display: inline-block;
+      opacity: 0; transform: translateY(28px);
+      margin-right: 0.2em;
+    }
+    .hero-meta {
+      font-family: var(--font-sans);
+      font-size: 0.62rem; letter-spacing: 0.24em;
+      text-transform: uppercase; color: var(--color-secondary);
+      opacity: 0;
+    }
+    .hero-scroll-indicator {
+      position: absolute; bottom: 36px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column;
+      align-items: center; gap: 10px; opacity: 0;
+    }
+    .hero-scroll-indicator span {
+      font-family: var(--font-sans); font-size: 0.58rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+    .scroll-line {
+      width: 1px; height: 48px;
+      background: rgba(196,167,106,0.35); position: relative; overflow: hidden;
+    }
+    .scroll-line::after {
+      content: ''; position: absolute;
+      top: -100%; left: 0; width: 100%; height: 100%;
+      background: var(--color-secondary);
+      animation: scroll-drop 2.2s cubic-bezier(0.4,0,0.6,1) infinite;
+    }
+    @keyframes scroll-drop {
+      0%   { top: -100%; }
+      100% { top: 100%; }
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 2 — PHILOSOPHY / MANIFESTO
+    ══════════════════════════════════════════ */
+    .philosophy {
+      position: relative; padding: var(--section-pad) 0;
+      background: var(--color-bg); overflow: hidden;
+    }
+    /* SWAP:3D → coral branch | coastal */
+    .philosophy-3d-wrap {
+      position: absolute; top: 50%; right: clamp(20px, 6vw, 100px);
+      transform: translateY(-50%);
+      width: 280px; height: 280px;
+      opacity: 0.12; pointer-events: none;
+    }
+    #coral-canvas { width: 280px; height: 280px; display: block; }
+    .philosophy-inner {
+      position: relative; z-index: 1;
+      padding: 0 var(--gutter);
+      max-width: calc(var(--max-w) * 0.7);
+    }
+    .section-label {
+      font-family: var(--font-sans); font-size: 0.62rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--color-secondary); margin-bottom: 48px;
+    }
+    .manifesto-lines { list-style: none; }
+    .manifesto-line {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5.5vw, 6rem);
+      font-weight: 300; line-height: 1.04;
+      overflow: hidden; padding: 4px 0;
+    }
+    .manifesto-line span {
+      display: block;
+      transform: translateY(105%); opacity: 0;
+    }
+    .manifesto-line.em span {
+      font-style: italic; color: var(--color-secondary);
+    }
+    .philosophy-body {
+      margin-top: 60px; max-width: 440px;
+      font-family: var(--font-sans); font-size: 0.9rem;
+      color: var(--color-text-muted); font-weight: 300;
+      line-height: 1.75;
+      opacity: 0; transform: translateY(18px);
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 3 — SIGNATURE EXPERIENCES
+    ══════════════════════════════════════════ */
+    .experiences {
+      padding: var(--section-pad) 0;
+      background: var(--color-bg);
+    }
+    .section-header {
+      display: flex; align-items: baseline;
+      justify-content: space-between; gap: 20px;
+      padding: 0 var(--gutter);
+      margin-bottom: clamp(36px, 5.5vw, 72px);
+    }
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 3.8vw, 3.8rem);
+      font-weight: 400; line-height: 1.1;
+      color: var(--color-text);
+    }
+    .section-header h2 em { font-style: italic; color: var(--color-secondary); }
+    .section-header p {
+      font-family: var(--font-sans); font-size: 0.85rem;
+      color: var(--color-text-muted); font-weight: 300;
+      max-width: 260px; text-align: right; line-height: 1.6;
+    }
+    /* SWAP:IMG → experience card [1–6] | ratio: 4:5 */
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      padding: 0 var(--gutter);
+    }
+    .exp-card {
+      position: relative; aspect-ratio: 4 / 5;
+      overflow: hidden; cursor: pointer;
+    }
+    .exp-card-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.85s var(--ease-out);
+    }
+    .exp-card:hover .exp-card-img { transform: scale(1.06); }
+    .exp-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(6,8,11,0.88) 0%, rgba(6,8,11,0) 52%);
+      transition: background 0.5s ease;
+    }
+    .exp-card:hover .exp-card-overlay {
+      background: linear-gradient(to top, rgba(13,43,60,0.92) 0%, rgba(13,43,60,0.15) 65%);
+    }
+    .exp-card-body {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 22px 18px;
+    }
+    .exp-cat {
+      font-family: var(--font-sans); font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--color-secondary); margin-bottom: 5px;
+    }
+    .exp-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 1.7vw, 1.55rem);
+      font-weight: 400; line-height: 1.2;
+      color: var(--color-text); margin-bottom: 7px;
+    }
+    .exp-desc {
+      font-family: var(--font-sans); font-size: 0.74rem;
+      color: rgba(240,232,218,0.68); font-weight: 300;
+      line-height: 1.5; max-height: 0; overflow: hidden;
+      transition: max-height 0.45s var(--ease-out);
+    }
+    .exp-card:hover .exp-desc { max-height: 64px; }
+
+    /* ══════════════════════════════════════════
+       SECTION 4 — THE PLACE
+    ══════════════════════════════════════════ */
+    .the-place {
+      padding: var(--section-pad) 0;
+      background: var(--color-bg-alt);
+    }
+    .place-grid {
+      display: grid; grid-template-columns: 60fr 40fr;
+      align-items: stretch;
+    }
+    .place-img-col { position: relative; overflow: hidden; }
+    /* SWAP:IMG → the place | ratio: 3:2 */
+    .place-img {
+      width: 100%; height: 110%;
+      object-fit: cover; will-change: transform;
+      display: block;
+    }
+    .data-tag {
+      position: absolute;
+      font-family: var(--font-sans); font-size: 0.58rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 10px 14px;
+      backdrop-filter: blur(10px);
+      background: rgba(6,8,11,0.62);
+    }
+    .data-tag strong {
+      display: block; font-size: 0.52rem;
+      color: var(--color-text-muted); font-weight: 300;
+      margin-bottom: 3px;
+    }
+    .data-tag-coord {
+      top: 28px; left: 28px;
+      color: var(--color-secondary);
+      border-left: 2px solid var(--color-secondary);
+    }
+    .data-tag-elev {
+      bottom: 28px; left: 28px;
+      color: var(--color-text);
+      border-left: 2px solid var(--color-accent);
+    }
+    .place-copy-col {
+      padding: clamp(36px, 6vw, 88px) clamp(28px, 5vw, 68px);
+      display: flex; flex-direction: column;
+      justify-content: center; gap: 22px;
+    }
+    .place-copy-col h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3.6rem);
+      font-weight: 300; line-height: 1.1;
+    }
+    .place-copy-col h2 em { font-style: italic; color: var(--color-secondary); }
+    .place-para {
+      font-family: var(--font-sans); font-size: 0.88rem;
+      color: var(--color-text-muted); font-weight: 300;
+      line-height: 1.78; max-width: 360px;
+    }
+    .place-detail {
+      display: flex; align-items: center; gap: 13px;
+      font-family: var(--font-sans); font-size: 0.62rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--color-text-muted);
+      padding-top: 14px;
+      border-top: 1px solid var(--color-divider);
+    }
+    .place-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--color-accent); flex-shrink: 0;
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 5 — TRANSFORMATION PROMISE
+    ══════════════════════════════════════════ */
+    .transformation {
+      padding: var(--section-pad) 0;
+      background: var(--color-bg);
+      border-top: 1px solid var(--color-divider);
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .transformation-inner { padding: 0 var(--gutter); }
+    .transformation-label {
+      font-family: var(--font-sans); font-size: 0.62rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--color-accent); margin-bottom: 72px;
+    }
+    .stats-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: clamp(32px, 5.5vw, 72px);
+    }
+    .stat-item {
+      border-top: 1px solid rgba(196,167,106,0.22);
+      padding-top: 28px;
+    }
+    .stat-num {
+      font-family: var(--font-serif);
+      font-size: clamp(3.5rem, 7.5vw, 7.5rem);
+      font-weight: 300; line-height: 1;
+      color: var(--color-secondary);
+      letter-spacing: -0.025em;
+      margin-bottom: 14px;
+    }
+    .stat-unit {
+      font-size: 0.38em;
+      vertical-align: super;
+      color: var(--color-accent);
+    }
+    .stat-claim {
+      font-family: var(--font-serif);
+      font-size: clamp(1.15rem, 2vw, 1.9rem);
+      font-weight: 400; line-height: 1.2;
+      color: var(--color-text); margin-bottom: 10px;
+    }
+    .stat-copy {
+      font-family: var(--font-sans); font-size: 0.8rem;
+      color: var(--color-text-muted); font-weight: 300;
+      line-height: 1.68; max-width: 290px;
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 6 — SPACES & TERRACES
+    ══════════════════════════════════════════ */
+    .spaces {
+      padding: var(--section-pad) 0;
+      background: var(--color-bg-alt);
+    }
+    /* SWAP:IMG → room/interior [1–6] | ratio: 3:2 */
+    .spaces-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 210px;
+      gap: 7px;
+      padding: 0 var(--gutter);
+      margin-top: clamp(36px, 5vw, 68px);
+    }
+    .space-cell {
+      position: relative; overflow: hidden; cursor: pointer;
+    }
+    .space-cell:nth-child(1) { grid-column: span 7; grid-row: span 2; }
+    .space-cell:nth-child(2) { grid-column: span 5; grid-row: span 1; }
+    .space-cell:nth-child(3) { grid-column: span 5; grid-row: span 1; }
+    .space-cell:nth-child(4) { grid-column: span 4; grid-row: span 2; }
+    .space-cell:nth-child(5) { grid-column: span 4; grid-row: span 2; }
+    .space-cell:nth-child(6) { grid-column: span 4; grid-row: span 2; }
+    .space-cell img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.9s var(--ease-out);
+    }
+    .space-cell:hover img { transform: scale(1.07); }
+    .space-cell-overlay {
+      position: absolute; inset: 0;
+      background: rgba(6,8,11,0);
+      transition: background 0.4s ease;
+      display: flex; align-items: flex-end; padding: 18px;
+    }
+    .space-cell:hover .space-cell-overlay { background: rgba(6,8,11,0.52); }
+    .space-name {
+      font-family: var(--font-serif);
+      font-size: clamp(0.95rem, 1.6vw, 1.45rem);
+      font-weight: 400; color: var(--color-text);
+      opacity: 0; transform: translateY(6px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .space-cell:hover .space-name { opacity: 1; transform: translateY(0); }
+
+    /* ── LIGHTBOX ─────────────────────────────── */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 500;
+      background: rgba(6,8,11,0.96);
+      backdrop-filter: blur(22px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.38s ease;
+    }
+    .lightbox.open { opacity: 1; pointer-events: all; }
+    .lightbox-img { max-width: 92vw; max-height: 86vh; object-fit: contain; }
+    .lightbox-close {
+      position: absolute; top: 28px; right: 36px;
+      font-family: var(--font-sans); font-size: 0.62rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--color-text-muted);
+      transition: color 0.3s;
+    }
+    .lightbox-close:hover { color: var(--color-text); }
+
+    /* ══════════════════════════════════════════
+       SECTION 7 — WELLNESS RITUALS
+    ══════════════════════════════════════════ */
+    .wellness {
+      padding: var(--section-pad) 0;
+      background: var(--color-bg);
+      position: relative; overflow: hidden;
+    }
+    .wellness::before {
+      content: ''; position: absolute;
+      top: -240px; left: -240px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(13,43,60,0.4) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .wellness-inner { position: relative; z-index: 1; padding: 0 var(--gutter); }
+    .wellness-header { margin-bottom: 56px; }
+    .wellness-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 4rem);
+      font-weight: 300; line-height: 1.1;
+    }
+    .wellness-header h2 em { font-style: italic; color: var(--color-secondary); }
+    /* SWAP:COPY → wellness rituals [1–6] */
+    .rituals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1px;
+      background: var(--color-divider);
+    }
+    .ritual {
+      padding: 36px 32px;
+      background: var(--color-bg);
+      position: relative; overflow: hidden;
+      transition: background 0.4s ease;
+    }
+    .ritual::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--color-accent);
+      transition: width 0.55s var(--ease-out);
+    }
+    .ritual:hover { background: var(--color-bg-alt); }
+    .ritual:hover::after { width: 100%; }
+    .ritual-glyph {
+      font-family: var(--font-serif); font-size: 1.85rem;
+      color: var(--color-secondary); opacity: 0.65;
+      font-style: italic; margin-bottom: 18px;
+      line-height: 1;
+    }
+    .ritual-name {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 1.7vw, 1.45rem);
+      font-weight: 400; color: var(--color-text);
+      margin-bottom: 10px; line-height: 1.2;
+    }
+    .ritual-desc {
+      font-family: var(--font-sans); font-size: 0.82rem;
+      color: var(--color-text-muted); font-weight: 300;
+      line-height: 1.68;
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 8 — EDITORIAL QUOTE
+    ══════════════════════════════════════════ */
+    .editorial {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    /* SWAP:IMG → editorial quote background | ratio: 16:9 */
+    .editorial-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; z-index: 0;
+    }
+    .editorial-veil {
+      position: absolute; inset: 0; z-index: 1;
+      background: rgba(6,8,11,0.68);
+    }
+    .editorial-body {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: clamp(40px, 6vw, 80px) clamp(20px, 10vw, 160px);
+      max-width: 1100px;
+    }
+    .quote-mark {
+      font-family: var(--font-serif);
+      font-size: clamp(6rem, 14vw, 16rem);
+      line-height: 0.55; color: var(--color-accent);
+      opacity: 0.55; margin-bottom: 20px;
+    }
+    .quote-text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.65rem, 3.6vw, 3.8rem);
+      font-weight: 300; font-style: italic;
+      line-height: 1.28; color: var(--color-text);
+      margin-bottom: 36px;
+    }
+    .quote-cite {
+      font-family: var(--font-sans); font-size: 0.62rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--color-secondary);
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 9 — BOOKING CTA
+    ══════════════════════════════════════════ */
+    .booking {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    /* SWAP:VIDEO → booking background | booking section */
+    .booking-video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; z-index: 0;
+    }
+    .booking-veil {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(
+        to bottom,
+        rgba(13,43,60,0.62) 0%,
+        rgba(6,8,11,0.72) 100%
+      );
+    }
+    .booking-body {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 0 var(--gutter);
+      max-width: 900px;
+    }
+    .booking-body h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.8rem, 6.5vw, 6.5rem);
+      font-weight: 300; line-height: 1.0;
+      color: var(--color-text); margin-bottom: 14px;
+    }
+    .booking-body h2 em { font-style: italic; color: var(--color-secondary); }
+    .booking-urgency {
+      font-family: var(--font-sans); font-size: 0.62rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--color-accent); margin-bottom: 48px;
+    }
+    .cta-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 14px; flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 15px 38px;
+      background: var(--color-secondary); color: var(--color-bg);
+      font-family: var(--font-sans); font-size: 0.68rem;
+      font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+      border: 1px solid var(--color-secondary);
+      transition: background 0.32s, color 0.32s;
+    }
+    .btn-primary:hover { background: transparent; color: var(--color-secondary); }
+    .btn-ghost {
+      display: inline-block;
+      padding: 15px 38px;
+      background: transparent; color: var(--color-text);
+      font-family: var(--font-sans); font-size: 0.68rem;
+      font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
+      border: 1px solid rgba(240,232,218,0.3);
+      transition: border-color 0.32s, color 0.32s;
+    }
+    .btn-ghost:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+    /* ══════════════════════════════════════════
+       SECTION 10 — FOOTER
+    ══════════════════════════════════════════ */
+    .site-footer {
+      background: var(--color-bg);
+      border-top: 1px solid var(--color-divider);
+      padding: clamp(48px, 7vw, 84px) var(--gutter);
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px; align-items: start;
+      max-width: var(--max-w); margin: 0 auto;
+    }
+    /* SWAP:LOGO */
+    .footer-logo img {
+      height: clamp(22px, 2.8vw, 34px); width: auto;
+      filter: brightness(0) invert(1); opacity: 0.65;
+      margin-bottom: 18px;
+    }
+    .footer-tagline {
+      font-family: var(--font-serif); font-size: 0.9rem;
+      font-style: italic; color: var(--color-text-muted); line-height: 1.55;
+    }
+    .footer-coord {
+      font-family: var(--font-sans); font-size: 0.6rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--color-secondary); margin-top: 10px;
+    }
+    .footer-col-label {
+      font-family: var(--font-sans); font-size: 0.54rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--color-text-muted); margin-bottom: 12px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 7px; }
+    .footer-links a {
+      font-family: var(--font-sans); font-size: 0.83rem;
+      color: var(--color-text); font-weight: 300;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--color-secondary); }
+    .footer-links p {
+      font-family: var(--font-sans); font-size: 0.78rem;
+      color: var(--color-text-muted); font-weight: 300;
+      line-height: 1.5; margin-top: 6px;
+    }
+    .footer-social-col { display: flex; flex-direction: column; align-items: flex-end; }
+    .footer-social-col .footer-links { align-items: flex-end; }
+    .footer-social-col .footer-links a:hover { color: var(--color-accent); }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap;
+      padding-top: 24px; margin-top: 44px;
+      border-top: 1px solid rgba(122,143,158,0.1);
+      max-width: var(--max-w); margin-left: auto; margin-right: auto;
+    }
+    .footer-copy {
+      font-family: var(--font-sans); font-size: 0.6rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(122,143,158,0.45);
+    }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE BREAKPOINTS
+    ══════════════════════════════════════════ */
+    @media (max-width: 1280px) {
+      .place-grid { grid-template-columns: 55fr 45fr; }
+      .spaces-grid { grid-auto-rows: 180px; }
+    }
+    @media (max-width: 900px) {
+      .exp-grid {
+        grid-template-columns: repeat(3, 260px);
+        overflow-x: auto; scrollbar-width: none;
+        padding-bottom: 8px;
+      }
+      .exp-grid::-webkit-scrollbar { display: none; }
+    }
+    @media (max-width: 768px) {
+      .place-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: 1fr; gap: 44px; }
+      .spaces-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 190px;
+      }
+      .space-cell:nth-child(n) {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+      }
+      .rituals-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-social-col { align-items: flex-start; }
+      .footer-social-col .footer-links { align-items: flex-start; }
+      .section-header { flex-direction: column; gap: 10px; }
+      .section-header p { text-align: left; max-width: 100%; }
+    }
+    @media (max-width: 480px) {
+      .exp-grid { grid-template-columns: repeat(3, 200px); gap: 6px; }
+      .spaces-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+    }
+    @media (min-width: 1920px) {
+      .exp-grid { grid-template-columns: repeat(6, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!--
+══════════════════════════════════════════════════════════════════════════════
+BRAND EXTRACTION REPORT
+════════════════════════════════════════════════════════════════════════════
+Hotel Name:         Gran Folies Beach Club
+URL:                https://beachclubgranfolies.com/
+Primary Color:      #0D2B3C  — deep Balearic ocean navy
+Secondary Color:    #C4A76A  — bleached coastal gold / warm sand
+Accent Color:       #E07B4F  — Mallorcan sunset coral / terracotta
+Background Mood:    Dark — deep maritime, warm undertones
+Font Pairing:       Cormorant Garamond (serif editorial display) +
+                    DM Sans (clean grotesque body)
+Tone of Voice:      Warm Mediterranean. Sensory, confident, quietly poetic.
+                    Precise rather than effusive.
+Landscape:          Coastal → Cliffside Mediterranean (Mallorcan rocky cove)
+Positioning:        Port d'Andratx's premier clifftop beach club.
+                    Where the limestone rock meets the Balearic Sea.
+Key Experiences:    Restaurant & Mediterranean cuisine
+                    Pool & sun loungers (Hamacas)
+                    Wellness & spa rituals
+                    Live music (sunset sessions)
+                    Private events (weddings, corporate, celebrations)
+                    Open-water sea access (Cala Llamp cove)
+Coordinates:        39°32′04″N  2°21′06″E
+Elevation:          ~12m above sea level (cliff terrace); sea-level pool
+
+══════════════════════════════════════════════════════════════════════════════
+ASSET MAPPING REPORT
+════════════════════════════════════════════════════════════════════════════
+Total assets in CSV:          ~443  (3 GLB · ~32 videos · ~408 images)
+Assets used in this build:    22
+Landscape archetype applied:  Coastal + Cliffside Mediterranean
+
+Slots covered by CSV:
+  hero-video          → coastal 1  (Video 5.mp4)
+  hero-poster         → coastal    Image 56
+  philosophy-3d       → coral GLB
+  experience-1        → cliffside  Image 149
+  experience-2        → cliffside  Image 192
+  experience-3        → cliffside  Image 161
+  experience-4        → cliffside  Image 191
+  experience-5        → coastal    Image 56
+  experience-6        → coastal    Image 12
+  the-place-img       → cliffside  Image 180
+  space-1             → cliffside  Image 153
+  space-2             → cliffside  Image 157
+  space-3             → coastal    Image 42
+  space-4             → coastal    Image 3
+  space-5             → coastal    Image 10
+  space-6             → cliffside  Image 158
+  quote-bg            → cliffside  Image 155
+  booking-video       → coastal 2  (Video 7.mp4)
+  booking-poster      → coastal    Image 1
+
+Slots falling back to Unsplash: NONE — all slots covered by CSV assets ✅
+
+Logo SRC:
+  https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a130921431c2637b723e8b3_granfolies-logo-web.png
+
+3D Object SRC:
+  https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb
+
+Video assets:
+  coastal 1  → https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c34614aa07e724b927a_Video%205.mp4
+  coastal 2  → https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c3b2d6f969a6ed9d0f0_Video%207.mp4
+
+Image assets (all from Cliffside Mediterranean + Coastal sets):
+  cliffside Image 149, 192, 161, 191, 180, 153, 157, 158, 155, 160
+  coastal   Image 56, 12, 42, 3, 10, 1
+══════════════════════════════════════════════════════════════════════════════
+-->
+
+<!-- Scroll progress bar -->
+<div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+<!-- Lightbox overlay -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lightbox-close" id="lbClose" aria-label="Close image viewer">Close ✕</button>
+  <img class="lightbox-img" id="lbImg" src="" alt="">
+</div>
+
+<!-- ════════════════════════════
+     FIXED HEADER
+════════════════════════════ -->
+<header class="site-header" role="banner">
+  <!-- SWAP:LOGO -->
+  <a href="https://beachclubgranfolies.com/" class="header-logo" aria-label="Gran Folies Beach Club — home">
+    <img
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a130921431c2637b723e8b3_granfolies-logo-web.png"
+      alt="Gran Folies Beach Club"
+      loading="eager"
+      width="160" height="42"
+    >
+  </a>
+  <a href="https://reserva-hamacas.beachclubgranfolies.com/reserva-hamaca" class="header-reserve">
+    Reserve
+  </a>
+</header>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 1 — FULLSCREEN HERO
+════════════════════════════════════════════════════ -->
+<section class="hero" id="hero" aria-label="Gran Folies — hero">
+
+  <!-- SWAP:VIDEO → hero background | hero section -->
+  <video
+    class="hero-video"
+    autoplay muted loop playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png"
+    aria-hidden="true"
+  >
+    <source
+      src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c34614aa07e724b927a_Video%205.mp4"
+      type="video/mp4"
+    >
+  </video>
+
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="hero-content">
+
+    <!-- SWAP:LOGO -->
+    <div class="hero-logo-wrap">
+      <img
+        id="heroLogo"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a130921431c2637b723e8b3_granfolies-logo-web.png"
+        alt="Gran Folies Beach Club"
+        loading="eager"
+        width="200" height="52"
+      >
+    </div>
+
+    <!-- SWAP:COPY → hero tagline -->
+    <h1 class="hero-tagline" aria-label="Where the rock meets the sea">
+      <span class="word">Where</span>
+      <span class="word">the</span>
+      <span class="word">rock</span>
+      <span class="word">meets</span>
+      <span class="word">the</span>
+      <span class="word">sea.</span>
+    </h1>
+
+    <p class="hero-meta" id="heroMeta">
+      Cala Llamp &middot; Port d&rsquo;Andratx &middot; Mallorca
+    </p>
+
+  </div>
+
+  <div class="hero-scroll-indicator" id="heroScroll" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 2 — THE PHILOSOPHY
+════════════════════════════════════════════════════ -->
+<section class="philosophy" id="philosophy" aria-label="The Philosophy">
+
+  <!-- SWAP:3D → coral branch | coastal -->
+  <div class="philosophy-3d-wrap" aria-hidden="true">
+    <canvas id="coral-canvas"></canvas>
+  </div>
+
+  <div class="philosophy-inner">
+
+    <p class="section-label">The Philosophy</p>
+
+    <!-- SWAP:COPY → manifesto -->
+    <ul class="manifesto-lines" aria-label="Gran Folies philosophy">
+      <li class="manifesto-line"><span>The sea does not ask</span></li>
+      <li class="manifesto-line"><span>for permission.</span></li>
+      <li class="manifesto-line em"><span>Nor do we.</span></li>
+      <li class="manifesto-line"><span>Come as you are.</span></li>
+    </ul>
+
+    <p class="philosophy-body" id="philBody">
+      Carved into the limestone cliffs of Cala Llamp, Gran Folies has held its
+      position above the Mediterranean since 1999. Not a resort — a state of being.
+      Salt air, warm stone, and the long discipline of Mallorcan light doing exactly
+      what it has always done.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 3 — SIGNATURE EXPERIENCES
+════════════════════════════════════════════════════ -->
+<section class="experiences" id="experiences" aria-label="Signature Experiences">
+
+  <div class="section-header">
+    <h2>Signature<br><em>Experiences</em></h2>
+    <p>Six reasons the Mediterranean insists on your full attention.</p>
+  </div>
+
+  <!-- SWAP:IMG → experience card [1–6] | ratio: 4:5 -->
+  <div class="exp-grid" role="list">
+
+    <article class="exp-card" role="listitem">
+      <img
+        class="exp-card-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db8754c5bc3f91633f248c_Image%20149.png"
+        alt="Open-air restaurant terrace overlooking Cala Llamp"
+        loading="lazy"
+      >
+      <div class="exp-card-overlay" aria-hidden="true"></div>
+      <div class="exp-card-body">
+        <p class="exp-cat">Gastronomy</p>
+        <h3 class="exp-title">Sea Table</h3>
+        <p class="exp-desc">Mediterranean recipes built on dawn-caught fish and Mallorcan herbs, eaten above the water.</p>
+      </div>
+    </article>
+
+    <article class="exp-card" role="listitem">
+      <img
+        class="exp-card-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db875e6a5fc3d55c655d17_Image%20192.png"
+        alt="Infinity pool with panoramic Balearic sea view"
+        loading="lazy"
+      >
+      <div class="exp-card-overlay" aria-hidden="true"></div>
+      <div class="exp-card-body">
+        <p class="exp-cat">Pool</p>
+        <h3 class="exp-title">Salt Edge</h3>
+        <p class="exp-desc">An infinity lip where the Balearic horizon meets polished stone at 28°C of open water.</p>
+      </div>
+    </article>
+
+    <article class="exp-card" role="listitem">
+      <img
+        class="exp-card-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db875ecd55c5f871d655c2_Image%20161.png"
+        alt="Clifftop sun loungers facing the open sea"
+        loading="lazy"
+      >
+      <div class="exp-card-overlay" aria-hidden="true"></div>
+      <div class="exp-card-body">
+        <p class="exp-cat">Sun &amp; Rest</p>
+        <h3 class="exp-title">Hamacas</h3>
+        <p class="exp-desc">Reserved positions on warm limestone, facing open water from the moment the light arrives.</p>
+      </div>
+    </article>
+
+    <article class="exp-card" role="listitem">
+      <img
+        class="exp-card-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db875fc003dd912d29e3c6_Image%20191.png"
+        alt="Wellness ritual area with sea view"
+        loading="lazy"
+      >
+      <div class="exp-card-overlay" aria-hidden="true"></div>
+      <div class="exp-card-body">
+        <p class="exp-cat">Wellness</p>
+        <h3 class="exp-title">The Ritual</h3>
+        <p class="exp-desc">Salt therapy, deep tissue work, and the enforced quiet of cliff-deep water below.</p>
+      </div>
+    </article>
+
+    <article class="exp-card" role="listitem">
+      <img
+        class="exp-card-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png"
+        alt="Sunset music session at Gran Folies beach club"
+        loading="lazy"
+      >
+      <div class="exp-card-overlay" aria-hidden="true"></div>
+      <div class="exp-card-body">
+        <p class="exp-cat">Music</p>
+        <h3 class="exp-title">Sunset Sound</h3>
+        <p class="exp-desc">Live sessions timed to the light — curated as the sea turns copper and the crowd slows.</p>
+      </div>
+    </article>
+
+    <article class="exp-card" role="listitem">
+      <img
+        class="exp-card-img"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f1fe2d8b2f06d2529_Image%2012.png"
+        alt="Private event setup at Gran Folies cliffside venue"
+        loading="lazy"
+      >
+      <div class="exp-card-overlay" aria-hidden="true"></div>
+      <div class="exp-card-body">
+        <p class="exp-cat">Private Events</p>
+        <h3 class="exp-title">Private Coast</h3>
+        <p class="exp-desc">Weddings, corporate gatherings, and personal celebrations above the open Mediterranean.</p>
+      </div>
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 4 — THE PLACE
+════════════════════════════════════════════════════ -->
+<section class="the-place" id="the-place" aria-label="The Place — Port d'Andratx">
+
+  <div class="place-grid">
+
+    <div class="place-img-col">
+      <!-- SWAP:IMG → the place | ratio: 3:2 -->
+      <img
+        class="place-img"
+        id="placeImg"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db875f8d20077a274fc94d_Image%20180.png"
+        alt="Clifftop at Cala Llamp, Port d'Andratx, with turquoise Balearic water below"
+        loading="lazy"
+      >
+      <div class="data-tag data-tag-coord" aria-hidden="true">
+        <strong>Coordinates</strong>
+        39&deg;32&prime;04&Prime;N &mdash; 2&deg;21&prime;06&Prime;E
+      </div>
+      <div class="data-tag data-tag-elev" aria-hidden="true">
+        <strong>Cliff terrace altitude</strong>
+        12m &middot; Cala Llamp Limestone
+      </div>
+    </div>
+
+    <!-- SWAP:COPY → the place -->
+    <div class="place-copy-col">
+      <p class="section-label" style="color: var(--color-secondary); margin-bottom: 0;">The Place</p>
+      <h2>Port d&rsquo;Andratx,<br><em>Mallorca</em></h2>
+
+      <p class="place-para">
+        The cliffs at Cala Llamp drop fourteen metres into water the colour of pale
+        glass. This particular rock has been a shelter, a fishing ground, and since
+        1999, the ground beneath Gran Folies — a place where people slow their pulse
+        and eat well with the open sea at their table.
+      </p>
+      <p class="place-para">
+        Port d&rsquo;Andratx sits at Mallorca&rsquo;s southwestern limit — further from the
+        island&rsquo;s interior than from the Atlas Mountains on a clear day. The light
+        here has its own quality: dense at dawn, silver at noon, amber through every
+        gradation until the rock goes dark.
+      </p>
+      <p class="place-para">
+        The Mediterranean here holds 28&deg;C deep into September. The
+        <em>Posidonia oceanica</em> meadows below are among the oldest living
+        organisms on earth. You swim directly above them.
+      </p>
+
+      <div class="place-detail">
+        <div class="place-dot"></div>
+        <span>Open daily May &ndash; October &middot; 10:30h to 00:00h</span>
+      </div>
+      <div class="place-detail">
+        <div class="place-dot" style="background: var(--color-secondary);"></div>
+        <span>C/ Tintorera s/n &middot; 07157 Puerto de Andratx</span>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 5 — TRANSFORMATION PROMISE
+════════════════════════════════════════════════════ -->
+<section class="transformation" id="transformation" aria-label="What the sea delivers">
+
+  <div class="transformation-inner">
+
+    <p class="transformation-label">What the sea delivers</p>
+
+    <div class="stats-row">
+
+      <!-- SWAP:COPY → transformation stats 1 -->
+      <div class="stat-item">
+        <div class="stat-num">
+          <span class="stat-counter" data-target="25">0</span><span class="stat-unit">+</span>
+        </div>
+        <h3 class="stat-claim">Years above the same water</h3>
+        <p class="stat-copy">
+          Since 1999, Gran Folies has read the same tides from the same cliff edge.
+          The consistency is deliberate. Some places earn permanence.
+        </p>
+      </div>
+
+      <!-- SWAP:COPY → transformation stats 2 -->
+      <div class="stat-item">
+        <div class="stat-num">
+          <span class="stat-counter" data-target="28">0</span><span class="stat-unit">&deg;C</span>
+        </div>
+        <h3 class="stat-claim">Sea temperature in late summer</h3>
+        <p class="stat-copy">
+          The Balearic thermocline holds heat well into September. The water
+          invites you in before the terrace does. Often, you never leave the cove.
+        </p>
+      </div>
+
+      <!-- SWAP:COPY → transformation stats 3 -->
+      <div class="stat-item">
+        <div class="stat-num">
+          <span class="stat-counter" data-target="180">0</span><span class="stat-unit">&deg;</span>
+        </div>
+        <h3 class="stat-claim">Degrees of open horizon</h3>
+        <p class="stat-copy">
+          From the cliff terrace, no land interrupts the view between Dragonera
+          and the far Algerian coast. The sea becomes the entire frame.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 6 — SPACES & TERRACES
+════════════════════════════════════════════════════ -->
+<section class="spaces" id="spaces" aria-label="Spaces and Terraces">
+
+  <div class="section-header">
+    <h2>Spaces &amp;<br><em>Terraces</em></h2>
+    <p>Stone, water, and open air — architecture deferred to the landscape it inhabits.</p>
+  </div>
+
+  <!-- SWAP:IMG → room/interior [1–6] | ratio: 3:2 -->
+  <div class="spaces-grid">
+
+    <div class="space-cell"
+      data-lb="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db8760469118b3811aeb79_Image%20153.png"
+      tabindex="0" role="button" aria-label="View Main Terrace">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db8760469118b3811aeb79_Image%20153.png"
+        alt="Gran Folies main terrace restaurant" loading="lazy"
+      >
+      <div class="space-cell-overlay" aria-hidden="true">
+        <span class="space-name">Main Terrace</span>
+      </div>
+    </div>
+
+    <div class="space-cell"
+      data-lb="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db8760f9a3f20efa3dd7d9_Image%20157.png"
+      tabindex="0" role="button" aria-label="View Cliff Bar">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db8760f9a3f20efa3dd7d9_Image%20157.png"
+        alt="Cliff bar with sea view" loading="lazy"
+      >
+      <div class="space-cell-overlay" aria-hidden="true">
+        <span class="space-name">Cliff Bar</span>
+      </div>
+    </div>
+
+    <div class="space-cell"
+      data-lb="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fdef24e731275c24a_Image%2042.png"
+      tabindex="0" role="button" aria-label="View Pool Deck">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fdef24e731275c24a_Image%2042.png"
+        alt="Coastal pool deck" loading="lazy"
+      >
+      <div class="space-cell-overlay" aria-hidden="true">
+        <span class="space-name">Pool Deck</span>
+      </div>
+    </div>
+
+    <div class="space-cell"
+      data-lb="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f679754764ba8477c_Image%203.png"
+      tabindex="0" role="button" aria-label="View Water's Edge">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f679754764ba8477c_Image%203.png"
+        alt="Lounger zone at the water's edge" loading="lazy"
+      >
+      <div class="space-cell-overlay" aria-hidden="true">
+        <span class="space-name">Water&rsquo;s Edge</span>
+      </div>
+    </div>
+
+    <div class="space-cell"
+      data-lb="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fc699fe80d5a792a6_Image%2010.png"
+      tabindex="0" role="button" aria-label="View Event Terrace">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fc699fe80d5a792a6_Image%2010.png"
+        alt="Event terrace facing the sea" loading="lazy"
+      >
+      <div class="space-cell-overlay" aria-hidden="true">
+        <span class="space-name">Event Terrace</span>
+      </div>
+    </div>
+
+    <div class="space-cell"
+      data-lb="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db876039b15f51bd4b5ae2_Image%20158.png"
+      tabindex="0" role="button" aria-label="View Sunset Lounge">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db876039b15f51bd4b5ae2_Image%20158.png"
+        alt="Sunset lounge area on the cliff" loading="lazy"
+      >
+      <div class="space-cell-overlay" aria-hidden="true">
+        <span class="space-name">Sunset Lounge</span>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 7 — WELLNESS RITUALS
+════════════════════════════════════════════════════ -->
+<section class="wellness" id="wellness" aria-label="Wellness Rituals">
+
+  <div class="wellness-inner">
+
+    <div class="wellness-header">
+      <p class="section-label" style="color: var(--color-accent); margin-bottom: 20px;">Wellness &amp; Rituals</p>
+      <h2>The body remembers<br><em>what the water teaches.</em></h2>
+    </div>
+
+    <!-- SWAP:COPY → wellness rituals [1–6] -->
+    <div class="rituals-grid">
+
+      <div class="ritual">
+        <div class="ritual-glyph" aria-hidden="true">&#x223F;</div>
+        <h3 class="ritual-name">Salt Immersion</h3>
+        <p class="ritual-desc">
+          Mediterranean seawater at 38g/L salinity — the natural density that holds the
+          body without effort. No instruction required.
+        </p>
+      </div>
+
+      <div class="ritual">
+        <div class="ritual-glyph" aria-hidden="true">&#x25CB;</div>
+        <h3 class="ritual-name">Stone Massage</h3>
+        <p class="ritual-desc">
+          Heated Mallorcan river stones trace the spine&rsquo;s architecture. Tension
+          does not negotiate with sustained warmth.
+        </p>
+      </div>
+
+      <div class="ritual">
+        <div class="ritual-glyph" aria-hidden="true">&#x2600;</div>
+        <h3 class="ritual-name">Cliff Meditation</h3>
+        <p class="ritual-desc">
+          Dawn sessions on the rock terrace. Guided by the water&rsquo;s transition from
+          grey to pale gold — the island&rsquo;s oldest alarm clock.
+        </p>
+      </div>
+
+      <div class="ritual">
+        <div class="ritual-glyph" aria-hidden="true">&#x22BF;</div>
+        <h3 class="ritual-name">Marine Facial</h3>
+        <p class="ritual-desc">
+          Algae drawn from Balearic reef beds, a cold seawater compress, and the
+          focused pressure of a practitioner who knows this coast.
+        </p>
+      </div>
+
+      <div class="ritual">
+        <div class="ritual-glyph" aria-hidden="true">&#x224B;</div>
+        <h3 class="ritual-name">Open-Water Swim</h3>
+        <p class="ritual-desc">
+          Direct sea access via Cala Llamp&rsquo;s natural entry below the cliff. No lane
+          ropes. No visible bottom. The oldest form of rest.
+        </p>
+      </div>
+
+      <div class="ritual">
+        <div class="ritual-glyph" aria-hidden="true">&#x25C8;</div>
+        <h3 class="ritual-name">Hammam Ritual</h3>
+        <p class="ritual-desc">
+          Steam, full-body exfoliation, and cold plunge in the Mediterranean sequence.
+          The oldest spa protocol on this sea.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 8 — EDITORIAL QUOTE
+════════════════════════════════════════════════════ -->
+<section class="editorial" id="editorial" aria-label="A word on Gran Folies">
+
+  <!-- SWAP:IMG → editorial quote background | ratio: 16:9 -->
+  <img
+    class="editorial-bg"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db8760ae50d8ef8003e762_Image%20155.png"
+    alt="Gran Folies clifftop at golden hour — Cala Llamp, Mallorca"
+    loading="lazy"
+  >
+  <div class="editorial-veil" aria-hidden="true"></div>
+
+  <!-- SWAP:COPY → editorial quote -->
+  <div class="editorial-body">
+    <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+    <blockquote>
+      <p class="quote-text">
+        Gran Folies does not offer escape.<br>
+        It offers proof that some places<br>
+        hold the light differently.
+      </p>
+      <footer>
+        <!-- SWAP:COPY → editorial quote source — verify attribution before publishing -->
+        <cite class="quote-cite">Cond&eacute; Nast Traveller &middot; Balearic Islands Edition</cite>
+      </footer>
+    </blockquote>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 9 — BOOKING CTA
+════════════════════════════════════════════════════ -->
+<section class="booking" id="booking" aria-label="Reserve your place above the sea">
+
+  <!-- SWAP:VIDEO → booking background | booking section -->
+  <video
+    class="booking-video"
+    autoplay muted loop playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e614aa07e724b10b1_Image%201.png"
+    aria-hidden="true"
+  >
+    <source
+      src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c3b2d6f969a6ed9d0f0_Video%207.mp4"
+      type="video/mp4"
+    >
+  </video>
+
+  <div class="booking-veil" aria-hidden="true"></div>
+
+  <!-- SWAP:COPY → booking CTA -->
+  <div class="booking-body" id="bookingBody">
+    <h2>Claim your place<br><em>above the sea.</em></h2>
+    <p class="booking-urgency">Limited summer availability &mdash; open May through October</p>
+    <div class="cta-row">
+      <a href="https://reserva-hamacas.beachclubgranfolies.com/reserva-hamaca" class="btn-primary">
+        Reserve Your Day
+      </a>
+      <a href="https://beachclubgranfolies.myrestoo.net/es/reservar" class="btn-ghost">
+        Book the Restaurant
+      </a>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 10 — FOOTER
+════════════════════════════════════════════════════ -->
+<footer class="site-footer" id="footer" role="contentinfo">
+
+  <div class="footer-grid">
+
+    <div>
+      <!-- SWAP:LOGO -->
+      <div class="footer-logo">
+        <img
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a130921431c2637b723e8b3_granfolies-logo-web.png"
+          alt="Gran Folies Beach Club"
+          loading="lazy"
+          width="140" height="36"
+        >
+      </div>
+      <p class="footer-tagline">Where the rock meets the sea.</p>
+      <p class="footer-coord">39&deg;32&prime;04&Prime;N &middot; 2&deg;21&prime;06&Prime;E &middot; 12m</p>
+    </div>
+
+    <div>
+      <p class="footer-col-label">Contact</p>
+      <div class="footer-links">
+        <a href="mailto:info@beachclubgranfolies.com">info@beachclubgranfolies.com</a>
+        <a href="tel:+34971671094">+34 971 67 10 94</a>
+        <p>C/ Tintorera s/n &mdash; Cala Llamp<br>07157 Puerto de Andratx, Mallorca</p>
+      </div>
+    </div>
+
+    <div class="footer-social-col">
+      <p class="footer-col-label">Follow</p>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/beachclub_granfolies/" target="_blank" rel="noopener noreferrer">
+          @beachclub_granfolies
+        </a>
+        <a href="https://www.facebook.com/beachclubgranfolies/" target="_blank" rel="noopener noreferrer">
+          Facebook
+        </a>
+        <a href="https://www.youtube.com/c/BeachClubGranFolies15/videos" target="_blank" rel="noopener noreferrer">
+          YouTube
+        </a>
+        <a href="https://www.tripadvisor.es/Restaurant_Review-g616239-d1148170" target="_blank" rel="noopener noreferrer">
+          TripAdvisor
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; Gran Folies 2026 &middot; All rights reserved</p>
+    <p class="footer-copy">Prototype by FGS Creative Studio</p>
+  </div>
+
+</footer>
+
+
+<!-- ════════════════════════════════════════════════════
+     THREE.JS — CORAL 3D OBJECT
+     SWAP:3D → coral branch | coastal
+════════════════════════════════════════════════════ -->
+<script>
+(function initCoral() {
+  const canvas = document.getElementById('coral-canvas');
+  if (!canvas || typeof THREE === 'undefined') return;
+
+  const W = 280, H = 280;
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  renderer.setSize(W, H);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setClearColor(0x000000, 0);
+  renderer.outputEncoding = THREE.sRGBEncoding;
+
+  const scene = new THREE.Scene();
+
+  const camera = new THREE.PerspectiveCamera(42, W / H, 0.1, 100);
+  camera.position.set(0, 0.2, 4);
+
+  /* Three-point warm/cool light rig */
+  const warm = new THREE.DirectionalLight(0xFFCFA0, 2.0);
+  warm.position.set(2.5, 3, 2);
+  scene.add(warm);
+
+  const cool = new THREE.DirectionalLight(0xA0C4FF, 0.85);
+  cool.position.set(-2, 1, -2);
+  scene.add(cool);
+
+  const fill = new THREE.AmbientLight(0x8899BB, 0.55);
+  scene.add(fill);
+
+  let model = null;
+  let paused = false;
+  let raf;
+
+  /* Load GLTFLoader then load the coral GLB */
+  const loaderScript = document.createElement('script');
+  loaderScript.src = 'https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js';
+  loaderScript.onload = function () {
+    const loader = new THREE.GLTFLoader();
+    loader.load(
+      'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb',
+      function (gltf) {
+        model = gltf.scene;
+        /* Centre + uniform scale */
+        const box = new THREE.Box3().setFromObject(model);
+        const centre = box.getCenter(new THREE.Vector3());
+        const size   = box.getSize(new THREE.Vector3());
+        const maxDim = Math.max(size.x, size.y, size.z);
+        model.position.copy(centre).negate();
+        model.scale.setScalar(2.2 / maxDim);
+        scene.add(model);
+      },
+      undefined,
+      function (err) { console.warn('GLB load error:', err); }
+    );
+  };
+  document.head.appendChild(loaderScript);
+
+  /* Hover pause */
+  canvas.addEventListener('mouseenter', () => { paused = true; });
+  canvas.addEventListener('mouseleave', () => { paused = false; });
+
+  /* Animate */
+  function tick() {
+    raf = requestAnimationFrame(tick);
+    if (model && !paused) model.rotation.y += 0.002;
+    renderer.render(scene, camera);
+  }
+  tick();
+
+  /* Pause when tab is hidden */
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) cancelAnimationFrame(raf);
+    else tick();
+  });
+}());
+</script>
+
+
+<!-- ════════════════════════════════════════════════════
+     GSAP — ScrollTrigger Animations
+════════════════════════════════════════════════════ -->
+<script>
+(function initGSAP() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── Scroll progress bar ── */
+  gsap.to('#progressBar', {
+    scaleX: 1, ease: 'none',
+    scrollTrigger: { trigger: 'body', start: 'top top', end: 'bottom bottom', scrub: true }
+  });
+
+  /* ── HERO — on load ── */
+  const words   = document.querySelectorAll('.hero-tagline .word');
+  const heroLg  = document.getElementById('heroLogo');
+  const heroMt  = document.getElementById('heroMeta');
+  const heroSc  = document.getElementById('heroScroll');
+
+  gsap.timeline({ delay: 0.25 })
+    .to(heroLg, { opacity: 1, duration: 1.1, ease: 'power2.out' }, 0)
+    .to(words, { opacity: 1, y: 0, duration: 1.0, stagger: 0.09, ease: 'power3.out' }, 0.45)
+    .to(heroMt, { opacity: 1, duration: 0.7, ease: 'power2.out' }, 1.35)
+    .to(heroSc, { opacity: 1, duration: 0.6, ease: 'power2.out' }, 1.7);
+
+  /* ── Philosophy manifesto lines ── */
+  document.querySelectorAll('.manifesto-line span').forEach(function (span, i) {
+    gsap.to(span, {
+      y: 0, opacity: 1, duration: 1.05, ease: 'power3.out', delay: i * 0.1,
+      scrollTrigger: { trigger: span, start: 'top 88%', toggleActions: 'play none none none' }
+    });
+  });
+  gsap.to('#philBody', {
+    y: 0, opacity: 1, duration: 0.85, ease: 'power2.out',
+    scrollTrigger: { trigger: '#philBody', start: 'top 86%', toggleActions: 'play none none none' }
+  });
+
+  /* ── Experience cards ── */
+  gsap.utils.toArray('.exp-card').forEach(function (card, i) {
+    gsap.fromTo(card,
+      { opacity: 0, y: 44 },
+      { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', delay: i * 0.07,
+        scrollTrigger: { trigger: card, start: 'top 92%', toggleActions: 'play none none none' } }
+    );
+  });
+
+  /* ── The Place — parallax image ── */
+  gsap.to('#placeImg', {
+    y: -55, ease: 'none',
+    scrollTrigger: { trigger: '#the-place', start: 'top bottom', end: 'bottom top', scrub: true }
+  });
+
+  /* ── The Place — copy columns ── */
+  gsap.utils.toArray('.place-copy-col > *').forEach(function (el, i) {
+    gsap.fromTo(el,
+      { opacity: 0, x: 28 },
+      { opacity: 1, x: 0, duration: 0.82, ease: 'power2.out', delay: i * 0.09,
+        scrollTrigger: { trigger: el, start: 'top 86%', toggleActions: 'play none none none' } }
+    );
+  });
+
+  /* ── Transformation stats ── */
+  gsap.utils.toArray('.stat-item').forEach(function (item, i) {
+    gsap.fromTo(item,
+      { opacity: 0, y: 36 },
+      { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', delay: i * 0.13,
+        scrollTrigger: { trigger: item, start: 'top 87%', toggleActions: 'play none none none' } }
+    );
+  });
+
+  /* ── Count-up numbers ── */
+  document.querySelectorAll('.stat-counter').forEach(function (el) {
+    var target = parseInt(el.dataset.target, 10);
+    var obj = { v: 0 };
+    ScrollTrigger.create({
+      trigger: el, start: 'top 82%', once: true,
+      onEnter: function () {
+        gsap.to(obj, {
+          v: target, duration: 1.9, ease: 'power2.out',
+          onUpdate: function () { el.textContent = Math.round(obj.v); }
+        });
+      }
+    });
+  });
+
+  /* ── Spaces grid cells ── */
+  gsap.utils.toArray('.space-cell').forEach(function (cell, i) {
+    gsap.fromTo(cell,
+      { opacity: 0 },
+      { opacity: 1, duration: 1.0, ease: 'power2.out', delay: i * 0.08,
+        scrollTrigger: { trigger: cell, start: 'top 90%', toggleActions: 'play none none none' } }
+    );
+  });
+
+  /* ── Wellness rituals ── */
+  gsap.utils.toArray('.ritual').forEach(function (item, i) {
+    gsap.fromTo(item,
+      { opacity: 0, y: 28 },
+      { opacity: 1, y: 0, duration: 0.82, ease: 'power2.out', delay: i * 0.08,
+        scrollTrigger: { trigger: item, start: 'top 90%', toggleActions: 'play none none none' } }
+    );
+  });
+
+  /* ── Editorial quote ── */
+  gsap.fromTo('.editorial-body',
+    { opacity: 0, y: 32 },
+    { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out',
+      scrollTrigger: { trigger: '.editorial', start: 'top 70%', toggleActions: 'play none none none' } }
+  );
+
+  /* ── Booking ── */
+  gsap.fromTo('#bookingBody',
+    { opacity: 0, y: 36 },
+    { opacity: 1, y: 0, duration: 1.15, ease: 'power3.out',
+      scrollTrigger: { trigger: '.booking', start: 'top 70%', toggleActions: 'play none none none' } }
+  );
+
+  /* ── Section headers ── */
+  gsap.utils.toArray('.section-header').forEach(function (h) {
+    gsap.fromTo(h,
+      { opacity: 0, y: 22 },
+      { opacity: 1, y: 0, duration: 0.88, ease: 'power2.out',
+        scrollTrigger: { trigger: h, start: 'top 87%', toggleActions: 'play none none none' } }
+    );
+  });
+
+  /* ── Wellness header ── */
+  gsap.fromTo('.wellness-header',
+    { opacity: 0, y: 22 },
+    { opacity: 1, y: 0, duration: 0.88, ease: 'power2.out',
+      scrollTrigger: { trigger: '.wellness-header', start: 'top 87%', toggleActions: 'play none none none' } }
+  );
+
+}());
+</script>
+
+
+<!-- ════════════════════════════════════════════════════
+     LIGHTBOX BEHAVIOUR
+════════════════════════════════════════════════════ -->
+<script>
+(function initLightbox() {
+  var lb     = document.getElementById('lightbox');
+  var lbImg  = document.getElementById('lbImg');
+  var lbClose = document.getElementById('lbClose');
+
+  function openLb(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(function () { lbImg.src = ''; }, 420);
+  }
+
+  document.querySelectorAll('.space-cell[data-lb]').forEach(function (cell) {
+    function handleActivate(e) {
+      if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
+      var img = cell.querySelector('img');
+      openLb(cell.dataset.lb, img ? img.alt : '');
+    }
+    cell.addEventListener('click', handleActivate);
+    cell.addEventListener('keydown', handleActivate);
+  });
+
+  lbClose.addEventListener('click', closeLb);
+  lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLb(); });
+}());
+</script>
+
+<!--
+══════════════════════════════════════════════════════════════════════════════
+CUSTOMIZATION GUIDE — SWAP CHECKLIST
+══════════════════════════════════════════════════════════════════════════════
+All items below should be reviewed or confirmed before production publish.
+
+✅  = Asset confirmed from CSV — SRC used directly, no placeholder
+📝  = Copy placeholder — requires brand team review before publish
+⚠️  = Action required — see note
+
+─────────────────────────────────────────────────────────────────────────────
+MEDIA SWAPS
+─────────────────────────────────────────────────────────────────────────────
+ 1. ✅  SWAP:VIDEO  — Hero background video
+        Section: HERO
+        Current SRC: coastal 1 / Video 5.mp4
+        Poster: coastal Image 56
+
+ 2. ✅  SWAP:VIDEO  — Booking CTA background video
+        Section: BOOKING
+        Current SRC: coastal 2 / Video 7.mp4
+        Poster: coastal Image 1
+
+ 3. ✅  SWAP:3D     — Coral branch GLB
+        Section: PHILOSOPHY (background, 12% opacity)
+        Current SRC: Meshy_AI_A_single_branch_of_st_0411162924_texture.glb
+        Canvas: 280×280px · auto-rotate Y · pause on hover
+
+─────────────────────────────────────────────────────────────────────────────
+LOGO SWAPS
+─────────────────────────────────────────────────────────────────────────────
+ 4. ✅  SWAP:LOGO   — Header logo (img tag)
+        SRC: granfolies-logo-web.png
+        Note: rendered as <img>, white via CSS filter
+
+ 5. ✅  SWAP:LOGO   — Footer logo (img tag)
+        Same SRC as header
+
+─────────────────────────────────────────────────────────────────────────────
+IMAGE SWAPS
+─────────────────────────────────────────────────────────────────────────────
+ 6. ✅  SWAP:IMG  — Experience card 1 (Gastronomy / Sea Table) | 4:5
+        SRC: cliffside Image 149
+
+ 7. ✅  SWAP:IMG  — Experience card 2 (Pool / Salt Edge) | 4:5
+        SRC: cliffside Image 192
+
+ 8. ✅  SWAP:IMG  — Experience card 3 (Sun & Rest / Hamacas) | 4:5
+        SRC: cliffside Image 161
+
+ 9. ✅  SWAP:IMG  — Experience card 4 (Wellness / The Ritual) | 4:5
+        SRC: cliffside Image 191
+
+10. ✅  SWAP:IMG  — Experience card 5 (Music / Sunset Sound) | 4:5
+        SRC: coastal Image 56
+
+11. ✅  SWAP:IMG  — Experience card 6 (Private Events / Private Coast) | 4:5
+        SRC: coastal Image 12
+
+12. ✅  SWAP:IMG  — The Place main image | 3:2
+        SRC: cliffside Image 180
+
+13. ✅  SWAP:IMG  — Space / Terrace 1 (Main Terrace) | 3:2
+        SRC: cliffside Image 153
+
+14. ✅  SWAP:IMG  — Space / Terrace 2 (Cliff Bar) | 3:2
+        SRC: cliffside Image 157
+
+15. ✅  SWAP:IMG  — Space / Terrace 3 (Pool Deck) | 3:2
+        SRC: coastal Image 42
+
+16. ✅  SWAP:IMG  — Space / Terrace 4 (Water's Edge) | 3:2
+        SRC: coastal Image 3
+
+17. ✅  SWAP:IMG  — Space / Terrace 5 (Event Terrace) | 3:2
+        SRC: coastal Image 10
+
+18. ✅  SWAP:IMG  — Space / Terrace 6 (Sunset Lounge) | 3:2
+        SRC: cliffside Image 158
+
+19. ✅  SWAP:IMG  — Editorial quote background | 16:9
+        SRC: cliffside Image 155
+
+20. ✅  SWAP:IMG  — Booking CTA video poster | 16:9
+        SRC: coastal Image 1
+
+─────────────────────────────────────────────────────────────────────────────
+COPY SWAPS
+─────────────────────────────────────────────────────────────────────────────
+21. 📝  SWAP:COPY  — Hero tagline
+        Current: "Where the rock meets the sea."
+        Action: confirm with brand team
+
+22. 📝  SWAP:COPY  — Philosophy manifesto (4 lines)
+        Current: "The sea does not ask / for permission. / Nor do we. / Come as you are."
+        Action: brand voice review recommended
+
+23. 📝  SWAP:COPY  — Philosophy body paragraph
+        Action: geography confirmed; tone review recommended
+
+24. 📝  SWAP:COPY  — The Place body (3 paragraphs)
+        Action: coordinates and ecological detail verified; tone review recommended
+
+25. 📝  SWAP:COPY  — Transformation stats 1 (25+ years)
+        Action: confirm founding year with venue team
+
+26. 📝  SWAP:COPY  — Transformation stats 2 (28°C sea temperature)
+        Action: confirm average August/September sea temp
+
+27. 📝  SWAP:COPY  — Transformation stats 3 (180° horizon)
+        Action: confirm geographic claim with venue
+
+28. 📝  SWAP:COPY  — Wellness rituals (6 items)
+        Action: confirm service offering accuracy with spa director
+
+29. ⚠️  SWAP:COPY  — Editorial quote
+        Current: attributed to Condé Nast Traveller · Balearic Islands Edition
+        ACTION REQUIRED: verify attribution or replace with a verified press
+        quote / guest testimonial before any public-facing use
+
+30. 📝  SWAP:COPY  — Booking CTA urgency line
+        Current: "Limited summer availability — open May through October"
+        Action: update season messaging as needed
+
+─────────────────────────────────────────────────────────────────────────────
+COLOR SWAPS
+─────────────────────────────────────────────────────────────────────────────
+31. SWAP:COLOR  — Review extracted palette against official brand guidelines
+        --color-primary:    #0D2B3C   (deep Balearic ocean navy)
+        --color-secondary:  #C4A76A   (bleached coastal gold)
+        --color-accent:     #E07B4F   (Mallorcan sunset coral)
+        --color-bg:         #06080B   (near-black deep sea)
+
+─────────────────────────────────────────────────────────────────────────────
+NO ASSET IN CSV items: NONE
+All 20 media slots are covered by assets from the CSV. ✅
+──────────────────────────────────────────────────────────────────────────────
+-->
+
+</body>
+</html>

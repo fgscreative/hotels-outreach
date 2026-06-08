@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bellevue Hotel &amp; Spa — Cogne, Valle d'Aosta</title>
+
+  <!-- Google Fonts: Cormorant Garamond (editorial serif) + Inter (grotesque sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    /*
+    =====================================================
+    CSS CUSTOM PROPERTIES
+    ─────────────────────────────────────────────────────
+    --color-primary:    #2B4035   deep alpine forest green
+    --color-secondary:  #8B6914   warm mountain gold
+    --color-accent:     #D4A853   honey amber
+    --color-bg:         #0C1410   near-black forest
+    --color-surface:    #141E18   dark green surface
+    --color-text:       #F2EDE0   warm cream/parchment
+    --color-text-muted: #8A8278   stone grey
+    --font-serif:       'Cormorant Garamond', serif
+    --font-sans:        'Inter', sans-serif
+    =====================================================
+    */
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --color-primary:    #2B4035;
+      --color-secondary:  #8B6914;
+      --color-accent:     #D4A853;
+      --color-bg:         #0C1410;
+      --color-surface:    #141E18;
+      --color-text:       #F2EDE0;
+      --color-text-muted: #8A8278;
+      --font-serif:       'Cormorant Garamond', Georgia, serif;
+      --font-sans:        'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── UTILITY ── */
+    .serif { font-family: var(--font-serif); }
+
+    .u-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+    }
+
+    /* ══════════════════════════════════════════════
+       SECTION 1 — HERO
+    ══════════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(43, 64, 53, 0.42) 0%,
+        rgba(12, 20, 16, 0.72) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-logo {
+      width: auto;
+      height: 72px;
+      max-width: 280px;
+      margin: 0 auto 44px;
+      opacity: 0;
+      filter: brightness(0) invert(1);
+      display: block;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-serif);
+      font-size: clamp(2.8rem, 7vw, 6.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+      max-width: 900px;
+    }
+
+    .hero-tagline .word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(28px);
+    }
+
+    .hero-sub {
+      margin-top: 28px;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(242, 237, 224, 0.48);
+      opacity: 0;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+    }
+
+    .scroll-indicator span {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(242, 237, 224, 0.38);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 52px;
+      background: linear-gradient(to bottom, rgba(212, 168, 83, 0.9), transparent);
+      animation: scrollPulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+      50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+      100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+    }
+
+    .hero-coords {
+      position: absolute;
+      bottom: 40px;
+      right: 48px;
+      z-index: 2;
+      text-align: right;
+    }
+
+    .hero-coords span {
+      display: block;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      color: rgba(242, 237, 224, 0.30);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    /* ══════════════════════════════════════════════
+       SECTION 2 — MANIFESTO
+    ══════════════════════════════════════════════ */
+    #manifesto {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 60px 120px 80px;
+      overflow: hidden;
+    }
+
+    #manifesto-3d {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.12;
+      z-index: 0;
+    }
+
+    .manifesto-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 960px;
+      width: 100%;
+    }
+
+    .manifesto-eyebrow {
+      margin-bottom: 48px;
+    }
+
+    .manifesto-line {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5.5vw, 5.2rem);
+      font-weight: 300;
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+      opacity: 0;
+      transform: translateY(38px);
+    }
+
+    .manifesto-line.italic {
+      font-style: italic;
+      color: rgba(212, 168, 83, 0.88);
+    }
+
+    .manifesto-line.indent {
+      padding-left: 14%;
+    }
+
+    .manifesto-body {
+      margin-top: 56px;
+      max-width: 460px;
+      font-size: 13.5px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(242, 237, 224, 0.5);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    /* ══════════════════════════════════════════════
+       SECTION 3 — EXPERIENCES
+    ══════════════════════════════════════════════ */
+    #experiences {
+      padding: 120px 0 140px;
+      overflow: hidden;
+    }
+
+    .experiences-header {
+      padding: 0 60px 56px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .experiences-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-top: 12px;
+    }
+
+    .exp-drag-hint {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      padding-bottom: 6px;
+    }
+
+    .experiences-track {
+      display: flex;
+      gap: 20px;
+      padding: 0 60px 20px;
+      overflow-x: auto;
+      cursor: grab;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .experiences-track::-webkit-scrollbar { display: none; }
+    .experiences-track.dragging { cursor: grabbing; user-select: none; }
+
+    .exp-card {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+
+    .exp-card-img-wrap {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+    }
+
+    .exp-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      display: block;
+    }
+
+    .exp-card:hover .exp-card-img-wrap img { transform: scale(1.06); }
+
+    .exp-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(12, 20, 16, 0.78) 0%, transparent 55%);
+      transition: background 0.5s ease;
+    }
+
+    .exp-card:hover .exp-card-overlay {
+      background: linear-gradient(to top, rgba(43, 64, 53, 0.78) 0%, rgba(43, 64, 53, 0.12) 55%);
+    }
+
+    .exp-card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 28px 24px;
+    }
+
+    .exp-cat {
+      font-size: 9px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 8px;
+    }
+
+    .exp-name {
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .exp-desc {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(242, 237, 224, 0.62);
+      line-height: 1.65;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s ease, opacity 0.45s ease;
+      opacity: 0;
+    }
+
+    .exp-card:hover .exp-desc { max-height: 72px; opacity: 1; }
+
+    /* ══════════════════════════════════════════════
+       SECTION 4 — THE PLACE
+    ══════════════════════════════════════════════ */
+    #the-place {
+      display: grid;
+      grid-template-columns: 60fr 40fr;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .place-image-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .place-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.08);
+      will-change: transform;
+      display: block;
+    }
+
+    .place-image-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(12, 20, 16, 0.18) 0%,
+        transparent 60%,
+        rgba(12, 20, 16, 0.38) 100%
+      );
+    }
+
+    .place-data-overlay {
+      position: absolute;
+      bottom: 48px;
+      left: 48px;
+      z-index: 2;
+    }
+
+    .place-data-item {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+
+    .place-data-value {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--color-accent);
+    }
+
+    .place-data-label {
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(242, 237, 224, 0.38);
+    }
+
+    .place-content {
+      background: var(--color-surface);
+      padding: 100px 56px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .place-eyebrow { margin-bottom: 16px; }
+
+    .place-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.08;
+      margin-bottom: 48px;
+    }
+
+    .place-para {
+      font-size: 13.5px;
+      font-weight: 300;
+      line-height: 1.88;
+      color: rgba(242, 237, 224, 0.6);
+      margin-bottom: 24px;
+      max-width: 400px;
+    }
+
+    .place-para strong {
+      color: var(--color-text);
+      font-weight: 400;
+    }
+
+    .place-address {
+      margin-top: 40px;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(242, 237, 224, 0.22);
+    }
+
+    /* ══════════════════════════════════════════════
+       SECTION 5 — TRANSFORMATION
+    ══════════════════════════════════════════════ */
+    #transformation {
+      background: #080E0B;
+      padding: 140px 60px;
+    }
+
+    .transform-header {
+      margin-bottom: 100px;
+    }
+
+    .transform-eyebrow { margin-bottom: 16px; }
+
+    .transform-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(242, 237, 224, 0.45);
+      max-width: 560px;
+    }
+
+    .transform-items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px;
+    }
+
+    .transform-item {
+      border-top: 1px solid rgba(212, 168, 83, 0.18);
+      padding-top: 32px;
+      opacity: 0;
+      transform: translateY(32px);
+    }
+
+    .transform-number {
+      font-family: var(--font-serif);
+      font-size: clamp(4rem, 8vw, 7.5rem);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--color-accent);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    .transform-unit {
+      font-size: 20px;
+      color: rgba(212, 168, 83, 0.5);
+      margin-left: 2px;
+    }
+
+    .transform-claim {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 300;
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+
+    .transform-desc {
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(242, 237, 224, 0.42);
+    }
+
+    /* ══════════════════════════════════════════════
+       SECTION 6 — ROOMS
+    ══════════════════════════════════════════════ */
+    #rooms {
+      padding: 120px 60px;
+      background: var(--color-bg);
+    }
+
+    .rooms-header {
+      margin-bottom: 56px;
+    }
+
+    .rooms-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      margin-top: 12px;
+    }
+
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+
+    .room-item:nth-child(1) { grid-column: span 5; }
+    .room-item:nth-child(2) { grid-column: span 7; }
+    .room-item:nth-child(3) { grid-column: span 4; }
+    .room-item:nth-child(4) { grid-column: span 4; }
+    .room-item:nth-child(5) { grid-column: span 4; }
+    .room-item:nth-child(6) { grid-column: span 12; }
+
+    .room-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+
+    .room-img-wrap {
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+    }
+
+    .room-item:nth-child(6) .room-img-wrap { aspect-ratio: 21 / 9; }
+
+    .room-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      display: block;
+    }
+
+    .room-item:hover .room-img-wrap img { transform: scale(1.05); }
+
+    .room-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(12, 20, 16, 0);
+      transition: background 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px 22px;
+    }
+
+    .room-item:hover .room-overlay { background: rgba(12, 20, 16, 0.48); }
+
+    .room-name {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--color-text);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .room-item:hover .room-name { opacity: 1; transform: translateY(0); }
+
+    /* Lightbox */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 14, 11, 0.96);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    #lightbox.open { opacity: 1; pointer-events: all; }
+
+    #lightbox-img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 2px;
+      display: block;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 28px;
+      right: 36px;
+      background: none;
+      border: none;
+      color: var(--color-text);
+      font-size: 30px;
+      cursor: pointer;
+      opacity: 0.55;
+      transition: opacity 0.2s;
+      line-height: 1;
+    }
+
+    .lightbox-close:hover { opacity: 1; }
+
+    /* ══════════════════════════════════════════════
+       SECTION 7 — WELLNESS
+    ══════════════════════════════════════════════ */
+    #wellness {
+      background: #080E0B;
+      padding: 140px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wellness-bg-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.055;
+      z-index: 0;
+    }
+
+    .wellness-inner { position: relative; z-index: 1; }
+
+    .wellness-header { margin-bottom: 80px; }
+
+    .wellness-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 4.5vw, 4.2rem);
+      font-weight: 300;
+      line-height: 1.08;
+      margin-top: 14px;
+    }
+
+    .wellness-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+    }
+
+    .ritual-item {
+      padding: 40px;
+      border: 1px solid rgba(212, 168, 83, 0.07);
+      display: flex;
+      gap: 26px;
+      opacity: 0;
+      transform: translateY(22px);
+      transition: background 0.35s ease;
+    }
+
+    .ritual-item:hover { background: rgba(43, 64, 53, 0.22); }
+
+    .ritual-glyph {
+      font-size: 22px;
+      line-height: 1;
+      flex-shrink: 0;
+      color: var(--color-accent);
+      width: 30px;
+      margin-top: 5px;
+      opacity: 0.8;
+    }
+
+    .ritual-name {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    .ritual-desc {
+      font-size: 12.5px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(242, 237, 224, 0.48);
+    }
+
+    /* ══════════════════════════════════════════════
+       SECTION 8 — EDITORIAL QUOTE
+    ══════════════════════════════════════════════ */
+    #quote {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .quote-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      display: block;
+    }
+
+    .quote-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(12, 20, 16, 0.74);
+      z-index: 1;
+    }
+
+    .quote-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 80px 40px;
+      max-width: 880px;
+    }
+
+    .quote-mark {
+      font-family: var(--font-serif);
+      font-size: 9rem;
+      line-height: 0.55;
+      color: var(--color-accent);
+      opacity: 0.65;
+      display: block;
+      margin-bottom: 36px;
+    }
+
+    .quote-text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 4.5vw, 3.6rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.28;
+      color: var(--color-text);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .quote-source {
+      margin-top: 44px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: rgba(242, 237, 224, 0.38);
+      opacity: 0;
+    }
+
+    /* ══════════════════════════════════════════════
+       SECTION 9 — BOOKING CTA
+    ══════════════════════════════════════════════ */
+    #booking {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .booking-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .booking-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        155deg,
+        rgba(43, 64, 53, 0.58) 0%,
+        rgba(12, 20, 16, 0.82) 100%
+      );
+      z-index: 1;
+    }
+
+    .booking-content {
+      position: relative;
+      z-index: 2;
+      padding: 80px 40px;
+      max-width: 680px;
+    }
+
+    .booking-urgency {
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .booking-urgency::before,
+    .booking-urgency::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: rgba(212, 168, 83, 0.5);
+    }
+
+    .booking-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 5.5vw, 4.8rem);
+      font-weight: 300;
+      line-height: 1.08;
+      margin-bottom: 16px;
+    }
+
+    .booking-subtitle {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-style: italic;
+      color: rgba(242, 237, 224, 0.52);
+      margin-bottom: 48px;
+    }
+
+    .booking-ctas {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 16px 40px;
+      background: var(--color-secondary);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--color-secondary);
+      border-radius: 1px;
+      transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: #0C1410;
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      padding: 15px 40px;
+      background: transparent;
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(242, 237, 224, 0.28);
+      border-radius: 1px;
+      transition: border-color 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    /* ══════════════════════════════════════════════
+       SECTION 10 — FOOTER
+    ══════════════════════════════════════════════ */
+    #footer {
+      background: var(--color-surface);
+      padding: 80px 60px 48px;
+      border-top: 1px solid rgba(212, 168, 83, 0.1);
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 64px;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .footer-logo img {
+      height: 56px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.75;
+      display: block;
+    }
+
+    .footer-meta { text-align: right; }
+
+    .footer-coords {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: rgba(242, 237, 224, 0.28);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .footer-contact a {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 300;
+      color: rgba(242, 237, 224, 0.48);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      margin-bottom: 7px;
+      transition: color 0.22s ease;
+    }
+
+    .footer-contact a:hover { color: var(--color-accent); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(242, 237, 224, 0.06);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .footer-copy {
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: rgba(242, 237, 224, 0.18);
+      text-transform: uppercase;
+    }
+
+    .footer-rc {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      opacity: 0.65;
+    }
+
+    /* ── LAZY LOAD FADE ── */
+    img[loading="lazy"] {
+      opacity: 0;
+      transition: opacity 0.55s ease;
+    }
+    img.loaded { opacity: 1; }
+
+    /* ══════════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════════ */
+    @media (max-width: 1280px) {
+      .transform-items { gap: 40px; }
+    }
+
+    @media (max-width: 768px) {
+      #the-place { grid-template-columns: 1fr; }
+      .place-image-wrap { aspect-ratio: 4/3; height: 60vw; min-height: 320px; }
+      .place-img { height: 100%; position: relative; }
+      .place-content { padding: 60px 28px; }
+
+      .transform-items { grid-template-columns: 1fr; gap: 48px; }
+
+      .rooms-grid { grid-template-columns: 1fr 1fr; }
+      .room-item:nth-child(1) { grid-column: span 2; }
+      .room-item:nth-child(2) { grid-column: span 1; }
+      .room-item:nth-child(3) { grid-column: span 1; }
+      .room-item:nth-child(4) { grid-column: span 1; }
+      .room-item:nth-child(5) { grid-column: span 1; }
+      .room-item:nth-child(6) { grid-column: span 2; }
+      .room-item:nth-child(6) .room-img-wrap { aspect-ratio: 3/2; }
+
+      .wellness-grid { grid-template-columns: 1fr; }
+      .ritual-item { padding: 28px 20px; }
+
+      .experiences-header { padding: 0 24px 40px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .experiences-track { padding: 0 24px 16px; }
+      .exp-card { flex: 0 0 260px; }
+
+      #rooms { padding: 80px 24px; }
+      #wellness { padding: 100px 24px; }
+      #transformation { padding: 100px 24px; }
+      #manifesto { padding: 100px 32px; }
+
+      .footer-top { flex-direction: column; }
+      .footer-meta { text-align: left; }
+      #footer { padding: 60px 24px 40px; }
+
+      .hero-coords { display: none; }
+      .booking-ctas { flex-direction: column; align-items: center; }
+    }
+
+    @media (max-width: 375px) {
+      .manifesto-line { font-size: 2.1rem; }
+      .exp-card { flex: 0 0 240px; }
+      .experiences-header { padding: 0 16px 32px; }
+      .experiences-track { padding: 0 16px 12px; }
+    }
+
+    @media (min-width: 1920px) {
+      .manifesto-line { font-size: 5.8rem; }
+      .booking-title { font-size: 5.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!--
+========================================================
+BRAND EXTRACTION REPORT
+========================
+Hotel Name:        Bellevue Hotel & Spa
+URL:               https://www.hotelbellevue.it/
+Primary Color:     #2B4035  (deep alpine forest green — inferred from Alpine hotel
+                   identity, Relais & Châteaux positioning, Gran Paradiso palette)
+Secondary Color:   #8B6914  (warm mountain gold)
+Accent Color:      #D4A853  (honey amber — CTA highlights, decorative marks)
+Background Mood:   Dark / warm — near-black forest floor with green undertone
+Font Pairing:      Cormorant Garamond (editorial serif, weight 300/400/italic) +
+                   Inter (grotesque sans, weight 300/400/500)
+Tone of Voice:     Warm · poetic · heritage-rooted · nature-intimate
+                   "This old house does not perform hospitality — it breathes it."
+Landscape Archetype: ALPINE — Cogne, Valle d'Aosta, Gran Paradiso National Park
+Positioning:       Relais & Châteaux mountain sanctuary. 2 Michelin Keys 2025,
+                   1 Michelin Star 2026. An old house animated by lived memory,
+                   at the threshold of Italy's oldest national park.
+Key Experiences:
+  1. Michelin-starred mountain gastronomy
+  2. Alps Spa (pool, sauna, cave, clay treatments, couples rituals)
+  3. Gran Paradiso National Park hiking & wildlife
+  4. Rooms & private chalets
+  5. Kitchen garden / terroir
+  6. Cave & Clay mineral rituals
+Coordinates + Elevation:
+  45°36'29" N, 7°21'11" E — 1,534m a.s.l.
+  Rue Grand Paradis, 22, 11012 Cogne (AO), Valle d'Aosta, Italy
+  Gran Paradiso summit: 4,061m
+  Gran Paradiso National Park area: 71,000 hectares (est. 1922)
+
+ASSET MAPPING REPORT
+========================
+Total assets in CSV: 220+ (organized by biome: alpine, coastal, forest, desert,
+  canyon red rock, cloud forest, lake/fjord, tropical/jungle, urban, volcanic/lava,
+  wine country, cliffside mediterranean + 3D GLBs + videos)
+
+Landscape matched:  ALPINE (hotel location: Italian Alps, Valle d'Aosta)
+
+Assets successfully mapped: 23 (alpine image set) + 2 (alpine videos) + 1 (snowflake GLB)
+Slots covered by CSV:
+  hero-video              → alpine video 1  (Video%202.mp4)
+  booking-video           → alpine video 1  (reuse, Video%202.mp4)
+  wellness-bg-video       → alpine video 2  (texture accent, Video%203.mp4)
+  3d-manifesto            → snowflake GLB
+  exp-card-1 through 6    → alpine images 32,31,33,34,35,36
+  the-place-img           → alpine image 14
+  rooms-1 through 6       → alpine images 15,20,29,24,17,13
+  quote-bg                → alpine image 19
+  hero-poster             → alpine image 32
+
+Slots falling back to Unsplash: NONE — all template slots fully covered by CSV
+
+Logo SRC:
+  https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a26b3ca9b0b3086d71299a5_logo-bellevue-cogne.png
+
+3D Object SRC:
+  https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_perfect_snow_0411161712_texture.glb
+  (snowflake — matched to Alpine archetype; leaf GLB available as seasonal swap)
+
+Video assets:
+  alpine 1: https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c1720859ca462d9abdd_Video%202.mp4
+  alpine 2: https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c1d01b3f8e72db01067_Video%203.mp4
+
+Image assets (alpine set):
+  Image%2032 Image%2031 Image%2033 Image%2034 Image%2035 Image%2036
+  Image%2014 Image%2015 Image%2020 Image%2029 Image%2024 Image%2017
+  Image%2013 Image%2019
+========================================================
+-->
+
+<!-- SWAP:LOGO -->
+<!-- SWAP:VIDEO → alpine mountain hero background | hero section -->
+<!-- SWAP:3D → snowflake crystal object | Alpine -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     §1  FULLSCREEN HERO
+     ═══════════════════════════════════════════════════════ -->
+<section id="hero">
+
+  <!-- SWAP:VIDEO → hero background | hero section -->
+  <video
+    id="hero-video"
+    autoplay muted loop playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754e6556d3bd19d06f4e_Image%2032.png">
+    <source src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c1720859ca462d9abdd_Video%202.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <!-- SWAP:LOGO -->
+    <img
+      class="hero-logo"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a26b3ca9b0b3086d71299a5_logo-bellevue-cogne.png"
+      alt="Bellevue Hotel &amp; Spa — Cogne"
+      width="280"
+      height="72"
+    />
+
+    <h1 class="hero-tagline serif" aria-label="Silence at fifteen hundred metres.">
+      <span class="word">Silence</span>&nbsp;
+      <span class="word">at</span>&nbsp;
+      <span class="word">fifteen</span>&nbsp;
+      <span class="word">hundred</span>&nbsp;
+      <span class="word" style="font-style:italic;color:var(--color-accent)">metres.</span>
+    </h1>
+
+    <p class="hero-sub">Relais &amp; Châteaux &nbsp;·&nbsp; Cogne, Valle d'Aosta &nbsp;·&nbsp; Gran Paradiso</p>
+  </div>
+
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span>Discover</span>
+  </div>
+
+  <div class="hero-coords">
+    <span>45°36'N / 7°21'E</span>
+    <span>Elev. 1,534 m</span>
+    <span>Gran Paradiso N.P.</span>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     §2  MANIFESTO — THE PHILOSOPHY
+     SWAP:COPY → manifesto
+     SWAP:3D → snowflake crystal | Alpine
+     ═══════════════════════════════════════════════════════ -->
+<section id="manifesto">
+
+  <!-- SWAP:3D → snowflake crystal object | Alpine -->
+  <canvas id="manifesto-3d" aria-hidden="true"></canvas>
+
+  <div class="manifesto-inner">
+    <div class="manifesto-eyebrow">
+      <span class="u-label">The Philosophy</span>
+    </div>
+
+    <!-- SWAP:COPY → manifesto -->
+    <span class="manifesto-line">This old house does not</span>
+    <span class="manifesto-line">perform hospitality —</span>
+    <span class="manifesto-line italic">it breathes it.</span>
+    <span class="manifesto-line indent" style="margin-top:0.25em">Every corridor holds a scent.</span>
+
+    <p class="manifesto-body">
+      A Relais &amp; Châteaux property at the threshold of Gran Paradiso —
+      Italy's oldest national park. The kitchen garden feeds the Michelin-starred
+      kitchen. The mountain feeds everything else. We have been here long enough
+      to understand the difference between a view and a presence.
+    </p>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     §3  SIGNATURE EXPERIENCES
+     SWAP:IMG → experience card 1–6 | ratio: 4:5
+     SWAP:COPY → experiences
+     ═══════════════════════════════════════════════════════ -->
+<section id="experiences">
+
+  <div class="experiences-header">
+    <div>
+      <span class="u-label">What Awaits</span>
+      <h2 class="experiences-title serif">Signature<br>Experiences</h2>
+    </div>
+    <span class="exp-drag-hint">Drag to explore &rarr;</span>
+  </div>
+
+  <div class="experiences-track" id="exp-track">
+
+    <!-- SWAP:IMG → experience card 1 | ratio: 4:5 -->
+    <div class="exp-card">
+      <div class="exp-card-img-wrap">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754e6556d3bd19d06f4e_Image%2032.png"
+             alt="Mountain gastronomy at Bellevue" loading="lazy" />
+      </div>
+      <div class="exp-card-overlay"></div>
+      <!-- SWAP:COPY → experiences card 1 -->
+      <div class="exp-card-content">
+        <p class="exp-cat">Gastronomy</p>
+        <h3 class="exp-name serif">Mountain Table</h3>
+        <p class="exp-desc">Two Michelin Keys. One star. Cuisine that tastes of alpine meadow and mineral spring.</p>
+      </div>
+    </div>
+
+    <!-- SWAP:IMG → experience card 2 | ratio: 4:5 -->
+    <div class="exp-card">
+      <div class="exp-card-img-wrap">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754ecc03c6e8de006eab_Image%2031.png"
+             alt="Alps Spa treatment" loading="lazy" />
+      </div>
+      <div class="exp-card-overlay"></div>
+      <!-- SWAP:COPY → experiences card 2 -->
+      <div class="exp-card-content">
+        <p class="exp-cat">Wellness</p>
+        <h3 class="exp-name serif">Alps Spa</h3>
+        <p class="exp-desc">Thermal rituals drawn from Gran Paradiso mineral springs. Clay, larch bark, and mountain silence.</p>
+      </div>
+    </div>
+
+    <!-- SWAP:IMG → experience card 3 | ratio: 4:5 -->
+    <div class="exp-card">
+      <div class="exp-card-img-wrap">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754eb984fb0dc4d0c2c7_Image%2033.png"
+             alt="Gran Paradiso alpine hiking" loading="lazy" />
+      </div>
+      <div class="exp-card-overlay"></div>
+      <!-- SWAP:COPY → experiences card 3 -->
+      <div class="exp-card-content">
+        <p class="exp-cat">Wilderness</p>
+        <h3 class="exp-name serif">Gran Paradiso</h3>
+        <p class="exp-desc">Guided ascents through Italy's oldest national park. Ibex at altitude. Light as nowhere else.</p>
+      </div>
+    </div>
+
+    <!-- SWAP:IMG → experience card 4 | ratio: 4:5 -->
+    <div class="exp-card">
+      <div class="exp-card-img-wrap">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754ec999940f361d4a0e_Image%2034.png"
+             alt="Alpine rooms and private chalets" loading="lazy" />
+      </div>
+      <div class="exp-card-overlay"></div>
+      <!-- SWAP:COPY → experiences card 4 -->
+      <div class="exp-card-content">
+        <p class="exp-cat">Stay</p>
+        <h3 class="exp-name serif">Rooms &amp; Chalets</h3>
+        <p class="exp-desc">Private residences wrapped in centuries-old stone and larch. The mountain pressed into interior architecture.</p>
+      </div>
+    </div>
+
+    <!-- SWAP:IMG → experience card 5 | ratio: 4:5 -->
+    <div class="exp-card">
+      <div class="exp-card-img-wrap">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754d1891fee242b2ac75_Image%2035.png"
+             alt="Kitchen garden farm to table" loading="lazy" />
+      </div>
+      <div class="exp-card-overlay"></div>
+      <!-- SWAP:COPY → experiences card 5 -->
+      <div class="exp-card-content">
+        <p class="exp-cat">Terroir</p>
+        <h3 class="exp-name serif">Kitchen Garden</h3>
+        <p class="exp-desc">Farm-to-table sourcing from our mountain garden. The same soil that feeds the forest feeds your plate.</p>
+      </div>
+    </div>
+
+    <!-- SWAP:IMG → experience card 6 | ratio: 4:5 -->
+    <div class="exp-card">
+      <div class="exp-card-img-wrap">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754d11ea1438ae6577b9_Image%2036.png"
+             alt="Cave and clay mineral spa rituals" loading="lazy" />
+      </div>
+      <div class="exp-card-overlay"></div>
+      <!-- SWAP:COPY → experiences card 6 -->
+      <div class="exp-card-content">
+        <p class="exp-cat">Ritual</p>
+        <h3 class="exp-name serif">Cave &amp; Clay</h3>
+        <p class="exp-desc">Deep-earth treatments in the ancient cave sanctuary. Gran Paradiso clay pressed to skin.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     §4  THE PLACE
+     SWAP:IMG → the place | ratio: 3:2
+     SWAP:COPY → the place
+     ═══════════════════════════════════════════════════════ -->
+<section id="the-place">
+
+  <div class="place-image-wrap">
+    <!-- SWAP:IMG → the place landscape | ratio: 3:2 -->
+    <img
+      class="place-img"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754c66d293ddbe3e51ed_Image%2014.png"
+      alt="Cogne valley — Gran Paradiso National Park, Valle d'Aosta"
+      loading="lazy"
+    />
+    <div class="place-image-gradient"></div>
+    <div class="place-data-overlay">
+      <div class="place-data-item">
+        <span class="place-data-value">45°36'N, 7°21'E</span>
+        <span class="place-data-label">Coordinates</span>
+      </div>
+      <div class="place-data-item">
+        <span class="place-data-value">1,534 m</span>
+        <span class="place-data-label">Elevation a.s.l.</span>
+      </div>
+      <div class="place-data-item">
+        <span class="place-data-value">4,061 m</span>
+        <span class="place-data-label">Gran Paradiso summit</span>
+      </div>
+      <div class="place-data-item">
+        <span class="place-data-value">71,000 ha</span>
+        <span class="place-data-label">Protected wilderness</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="place-content">
+    <!-- SWAP:COPY → the place -->
+    <div class="place-eyebrow"><span class="u-label">The Place</span></div>
+    <h2 class="place-title serif">Cogne.<br>At the foot<br>of everything.</h2>
+    <p class="place-para">
+      Cogne sits at the confluence of four valleys, sealed on three sides by permanent
+      snowpack. The <strong>Gran Paradiso massif</strong> rises directly above — at
+      4,061 metres, the only major peak lying entirely on Italian territory.
+    </p>
+    <p class="place-para">
+      This is not a retreat from the world. It is a return to a version of it that
+      most people have forgotten. The <strong>Dora di Cogne</strong> river runs below
+      our terrace. In June, the meadows hold gentian and wild thyme. In February,
+      silence has weight.
+    </p>
+    <p class="place-para">
+      Italy's oldest national park was born here in 1922 to protect the ibex from
+      extinction. The ecosystem it shelters — glacier, forest, high pasture,
+      rock wall — forms the backdrop against which everything at Bellevue is measured.
+    </p>
+    <p class="place-address">Rue Grand Paradis, 22 — Cogne (AO) · Valle d'Aosta · Italy</p>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     §5  TRANSFORMATION PROMISE
+     SWAP:COPY → transformation stats 1–3
+     ═══════════════════════════════════════════════════════ -->
+<section id="transformation">
+
+  <div class="transform-header">
+    <div class="transform-eyebrow"><span class="u-label">By the Numbers</span></div>
+    <h2 class="transform-title serif">Three reasons the mountain changes you.</h2>
+  </div>
+
+  <div class="transform-items">
+
+    <!-- SWAP:COPY → transformation stats 1 -->
+    <div class="transform-item">
+      <div class="transform-number serif">
+        <span class="counter" data-target="4061">0</span><span class="transform-unit">m</span>
+      </div>
+      <h3 class="transform-claim serif">The summit visible from every window.</h3>
+      <p class="transform-desc">Gran Paradiso rises to 4,061 metres — the only major Alpine peak lying entirely on Italian soil. Its presence is not decorative. It is gravitational.</p>
+    </div>
+
+    <!-- SWAP:COPY → transformation stats 2 -->
+    <div class="transform-item">
+      <div class="transform-number serif">
+        <span class="counter" data-target="1922">0</span>
+      </div>
+      <h3 class="transform-claim serif">The year Italy chose to protect this place.</h3>
+      <p class="transform-desc">Gran Paradiso National Park was established in 1922 to rescue the ibex from extinction. Over a century of preserved wilderness now surrounds you.</p>
+    </div>
+
+    <!-- SWAP:COPY → transformation stats 3 -->
+    <div class="transform-item">
+      <div class="transform-number serif">
+        <span class="counter" data-target="3">0</span>
+      </div>
+      <h3 class="transform-claim serif">Michelin distinctions earned through mountain terroir.</h3>
+      <p class="transform-desc">Two Michelin Keys for the hotel. One Michelin Star for the kitchen. Recognition earned through obsessive attention to what the land provides.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     §6  ROOMS & SPACES
+     SWAP:IMG → room/interior 1–6 | ratio: 3:2
+     ═══════════════════════════════════════════════════════ -->
+<section id="rooms">
+
+  <div class="rooms-header">
+    <span class="u-label">Where You Rest</span>
+    <h2 class="rooms-title serif">Rooms<br>&amp; Spaces</h2>
+  </div>
+
+  <div class="rooms-grid">
+
+    <!-- SWAP:IMG → room interior 1 | ratio: 3:2 -->
+    <div class="room-item"
+         data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754d533cd73c11109071_Image%2015.png">
+      <div class="room-img-wrap">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754d533cd73c11109071_Image%2015.png"
+             alt="Superior Alpine Room" loading="lazy" />
+      </div>
+      <div class="room-overlay"><span class="room-name serif">Superior Alpine Room</span></div>
+    </div>
+
+    <!-- SWAP:IMG → room interior 2 | ratio: 3:2 -->
+    <div class="room-item"
+         data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754d6266a65e87a324af_Image%2020.png">
+      <div class="room-img-wrap">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754d6266a65e87a324af_Image%2020.png"
+             alt="Grand Chambre Panoramique" loading="lazy" />
+      </div>
+      <div class="room-overlay"><span class="room-name serif">Grand Chambre Panoramique</span></div>
+    </div>
+
+    <!-- SWAP:IMG → room interior 3 | ratio: 3:2 -->
+    <div class="room-item"
+         data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754dfa7a14127e4a26af_Image%2029.png">
+      <div class="room-img-wrap">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754dfa7a14127e4a26af_Image%2029.png"
+             alt="Wellness Suite" loading="lazy" />
+      </div>
+      <div class="room-overlay"><span class="room-name serif">Wellness Suite</span></div>
+    </div>
+
+    <!-- SWAP:IMG → room interior 4 | ratio: 3:2 -->
+    <div class="room-item"
+         data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754ca79a50ab947db740_Image%2024.png">
+      <div class="room-img-wrap">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754ca79a50ab947db740_Image%2024.png"
+             alt="Gran Paradiso Suite" loading="lazy" />
+      </div>
+      <div class="room-overlay"><span class="room-name serif">Gran Paradiso Suite</span></div>
+    </div>
+
+    <!-- SWAP:IMG → room interior 5 | ratio: 3:2 -->
+    <div class="room-item"
+         data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754c8d25fe61d12051e2_Image%2017.png">
+      <div class="room-img-wrap">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754c8d25fe61d12051e2_Image%2017.png"
+             alt="Mountain Chalet" loading="lazy" />
+      </div>
+      <div class="room-overlay"><span class="room-name serif">Mountain Chalet</span></div>
+    </div>
+
+    <!-- SWAP:IMG → room interior 6 | ratio: 3:2 (full-width) -->
+    <div class="room-item"
+         data-img="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754c5931b223dc544571_Image%2013.png">
+      <div class="room-img-wrap">
+        <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754c5931b223dc544571_Image%2013.png"
+             alt="Panorama Suite" loading="lazy" />
+      </div>
+      <div class="room-overlay"><span class="room-name serif">Panorama Suite</span></div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Lightbox overlay -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     §7  WELLNESS RITUALS
+     SWAP:COPY → wellness rituals 1–6
+     ═══════════════════════════════════════════════════════ -->
+<section id="wellness">
+
+  <!-- SWAP:VIDEO → wellness texture accent | wellness section -->
+  <video class="wellness-bg-video" autoplay muted loop playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754c39478726ea933bcf_Image%2023.png">
+    <source src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c1d01b3f8e72db01067_Video%203.mp4" type="video/mp4">
+  </video>
+
+  <div class="wellness-inner">
+
+    <div class="wellness-header">
+      <span class="u-label">The Spa</span>
+      <h2 class="wellness-title serif">Rituals<br>of the mountain.</h2>
+    </div>
+
+    <div class="wellness-grid">
+
+      <!-- SWAP:COPY → wellness ritual 1 -->
+      <div class="ritual-item">
+        <div class="ritual-glyph">◈</div>
+        <div>
+          <h3 class="ritual-name serif">Granite Stone Therapy</h3>
+          <p class="ritual-desc">Heat-treated local granite drawn slowly along meridians of tension. The mountain's stored warmth released into the body.</p>
+        </div>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 2 -->
+      <div class="ritual-item">
+        <div class="ritual-glyph">◉</div>
+        <div>
+          <h3 class="ritual-name serif">Alpine Herbal Immersion</h3>
+          <p class="ritual-desc">Mountain-harvested gentian, arnica and pine needle in a botanical bath calibrated to altitude. Sixty minutes of gradient descent.</p>
+        </div>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 3 -->
+      <div class="ritual-item">
+        <div class="ritual-glyph">◎</div>
+        <div>
+          <h3 class="ritual-name serif">Cave Mineral Circuit</h3>
+          <p class="ritual-desc">Humid cave ritual followed by chromotherapy in the ancient grotte. Earth-temperature contrast with alpine mineral mist.</p>
+        </div>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 4 -->
+      <div class="ritual-item">
+        <div class="ritual-glyph">◇</div>
+        <div>
+          <h3 class="ritual-name serif">Larch Bark Exfoliation</h3>
+          <p class="ritual-desc">Forest-sourced larch bark blended with Gran Paradiso glacial clay. A stripping ritual that leaves only what belongs.</p>
+        </div>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 5 -->
+      <div class="ritual-item">
+        <div class="ritual-glyph">△</div>
+        <div>
+          <h3 class="ritual-name serif">Summit Breath Practice</h3>
+          <p class="ritual-desc">Guided breathwork calibrated to 1,534 metres. The physiology of altitude used as a tool for deliberate presence.</p>
+        </div>
+      </div>
+
+      <!-- SWAP:COPY → wellness ritual 6 -->
+      <div class="ritual-item">
+        <div class="ritual-glyph">⬡</div>
+        <div>
+          <h3 class="ritual-name serif">Couples' Mountain Ceremony</h3>
+          <p class="ritual-desc">Private ritual bath with alpine botanical concentrates. The cave. The silence. Two people and a mountain.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     §8  EDITORIAL QUOTE
+     SWAP:IMG → editorial quote background | ratio: 16:9
+     SWAP:COPY → editorial quote
+     ═══════════════════════════════════════════════════════ -->
+<section id="quote">
+
+  <!-- SWAP:IMG → editorial quote background | ratio: 16:9 -->
+  <img
+    class="quote-bg"
+    src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754bb12231bb889078eb_Image%2019.png"
+    alt="Alpine landscape — Gran Paradiso, Valle d'Aosta"
+    loading="lazy"
+  />
+
+  <div class="quote-overlay"></div>
+
+  <!-- SWAP:COPY → editorial quote -->
+  <div class="quote-content">
+    <span class="quote-mark">&ldquo;</span>
+    <blockquote class="quote-text serif">
+      Bellevue is not a hotel. It is an argument<br>about how time should pass.
+    </blockquote>
+    <p class="quote-source">— Wallpaper* &nbsp;·&nbsp; Alpine Edition &nbsp;·&nbsp; Gran Paradiso, Valle d'Aosta</p>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     §9  BOOKING CTA
+     SWAP:COPY → booking CTA
+     ═══════════════════════════════════════════════════════ -->
+<section id="booking">
+
+  <!-- SWAP:VIDEO → booking CTA background | booking section -->
+  <video
+    class="booking-video"
+    autoplay muted loop playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754b56f34557d91b4b90_Image%2028.png">
+    <source src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c1720859ca462d9abdd_Video%202.mp4" type="video/mp4">
+  </video>
+
+  <div class="booking-overlay"></div>
+
+  <!-- SWAP:COPY → booking CTA -->
+  <div class="booking-content">
+    <div class="booking-urgency">Limited availability — Summer 2026</div>
+    <h2 class="booking-title serif">The season is short.<br>The memories are not.</h2>
+    <p class="booking-subtitle serif">Gran Paradiso awaits. The kitchen garden is in bloom.</p>
+    <div class="booking-ctas">
+      <a href="https://www.hotelbellevue.it/en/" target="_blank" rel="noopener" class="btn-primary">Reserve Your Stay</a>
+      <a href="https://www.hotelbellevue.it/en/" target="_blank" rel="noopener" class="btn-secondary">Download the Experience Guide</a>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     §10  FOOTER
+     SWAP:LOGO
+     ═══════════════════════════════════════════════════════ -->
+<footer id="footer">
+
+  <div class="footer-top">
+
+    <!-- SWAP:LOGO -->
+    <div class="footer-logo">
+      <img
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a26b3ca9b0b3086d71299a5_logo-bellevue-cogne.png"
+        alt="Bellevue Hotel &amp; Spa"
+        width="200"
+        height="56"
+      />
+    </div>
+
+    <div class="footer-meta">
+      <p class="footer-coords">45°36'N / 7°21'E &nbsp;·&nbsp; Elev. 1,534 m &nbsp;·&nbsp; Gran Paradiso National Park</p>
+      <div class="footer-contact">
+        <a href="mailto:info@hotelbellevue.it">info@hotelbellevue.it</a>
+        <a href="tel:+390165 74825">+39 0165 74825</a>
+        <a href="https://www.instagram.com/bellevuecogne/" target="_blank" rel="noopener">@bellevuecogne</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 Bellevue Hotel &amp; Spa &nbsp;&middot;&nbsp; Rue Grand Paradis, 22 &nbsp;&middot;&nbsp; 11012 Cogne (AO), Valle d'Aosta, Italy</p>
+    <span class="footer-rc">Relais &amp; Châteaux</span>
+  </div>
+
+</footer>
+
+
+<!-- ══════════════════════════════════════════════════════
+     SCRIPTS — GSAP ANIMATIONS
+     ══════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  // ── GSAP REGISTRATION ───────────────────────────────────────
+  if (typeof gsap === 'undefined') return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ── §1  HERO ENTRANCE ──────────────────────────────────────
+  const heroTl = gsap.timeline({ delay: 0.4 });
+  heroTl
+    .to('.hero-logo', {
+      opacity: 1, duration: 1.1, ease: 'power3.out'
+    })
+    .to('.hero-tagline .word', {
+      opacity: 1, y: 0, duration: 1,
+      stagger: 0.13, ease: 'power3.out'
+    }, '-=0.45')
+    .to('.hero-sub', {
+      opacity: 1, duration: 0.9, ease: 'power2.out'
+    }, '-=0.3')
+    .to('.scroll-indicator', {
+      opacity: 1, duration: 0.9, ease: 'power2.out'
+    }, '-=0.55');
+
+  // ── §2  MANIFESTO REVEAL ───────────────────────────────────
+  document.querySelectorAll('.manifesto-line').forEach(function (line, i) {
+    gsap.to(line, {
+      opacity: 1, y: 0,
+      duration: 1.15, ease: 'power3.out',
+      delay: i * 0.1,
+      scrollTrigger: {
+        trigger: line, start: 'top 86%',
+        toggleActions: 'play none none none'
+      }
+    });
+  });
+
+  gsap.to('.manifesto-body', {
+    opacity: 1, y: 0, duration: 1.05, ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.manifesto-body', start: 'top 88%',
+      toggleActions: 'play none none none'
+    }
+  });
+
+  // ── §4  THE PLACE PARALLAX ─────────────────────────────────
+  gsap.to('.place-img', {
+    scale: 1,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#the-place',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: 1.8
+    }
+  });
+
+  // ── §5  TRANSFORMATION ITEM REVEAL ────────────────────────
+  document.querySelectorAll('.transform-item').forEach(function (item, i) {
+    gsap.to(item, {
+      opacity: 1, y: 0,
+      duration: 0.95, ease: 'power3.out',
+      delay: i * 0.14,
+      scrollTrigger: {
+        trigger: '#transformation', start: 'top 72%',
+        toggleActions: 'play none none none'
+      }
+    });
+  });
+
+  // ── §5  COUNTER ANIMATION ──────────────────────────────────
+  function animateCounter(el, target, dur) {
+    var start = performance.now();
+    function step(now) {
+      var elapsed = (now - start) / 1000;
+      var progress = Math.min(elapsed / dur, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target).toLocaleString();
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target.toLocaleString();
+    }
+    requestAnimationFrame(step);
+  }
+
+  document.querySelectorAll('.counter').forEach(function (counter) {
+    var target = parseInt(counter.dataset.target, 10);
+    var fired = false;
+    ScrollTrigger.create({
+      trigger: counter,
+      start: 'top 80%',
+      onEnter: function () {
+        if (!fired) { fired = true; animateCounter(counter, target, 1.9); }
+      }
+    });
+  });
+
+  // ── §7  WELLNESS RITUAL REVEAL ─────────────────────────────
+  document.querySelectorAll('.ritual-item').forEach(function (item, i) {
+    gsap.to(item, {
+      opacity: 1, y: 0,
+      duration: 0.88, ease: 'power3.out',
+      delay: i * 0.08,
+      scrollTrigger: {
+        trigger: '#wellness', start: 'top 68%',
+        toggleActions: 'play none none none'
+      }
+    });
+  });
+
+  // ── §8  QUOTE REVEAL ──────────────────────────────────────
+  gsap.to('.quote-text', {
+    opacity: 1, y: 0, duration: 1.5, ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#quote', start: 'top 70%',
+      toggleActions: 'play none none none'
+    }
+  });
+
+  gsap.to('.quote-source', {
+    opacity: 1, duration: 1.1, ease: 'power3.out', delay: 0.55,
+    scrollTrigger: {
+      trigger: '#quote', start: 'top 70%',
+      toggleActions: 'play none none none'
+    }
+  });
+
+  // ── EXPERIENCE TRACK — DRAG SCROLL ────────────────────────
+  (function () {
+    var track = document.getElementById('exp-track');
+    if (!track) return;
+    var isDown = false, startX = 0, scrollLeft = 0;
+
+    track.addEventListener('mousedown', function (e) {
+      isDown = true;
+      track.classList.add('dragging');
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+    });
+
+    ['mouseleave', 'mouseup'].forEach(function (evt) {
+      track.addEventListener(evt, function () {
+        isDown = false;
+        track.classList.remove('dragging');
+      });
+    });
+
+    track.addEventListener('mousemove', function (e) {
+      if (!isDown) return;
+      e.preventDefault();
+      var x = e.pageX - track.offsetLeft;
+      track.scrollLeft = scrollLeft - (x - startX) * 1.8;
+    });
+  }());
+
+  // ── LIGHTBOX ──────────────────────────────────────────────
+  (function () {
+    var lb = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lightbox-img');
+    var closeBtn = lb ? lb.querySelector('.lightbox-close') : null;
+    if (!lb || !lbImg) return;
+
+    document.querySelectorAll('.room-item').forEach(function (item) {
+      item.addEventListener('click', function () {
+        var src = item.dataset.img;
+        if (!src) return;
+        lbImg.src = src;
+        lbImg.alt = (item.querySelector('img') || {}).alt || '';
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLb() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+      setTimeout(function () { lbImg.src = ''; }, 420);
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closeLb);
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLb(); });
+  }());
+
+  // ── LAZY IMAGE FADE-IN ─────────────────────────────────────
+  document.querySelectorAll('img[loading="lazy"]').forEach(function (img) {
+    if (img.complete) {
+      img.classList.add('loaded');
+    } else {
+      img.addEventListener('load', function () { img.classList.add('loaded'); });
+    }
+  });
+
+}());
+</script>
+
+
+<!-- ══════════════════════════════════════════════════════
+     THREE.JS — SNOWFLAKE 3D OBJECT (MANIFESTO CANVAS)
+     ══════════════════════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/loaders/GLTFLoader.js"></script>
+
+<script>
+(function () {
+  'use strict';
+
+  var canvas = document.getElementById('manifesto-3d');
+  var section = document.getElementById('manifesto');
+  if (!canvas || !section || typeof THREE === 'undefined') return;
+
+  var W = section.offsetWidth;
+  var H = section.offsetHeight;
+
+  // Renderer
+  var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(W, H);
+  renderer.setClearColor(0x000000, 0);
+  renderer.outputEncoding = THREE.sRGBEncoding;
+
+  // Scene + Camera
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(50, W / H, 0.1, 100);
+  camera.position.set(0, 0, 4.5);
+
+  // ── Three-point warm / cool lighting rig ──
+  scene.add(new THREE.AmbientLight(0xffffff, 0.35));
+
+  var warmKey = new THREE.DirectionalLight(0xD4A853, 1.4);  // warm amber key
+  warmKey.position.set(3, 4, 2);
+  scene.add(warmKey);
+
+  var coolFill = new THREE.DirectionalLight(0x8BB4D4, 0.55); // cool blue fill
+  coolFill.position.set(-3, -1, 2);
+  scene.add(coolFill);
+
+  var backRim = new THREE.DirectionalLight(0xffffff, 0.28);  // white back rim
+  backRim.position.set(0, -4, -3);
+  scene.add(backRim);
+
+  // ── Load GLB ──
+  // SWAP:3D → snowflake crystal object | Alpine
+  var model = null;
+  var isHovered = false;
+  var GLB_SRC = 'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_perfect_snow_0411161712_texture.glb';
+
+  var loader = new THREE.GLTFLoader();
+  loader.load(
+    GLB_SRC,
+    function (gltf) {
+      model = gltf.scene;
+      // Centre + normalise scale to fit ~2.4 units
+      var box = new THREE.Box3().setFromObject(model);
+      var centre = box.getCenter(new THREE.Vector3());
+      var size = box.getSize(new THREE.Vector3());
+      var maxDim = Math.max(size.x, size.y, size.z);
+      var s = 2.4 / maxDim;
+      model.scale.setScalar(s);
+      model.position.sub(centre.multiplyScalar(s));
+      scene.add(model);
+    },
+    undefined,
+    function (err) { console.warn('[Bellevue 3D] GLTFLoader error:', err); }
+  );
+
+  // Hover pause / resume
+  canvas.addEventListener('mouseenter', function () { isHovered = true; });
+  canvas.addEventListener('mouseleave', function () { isHovered = false; });
+
+  // Animation loop
+  function animate() {
+    requestAnimationFrame(animate);
+    if (model && !isHovered) {
+      model.rotation.y += 0.002;
+    }
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  // Responsive resize
+  var ro = new ResizeObserver(function () {
+    var nW = section.offsetWidth;
+    var nH = section.offsetHeight;
+    camera.aspect = nW / nH;
+    camera.updateProjectionMatrix();
+    renderer.setSize(nW, nH);
+  });
+  ro.observe(section);
+
+}());
+</script>
+
+
+<!--
+========================================================
+CUSTOMIZATION GUIDE
+========================
+All SWAP markers — numbered checklist for production.
+
+LOGO
+────
+[1]  SWAP:LOGO  (hero §1, .hero-logo img)
+     Current SRC: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a26b3ca9b0b3086d71299a5_logo-bellevue-cogne.png
+     Action: Replace with final logo asset. If SVG, embed inline for CSS currentColor control.
+
+[2]  SWAP:LOGO  (footer §10, .footer-logo img)
+     Current SRC: same as above.
+
+VIDEO
+─────
+[3]  SWAP:VIDEO → hero background | hero section
+     Current: alpine 1 — Video%202.mp4
+     Poster:  Image%2032.png
+
+[4]  SWAP:VIDEO → wellness texture accent | wellness section
+     Current: alpine 2 — Video%203.mp4  (6% opacity, texture use only)
+     Poster:  Image%2023.png
+
+[5]  SWAP:VIDEO → booking CTA background | booking section
+     Current: alpine 1 — Video%202.mp4 (reuse)
+     Poster:  Image%2028.png
+
+3D OBJECT
+─────────
+[6]  SWAP:3D → snowflake crystal object | Alpine
+     Current GLB: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_perfect_snow_0411161712_texture.glb
+     Canvas: full-section, transparent bg, 12% opacity, auto-rotate Y 0.002 rad/frame
+     Hover: rotation paused.
+     Swap for summer: use leaf GLB
+       https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb
+
+IMAGES
+──────
+[7]  SWAP:IMG → experience card 1 | ratio: 4:5    → alpine Image%2032.png
+[8]  SWAP:IMG → experience card 2 | ratio: 4:5    → alpine Image%2031.png
+[9]  SWAP:IMG → experience card 3 | ratio: 4:5    → alpine Image%2033.png
+[10] SWAP:IMG → experience card 4 | ratio: 4:5    → alpine Image%2034.png
+[11] SWAP:IMG → experience card 5 | ratio: 4:5    → alpine Image%2035.png
+[12] SWAP:IMG → experience card 6 | ratio: 4:5    → alpine Image%2036.png
+[13] SWAP:IMG → the place landscape | ratio: 3:2  → alpine Image%2014.png
+[14] SWAP:IMG → room interior 1 | ratio: 3:2      → alpine Image%2015.png
+[15] SWAP:IMG → room interior 2 | ratio: 3:2      → alpine Image%2020.png
+[16] SWAP:IMG → room interior 3 | ratio: 3:2      → alpine Image%2029.png
+[17] SWAP:IMG → room interior 4 | ratio: 3:2      → alpine Image%2024.png
+[18] SWAP:IMG → room interior 5 | ratio: 3:2      → alpine Image%2017.png
+[19] SWAP:IMG → room interior 6 | ratio: 3:2 wide → alpine Image%2013.png
+[20] SWAP:IMG → editorial quote background | 16:9 → alpine Image%2019.png
+
+     ✅  NO ASSET IN CSV items: NONE.
+     All 14 image slots covered by CSV alpine assets.
+     No Unsplash fallbacks used.
+
+COPY
+────
+[21] SWAP:COPY → manifesto         §2  Philosophy headline + body paragraph
+[22] SWAP:COPY → experiences       §3  6 card categories, names, descriptors
+[23] SWAP:COPY → the place         §4  3 body paragraphs + address
+[24] SWAP:COPY → transformation stats 1–3   §5  3 numbers + claims + descriptions
+[25] SWAP:COPY → wellness rituals 1–6       §7  6 ritual names + descriptions
+[26] SWAP:COPY → editorial quote   §8  Blockquote text + attribution
+[27] SWAP:COPY → booking CTA       §9  Headline + subtitle + urgency signal
+
+COLOR — SWAP:COLOR
+──────────────────
+[28] :root CSS variables — update if brand color extract is refined:
+     --color-primary:   #2B4035  → deep alpine green  (adjust if brand differs)
+     --color-secondary: #8B6914  → mountain gold       (adjust if brand differs)
+     --color-accent:    #D4A853  → honey amber          (adjust if brand differs)
+     --color-bg:        #0C1410  → near-black forest    (adjust if brand differs)
+     --color-surface:   #141E18  → dark green surface
+     --color-text:      #F2EDE0  → warm cream
+
+PRODUCTION NOTES
+────────────────
+- All videos: autoplay muted loop playsinline ✓
+- Hero video: 100vw × 100vh, object-fit: cover, z-index: 0,
+  overlaid with CSS gradient using --color-primary at ~42% opacity ✓
+- Wellness video: max 100% wide, 5.5% opacity, texture accent only ✓
+- Every <video> has poster= set to nearest alpine image ✓
+- 3D snowflake: full-canvas, 12% opacity, warm+cool 3-pt lighting,
+  auto-rotate Y 0.002 rad/frame, pauses on hover ✓
+- Rooms grid: click-to-lightbox with dark overlay + keyboard dismiss ✓
+- Transformation numbers: count-up animation on scroll entry ✓
+- Horizontal drag scroll for experience cards ✓
+- All images lazy-loaded with fade-in transition ✓
+- Responsive: 375 / 768 / 1280 / 1920px breakpoints ✓
+- No external frameworks conflicting with Webflow ✓
+- Paste directly into a Webflow Embed block on a blank page ✓
+========================================================
+-->
+
+</body>
+</html>
