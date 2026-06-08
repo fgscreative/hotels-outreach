@@ -1,0 +1,2129 @@
+<!--
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                    BRAND EXTRACTION REPORT — byprestige®                    ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║  Hotel Name:         byprestige®                                            ║
+║  URL:                https://www.byprestige.com/                            ║
+║                                                                              ║
+║  Primary Color:      #1a3a28  — Mallard deep green                          ║
+║                       ("mallard" in logo filename = duck's iridescent       ║
+║                        forest-green head. Scottish woodland anchor.)        ║
+║  Secondary Color:    #b8966a  — Scottish gold                               ║
+║                       (castle stone, autumn bracken, warm heritage)         ║
+║  Accent Color:       #7fa882  — Highland sage                               ║
+║                       (moorland lichen, hillside palette)                   ║
+║  Background Mood:    Dark · Warm — Scottish woodland at dusk                ║
+║                                                                              ║
+║  Font Pairing (Google Fonts):                                               ║
+║    Headline: Cormorant Garamond — editorial serif, castle-ledger weight     ║
+║    Body:     Jost — humanist grotesque, contemporary clarity                ║
+║                                                                              ║
+║  Tone of Voice:      Measured editorial — heritage-warm, nature-precise,    ║
+║                      quietly poetic. Trust and integrity at the core.       ║
+║                                                                              ║
+║  Landscape Archetype: FOREST (primary) / Alpine (secondary)                 ║
+║    Scottish Borders: ancient woodland, 16th-century castle, river and       ║
+║    moorland. Closest CSV match: FOREST.                                      ║
+║                                                                              ║
+║  Positioning:        "Where excellence is our tradition." — refined         ║
+║                      Scottish hospitality across Barony Castle Hotel,       ║
+║                      The Tontine Hotel (Peebles) and self-catering          ║
+║                      homes in Killin. AA 4-star + Rosette awarded.         ║
+║                                                                              ║
+║  Key Experiences:                                                            ║
+║    1. Castle Heritage — Barony Castle, est. 1536, 25 acres                 ║
+║    2. Woodland Grounds — tended estate walks, ancient trees                 ║
+║    3. 1536 Restaurant — AA Rosette-awarded, Scottish provenance             ║
+║    4. Spa & Leisure — Highland botanical wellness                            ║
+║    5. Border Country — river, moor, Tweed Valley exploration                ║
+║    6. Highland Retreats — self-catering homes in Killin                     ║
+║                                                                              ║
+║  Coordinates + Elevation:                                                    ║
+║    55.5486° N, 2.7840° W                                                    ║
+║    ~220m / 722ft ASL — Old Manse Road, Eddleston, EH45 8QW                 ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                      ASSET MAPPING REPORT                                   ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║  Total assets in CSV:       ~200 images + 15 videos + 3 GLB models         ║
+║  Landscape selected:        FOREST (primary), ALPINE (secondary)            ║
+║  Assets successfully mapped: 22                                              ║
+║                                                                              ║
+║  SLOT TABLE:                                                                 ║
+║  ┌─────────────────────────┬───────┬────────────────────────────┐           ║
+║  │ SLOT                    │ TYPE  │ CSV SOURCE                 │           ║
+║  ├─────────────────────────┼───────┼────────────────────────────┤           ║
+║  │ hero-video              │ video │ Forest 1                   │           ║
+║  │ hero-poster             │ img   │ Forest Image 62            │           ║
+║  │ manifesto-3d            │ GLB   │ leaf (oak — forest match)  │           ║
+║  │ experience-1            │ img   │ Forest Image 62            │           ║
+║  │ experience-2            │ img   │ Forest Image 58            │           ║
+║  │ experience-3            │ img   │ Forest Image 59            │           ║
+║  │ experience-4            │ img   │ Forest Image 57            │           ║
+║  │ experience-5            │ img   │ Forest Image 60            │           ║
+║  │ experience-6            │ img   │ Forest Image 74            │           ║
+║  │ the-place               │ img   │ Forest Image 76            │           ║
+║  │ room-1                  │ img   │ Forest Image 75            │           ║
+║  │ room-2                  │ img   │ Alpine Image 32            │           ║
+║  │ room-3                  │ img   │ Alpine Image 31            │           ║
+║  │ room-4                  │ img   │ Alpine Image 33            │           ║
+║  │ room-5                  │ img   │ Alpine Image 34            │           ║
+║  │ room-6                  │ img   │ Forest Image 71            │           ║
+║  │ editorial-quote-bg      │ img   │ Forest Image 72            │           ║
+║  │ booking-cta-video       │ video │ Forest 2                   │           ║
+║  │ wellness-accent-video   │ video │ Forest 3                   │           ║
+║  │ wellness-bg-poster      │ img   │ Forest Image 61            │           ║
+║  └─────────────────────────┴───────┴────────────────────────────┘           ║
+║                                                                              ║
+║  Slots falling back to Unsplash: NONE — all slots covered by CSV            ║
+║                                                                              ║
+║  Logo SRC:                                                                   ║
+║    https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/            ║
+║    6a13092136f0137aa0cbb8c2_byp-mallard-times-300x300-transparent.png      ║
+║                                                                              ║
+║  3D Object SRC:                                                              ║
+║    https://hotels3ds.s3.eu-north-1.amazonaws.com/                           ║
+║    Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb                    ║
+║                                                                              ║
+║  Video assets:                                                               ║
+║    Forest 1 (hero):   compressed-video.mp4                                  ║
+║    Forest 2 (CTA):    Video%201.mp4                                         ║
+║    Forest 3 (wellness): Video%2010.mp4                                      ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+  CSS CUSTOM PROPERTIES IN USE
+  ════════════════════════════
+  --color-primary:    #1a3a28   Mallard deep green
+  --color-secondary:  #b8966a   Scottish gold
+  --color-accent:     #7fa882   Highland sage
+  --color-bg:         #0a110c   Near-black forest
+  --color-surface:    #111d14   Deep forest surface
+  --color-surface-2:  #182316   Lighter forest surface
+  --color-text:       #f0ebe0   Warm cream
+  --color-text-muted: #9a9080   Muted parchment
+  --color-border:     rgba(184,150,106,0.18)
+  --color-overlay:    rgba(26,58,40,0.42)   primary at ~40% opacity
+  --font-serif:       'Cormorant Garamond'
+  --font-sans:        'Jost'
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="byprestige® — Refined Scottish Borders hospitality. Barony Castle Hotel, est. 1536. AA 4-star.">
+  <title>byprestige® — Scottish Borders</title>
+
+  <!-- Google Fonts: Cormorant Garamond (editorial serif) + Jost (humanist grotesque) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Three.js r128 (legacy non-module build — Webflow embed compatible) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+  <style>
+    /* =====================================================================
+       CUSTOM PROPERTIES  <!-- SWAP:COLOR -->
+    ===================================================================== */
+    :root {
+      --color-primary:    #1a3a28;
+      --color-secondary:  #b8966a;
+      --color-accent:     #7fa882;
+      --color-bg:         #0a110c;
+      --color-surface:    #111d14;
+      --color-surface-2:  #182316;
+      --color-text:       #f0ebe0;
+      --color-text-muted: #9a9080;
+      --color-border:     rgba(184, 150, 106, 0.18);
+      --color-overlay:    rgba(26, 58, 40, 0.42);
+
+      --font-serif: 'Cormorant Garamond', 'Palatino Linotype', Georgia, serif;
+      --font-sans:  'Jost', 'Helvetica Neue', system-ui, sans-serif;
+
+      --section-pad: clamp(4.5rem, 9vw, 9rem);
+      --inner-pad:   clamp(1.25rem, 5vw, 5rem);
+      --max-w:       1480px;
+      --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* =====================================================================
+       RESET + BASE
+    ===================================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a   { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* =====================================================================
+       TYPOGRAPHY UTILITIES
+    ===================================================================== */
+    .label {
+      font-family: var(--font-sans);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      display: block;
+    }
+
+    /* =====================================================================
+       1. HERO
+    ===================================================================== */
+    .byp-hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 580px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .byp-hero__video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .byp-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: var(--color-overlay);
+      z-index: 1;
+    }
+
+    .byp-hero__overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10, 17, 12, 0.45) 0%,
+        transparent 28%,
+        transparent 58%,
+        rgba(10, 17, 12, 0.72) 100%
+      );
+    }
+
+    /* HEADER / LOGO */
+    .byp-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      padding: clamp(1.5rem, 3vw, 2.5rem) var(--inner-pad);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0; /* animated in by GSAP */
+    }
+
+    .byp-logo {
+      height: clamp(44px, 5.5vw, 64px);
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    /* HERO CONTENT */
+    .byp-hero__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 var(--inner-pad);
+      max-width: 920px;
+      margin-top: 2.5rem;
+    }
+
+    .byp-hero__super {
+      font-family: var(--font-sans);
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      display: block;
+      margin-bottom: 1.2rem;
+      opacity: 0; /* animated */
+    }
+
+    .byp-hero__tagline {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 6.2vw, 5.8rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.12;
+      color: var(--color-text);
+      letter-spacing: -0.01em;
+    }
+
+    .byp-hero__tagline .word {
+      overflow: hidden;
+      display: inline-block;
+      margin-right: 0.22em;
+    }
+
+    .byp-hero__tagline .word span {
+      display: inline-block;
+    }
+
+    /* SCROLL INDICATOR */
+    .byp-scroll-cue {
+      position: absolute;
+      bottom: 2.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      opacity: 0;
+    }
+
+    .byp-scroll-cue__line {
+      display: block;
+      width: 1px;
+      height: 52px;
+      background: linear-gradient(to bottom, var(--color-secondary), transparent);
+      animation: scrollLine 2.2s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0%, 100% { opacity: 0; transform: scaleY(0); transform-origin: top; }
+      20%       { opacity: 1; }
+      80%       { opacity: 1; }
+      100%      { transform: scaleY(1); transform-origin: top; }
+    }
+
+    /* =====================================================================
+       2. MANIFESTO
+    ===================================================================== */
+    .byp-manifesto {
+      position: relative;
+      padding: var(--section-pad) var(--inner-pad);
+      background: var(--color-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 85vh;
+      overflow: hidden;
+    }
+
+    .byp-manifesto__3d {
+      position: absolute;
+      right: clamp(2rem, 8vw, 10rem);
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.14;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    #byp-leaf-canvas {
+      width: 280px;
+      height: 280px;
+      display: block;
+    }
+
+    .byp-manifesto__body {
+      position: relative;
+      z-index: 2;
+      max-width: min(920px, 92vw);
+      margin: 0 auto;
+    }
+
+    .byp-manifesto__pre {
+      display: block;
+      margin-bottom: 2.5rem;
+    }
+
+    .byp-manifesto__line {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 4.6vw, 4.6rem);
+      font-weight: 300;
+      line-height: 1.18;
+      color: var(--color-text);
+      display: block;
+    }
+
+    .byp-manifesto__line + .byp-manifesto__line { margin-top: 0.12em; }
+
+    .byp-manifesto__line--em {
+      font-style: italic;
+      color: var(--color-secondary);
+    }
+
+    .byp-manifesto__rule {
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--color-secondary);
+      margin: 2.2rem 0;
+      transform-origin: left;
+    }
+
+    /* =====================================================================
+       3. EXPERIENCES
+    ===================================================================== */
+    .byp-experiences {
+      padding: var(--section-pad) var(--inner-pad);
+      background: var(--color-surface);
+      overflow: hidden;
+    }
+
+    .byp-section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: clamp(2rem, 4.5vw, 4rem);
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 1.2rem;
+    }
+
+    .byp-section-count {
+      font-family: var(--font-sans);
+      font-size: 0.6875rem;
+      letter-spacing: 0.2em;
+      color: var(--color-text-muted);
+      font-weight: 300;
+    }
+
+    .byp-exp-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: clamp(0.6rem, 1.5vw, 1rem);
+    }
+
+    @media (min-width: 768px) {
+      .byp-exp-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (min-width: 1280px) {
+      .byp-exp-grid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 0.75rem;
+      }
+    }
+
+    .byp-exp-card {
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      background: var(--color-bg);
+    }
+
+    .byp-exp-card__img-wrap {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+    }
+
+    .byp-exp-card__img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.85s var(--ease-out);
+    }
+
+    .byp-exp-card:hover .byp-exp-card__img-wrap img { transform: scale(1.06); }
+
+    .byp-exp-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,17,12,0.88) 0%, transparent 52%);
+      pointer-events: none;
+      transition: background 0.5s ease;
+    }
+
+    .byp-exp-card:hover .byp-exp-card__overlay {
+      background: linear-gradient(to top, rgba(26,58,40,0.88) 0%, rgba(26,58,40,0.2) 52%, transparent 100%);
+    }
+
+    .byp-exp-card__info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: clamp(0.75rem, 1.8vw, 1.25rem);
+    }
+
+    .byp-exp-card__cat {
+      font-family: var(--font-sans);
+      font-size: 0.575rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .byp-exp-card__title {
+      font-family: var(--font-serif);
+      font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+      font-weight: 400;
+      color: var(--color-text);
+      line-height: 1.2;
+      margin-bottom: 0.3rem;
+    }
+
+    .byp-exp-card__desc {
+      font-size: 0.6875rem;
+      font-weight: 300;
+      color: rgba(240, 235, 224, 0.65);
+      line-height: 1.45;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s ease, opacity 0.45s ease;
+      opacity: 0;
+    }
+
+    .byp-exp-card:hover .byp-exp-card__desc { max-height: 3.5rem; opacity: 1; }
+
+    /* =====================================================================
+       4. THE PLACE
+    ===================================================================== */
+    .byp-place {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px) {
+      .byp-place { grid-template-columns: 60fr 40fr; min-height: 85vh; }
+    }
+
+    .byp-place__img-wrap {
+      position: relative;
+      overflow: hidden;
+      min-height: 55vw;
+    }
+
+    @media (min-width: 768px) {
+      .byp-place__img-wrap { min-height: 100%; }
+    }
+
+    .byp-place__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      will-change: transform;
+    }
+
+    .byp-place__coords {
+      position: absolute;
+      bottom: clamp(1.5rem, 3vw, 2.75rem);
+      left: clamp(1.5rem, 3vw, 2.75rem);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 0.18rem;
+    }
+
+    .byp-place__coords span {
+      font-family: var(--font-sans);
+      font-size: 0.5625rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(240, 235, 224, 0.75);
+      background: rgba(10, 17, 12, 0.52);
+      padding: 0.22em 0.6em;
+      backdrop-filter: blur(6px);
+      display: inline-block;
+    }
+
+    .byp-place__copy {
+      background: var(--color-surface);
+      padding: clamp(3rem, 6vw, 6.5rem) clamp(2rem, 5vw, 5rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .byp-place__copy h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 3.8vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--color-text);
+    }
+
+    .byp-place__copy p {
+      font-size: clamp(0.875rem, 0.95vw, 0.9375rem);
+      font-weight: 300;
+      line-height: 1.78;
+      color: rgba(240, 235, 224, 0.72);
+      max-width: 46ch;
+    }
+
+    /* =====================================================================
+       5. TRANSFORMATION / STATS
+    ===================================================================== */
+    .byp-stats {
+      background: var(--color-bg);
+      padding: var(--section-pad) var(--inner-pad);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .byp-stats::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--color-secondary), transparent);
+    }
+
+    .byp-stats::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--color-secondary), transparent);
+    }
+
+    .byp-stats__head {
+      text-align: center;
+      margin-bottom: clamp(3rem, 6vw, 5.5rem);
+    }
+
+    .byp-stats__head .label { margin-bottom: 0.8rem; }
+
+    .byp-stats__head h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.4vw, 2.2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--color-text-muted);
+    }
+
+    .byp-stats__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2rem, 4vw, 3rem);
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .byp-stats__grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    }
+
+    .byp-stat {
+      text-align: center;
+      padding: clamp(2rem, 4vw, 3.5rem) 2rem;
+      border: 1px solid var(--color-border);
+      position: relative;
+    }
+
+    .byp-stat::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 50%;
+      transform: translateX(-50%);
+      width: 36px; height: 2px;
+      background: var(--color-secondary);
+    }
+
+    .byp-stat__num {
+      font-family: var(--font-serif);
+      font-size: clamp(4rem, 8.5vw, 7.5rem);
+      font-weight: 300;
+      color: var(--color-text);
+      line-height: 1;
+      display: block;
+      letter-spacing: -0.02em;
+    }
+
+    .byp-stat__unit {
+      font-family: var(--font-sans);
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      display: block;
+      margin: 0.5rem 0 1rem;
+    }
+
+    .byp-stat__desc {
+      font-size: 0.8rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+      max-width: 24ch;
+      margin: 0 auto;
+    }
+
+    /* =====================================================================
+       6. ROOMS & SPACES
+    ===================================================================== */
+    .byp-rooms {
+      padding: var(--section-pad) var(--inner-pad);
+      background: var(--color-surface);
+    }
+
+    .byp-rooms__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(0.5rem, 0.75vw, 0.75rem);
+    }
+
+    @media (min-width: 768px) {
+      .byp-rooms__grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .byp-room-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--color-bg);
+    }
+
+    @media (min-width: 768px) {
+      .byp-room-card:nth-child(1) { grid-column: span 2; }
+      .byp-room-card:nth-child(4) { grid-column: span 2; }
+    }
+
+    .byp-room-card__img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.85s var(--ease-out);
+    }
+
+    @media (min-width: 768px) {
+      .byp-room-card:nth-child(1) .byp-room-card__img,
+      .byp-room-card:nth-child(4) .byp-room-card__img { aspect-ratio: 16 / 9; }
+    }
+
+    .byp-room-card:hover .byp-room-card__img { transform: scale(1.04); }
+
+    .byp-room-card__label {
+      position: absolute;
+      bottom: 0.9rem;
+      left: 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.5625rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(240, 235, 224, 0.7);
+      background: rgba(10, 17, 12, 0.4);
+      padding: 0.2em 0.5em;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Lightbox */
+    .byp-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 13, 10, 0.96);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      animation: byp-fadeIn 0.3s ease;
+    }
+
+    @keyframes byp-fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .byp-lightbox__inner {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+
+    .byp-lightbox__inner img {
+      max-width: 88vw;
+      max-height: 84vh;
+      object-fit: contain;
+    }
+
+    .byp-lightbox__close {
+      position: absolute;
+      top: -2.75rem;
+      right: 0;
+      color: var(--color-text);
+      font-size: 1.6rem;
+      line-height: 1;
+      opacity: 0.6;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-weight: 300;
+      transition: opacity 0.2s;
+    }
+
+    .byp-lightbox__close:hover { opacity: 1; }
+
+    /* =====================================================================
+       7. WELLNESS RITUALS
+    ===================================================================== */
+    .byp-wellness {
+      position: relative;
+      padding: var(--section-pad) var(--inner-pad);
+      background: var(--color-bg);
+      overflow: hidden;
+    }
+
+    .byp-wellness__bg-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.055;
+      z-index: 0;
+    }
+
+    .byp-wellness__inner {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .byp-wellness__head {
+      margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+    }
+
+    .byp-wellness__h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 4vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-top: 0.8rem;
+    }
+
+    .byp-wellness__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    @media (min-width: 640px)  { .byp-wellness__grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1280px) { .byp-wellness__grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .byp-ritual {
+      padding: clamp(1.5rem, 2.8vw, 2.5rem);
+      border: 1px solid var(--color-border);
+      margin: -1px 0 0 -1px;
+      transition: background 0.4s ease;
+    }
+
+    .byp-ritual:hover { background: var(--color-surface); }
+
+    .byp-ritual__num {
+      font-family: var(--font-serif);
+      font-size: 0.8rem;
+      color: var(--color-secondary);
+      letter-spacing: 0.12em;
+      display: block;
+      margin-bottom: 1.2rem;
+    }
+
+    .byp-ritual__name {
+      font-family: var(--font-serif);
+      font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+      font-weight: 400;
+      color: var(--color-text);
+      line-height: 1.2;
+      margin-bottom: 0.7rem;
+    }
+
+    .byp-ritual__desc {
+      font-size: 0.8rem;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--color-text-muted);
+      max-width: 33ch;
+    }
+
+    /* =====================================================================
+       8. EDITORIAL QUOTE
+    ===================================================================== */
+    .byp-quote {
+      position: relative;
+      height: 100vh;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .byp-quote__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .byp-quote__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .byp-quote__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 13, 10, 0.62);
+    }
+
+    .byp-quote__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 var(--inner-pad);
+      max-width: 860px;
+    }
+
+    .byp-quote__mark {
+      font-family: var(--font-serif);
+      font-size: clamp(5.5rem, 14vw, 11rem);
+      line-height: 0.45;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.8rem;
+      font-weight: 300;
+    }
+
+    .byp-quote__content blockquote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 3.2vw, 2.8rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.32;
+      color: var(--color-text);
+      margin-bottom: 1.6rem;
+    }
+
+    .byp-quote__content cite {
+      font-family: var(--font-sans);
+      font-size: 0.625rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      font-style: normal;
+      display: block;
+    }
+
+    /* =====================================================================
+       9. BOOKING CTA
+    ===================================================================== */
+    .byp-cta {
+      position: relative;
+      padding: var(--section-pad) var(--inner-pad);
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .byp-cta__video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .byp-cta__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(8, 13, 10, 0.82) 0%,
+        rgba(26, 58, 40, 0.62) 100%
+      );
+      z-index: 1;
+    }
+
+    .byp-cta__body {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 680px;
+    }
+
+    .byp-cta__label {
+      font-family: var(--font-sans);
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .byp-cta__headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.08;
+      color: var(--color-text);
+      margin-bottom: 0.7rem;
+    }
+
+    .byp-cta__urgency {
+      font-size: 0.8125rem;
+      font-weight: 300;
+      color: rgba(240, 235, 224, 0.55);
+      letter-spacing: 0.08em;
+      margin-bottom: 2.75rem;
+    }
+
+    .byp-cta__btns {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.875rem;
+    }
+
+    @media (min-width: 480px) {
+      .byp-cta__btns { flex-direction: row; justify-content: center; }
+    }
+
+    .byp-btn {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.6375rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 0.9rem 2.25rem;
+      transition: all 0.32s ease;
+      cursor: pointer;
+    }
+
+    .byp-btn--primary {
+      background: var(--color-secondary);
+      color: var(--color-bg);
+      border: 1px solid var(--color-secondary);
+    }
+
+    .byp-btn--primary:hover {
+      background: transparent;
+      color: var(--color-secondary);
+    }
+
+    .byp-btn--ghost {
+      background: transparent;
+      color: var(--color-text);
+      border: 1px solid rgba(240, 235, 224, 0.32);
+    }
+
+    .byp-btn--ghost:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    /* =====================================================================
+       10. FOOTER
+    ===================================================================== */
+    .byp-footer {
+      background: var(--color-surface);
+      padding: clamp(3rem, 6vw, 5.5rem) var(--inner-pad) clamp(1.75rem, 3vw, 2.75rem);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .byp-footer__inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+      align-items: start;
+    }
+
+    @media (min-width: 768px) {
+      .byp-footer__inner {
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+      }
+    }
+
+    .byp-footer__logo-wrap { display: flex; align-items: center; }
+
+    .byp-footer__logo {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.8;
+    }
+
+    .byp-footer__meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.38rem;
+    }
+
+    .byp-footer__meta span,
+    .byp-footer__meta a {
+      font-family: var(--font-sans);
+      font-size: 0.6875rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--color-text-muted);
+      transition: color 0.28s ease;
+    }
+
+    .byp-footer__meta a:hover { color: var(--color-secondary); }
+
+    .byp-footer__right { text-align: right; }
+    @media (max-width: 767px) { .byp-footer__right { text-align: left; } }
+
+    .byp-footer__tagline {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .byp-footer__copy {
+      font-size: 0.5625rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.05em;
+      opacity: 0.55;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     1. FULLSCREEN HERO
+════════════════════════════════════════════════════════════════════════ -->
+<!-- SWAP:VIDEO → hero background | hero section -->
+<!-- SWAP:LOGO -->
+<section class="byp-hero" id="byp-hero">
+
+  <video class="byp-hero__video" autoplay muted loop playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f5931b223dc54467b_Image%2062.png">
+    <source
+      src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c09a2310d67bcd25c0d_compressed-video.mp4"
+      type="video/mp4">
+  </video>
+
+  <div class="byp-hero__overlay"></div>
+
+  <header class="byp-header" id="byp-header">
+    <!-- SWAP:LOGO -->
+    <img class="byp-logo"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a13092136f0137aa0cbb8c2_byp-mallard-times-300x300-transparent.png"
+      alt="byprestige®"
+      width="200"
+      height="64">
+  </header>
+
+  <div class="byp-hero__content">
+    <span class="byp-hero__super" id="byp-hero-super">Scottish Borders · Est. 1536</span>
+    <!-- SWAP:COPY → hero tagline -->
+    <p class="byp-hero__tagline" id="byp-hero-tagline">Where ancient Scotland breathes.</p>
+  </div>
+
+  <div class="byp-scroll-cue" id="byp-scroll-cue">
+    <span class="byp-scroll-cue__line"></span>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     2. MANIFESTO — THE PHILOSOPHY
+════════════════════════════════════════════════════════════════════════ -->
+<!-- SWAP:COPY → manifesto -->
+<!-- SWAP:3D → oak leaf | Forest archetype -->
+<section class="byp-manifesto" id="byp-philosophy">
+
+  <div class="byp-manifesto__3d">
+    <!-- SWAP:3D → oak leaf | Forest -->
+    <canvas id="byp-leaf-canvas" aria-hidden="true"></canvas>
+  </div>
+
+  <div class="byp-manifesto__body">
+    <span class="label byp-manifesto__pre">The Philosophy</span>
+    <span class="byp-manifesto__line" id="m-line-1">The borders hold</span>
+    <span class="byp-manifesto__line" id="m-line-2">a particular quiet.</span>
+    <span class="byp-manifesto__rule" id="m-rule"></span>
+    <span class="byp-manifesto__line" id="m-line-3">Where stone remembers</span>
+    <span class="byp-manifesto__line byp-manifesto__line--em" id="m-line-4">and water does not rush.</span>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     3. SIGNATURE EXPERIENCES
+════════════════════════════════════════════════════════════════════════ -->
+<!-- SWAP:IMG → experience card 1–6 | ratio: 4:5 -->
+<section class="byp-experiences" id="byp-experiences">
+
+  <div class="byp-section-head">
+    <span class="label">Signature Experiences</span>
+    <span class="byp-section-count">06</span>
+  </div>
+
+  <div class="byp-exp-grid">
+
+    <!-- Card 1 — Castle Heritage -->
+    <div class="byp-exp-card">
+      <div class="byp-exp-card__img-wrap">
+        <!-- SWAP:IMG → experience card 1 — castle heritage | ratio: 4:5 -->
+        <img loading="lazy"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f5931b223dc54467b_Image%2062.png"
+          alt="Castle Heritage">
+      </div>
+      <div class="byp-exp-card__overlay"></div>
+      <div class="byp-exp-card__info">
+        <span class="byp-exp-card__cat">Heritage</span>
+        <p class="byp-exp-card__title">The Castle</p>
+        <p class="byp-exp-card__desc">16th-century Barony: rooms chosen for character, not catalogue.</p>
+      </div>
+    </div>
+
+    <!-- Card 2 — Woodland Grounds -->
+    <div class="byp-exp-card">
+      <div class="byp-exp-card__img-wrap">
+        <!-- SWAP:IMG → experience card 2 — woodland grounds | ratio: 4:5 -->
+        <img loading="lazy"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f66d293ddbe3e52da_Image%2058.png"
+          alt="Woodland Grounds">
+      </div>
+      <div class="byp-exp-card__overlay"></div>
+      <div class="byp-exp-card__info">
+        <span class="byp-exp-card__cat">Grounds</span>
+        <p class="byp-exp-card__title">25 Acres</p>
+        <p class="byp-exp-card__desc">Ancient estate — tended, not manufactured.</p>
+      </div>
+    </div>
+
+    <!-- Card 3 — 1536 Restaurant -->
+    <div class="byp-exp-card">
+      <div class="byp-exp-card__img-wrap">
+        <!-- SWAP:IMG → experience card 3 — 1536 restaurant dining | ratio: 4:5 -->
+        <img loading="lazy"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f02e16a74f59b019c_Image%2059.png"
+          alt="1536 Restaurant">
+      </div>
+      <div class="byp-exp-card__overlay"></div>
+      <div class="byp-exp-card__info">
+        <span class="byp-exp-card__cat">Dining</span>
+        <p class="byp-exp-card__title">1536 Restaurant</p>
+        <p class="byp-exp-card__desc">AA Rosette-awarded. Scottish provenance, quietly precise.</p>
+      </div>
+    </div>
+
+    <!-- Card 4 — Spa & Leisure -->
+    <div class="byp-exp-card">
+      <div class="byp-exp-card__img-wrap">
+        <!-- SWAP:IMG → experience card 4 — spa and wellness | ratio: 4:5 -->
+        <img loading="lazy"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fe534894fe01d574b_Image%2057.png"
+          alt="Spa and Leisure">
+      </div>
+      <div class="byp-exp-card__overlay"></div>
+      <div class="byp-exp-card__info">
+        <span class="byp-exp-card__cat">Wellbeing</span>
+        <p class="byp-exp-card__title">The Spa</p>
+        <p class="byp-exp-card__desc">Highland botanicals. Stone-warmed silence.</p>
+      </div>
+    </div>
+
+    <!-- Card 5 — Border Country -->
+    <div class="byp-exp-card">
+      <div class="byp-exp-card__img-wrap">
+        <!-- SWAP:IMG → experience card 5 — border countryside exploration | ratio: 4:5 -->
+        <img loading="lazy"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fa912698fb567fc31_Image%2060.png"
+          alt="Border Countryside">
+      </div>
+      <div class="byp-exp-card__overlay"></div>
+      <div class="byp-exp-card__info">
+        <span class="byp-exp-card__cat">Exploration</span>
+        <p class="byp-exp-card__title">Border Country</p>
+        <p class="byp-exp-card__desc">River, moor, and the Tweed Valley — all within reach.</p>
+      </div>
+    </div>
+
+    <!-- Card 6 — Highland Retreats -->
+    <div class="byp-exp-card">
+      <div class="byp-exp-card__img-wrap">
+        <!-- SWAP:IMG → experience card 6 — highland self-catering Killin | ratio: 4:5 -->
+        <img loading="lazy"
+          src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d01b3f8e72daf583f_Image%2074.png"
+          alt="Highland Retreats Killin">
+      </div>
+      <div class="byp-exp-card__overlay"></div>
+      <div class="byp-exp-card__info">
+        <span class="byp-exp-card__cat">Retreats</span>
+        <p class="byp-exp-card__title">Highland Homes</p>
+        <p class="byp-exp-card__desc">Self-catering in Killin — solitude with provision.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     4. THE PLACE
+════════════════════════════════════════════════════════════════════════ -->
+<!-- SWAP:IMG → the place | ratio: 3:2 -->
+<!-- SWAP:COPY → the place -->
+<section class="byp-place" id="byp-the-place">
+
+  <div class="byp-place__img-wrap">
+    <!-- SWAP:IMG → the place — Scottish Borders landscape | ratio: 3:2 -->
+    <img class="byp-place__img" loading="lazy" id="byp-place-img"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755dfd3f818cc9e63c84_Image%2076.png"
+      alt="Scottish Borders landscape at Barony Castle">
+    <div class="byp-place__coords">
+      <span>55.5486° N</span>
+      <span>2.7840° W</span>
+      <span>220m / 722ft ASL</span>
+      <span>Eddleston · EH45 8QW</span>
+    </div>
+  </div>
+
+  <div class="byp-place__copy" id="byp-place-copy">
+    <span class="label">The Place</span>
+    <h2>Scottish Borders.</h2>
+    <p>The Scottish Borders does not announce itself. It unfolds — through a gap in the treeline, across a river bend, along the shadow of a 16th-century wall. This land has been shaped by centuries of deliberate living.</p>
+    <p>At 220 metres above sea level, the air at Barony Castle carries a clarity that cannot be manufactured. The estate sits within 25 acres of grounds where the landscape has been tended, not staged — a distinction felt on the first morning walk.</p>
+    <p>Eddleston Water flows 800 metres north. The Pentland Hills form the horizon. The Tweed Valley lies beyond. This is not a setting chosen for scenery. It works on the body in ways that resist simple explanation.</p>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     5. TRANSFORMATION PROMISE — SCROLLYTELLING STATS
+════════════════════════════════════════════════════════════════════════ -->
+<!-- SWAP:COPY → transformation stats 1–3 -->
+<section class="byp-stats" id="byp-transformation">
+
+  <div class="byp-stats__head" id="byp-stats-head">
+    <span class="label">The Measure of It</span>
+    <h2>What five centuries of care looks like.</h2>
+  </div>
+
+  <div class="byp-stats__grid">
+
+    <div class="byp-stat">
+      <!-- SWAP:COPY → transformation stats 1 -->
+      <span class="byp-stat__num" data-target="25">0</span>
+      <span class="byp-stat__unit">Acres</span>
+      <p class="byp-stat__desc">of estate grounds managed for return to stillness</p>
+    </div>
+
+    <div class="byp-stat">
+      <!-- SWAP:COPY → transformation stats 2 -->
+      <span class="byp-stat__num" data-target="1536">0</span>
+      <span class="byp-stat__unit">Est.</span>
+      <p class="byp-stat__desc">Barony Castle founded — nearly five centuries of continuous care</p>
+    </div>
+
+    <div class="byp-stat">
+      <!-- SWAP:COPY → transformation stats 3 -->
+      <span class="byp-stat__num" data-target="4">0</span>
+      <span class="byp-stat__unit">AA Stars</span>
+      <p class="byp-stat__desc">with AA Rosette restaurant recognition — the standard held, year after year</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     6. ROOMS & SPACES
+════════════════════════════════════════════════════════════════════════ -->
+<!-- SWAP:IMG → room/interior 1–6 | ratio: 3:2 -->
+<section class="byp-rooms" id="byp-rooms">
+
+  <div class="byp-section-head">
+    <span class="label">Rooms &amp; Spaces</span>
+    <span class="byp-section-count">06</span>
+  </div>
+
+  <div class="byp-rooms__grid">
+
+    <!-- Room 1 — wide -->
+    <div class="byp-room-card" data-lightbox="true">
+      <!-- SWAP:IMG → room/interior 1 — castle suite | ratio: 16:9
+           ⚠ NO HOTEL INTERIOR PHOTOGRAPHY IN CSV — landscape placeholder in use -->
+      <img class="byp-room-card__img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d10aa143cd1856fdf_Image%2075.png"
+        alt="Castle Suite">
+      <span class="byp-room-card__label">Castle Suite</span>
+    </div>
+
+    <!-- Room 2 -->
+    <div class="byp-room-card" data-lightbox="true">
+      <!-- SWAP:IMG → room/interior 2 — tower room | ratio: 3:2
+           ⚠ NO HOTEL INTERIOR PHOTOGRAPHY IN CSV -->
+      <img class="byp-room-card__img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754e6556d3bd19d06f4e_Image%2032.png"
+        alt="Tower Room">
+      <span class="byp-room-card__label">Tower Room</span>
+    </div>
+
+    <!-- Room 3 -->
+    <div class="byp-room-card" data-lightbox="true">
+      <!-- SWAP:IMG → room/interior 3 — border view | ratio: 3:2
+           ⚠ NO HOTEL INTERIOR PHOTOGRAPHY IN CSV -->
+      <img class="byp-room-card__img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754ecc03c6e8de006eab_Image%2031.png"
+        alt="Border View Room">
+      <span class="byp-room-card__label">Border View</span>
+    </div>
+
+    <!-- Room 4 — wide -->
+    <div class="byp-room-card" data-lightbox="true">
+      <!-- SWAP:IMG → room/interior 4 — castle grounds view | ratio: 16:9
+           ⚠ NO HOTEL INTERIOR PHOTOGRAPHY IN CSV -->
+      <img class="byp-room-card__img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754eb984fb0dc4d0c2c7_Image%2033.png"
+        alt="The Grounds">
+      <span class="byp-room-card__label">The Grounds</span>
+    </div>
+
+    <!-- Room 5 -->
+    <div class="byp-room-card" data-lightbox="true">
+      <!-- SWAP:IMG → room/interior 5 — barony classic room | ratio: 3:2
+           ⚠ NO HOTEL INTERIOR PHOTOGRAPHY IN CSV -->
+      <img class="byp-room-card__img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da754ec999940f361d4a0e_Image%2034.png"
+        alt="Barony Classic">
+      <span class="byp-room-card__label">Barony Classic</span>
+    </div>
+
+    <!-- Room 6 -->
+    <div class="byp-room-card" data-lightbox="true">
+      <!-- SWAP:IMG → room/interior 6 — woodland studio | ratio: 3:2
+           ⚠ NO HOTEL INTERIOR PHOTOGRAPHY IN CSV -->
+      <img class="byp-room-card__img" loading="lazy"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755cbd4aab14c251d668_Image%2071.png"
+        alt="Woodland Studio">
+      <span class="byp-room-card__label">Woodland Studio</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     7. WELLNESS RITUALS
+════════════════════════════════════════════════════════════════════════ -->
+<!-- SWAP:VIDEO → forest texture accent | wellness section -->
+<!-- SWAP:COPY → wellness rituals 1–6 -->
+<section class="byp-wellness" id="byp-wellness">
+
+  <!-- SWAP:VIDEO → forest 3 — atmospheric texture accent | wellness section -->
+  <video class="byp-wellness__bg-video" autoplay muted loop playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c025be27c5b40f2d7_Image%2061.png">
+    <source
+      src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c75963759010165f031_Video%2010.mp4"
+      type="video/mp4">
+  </video>
+
+  <div class="byp-wellness__inner">
+
+    <div class="byp-wellness__head">
+      <span class="label">Wellness Rituals</span>
+      <h2 class="byp-wellness__h2" id="byp-wellness-h2">Six practices.<br>One intention.</h2>
+    </div>
+
+    <div class="byp-wellness__grid">
+
+      <div class="byp-ritual">
+        <!-- SWAP:COPY → wellness ritual 1 -->
+        <span class="byp-ritual__num">01</span>
+        <p class="byp-ritual__name">Border Botanicals</p>
+        <p class="byp-ritual__desc">Local heather oil, hand-pressed pine — deep tissue release across ancient stone plinths.</p>
+      </div>
+
+      <div class="byp-ritual">
+        <!-- SWAP:COPY → wellness ritual 2 -->
+        <span class="byp-ritual__num">02</span>
+        <p class="byp-ritual__name">Castle Stone Exfoliation</p>
+        <p class="byp-ritual__desc">Scottish sandstone mineral scrub, local clay mask — skin returned to the land it arrived in.</p>
+      </div>
+
+      <div class="byp-ritual">
+        <!-- SWAP:COPY → wellness ritual 3 -->
+        <span class="byp-ritual__num">03</span>
+        <p class="byp-ritual__name">Highland Thermal Circuit</p>
+        <p class="byp-ritual__desc">Stone-warmed mineral waters, cold plunge immersion — the oldest recovery technology there is.</p>
+      </div>
+
+      <div class="byp-ritual">
+        <!-- SWAP:COPY → wellness ritual 4 -->
+        <span class="byp-ritual__num">04</span>
+        <p class="byp-ritual__name">Fireside Restoration</p>
+        <p class="byp-ritual__desc">Oak-smoke aromatherapy, weighted blanket meditation — stillness as practice, not accident.</p>
+      </div>
+
+      <div class="byp-ritual">
+        <!-- SWAP:COPY → wellness ritual 5 -->
+        <span class="byp-ritual__num">05</span>
+        <p class="byp-ritual__name">Dawn Grounds Walk</p>
+        <p class="byp-ritual__desc">Guided barefoot on dewy castle lawns at first light — sensory recalibration before the world reasserts.</p>
+      </div>
+
+      <div class="byp-ritual">
+        <!-- SWAP:COPY → wellness ritual 6 -->
+        <span class="byp-ritual__num">06</span>
+        <p class="byp-ritual__name">Whisky &amp; Wildflower</p>
+        <p class="byp-ritual__desc">Single malt pairing, local botanicals, guided breathwork — Scotland in a glass, deliberately taken.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     8. EDITORIAL QUOTE
+════════════════════════════════════════════════════════════════════════ -->
+<!-- SWAP:IMG → editorial quote background | ratio: 16:9 -->
+<!-- SWAP:COPY → editorial quote -->
+<section class="byp-quote" id="byp-quote">
+
+  <div class="byp-quote__bg">
+    <!-- SWAP:IMG → editorial quote background — forest atmosphere | ratio: 16:9 -->
+    <img loading="lazy"
+      src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c6266a65e87a325c7_Image%2072.png"
+      alt="">
+  </div>
+
+  <div class="byp-quote__content" id="byp-quote-content">
+    <span class="byp-quote__mark">"</span>
+    <!-- SWAP:COPY → editorial quote
+         ⚠ PRODUCTION FLAG: Replace with verified press quote or guest testimonial -->
+    <blockquote>Barony Castle does not perform Scottish hospitality. It simply is.</blockquote>
+    <cite>— Guest Review · Barony Castle Hotel, Scottish Borders</cite>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     9. BOOKING CTA
+════════════════════════════════════════════════════════════════════════ -->
+<!-- SWAP:VIDEO → booking CTA background | booking section -->
+<!-- SWAP:COPY → booking CTA -->
+<section class="byp-cta" id="byp-book">
+
+  <!-- SWAP:VIDEO → forest 2 — booking CTA background | booking section -->
+  <video class="byp-cta__video" autoplay muted loop playsinline
+    poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f66d293ddbe3e52da_Image%2058.png">
+    <source
+      src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c0fe737ad6b6c354b9c_Video%201.mp4"
+      type="video/mp4">
+  </video>
+
+  <div class="byp-cta__overlay"></div>
+
+  <div class="byp-cta__body" id="byp-cta-body">
+    <!-- SWAP:COPY → booking CTA -->
+    <span class="byp-cta__label">Reserve</span>
+    <h2 class="byp-cta__headline">The Borders await.</h2>
+    <p class="byp-cta__urgency">Limited availability — summer season 2026</p>
+    <div class="byp-cta__btns">
+      <a href="https://direct-book.com/properties/baronycastledirect?trackPage=yes"
+        class="byp-btn byp-btn--primary"
+        target="_blank" rel="noopener noreferrer">Reserve Your Stay</a>
+      <a href="https://www.byprestige.com/"
+        class="byp-btn byp-btn--ghost"
+        target="_blank" rel="noopener noreferrer">Download the Experience Guide</a>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     10. FOOTER
+════════════════════════════════════════════════════════════════════════ -->
+<!-- SWAP:LOGO -->
+<footer class="byp-footer">
+  <div class="byp-footer__inner">
+
+    <div class="byp-footer__logo-wrap">
+      <!-- SWAP:LOGO -->
+      <img class="byp-footer__logo"
+        src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/6a13092136f0137aa0cbb8c2_byp-mallard-times-300x300-transparent.png"
+        alt="byprestige®"
+        width="160"
+        height="48">
+    </div>
+
+    <div class="byp-footer__meta">
+      <span>55.5486° N, 2.7840° W</span>
+      <span>Old Manse Road, Eddleston, EH45 8QW</span>
+      <a href="tel:+441721730395">+44 1721 730 395</a>
+      <a href="mailto:general@baronycastle.com">general@baronycastle.com</a>
+      <a href="https://www.instagram.com/baronycastle/" target="_blank" rel="noopener noreferrer">@baronycastle</a>
+    </div>
+
+    <div class="byp-footer__right">
+      <p class="byp-footer__tagline">Where excellence is our tradition.</p>
+      <p class="byp-footer__copy">
+        © 2022–2026 byprestige® — All rights reserved<br>
+        byprestige® is a registered trademark
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ─────────────────────────────────────────────────────────────────────
+     Helpers
+  ───────────────────────────────────────────────────────────────────── */
+  function ready(fn) {
+    if (document.readyState !== 'loading') { fn(); }
+    else { document.addEventListener('DOMContentLoaded', fn); }
+  }
+
+  function onLoad(fn) {
+    if (document.readyState === 'complete') { fn(); }
+    else { window.addEventListener('load', fn); }
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────
+     GSAP + ScrollTrigger  (wait for full load so CDN scripts are ready)
+  ───────────────────────────────────────────────────────────────────── */
+  onLoad(function () {
+
+    if (typeof gsap === 'undefined') {
+      console.warn('byprestige: GSAP not available');
+      /* reveal everything so content is accessible without animation */
+      document.getElementById('byp-header').style.opacity = '1';
+      return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* ── HERO ─────────────────────────────────────────────────────── */
+
+    gsap.to('#byp-header', { opacity: 1, duration: 1.2, delay: 0.3, ease: 'power2.out' });
+    gsap.from('#byp-hero-super', { opacity: 0, y: 12, duration: 1, delay: 0.9, ease: 'power2.out' });
+    gsap.to('#byp-scroll-cue', { opacity: 1, duration: 0.9, delay: 2.2, ease: 'power2.out' });
+
+    /* Split hero tagline into animated word spans */
+    var tagEl = document.getElementById('byp-hero-tagline');
+    if (tagEl) {
+      var raw = tagEl.textContent.trim();
+      tagEl.innerHTML = raw.split(' ').map(function (w) {
+        return '<span class="word"><span>' + w + '</span></span>';
+      }).join(' ');
+      gsap.from('#byp-hero-tagline .word span', {
+        y: 75, opacity: 0, stagger: 0.11,
+        duration: 1.45, ease: 'power3.out', delay: 0.75
+      });
+    }
+
+    /* Hide scroll cue on first interaction */
+    var cueDone = false;
+    window.addEventListener('scroll', function () {
+      if (!cueDone && window.scrollY > 60) {
+        gsap.to('#byp-scroll-cue', { opacity: 0, duration: 0.4 });
+        cueDone = true;
+      }
+    }, { passive: true });
+
+    /* ── MANIFESTO ────────────────────────────────────────────────── */
+
+    var manifestoTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.byp-manifesto',
+        start: 'top 72%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    manifestoTl
+      .from('.byp-manifesto__pre', { opacity: 0, duration: 0.7, ease: 'power2.out' })
+      .from(['#m-line-1', '#m-line-2'], {
+        opacity: 0, y: 42, stagger: 0.16,
+        duration: 1.2, ease: 'power3.out'
+      }, '-=0.3')
+      .from('#m-rule', {
+        opacity: 0, scaleX: 0, transformOrigin: 'left',
+        duration: 0.7, ease: 'power2.out'
+      }, '-=0.6')
+      .from(['#m-line-3', '#m-line-4'], {
+        opacity: 0, y: 42, stagger: 0.16,
+        duration: 1.2, ease: 'power3.out'
+      }, '-=0.4');
+
+    /* ── EXPERIENCE CARDS ─────────────────────────────────────────── */
+
+    gsap.from('.byp-exp-card', {
+      scrollTrigger: {
+        trigger: '.byp-experiences',
+        start: 'top 78%',
+        toggleActions: 'play none none none'
+      },
+      opacity: 0, y: 34, stagger: 0.08,
+      duration: 0.9, ease: 'power2.out'
+    });
+
+    /* ── THE PLACE ────────────────────────────────────────────────── */
+
+    /* Parallax on place image */
+    gsap.to('#byp-place-img', {
+      scrollTrigger: {
+        trigger: '.byp-place',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1.8
+      },
+      y: -65, ease: 'none'
+    });
+
+    /* Text reveal */
+    gsap.from('#byp-place-copy > *', {
+      scrollTrigger: {
+        trigger: '#byp-place-copy',
+        start: 'top 75%',
+        toggleActions: 'play none none none'
+      },
+      opacity: 0, y: 22, stagger: 0.14,
+      duration: 1.0, ease: 'power2.out'
+    });
+
+    /* ── STATS ────────────────────────────────────────────────────── */
+
+    gsap.from('#byp-stats-head', {
+      scrollTrigger: {
+        trigger: '.byp-stats',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      },
+      opacity: 0, duration: 0.8, ease: 'power2.out'
+    });
+
+    gsap.from('.byp-stat', {
+      scrollTrigger: {
+        trigger: '.byp-stats__grid',
+        start: 'top 82%',
+        toggleActions: 'play none none none'
+      },
+      opacity: 0, y: 24, stagger: 0.18,
+      duration: 0.9, ease: 'power2.out'
+    });
+
+    /* Animated counters */
+    document.querySelectorAll('.byp-stat__num').forEach(function (el) {
+      var target = parseInt(el.getAttribute('data-target'), 10);
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 88%',
+        once: true,
+        onEnter: function () {
+          var proxy = { val: 0 };
+          gsap.to(proxy, {
+            val: target,
+            duration: target > 100 ? 2.8 : 2.0,
+            ease: 'power2.out',
+            onUpdate: function () {
+              el.textContent = Math.round(proxy.val).toLocaleString();
+            }
+          });
+        }
+      });
+    });
+
+    /* ── ROOMS ────────────────────────────────────────────────────── */
+
+    gsap.from('.byp-room-card', {
+      scrollTrigger: {
+        trigger: '.byp-rooms',
+        start: 'top 78%',
+        toggleActions: 'play none none none'
+      },
+      opacity: 0, y: 22, stagger: 0.1,
+      duration: 0.9, ease: 'power2.out'
+    });
+
+    /* Lightbox */
+    document.querySelectorAll('.byp-room-card[data-lightbox]').forEach(function (card) {
+      card.addEventListener('click', function () {
+        var img = card.querySelector('img');
+        var lb = document.createElement('div');
+        lb.className = 'byp-lightbox';
+        lb.setAttribute('role', 'dialog');
+        lb.setAttribute('aria-modal', 'true');
+        lb.innerHTML =
+          '<div class="byp-lightbox__inner">' +
+            '<button class="byp-lightbox__close" aria-label="Close image">&#x2715;</button>' +
+            '<img src="' + img.src + '" alt="' + (img.alt || '') + '">' +
+          '</div>';
+        document.body.appendChild(lb);
+        function closeLb() {
+          lb.remove();
+          document.removeEventListener('keydown', keyFn);
+        }
+        lb.addEventListener('click', function (e) {
+          if (e.target === lb || e.target.classList.contains('byp-lightbox__close')) { closeLb(); }
+        });
+        function keyFn(e) { if (e.key === 'Escape') { closeLb(); } }
+        document.addEventListener('keydown', keyFn);
+      });
+    });
+
+    /* ── WELLNESS ─────────────────────────────────────────────────── */
+
+    gsap.from('#byp-wellness-h2', {
+      scrollTrigger: {
+        trigger: '.byp-wellness',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      },
+      opacity: 0, y: 18, duration: 0.9, ease: 'power2.out'
+    });
+
+    gsap.from('.byp-ritual', {
+      scrollTrigger: {
+        trigger: '.byp-wellness__grid',
+        start: 'top 82%',
+        toggleActions: 'play none none none'
+      },
+      opacity: 0, y: 18, stagger: 0.09,
+      duration: 0.8, ease: 'power2.out'
+    });
+
+    /* ── QUOTE ────────────────────────────────────────────────────── */
+
+    gsap.from('#byp-quote-content', {
+      scrollTrigger: {
+        trigger: '.byp-quote',
+        start: 'top 70%',
+        toggleActions: 'play none none none'
+      },
+      opacity: 0, y: 20, duration: 1.3, ease: 'power2.out'
+    });
+
+    /* ── BOOKING CTA ──────────────────────────────────────────────── */
+
+    gsap.from('#byp-cta-body', {
+      scrollTrigger: {
+        trigger: '.byp-cta',
+        start: 'top 78%',
+        toggleActions: 'play none none none'
+      },
+      opacity: 0, y: 24, duration: 1.05, ease: 'power2.out'
+    });
+
+    /* Refresh ScrollTrigger after all images potentially load */
+    window.addEventListener('load', function () {
+      ScrollTrigger.refresh();
+    });
+
+  }); /* end onLoad */
+
+
+  /* ─────────────────────────────────────────────────────────────────────
+     THREE.JS — Oak Leaf 3D Object
+     <!-- SWAP:3D → oak leaf | Forest archetype -->
+  ───────────────────────────────────────────────────────────────────── */
+  onLoad(function () {
+    if (typeof THREE === 'undefined') {
+      console.warn('byprestige 3D: Three.js not available');
+      return;
+    }
+
+    var canvas = document.getElementById('byp-leaf-canvas');
+    if (!canvas) return;
+
+    var scene    = new THREE.Scene();
+    var camera   = new THREE.PerspectiveCamera(44, 1, 0.1, 100);
+    camera.position.set(0, 0.15, 3.2);
+
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setSize(280, 280);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    /* sRGB output — property may differ by Three.js version */
+    if (renderer.outputEncoding !== undefined) {
+      renderer.outputEncoding = THREE.sRGBEncoding;
+    }
+    renderer.toneMapping         = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.25;
+
+    /* Three-point light rig: one warm, one cool, one rim */
+    var ambient = new THREE.AmbientLight(0xffffff, 0.32);
+    scene.add(ambient);
+
+    var warmKey = new THREE.DirectionalLight(0xffd580, 1.45); /* warm gold key */
+    warmKey.position.set(3, 3, 2);
+    scene.add(warmKey);
+
+    var coolFill = new THREE.DirectionalLight(0x88bbe0, 0.65); /* cool blue fill */
+    coolFill.position.set(-2, 0.5, -2);
+    scene.add(coolFill);
+
+    var sageRim = new THREE.DirectionalLight(0x7faa88, 0.48); /* sage green rim */
+    sageRim.position.set(0, -2, 1);
+    scene.add(sageRim);
+
+    var leafModel = null;
+    var isHovered = false;
+
+    /* Load GLB */
+    if (typeof THREE.GLTFLoader !== 'undefined') {
+      var loader = new THREE.GLTFLoader();
+      loader.load(
+        'https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb',
+        function (gltf) {
+          leafModel = gltf.scene;
+          /* Auto-center and scale to fit canvas */
+          var box    = new THREE.Box3().setFromObject(leafModel);
+          var center = box.getCenter(new THREE.Vector3());
+          var size   = box.getSize(new THREE.Vector3());
+          var maxDim = Math.max(size.x, size.y, size.z);
+          leafModel.position.sub(center);
+          leafModel.scale.setScalar(2.2 / maxDim);
+          scene.add(leafModel);
+        },
+        undefined,
+        function (err) {
+          console.warn('byprestige 3D: GLB load error — verify S3 CORS headers', err);
+        }
+      );
+    } else {
+      console.warn('byprestige 3D: THREE.GLTFLoader not available');
+    }
+
+    canvas.addEventListener('mouseenter', function () { isHovered = true;  });
+    canvas.addEventListener('mouseleave', function () { isHovered = false; });
+
+    (function animate() {
+      requestAnimationFrame(animate);
+      if (leafModel && !isHovered) {
+        leafModel.rotation.y += 0.002;
+      }
+      renderer.render(scene, camera);
+    })();
+
+  }); /* end onLoad (Three.js) */
+
+})();
+</script>
+
+
+<!--
+════════════════════════════════════════════════════════════════════════
+  CUSTOMIZATION GUIDE — byprestige® Master Template
+════════════════════════════════════════════════════════════════════════
+
+  COMPLETE SWAP MARKER CHECKLIST
+  ══════════════════════════════
+
+  LOGOS (2 instances — update together)
+  ───────────────────────────────────────
+  [01] SWAP:LOGO — Hero header
+       Element:  .byp-header > img.byp-logo
+       Current:  byp-mallard-times-300x300-transparent.png
+       Action:   Replace src with final production logo URL
+
+  [02] SWAP:LOGO — Footer
+       Element:  .byp-footer__logo
+       Same src — update both [01] and [02] simultaneously
+
+  COLORS
+  ───────────────────────────────────────
+  [03] SWAP:COLOR — CSS :root variables (top of <style> block)
+       --color-primary:    #1a3a28  → adjust to match final brand guide
+       --color-secondary:  #b8966a  → adjust
+       --color-accent:     #7fa882  → adjust
+       --color-bg:         #0a110c  → adjust
+       --color-text:       #f0ebe0  → adjust
+
+  VIDEOS (3 total)
+  ───────────────────────────────────────
+  [04] SWAP:VIDEO → hero background | hero section
+       Element:  .byp-hero > video.byp-hero__video
+       Current:  Forest 1 (compressed-video.mp4)
+       Poster:   Forest Image 62
+       Action:   Replace with hotel-specific hero video when available
+
+  [05] SWAP:VIDEO → booking CTA background | booking section
+       Element:  .byp-cta > video.byp-cta__video
+       Current:  Forest 2 (Video 1.mp4)
+       Poster:   Forest Image 58
+
+  [06] SWAP:VIDEO → forest texture accent | wellness section
+       Element:  .byp-wellness > video.byp-wellness__bg-video
+       Current:  Forest 3 (Video 10.mp4)
+       Poster:   Forest Image 61
+
+  3D OBJECT
+  ───────────────────────────────────────
+  [07] SWAP:3D → oak leaf | Forest archetype
+       Element:  canvas#byp-leaf-canvas
+       GLB:      hotels3ds.s3.eu-north-1.amazonaws.com/...oak_l...texture.glb
+       Position: Manifesto section background (14% opacity)
+       ⚠ Verify CORS headers on S3 bucket allow Webflow domains
+
+  EXPERIENCE CARD IMAGES (6 × 4:5)
+  ───────────────────────────────────────
+  [08] SWAP:IMG → experience card 1 — castle heritage | ratio: 4:5
+       Current:  Forest Image 62
+
+  [09] SWAP:IMG → experience card 2 — woodland grounds | ratio: 4:5
+       Current:  Forest Image 58
+
+  [10] SWAP:IMG → experience card 3 — 1536 restaurant dining | ratio: 4:5
+       Current:  Forest Image 59
+
+  [11] SWAP:IMG → experience card 4 — spa and wellness | ratio: 4:5
+       Current:  Forest Image 57
+
+  [12] SWAP:IMG → experience card 5 — border countryside | ratio: 4:5
+       Current:  Forest Image 60
+
+  [13] SWAP:IMG → experience card 6 — highland retreats Killin | ratio: 4:5
+       Current:  Forest Image 74
+
+  THE PLACE IMAGE
+  ───────────────────────────────────────
+  [14] SWAP:IMG → the place — Scottish Borders landscape | ratio: 3:2
+       Current:  Forest Image 76
+       ⚠ RECOMMENDED: Replace with actual aerial/grounds photo of Barony Castle
+
+  ROOM IMAGES (6 total)
+  ───────────────────────────────────────
+  ⚠⚠ PRODUCTION PRIORITY: ALL 6 room images are landscape/nature
+     placeholders. NO hotel interior photography was in the asset CSV.
+     Replace all 6 before going live.
+
+  [15] SWAP:IMG → room/interior 1 — Castle Suite | ratio: 16:9    NO HOTEL INTERIOR IN CSV
+  [16] SWAP:IMG → room/interior 2 — Tower Room | ratio: 3:2       NO HOTEL INTERIOR IN CSV
+  [17] SWAP:IMG → room/interior 3 — Border View | ratio: 3:2      NO HOTEL INTERIOR IN CSV
+  [18] SWAP:IMG → room/interior 4 — The Grounds | ratio: 16:9     NO HOTEL INTERIOR IN CSV
+  [19] SWAP:IMG → room/interior 5 — Barony Classic | ratio: 3:2   NO HOTEL INTERIOR IN CSV
+  [20] SWAP:IMG → room/interior 6 — Woodland Studio | ratio: 3:2  NO HOTEL INTERIOR IN CSV
+
+  EDITORIAL QUOTE IMAGE
+  ───────────────────────────────────────
+  [21] SWAP:IMG → editorial quote background — forest atmosphere | ratio: 16:9
+       Current:  Forest Image 72
+
+  COPY BLOCKS (7 blocks)
+  ───────────────────────────────────────
+  [22] SWAP:COPY → hero tagline
+       Current:  "Where ancient Scotland breathes."
+
+  [23] SWAP:COPY → manifesto (4 lines)
+       Current:  "The borders hold / a particular quiet. / Where stone
+                  remembers / and water does not rush."
+
+  [24] SWAP:COPY → the place (3 paragraphs)
+       Current:  Editorial copy about Scottish Borders / Barony Castle
+       Action:   Verify all geographic details are accurate
+
+  [25] SWAP:COPY → transformation stats 1–3
+       Stat 1:   25 / Acres — verify current acreage
+       Stat 2:   1536 / Est. — founding year confirmed by restaurant name
+       Stat 3:   4 / AA Stars — verify current AA rating
+
+  [26] SWAP:COPY → wellness rituals 1–6
+       ⚠ All 6 ritual names are editorial inventions. Verify against
+         the actual Barony Castle spa menu before production use.
+
+  [27] SWAP:COPY → editorial quote
+       ⚠⚠ PRODUCTION FLAG: Current quote is a placeholder for layout.
+            Replace with a VERIFIED press quote or guest testimonial
+            from a real, citable source before going live.
+
+  [28] SWAP:COPY → booking CTA
+       Current:  "The Borders await." / "Limited availability — summer 2026"
+       CTA 1 link:  direct-book.com/properties/baronycastledirect ← VERIFY
+       CTA 2 link:  byprestige.com ← Replace with actual Experience Guide URL
+
+  ══════════════════════════════════════
+  PRODUCTION FLAGS SUMMARY (ALL ⚠ ITEMS)
+  ══════════════════════════════════════
+
+  ⚠⚠ [CRITICAL] Room images (slots 15–20): ALL are landscape placeholders.
+      Obtain and insert actual Barony Castle interior photography.
+
+  ⚠⚠ [CRITICAL] Editorial quote (slot 27): Placeholder attribution only.
+      Do not publish without a verified, licensed source quote.
+
+  ⚠  [HIGH] 3D GLB CORS: S3 bucket (hotels3ds.s3.eu-north-1.amazonaws.com)
+      must have CORS headers allowing Webflow production domains.
+
+  ⚠  [HIGH] Booking URL: Verify direct-book.com link is active and correct.
+
+  ⚠  [MED] The Place image: Replace with actual castle grounds photography.
+
+  ⚠  [MED] Wellness rituals: Verify against real Barony Castle spa menu.
+
+  ⚠  [MED] Spa/facilities copy: Confirm thermal circuit and all offerings
+      exist at Barony Castle before publication.
+
+  ⚠  [LOW] Footer contacts: general@baronycastle.com and @baronycastle
+      confirmed from baronycastle.com — verify byprestige® master contact.
+
+════════════════════════════════════════════════════════════════════════
+-->
+</body>
+</html>
