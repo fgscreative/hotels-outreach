@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Farol Hotel — Cascais · Estoril Coast</title>
+<!--
+BRAND EXTRACTION REPORT
+========================
+Hotel Name:            Farol Hotel
+URL:                   https://farol.com.pt
+Primary Color:         #16303D  Atlantic night blue, for the overlay
+Secondary Color:       #E8714E  Farol coral (#F38161, their campaign orange) for buttons
+Accent Color:          #F39A78  lighter coral for highlights
+Background Mood:       Dark & oceanic — Atlantic night blue, Farol coral
+Font Pairing (Google): Domine (editorial serif headlines) + Montserrat (grotesque body)
+                       Closest free match to the site's Domine + Montserrat (same as their site)
+Tone of Voice:         Romantic, lively, sea-led — "the Atlantic waves form a graceful line-dance"
+Landscape Archetype:   Coastal — a mansion on the Atlantic rocks (coastal + cliffside)
+Positioning:           A 5-star boutique hotel in a restored 19th-century mansion on the Atlantic rocks of Cascais, beside the Santa Marta lighthouse — sea-view rooms and junior suites, Element6 restaurant, the O’Mast pool bar and the Deck on the Rocks
+Key Experiences:       Junior Suites with 180° ocean views / Deck on the Rocks / Element6 restaurant & sushi / O’Mast summer pool bar / Sala Farol events / Guincho & the Cascais coast
+Coordinates + Elevation: 38°41.42′ N, 9°25.34′ W — 5 m (on the rocks beside the Santa Marta lighthouse)
+
+ASSET MAPPING REPORT
+========================
+Source: "contenct links MASTER.csv" is a library grouped by landscape, not a
+SLOT|TYPE|SRC|RATIO|DESCRIPTION sheet. Slots were filled from the
+"coastal (sea-window rooms, rocky shore, oysters)" group plus the "cliffside mediterranean" (sea terraces, cliff pool, arched rooms) group.
+Total assets in CSV library: 403 images, 34 videos, 3 GLB models
+Assets successfully mapped to this page: 16 images + 2 videos + 1 GLB + logo
+Slots covered by CSV: hero video, hero poster, experience 1–6, the place, rooms 1–6, rituals texture video + background, editorial quote, booking CTA (reuses hero video)
+Slots falling back to Unsplash: none
+Logo SRC: logos/farol.com.pt.v2.png (white logo found in their homepage HTML; none had been scraped) — embedded in this file (PNG data URI)
+3D Object SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb (coral)
+Video assets:
+  - hero + booking CTA: https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69db8a1820c993d72e0d6b55_cliffside3.mp4
+  - rituals texture accent: https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69db8a0bd7968308bb853b44_cliffside1.mp4
+Image assets:
+  - experience-1: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f1fe2d8b2f06d2529_Image%2012.png  [coastal #1, 16:9]
+  - experience-2: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db8754c5bc3f91633f248c_Image%20149.png  [cliffside mediterranean #0, 4:3]
+  - experience-3: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551d402271fd28d57c9_Image%2052.png  [coastal #11, 16:9]
+  - experience-4: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db8760ae50d8ef8003e762_Image%20155.png  [cliffside mediterranean #9, 16:9]
+  - experience-5: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e13e8a712bef8f191_Image%209.png  [coastal #6, 16:9]
+  - experience-6: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f679754764ba8477c_Image%203.png  [coastal #3, 16:9]
+  - the-place: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da75501f121aa18b84accb_Image%2043.png  [coastal #19, 16:9]
+  - editorial-quote: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fdef24e731275c24a_Image%2042.png  [coastal #2, 16:9]
+  - rituals-background: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755102e16a74f59b0111_Image%2044.png  [coastal #13, 16:9]
+  - hero-poster: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e1edb921f35a63175_Image%202.png  [coastal #7, 16:9]
+  - room-1: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png  [coastal #0, 16:9]
+  - room-2: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fc699fe80d5a792a6_Image%2010.png  [coastal #4, 16:9]
+  - room-3: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755a0854ea3cadb267cd_Image%2054.png  [coastal #9, 16:9]
+  - room-4: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png  [coastal #8, 16:9]
+  - room-5: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db875f713f22dbb407ccd8_Image%20171.png  [cliffside mediterranean #5, 16:9]
+  - room-6: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755108515add56c26e14_Image%2053.png  [coastal #10, 16:9]
+-->
+<!--
+CSS CUSTOM PROPERTIES (scoped to #fgs-farol-cascais)
+=====================================================
+--color-primary    #16303D   Atlantic night blue, for the overlay
+--color-secondary  #E8714E   Farol coral (#F38161, their campaign orange) for buttons
+--color-accent     #F39A78   lighter coral for highlights
+--color-bg         #0F1B22   page background (dark mood)
+--color-surface    #15252E   raised panels on the page background
+--color-text       #EDF1F2   body text on --color-bg
+--color-muted      #9FB0B8   secondary text
+--color-dark       #0A141A   contrast sections (transformation, rituals, footer)
+--color-dark-text  #EFF3F4   text on --color-dark
+--font-serif       'Domine'
+--font-sans        'Montserrat'
+--logo-hero-h / --logo-header-h / --logo-footer-h   logo heights
+=====================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+#fgs-farol-cascais{--color-primary:#16303D;--color-secondary:#E8714E;--color-accent:#F39A78;--color-bg:#0F1B22;--color-surface:#15252E;--color-text:#EDF1F2;--color-muted:#9FB0B8;--color-dark:#0A141A;--color-dark-text:#EFF3F4;--font-serif:'Domine',Georgia,serif;--font-sans:'Montserrat',system-ui,-apple-system,sans-serif;--logo-hero-h:140px;--logo-header-h:38px;--logo-footer-h:76px;--gutter:clamp(20px,5vw,72px);--ease:cubic-bezier(.2,.7,.1,1)}
+#fgs-farol-cascais,#fgs-farol-cascais *,#fgs-farol-cascais *::before,#fgs-farol-cascais *::after{box-sizing:border-box;margin:0;padding:0}
+#fgs-farol-cascais{position:relative;background:var(--color-bg);color:var(--color-text);font-family:var(--font-sans);font-weight:300;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip;width:100%}
+#fgs-farol-cascais img,#fgs-farol-cascais video{display:block;max-width:100%}
+#fgs-farol-cascais a{color:inherit;text-decoration:none}
+#fgs-farol-cascais button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+#fgs-farol-cascais .fgs-eyebrow{font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--color-accent)}
+#fgs-farol-cascais .fgs-h2{font-family:var(--font-serif);font-weight:400;font-size:clamp(2.2rem,5.2vw,4.6rem);line-height:1.02;letter-spacing:-.01em}
+#fgs-farol-cascais .fgs-h2 em{font-style:italic;color:var(--color-accent)}
+#fgs-farol-cascais .fgs-wrap{padding:0 var(--gutter);max-width:1680px;margin:0 auto}
+#fgs-farol-cascais .fgs-logo{display:block;height:var(--h);width:auto;color:inherit}
+#fgs-farol-cascais .fgs-logo-plate{display:inline-flex;align-items:center;justify-content:center;background:var(--color-bg);border-radius:14px;padding:.55em .8em}
+
+/* header */
+#fgs-farol-cascais .fgs-header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px var(--gutter);color:#fff;transition:background .5s var(--ease),padding .5s var(--ease),backdrop-filter .5s}
+#fgs-farol-cascais .fgs-header.is-solid{background:color-mix(in srgb,var(--color-dark) 72%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:12px var(--gutter)}
+#fgs-farol-cascais .fgs-header .fgs-logo{--h:var(--logo-header-h);}
+#fgs-farol-cascais .fgs-header-meta{display:none;font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.75}
+#fgs-farol-cascais .fgs-btn{display:inline-flex;align-items:center;gap:.7em;padding:14px 26px;border-radius:999px;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;transition:transform .4s var(--ease),background .4s,color .4s,border-color .4s}
+#fgs-farol-cascais .fgs-btn:hover{transform:translateY(-2px)}
+#fgs-farol-cascais .fgs-btn-primary{background:var(--color-secondary);color:#0F1B22}
+#fgs-farol-cascais .fgs-btn-primary:hover{background:var(--color-accent);color:#0F1B22}
+#fgs-farol-cascais .fgs-btn-ghost{border:1px solid currentColor}
+#fgs-farol-cascais .fgs-btn-ghost:hover{border-color:var(--color-accent);color:var(--color-accent)}
+#fgs-farol-cascais .fgs-header .fgs-btn{padding:11px 20px;font-size:11px}
+
+/* 1 hero */
+#fgs-farol-cascais .fgs-hero{position:relative;height:100vh;height:100svh;min-height:600px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;background:var(--color-dark)}
+#fgs-farol-cascais .fgs-hero-video,#fgs-farol-cascais .fgs-cta-video{position:absolute;inset:0;width:100vw;height:100%;object-fit:cover;z-index:0}
+#fgs-farol-cascais .fgs-hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,color-mix(in srgb,var(--color-dark) 45%,transparent) 0%,transparent 30%,transparent 60%,color-mix(in srgb,var(--color-dark) 80%,transparent) 100%),color-mix(in srgb,var(--color-primary) 40%,transparent)}
+#fgs-farol-cascais .fgs-hero-content{position:relative;z-index:2;padding:0 24px;display:flex;flex-direction:column;align-items:center;gap:clamp(22px,4vh,40px)}
+#fgs-farol-cascais .fgs-hero .fgs-logo{--h:var(--logo-hero-h);max-width:min(78vw,520px);}
+#fgs-farol-cascais .fgs-hero-tag{font-family:var(--font-serif);font-weight:300;font-size:clamp(2.3rem,6.4vw,6rem);line-height:1.02;letter-spacing:-.015em;max-width:15ch}
+#fgs-farol-cascais .fgs-hero-tag .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+#fgs-farol-cascais .fgs-hero-tag .wi{display:inline-block}
+#fgs-farol-cascais .fgs-hero-sub{font-size:13px;letter-spacing:.24em;text-transform:uppercase;opacity:.85}
+#fgs-farol-cascais .fgs-hero-data{position:absolute;z-index:2;left:var(--gutter);bottom:32px;display:none;gap:28px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-align:left}
+#fgs-farol-cascais .fgs-hero-data span{display:block;opacity:.6;margin-bottom:4px}
+#fgs-farol-cascais .fgs-scroll{position:absolute;z-index:2;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;opacity:.8}
+#fgs-farol-cascais .fgs-scroll i{display:block;width:1px;height:48px;background:linear-gradient(#fff,transparent);transform-origin:top;animation:fgs-scroll-farol-cascais 2.2s var(--ease) infinite}
+@keyframes fgs-scroll-farol-cascais{0%{transform:scaleY(0);opacity:1}60%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+
+/* 2 manifesto */
+#fgs-farol-cascais .fgs-manifesto{position:relative;padding:clamp(120px,22vh,240px) 0;overflow:hidden}
+#fgs-farol-cascais .fgs-manifesto .fgs-eyebrow{margin-bottom:48px}
+#fgs-farol-cascais .fgs-mtext{position:relative;z-index:2;font-family:var(--font-serif);font-weight:300;font-size:clamp(2.1rem,6vw,5.6rem);line-height:1.08;letter-spacing:-.012em;pointer-events:none}
+#fgs-farol-cascais .fgs-mline{display:block;overflow:hidden}
+#fgs-farol-cascais .fgs-mline>span{display:inline-block}
+#fgs-farol-cascais .fgs-mline:nth-child(even){padding-left:clamp(0px,9vw,160px);font-style:italic;color:var(--color-accent)}
+#fgs-farol-cascais .fgs-3d{position:absolute;z-index:1;right:clamp(0px,8vw,180px);top:50%;width:280px;height:280px;transform:translateY(-50%) scale(1.6);opacity:.15;transition:opacity .6s}
+#fgs-farol-cascais .fgs-3d canvas{width:280px!important;height:280px!important;display:block}
+#fgs-farol-cascais .fgs-3d.is-failed{display:none}
+
+/* 3 experiences */
+#fgs-farol-cascais .fgs-exp{position:relative;padding:clamp(80px,12vh,140px) 0;background:var(--color-surface)}
+#fgs-farol-cascais .fgs-exp-head{display:flex;flex-direction:column;gap:20px;margin-bottom:56px}
+#fgs-farol-cascais .fgs-exp-head p{max-width:42ch;color:var(--color-muted)}
+#fgs-farol-cascais .fgs-exp-track{display:grid;grid-template-columns:1fr;gap:28px;padding:0 var(--gutter)}
+#fgs-farol-cascais .fgs-exp-card{position:relative;overflow:hidden;border-radius:4px;background:var(--color-dark);color:#fff;aspect-ratio:4/5}
+#fgs-farol-cascais .fgs-exp-media{position:absolute;inset:0;overflow:hidden}
+#fgs-farol-cascais .fgs-exp-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+#fgs-farol-cascais .fgs-exp-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,color-mix(in srgb,var(--color-dark) 85%,transparent));transition:background .8s var(--ease)}
+#fgs-farol-cascais .fgs-exp-card:hover .fgs-exp-media img{transform:scale(1.05)}
+#fgs-farol-cascais .fgs-exp-card:hover .fgs-exp-media::after{background:linear-gradient(180deg,color-mix(in srgb,var(--color-primary) 25%,transparent) 0%,color-mix(in srgb,var(--color-primary) 88%,transparent))}
+#fgs-farol-cascais .fgs-exp-body{position:absolute;left:0;right:0;bottom:0;padding:28px}
+#fgs-farol-cascais .fgs-exp-num{font-size:11px;letter-spacing:.2em;opacity:.7}
+#fgs-farol-cascais .fgs-exp-label{font-family:var(--font-serif);font-weight:400;font-size:clamp(1.9rem,3vw,2.6rem);line-height:1;margin:10px 0 12px}
+#fgs-farol-cascais .fgs-exp-line{font-size:15px;max-width:30ch;opacity:.88}
+
+/* 4 place */
+#fgs-farol-cascais .fgs-place{display:grid;grid-template-columns:1fr;gap:48px;padding-top:clamp(90px,14vh,170px);padding-bottom:clamp(90px,14vh,170px)}
+#fgs-farol-cascais .fgs-place-media{position:relative;overflow:hidden;aspect-ratio:3/2;border-radius:4px;background:var(--color-dark)}
+#fgs-farol-cascais .fgs-place-media img{position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover}
+#fgs-farol-cascais .fgs-place-data{position:absolute;inset:0;pointer-events:none;color:#fff;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+#fgs-farol-cascais .fgs-place-data .tl,#fgs-farol-cascais .fgs-place-data .br{position:absolute;padding:18px 20px;background:color-mix(in srgb,var(--color-dark) 38%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);border-radius:3px}
+#fgs-farol-cascais .fgs-place-data .tl{left:16px;top:16px}
+#fgs-farol-cascais .fgs-place-data .br{right:16px;bottom:16px;text-align:right}
+#fgs-farol-cascais .fgs-place-data b{display:block;font-weight:500;font-size:13px;letter-spacing:.08em;margin-top:2px}
+#fgs-farol-cascais .fgs-place-data .ticks{position:absolute;left:50%;top:50%;width:120px;height:120px;transform:translate(-50%,-50%);border:1px solid rgba(255,255,255,.35);border-radius:50%}
+#fgs-farol-cascais .fgs-place-data .ticks::before,#fgs-farol-cascais .fgs-place-data .ticks::after{content:"";position:absolute;background:rgba(255,255,255,.55)}
+#fgs-farol-cascais .fgs-place-data .ticks::before{left:50%;top:-14px;bottom:-14px;width:1px}
+#fgs-farol-cascais .fgs-place-data .ticks::after{top:50%;left:-14px;right:-14px;height:1px}
+#fgs-farol-cascais .fgs-place-copy{display:flex;flex-direction:column;gap:22px;align-self:center}
+#fgs-farol-cascais .fgs-place-copy p{max-width:44ch;color:var(--color-text)}
+#fgs-farol-cascais .fgs-place-copy p+p{color:var(--color-muted)}
+#fgs-farol-cascais .fgs-eco{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:color-mix(in srgb,var(--color-text) 14%,transparent);border:1px solid color-mix(in srgb,var(--color-text) 14%,transparent);margin-top:10px}
+#fgs-farol-cascais .fgs-eco li{background:var(--color-bg);padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+#fgs-farol-cascais .fgs-eco span{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--color-muted)}
+#fgs-farol-cascais .fgs-eco strong{font-family:var(--font-serif);font-weight:400;font-size:1.5rem;line-height:1.1}
+
+/* 5 transformation */
+#fgs-farol-cascais .fgs-dark{background:var(--color-dark);color:var(--color-dark-text)}
+#fgs-farol-cascais .fgs-transform{position:relative;padding:clamp(110px,18vh,220px) 0;overflow:hidden}
+#fgs-farol-cascais .fgs-transform::before{content:"";position:absolute;inset:0;background-image:linear-gradient(color-mix(in srgb,var(--color-dark-text) 6%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--color-dark-text) 6%,transparent) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 75%)}
+#fgs-farol-cascais .fgs-transform .fgs-h2{max-width:16ch;margin:24px 0 80px}
+#fgs-farol-cascais .fgs-stats{position:relative;display:grid;grid-template-columns:1fr;gap:56px}
+#fgs-farol-cascais .fgs-stat{border-top:1px solid color-mix(in srgb,var(--color-dark-text) 22%,transparent);padding-top:28px}
+#fgs-farol-cascais .fgs-stat-num{font-family:var(--font-serif);font-weight:300;font-size:clamp(4.4rem,10vw,9rem);line-height:.9;letter-spacing:-.03em;color:var(--color-accent);display:flex;align-items:baseline;gap:.08em}
+#fgs-farol-cascais .fgs-stat-unit{font-size:.36em;letter-spacing:0;color:var(--color-dark-text);opacity:.8}
+#fgs-farol-cascais .fgs-stat-claim{font-family:var(--font-serif);font-weight:400;font-size:1.6rem;margin:18px 0 8px}
+#fgs-farol-cascais .fgs-stat-copy{max-width:34ch;opacity:.72;font-size:15px}
+
+/* 6 rooms */
+#fgs-farol-cascais .fgs-rooms{padding-top:clamp(100px,16vh,180px);padding-bottom:clamp(100px,16vh,180px)}
+#fgs-farol-cascais .fgs-rooms-head{display:flex;flex-direction:column;gap:18px;margin-bottom:56px}
+#fgs-farol-cascais .fgs-room-grid{display:grid;grid-template-columns:1fr;gap:18px}
+#fgs-farol-cascais .fgs-room{position:relative;margin:0}
+#fgs-farol-cascais .fgs-room-btn{display:block;width:100%;overflow:hidden;border-radius:3px;background:var(--color-surface)}
+#fgs-farol-cascais .fgs-room-btn img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/2;transition:transform 1.1s var(--ease)}
+#fgs-farol-cascais .fgs-room-btn:hover img{transform:scale(1.04)}
+#fgs-farol-cascais .fgs-room figcaption{margin-top:12px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--color-muted)}
+#fgs-farol-cascais .fgs-lightbox{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:5vw;background:color-mix(in srgb,var(--color-dark) 94%,transparent);color:var(--color-dark-text);opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s}
+#fgs-farol-cascais .fgs-lightbox.is-open{opacity:1;visibility:visible}
+#fgs-farol-cascais .fgs-lightbox img{max-width:min(1400px,100%);max-height:80vh;object-fit:contain;border-radius:3px}
+#fgs-farol-cascais .fgs-lightbox p{font-size:11px;letter-spacing:.24em;text-transform:uppercase}
+#fgs-farol-cascais .fgs-lightbox button{position:absolute;top:20px;right:24px;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+
+/* 7 rituals */
+#fgs-farol-cascais .fgs-rituals{position:relative;padding:clamp(110px,18vh,220px) 0;overflow:hidden}
+#fgs-farol-cascais .fgs-rituals-bg{position:absolute;inset:-15% 0;background-size:cover;background-position:center;opacity:.16;filter:saturate(.7)}
+#fgs-farol-cascais .fgs-rituals-video{position:absolute;right:var(--gutter);top:clamp(90px,14vh,170px);width:min(400px,34vw);aspect-ratio:3/4;object-fit:cover;border-radius:200px 200px 4px 4px;opacity:.85;display:none}
+#fgs-farol-cascais .fgs-rituals .fgs-h2{position:relative;max-width:12ch;margin:24px 0 72px}
+#fgs-farol-cascais .fgs-ritual-grid{position:relative;display:grid;grid-template-columns:1fr;gap:18px}
+#fgs-farol-cascais .fgs-ritual{padding:32px 28px;border-radius:18px;background:color-mix(in srgb,var(--color-dark-text) 5%,transparent);border:1px solid color-mix(in srgb,var(--color-dark-text) 12%,transparent);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 30px 60px -30px rgba(0,0,0,.6);transition:transform .6s var(--ease),border-color .6s}
+#fgs-farol-cascais .fgs-ritual:hover{transform:translateY(-6px);border-color:var(--color-accent)}
+#fgs-farol-cascais .fgs-ritual-glyph{width:44px;height:44px;color:var(--color-accent);margin-bottom:26px}
+#fgs-farol-cascais .fgs-ritual-glyph svg{width:100%;height:100%}
+#fgs-farol-cascais .fgs-ritual-name{font-family:var(--font-serif);font-weight:400;font-size:1.65rem;line-height:1.1;margin-bottom:10px}
+#fgs-farol-cascais .fgs-ritual-line{font-size:15px;opacity:.72;max-width:32ch}
+
+/* 8 quote */
+#fgs-farol-cascais .fgs-quote{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#fff;text-align:center}
+#fgs-farol-cascais .fgs-quote-bg{position:absolute;inset:-10% 0;width:100%;height:120%;object-fit:cover}
+#fgs-farol-cascais .fgs-quote::after{content:"";position:absolute;inset:0;background:color-mix(in srgb,var(--color-dark) 58%,transparent)}
+#fgs-farol-cascais .fgs-quote blockquote{position:relative;z-index:2;max-width:1100px;padding:0 var(--gutter)}
+#fgs-farol-cascais .fgs-quote-mark{display:block;font-family:var(--font-serif);font-size:clamp(9rem,22vw,18rem);line-height:.6;color:var(--color-accent);height:.55em}
+#fgs-farol-cascais .fgs-quote p{font-family:var(--font-serif);font-weight:300;font-style:italic;font-size:clamp(2rem,4.6vw,4.3rem);line-height:1.12}
+#fgs-farol-cascais .fgs-quote cite{display:block;margin-top:40px;font-style:normal;font-size:12px;letter-spacing:.3em;font-variant:small-caps;text-transform:uppercase;opacity:.85}
+
+/* 9 cta */
+#fgs-farol-cascais .fgs-cta{position:relative;min-height:88vh;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#fff;text-align:center}
+#fgs-farol-cascais .fgs-cta::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,color-mix(in srgb,var(--color-dark) 70%,transparent),color-mix(in srgb,var(--color-primary) 45%,transparent));z-index:1}
+#fgs-farol-cascais .fgs-cta-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:26px;padding:0 24px}
+#fgs-farol-cascais .fgs-cta .fgs-h2{max-width:14ch}
+#fgs-farol-cascais .fgs-cta .fgs-h2 em{color:color-mix(in srgb,var(--color-accent) 45%,#fff)}
+#fgs-farol-cascais .fgs-cta-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:8px}
+#fgs-farol-cascais .fgs-urgency{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;opacity:.9}
+#fgs-farol-cascais .fgs-urgency i{width:7px;height:7px;border-radius:50%;background:var(--color-accent);box-shadow:0 0 0 0 var(--color-accent);animation:fgs-pulse-farol-cascais 2s infinite}
+@keyframes fgs-pulse-farol-cascais{70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+
+/* 10 footer */
+#fgs-farol-cascais .fgs-footer{padding:90px 0 40px}
+#fgs-farol-cascais .fgs-footer-top{display:grid;grid-template-columns:1fr;gap:44px;padding-bottom:64px;border-bottom:1px solid color-mix(in srgb,var(--color-dark-text) 16%,transparent)}
+#fgs-farol-cascais .fgs-footer .fgs-logo{--h:var(--logo-footer-h);}
+#fgs-farol-cascais .fgs-footer-col span{display:block;font-size:10px;letter-spacing:.24em;text-transform:uppercase;opacity:.55;margin-bottom:10px}
+#fgs-farol-cascais .fgs-footer-col p,#fgs-farol-cascais .fgs-footer-col a{font-family:var(--font-serif);font-size:1.35rem;line-height:1.3}
+#fgs-farol-cascais .fgs-footer-col a:hover{color:var(--color-accent)}
+#fgs-farol-cascais .fgs-footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:28px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.5}
+
+/* motion states (only when GSAP loaded) */
+#fgs-farol-cascais.is-anim [data-reveal]{opacity:0;transform:translateY(40px)}
+#fgs-farol-cascais.is-anim .fgs-mline>span{transform:translateY(105%)}
+#fgs-farol-cascais.is-anim .fgs-hero-tag .wi{transform:translateY(110%)}
+#fgs-farol-cascais.is-anim .fgs-hero-content>.fgs-logo,#fgs-farol-cascais.is-anim .fgs-hero-content>.fgs-logo-plate,#fgs-farol-cascais.is-anim .fgs-hero-sub{opacity:0}
+
+@media (min-width:768px){
+  #fgs-farol-cascais .fgs-exp-track{grid-template-columns:1fr 1fr}
+  #fgs-farol-cascais .fgs-stats{grid-template-columns:repeat(3,1fr);gap:40px}
+  #fgs-farol-cascais .fgs-room-grid{grid-template-columns:repeat(6,1fr)}
+  #fgs-farol-cascais .fgs-room.r-wide{grid-column:span 4}
+  #fgs-farol-cascais .fgs-room.r-tall{grid-column:span 2}
+  #fgs-farol-cascais .fgs-room.r-tall .fgs-room-btn img{aspect-ratio:3/4.2}
+  #fgs-farol-cascais .fgs-room.r-wide .fgs-room-btn img{aspect-ratio:2/1.06}
+  #fgs-farol-cascais .fgs-room.r-sq{grid-column:span 3}
+  #fgs-farol-cascais .fgs-ritual-grid{grid-template-columns:1fr 1fr}
+  #fgs-farol-cascais .fgs-footer-top{grid-template-columns:1.4fr 1fr 1fr 1fr}
+  #fgs-farol-cascais .fgs-hero-data{display:flex}
+  #fgs-farol-cascais .fgs-exp-card:last-child:nth-child(odd){grid-column:span 2;aspect-ratio:16/10}
+}
+@media (min-width:1024px){
+  #fgs-farol-cascais .fgs-exp.is-pinned{height:100vh;padding:0;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+  #fgs-farol-cascais .fgs-exp.is-pinned .fgs-exp-head{margin-bottom:40px}
+  #fgs-farol-cascais .fgs-exp.is-pinned .fgs-exp-track{display:flex;gap:28px;width:max-content;will-change:transform}
+  #fgs-farol-cascais .fgs-exp.is-pinned .fgs-exp-card{width:min(30vw,420px);flex:none;grid-column:auto;aspect-ratio:4/5}
+  #fgs-farol-cascais .fgs-exp-head{flex-direction:row;align-items:flex-end;justify-content:space-between}
+  #fgs-farol-cascais .fgs-place{grid-template-columns:6fr 4fr;gap:clamp(48px,6vw,110px)}
+  #fgs-farol-cascais .fgs-ritual-grid{grid-template-columns:repeat(3,1fr);max-width:calc(100% - min(400px,34vw) - 40px)}
+  #fgs-farol-cascais .fgs-ritual-grid>:nth-child(3n+2){transform:translateY(40px)}
+  #fgs-farol-cascais .fgs-rituals-video{display:block}
+  #fgs-farol-cascais .fgs-header-meta{display:block}
+}
+@media (min-width:1280px){
+  #fgs-farol-cascais{font-size:17px}
+  #fgs-farol-cascais .fgs-room-grid{gap:24px}
+}
+@media (min-width:1920px){
+  #fgs-farol-cascais{font-size:18px}
+  #fgs-farol-cascais .fgs-exp.is-pinned .fgs-exp-card{width:440px}
+}
+@media (prefers-reduced-motion:reduce){
+  #fgs-farol-cascais *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body style="margin:0;background:#0F1B22">
+
+<div id="fgs-farol-cascais" class="fgs">
+  
+  <!-- SWAP:LOGO --> <!-- header -->
+  <header class="fgs-header" data-header>
+    <a href="#fgs-farol-cascais-hero" aria-label="Farol Hotel — top"><img class="fgs-logo " data-logo alt="Farol Hotel logo" width="191" height="60"></a>
+    <div class="fgs-header-meta">Cascais · Estoril Coast</div>
+    <a class="fgs-btn fgs-btn-primary" href="#fgs-farol-cascais-book">Reserve</a>
+  </header>
+
+  <!-- ═══ 1 · HERO ═══ -->
+  <!-- SWAP:VIDEO → hero background | hero section -->
+  <!-- SWAP:LOGO --> <!-- hero -->
+  <section class="fgs-hero" id="fgs-farol-cascais-hero">
+    <video class="fgs-hero-video" autoplay muted loop playsinline preload="metadata" poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e1edb921f35a63175_Image%202.png">
+      <source src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69db8a1820c993d72e0d6b55_cliffside3.mp4" type="video/mp4">
+    </video>
+    <div class="fgs-hero-overlay"></div>
+    <div class="fgs-hero-content">
+      <img class="fgs-logo " data-logo alt="Farol Hotel logo" width="191" height="60">
+      <!-- SWAP:COPY → hero tagline -->
+      <h1 class="fgs-hero-tag" data-split>Cascais, on the water</h1>
+      <p class="fgs-hero-sub">Cascais · Estoril Coast · Portugal</p>
+    </div>
+    <div class="fgs-hero-data">
+      <div><span>Lat</span>38°41.42′ N</div>
+      <div><span>Lon</span>9°25.34′ W</div>
+      <div><span>Elev</span>5 m</div>
+    </div>
+    <div class="fgs-scroll" aria-hidden="true">Scroll<i></i></div>
+  </section>
+
+  <!-- ═══ 2 · MANIFESTO ═══ -->
+  <!-- SWAP:COPY → manifesto -->
+  <!-- SWAP:3D → coral | Coastal — a mansion on the Atlantic rocks (coastal + cliffside) -->
+  <section class="fgs-manifesto">
+    <div class="fgs-3d" data-glb="https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_branch_of_st_0411162924_texture.glb" aria-hidden="true"></div>
+    <div class="fgs-wrap">
+      <p class="fgs-eyebrow">The Philosophy</p>
+      <p class="fgs-mtext"><span class="fgs-mline"><span>A nineteenth-century mansion</span></span><span class="fgs-mline"><span>set on the Atlantic rocks,</span></span><span class="fgs-mline"><span>Cascais bay on one side,</span></span><span class="fgs-mline"><span>the open ocean on the other.</span></span></p>
+    </div>
+  </section>
+
+  <!-- ═══ 3 · SIGNATURE EXPERIENCES ═══ -->
+  <!-- SWAP:COPY → signature experiences -->
+  <section class="fgs-exp" data-exp>
+    <div class="fgs-wrap fgs-exp-head">
+      <div><p class="fgs-eyebrow">Signature Experiences</p><h2 class="fgs-h2" style="margin-top:18px">The Atlantic, <em>up close</em></h2></div>
+      <p>Rooms over the waves, dinner on the rocks and a pool bar where the Atlantic keeps the rhythm.</p>
+    </div>
+    <div class="fgs-exp-track" data-exp-track>
+        <!-- SWAP:IMG → experience card 1: Junior Suites | ratio: 4:5 (source 16:9) -->
+        <article class="fgs-exp-card" data-reveal>
+          <div class="fgs-exp-media"><img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f1fe2d8b2f06d2529_Image%2012.png" alt="Junior Suites — Farol Hotel" loading="lazy" decoding="async"></div>
+          <div class="fgs-exp-body">
+            <span class="fgs-exp-num">01</span>
+            <h3 class="fgs-exp-label">Junior Suites</h3>
+            <p class="fgs-exp-line">Four suites with 180° Atlantic panoramas through glass fronts.</p>
+          </div>
+        </article>
+        <!-- SWAP:IMG → experience card 2: Deck on the Rocks | ratio: 4:5 (source 4:3) -->
+        <article class="fgs-exp-card" data-reveal>
+          <div class="fgs-exp-media"><img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db8754c5bc3f91633f248c_Image%20149.png" alt="Deck on the Rocks — Farol Hotel" loading="lazy" decoding="async"></div>
+          <div class="fgs-exp-body">
+            <span class="fgs-exp-num">02</span>
+            <h3 class="fgs-exp-label">Deck on the Rocks</h3>
+            <p class="fgs-exp-line">A table for two set right above the waves.</p>
+          </div>
+        </article>
+        <!-- SWAP:IMG → experience card 3: Element6 | ratio: 4:5 (source 16:9) -->
+        <article class="fgs-exp-card" data-reveal>
+          <div class="fgs-exp-media"><img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da7551d402271fd28d57c9_Image%2052.png" alt="Element6 — Farol Hotel" loading="lazy" decoding="async"></div>
+          <div class="fgs-exp-body">
+            <span class="fgs-exp-num">03</span>
+            <h3 class="fgs-exp-label">Element6</h3>
+            <p class="fgs-exp-line">The hotel restaurant and sushi bar, facing the sea.</p>
+          </div>
+        </article>
+        <!-- SWAP:IMG → experience card 4: O’Mast | ratio: 4:5 (source 16:9) -->
+        <article class="fgs-exp-card" data-reveal>
+          <div class="fgs-exp-media"><img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db8760ae50d8ef8003e762_Image%20155.png" alt="O’Mast — Farol Hotel" loading="lazy" decoding="async"></div>
+          <div class="fgs-exp-body">
+            <span class="fgs-exp-num">04</span>
+            <h3 class="fgs-exp-label">O’Mast</h3>
+            <p class="fgs-exp-line">The summer pool bar: cocktails, tunes and the Atlantic line-dance.</p>
+          </div>
+        </article>
+        <!-- SWAP:IMG → experience card 5: Sala Farol | ratio: 4:5 (source 16:9) -->
+        <article class="fgs-exp-card" data-reveal>
+          <div class="fgs-exp-media"><img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e13e8a712bef8f191_Image%209.png" alt="Sala Farol — Farol Hotel" loading="lazy" decoding="async"></div>
+          <div class="fgs-exp-body">
+            <span class="fgs-exp-num">05</span>
+            <h3 class="fgs-exp-label">Sala Farol</h3>
+            <p class="fgs-exp-line">Events with ocean views and a terrace of their own.</p>
+          </div>
+        </article>
+        <!-- SWAP:IMG → experience card 6: Guincho | ratio: 4:5 (source 16:9) -->
+        <article class="fgs-exp-card" data-reveal>
+          <div class="fgs-exp-media"><img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f679754764ba8477c_Image%203.png" alt="Guincho — Farol Hotel" loading="lazy" decoding="async"></div>
+          <div class="fgs-exp-body">
+            <span class="fgs-exp-num">06</span>
+            <h3 class="fgs-exp-label">Guincho</h3>
+            <p class="fgs-exp-line">Wild sea and dunes, a short drive up the coast.</p>
+          </div>
+        </article>
+    </div>
+  </section>
+
+  <!-- ═══ 4 · THE PLACE ═══ -->
+  <!-- SWAP:IMG → the place | ratio: 3:2 (source 16:9) -->
+  <!-- SWAP:COPY → the place -->
+  <section class="fgs-wrap fgs-place">
+    <div class="fgs-place-media" data-reveal>
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da75501f121aa18b84accb_Image%2043.png" alt="Black-and-white rocks on an ocean shore" loading="lazy" decoding="async" data-parallax>
+      <div class="fgs-place-data">
+        <div class="tl">Coordinates<b>38°41.42′ N</b><b>9°25.34′ W</b></div>
+        <div class="ticks"></div>
+        <div class="br">Santa Marta lighthouse<b>next door</b></div>
+      </div>
+    </div>
+    <div class="fgs-place-copy" data-reveal>
+      <p class="fgs-eyebrow">The Place · Cascais · Estoril Coast</p>
+      <h2 class="fgs-h2">On <em>the Cascais rocks</em></h2>
+      <p>Farol means lighthouse: the hotel stands beside the Santa Marta lighthouse, on the rocks where Cascais bay meets the Atlantic.</p>
+      <p>The marina and the old town are a short walk away; Guincho beach and the Sintra hills a short drive.</p>
+      <p>Lisbon is about thirty minutes by car, or forty by the coastal train from Cascais station.</p>
+      <ul class="fgs-eco"><li><span>Junior Suites</span><strong>4</strong></li><li><span>Marina</span><strong>short walk</strong></li><li><span>Guincho</span><strong>≈ 15 min</strong></li><li><span>Lisbon</span><strong>≈ 30 min</strong></li></ul>
+    </div>
+  </section>
+
+  <!-- ═══ 5 · TRANSFORMATION PROMISE ═══ -->
+  <!-- SWAP:COPY → transformation stats 1–3 -->
+  <section class="fgs-dark fgs-transform">
+    <div class="fgs-wrap">
+      <p class="fgs-eyebrow">The Transformation</p>
+      <h2 class="fgs-h2" data-reveal>Farol, <em>by numbers</em></h2>
+      <div class="fgs-stats">
+        <div class="fgs-stat" data-reveal>
+          <div class="fgs-stat-num"><span class="fgs-count" data-to="180" data-dec="0">0</span><span class="fgs-stat-unit">°</span></div>
+          <h3 class="fgs-stat-claim">Of Atlantic from a suite</h3>
+          <p class="fgs-stat-copy">Glass fronts open straight onto the ocean.</p>
+        </div>
+        <div class="fgs-stat" data-reveal>
+          <div class="fgs-stat-num"><span class="fgs-count" data-to="33" data-dec="0">0</span><span class="fgs-stat-unit">rooms</span></div>
+          <h3 class="fgs-stat-claim">On the water</h3>
+          <p class="fgs-stat-copy">Most with sea views, many with balconies.</p>
+        </div>
+        <div class="fgs-stat" data-reveal>
+          <div class="fgs-stat-num"><span class="fgs-count" data-to="5" data-dec="0">0</span><span class="fgs-stat-unit">stars</span></div>
+          <h3 class="fgs-stat-claim">On the Estoril coast</h3>
+          <p class="fgs-stat-copy">A boutique mansion beside the lighthouse.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6 · ROOMS & SPACES ═══ -->
+  <section class="fgs-wrap fgs-rooms">
+    <div class="fgs-rooms-head">
+      <p class="fgs-eyebrow">Rooms &amp; Spaces</p>
+      <h2 class="fgs-h2">Rooms <em>over the waves</em></h2>
+    </div>
+    <div class="fgs-room-grid">
+        <!-- SWAP:IMG → room/interior 1: Junior Suite | ratio: 3:2 (source 16:9) -->
+        <figure class="fgs-room r-wide" data-reveal>
+          <button class="fgs-room-btn" type="button" data-full="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png" data-caption="Junior Suite" aria-label="Open Junior Suite">
+            <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f2b4a1ada2c022c2b_Image%2056.png" alt="Junior Suite — Farol Hotel" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Junior Suite</figcaption>
+        </figure>
+        <!-- SWAP:IMG → room/interior 2: Superior Room | ratio: 3:2 (source 16:9) -->
+        <figure class="fgs-room r-tall" data-reveal>
+          <button class="fgs-room-btn" type="button" data-full="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fc699fe80d5a792a6_Image%2010.png" data-caption="Superior Room" aria-label="Open Superior Room">
+            <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fc699fe80d5a792a6_Image%2010.png" alt="Superior Room — Farol Hotel" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Superior Room</figcaption>
+        </figure>
+        <!-- SWAP:IMG → room/interior 3: Sea View Room | ratio: 3:2 (source 16:9) -->
+        <figure class="fgs-room r-sq" data-reveal>
+          <button class="fgs-room-btn" type="button" data-full="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755a0854ea3cadb267cd_Image%2054.png" data-caption="Sea View Room" aria-label="Open Sea View Room">
+            <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755a0854ea3cadb267cd_Image%2054.png" alt="Sea View Room — Farol Hotel" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Sea View Room</figcaption>
+        </figure>
+        <!-- SWAP:IMG → room/interior 4: Garden View Room | ratio: 3:2 (source 16:9) -->
+        <figure class="fgs-room r-sq" data-reveal>
+          <button class="fgs-room-btn" type="button" data-full="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png" data-caption="Garden View Room" aria-label="Open Garden View Room">
+            <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c11ea1438ae657847_Image%2055.png" alt="Garden View Room — Farol Hotel" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Garden View Room</figcaption>
+        </figure>
+        <!-- SWAP:IMG → room/interior 5: Deck on the Rocks | ratio: 3:2 (source 16:9) -->
+        <figure class="fgs-room r-tall" data-reveal>
+          <button class="fgs-room-btn" type="button" data-full="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db875f713f22dbb407ccd8_Image%20171.png" data-caption="Deck on the Rocks" aria-label="Open Deck on the Rocks">
+            <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db875f713f22dbb407ccd8_Image%20171.png" alt="Deck on the Rocks — Farol Hotel" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Deck on the Rocks</figcaption>
+        </figure>
+        <!-- SWAP:IMG → room/interior 6: Private 6 Room | ratio: 3:2 (source 16:9) -->
+        <figure class="fgs-room r-wide" data-reveal>
+          <button class="fgs-room-btn" type="button" data-full="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755108515add56c26e14_Image%2053.png" data-caption="Private 6 Room" aria-label="Open Private 6 Room">
+            <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755108515add56c26e14_Image%2053.png" alt="Private 6 Room — Farol Hotel" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Private 6 Room</figcaption>
+        </figure>
+    </div>
+  </section>
+  <div class="fgs-lightbox" data-lightbox role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button type="button" data-close>Close ✕</button>
+    <img alt="">
+    <p></p>
+  </div>
+
+  <!-- ═══ 7 · WELLNESS RITUALS ═══ -->
+  <!-- SWAP:COPY → wellness rituals 1–6 -->
+  <!-- SWAP:IMG → rituals background texture | ratio: 16:9 -->
+  <!-- SWAP:VIDEO → rituals texture accent | wellness rituals section -->
+  <section class="fgs-dark fgs-rituals">
+    <div class="fgs-rituals-bg" data-bg-parallax style="background-image:url('https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755102e16a74f59b0111_Image%2044.png')"></div>
+    <video class="fgs-rituals-video" autoplay muted loop playsinline preload="none" poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755102e16a74f59b0111_Image%2044.png">
+      <source src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69db8a0bd7968308bb853b44_cliffside1.mp4" type="video/mp4">
+    </video>
+    <div class="fgs-wrap" style="position:relative">
+      <p class="fgs-eyebrow">Wellness Rituals</p>
+      <h2 class="fgs-h2" data-reveal>Rituals of <em>the coast</em></h2>
+      <div class="fgs-ritual-grid">
+        <div class="fgs-ritual" data-reveal style="--d:0">
+          <div class="fgs-ritual-glyph"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20c4-6 8-6 12 0s8 6 12 0 8-6 12 0"/><path d="M4 28c4-6 8-6 12 0s8 6 12 0 8-6 12 0" opacity=".5"/></svg></div>
+          <h3 class="fgs-ritual-name">Atlantic Swim</h3>
+          <p class="fgs-ritual-line">Cold water, then sun on the rocks.</p>
+        </div>
+        <div class="fgs-ritual" data-reveal style="--d:1">
+          <div class="fgs-ritual-glyph"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="22" cy="22" r="7"/><path d="M22 5v5M22 34v5M5 22h5M34 22h5M10 10l3.5 3.5M30.5 30.5 34 34M34 10l-3.5 3.5M13.5 30.5 10 34"/></svg></div>
+          <h3 class="fgs-ritual-name">Lighthouse Dusk</h3>
+          <p class="fgs-ritual-line">Santa Marta lighting up next door.</p>
+        </div>
+        <div class="fgs-ritual" data-reveal style="--d:2">
+          <div class="fgs-ritual-glyph"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 26c6 0 10 2 14 6 4-4 8-6 14-6M12 20c3 0 6 1 10 4 4-3 7-4 10-4" /><path d="M22 18v-8" opacity=".6"/></svg></div>
+          <h3 class="fgs-ritual-name">Massage</h3>
+          <p class="fgs-ritual-line">A treatment to the sound of the surf.</p>
+        </div>
+        <div class="fgs-ritual" data-reveal style="--d:0">
+          <div class="fgs-ritual-glyph"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 6c6 8 10 13 10 19a10 10 0 0 1-20 0c0-6 4-11 10-19z"/><path d="M17 26a5 5 0 0 0 5 5" opacity=".5"/></svg></div>
+          <h3 class="fgs-ritual-name">Pool Hour</h3>
+          <p class="fgs-ritual-line">O’Mast, all summer.</p>
+        </div>
+        <div class="fgs-ritual" data-reveal style="--d:1">
+          <div class="fgs-ritual-glyph"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 36 8 16a16 12 0 0 1 28 0z"/><path d="M22 36 15 12M22 36V10M22 36l7-24" opacity=".6"/></svg></div>
+          <h3 class="fgs-ritual-name">Sushi Night</h3>
+          <p class="fgs-ritual-line">Element6, the ocean on the plate.</p>
+        </div>
+        <div class="fgs-ritual" data-reveal style="--d:2">
+          <div class="fgs-ritual-glyph"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 30A13 13 0 0 1 16 8a13 13 0 1 0 14 22z"/></svg></div>
+          <h3 class="fgs-ritual-name">Bay Lights</h3>
+          <p class="fgs-ritual-line">Cascais glittering from the deck.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 8 · EDITORIAL QUOTE ═══ -->
+  <!-- SWAP:IMG → editorial quote background | ratio: 16:9 (source 16:9) -->
+  <!-- SWAP:COPY → editorial quote -->
+  <section class="fgs-quote">
+    <img class="fgs-quote-bg" src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755fdef24e731275c24a_Image%2042.png" alt="" loading="lazy" decoding="async" data-parallax>
+    <blockquote data-reveal>
+      <span class="fgs-quote-mark" aria-hidden="true">“</span>
+      <p>The waves break right beneath your balcony — nowhere in Cascais sits closer to the sea.</p>
+      <cite>A recent guest</cite>
+    </blockquote>
+  </section>
+
+  <!-- ═══ 9 · BOOKING CTA ═══ -->
+  <!-- SWAP:VIDEO → booking CTA background (reuses hero) | booking CTA -->
+  <!-- SWAP:COPY → booking CTA -->
+  <section class="fgs-cta" id="fgs-farol-cascais-book">
+    <video class="fgs-cta-video" autoplay muted loop playsinline preload="none" poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755e1edb921f35a63175_Image%202.png">
+      <source src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69db8a1820c993d72e0d6b55_cliffside3.mp4" type="video/mp4">
+    </video>
+    <div class="fgs-cta-inner" data-reveal>
+      <p class="fgs-urgency"><i></i>Now booking — New Year’s Eve at Element6</p>
+      <h2 class="fgs-h2">On <em>the water</em></h2>
+      <p style="max-width:40ch;opacity:.88">Book direct for sea-view rooms, Christmas brunch and New Year’s Eve.</p>
+      <div class="fgs-cta-btns">
+        <a class="fgs-btn fgs-btn-primary" href="https://farol.com.pt" target="_blank" rel="noopener">Reserve Your Stay</a>
+        <a class="fgs-btn fgs-btn-ghost" href="#">Download the Experience Guide</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 10 · FOOTER ═══ -->
+  <!-- SWAP:LOGO --> <!-- footer -->
+  <footer class="fgs-dark fgs-footer">
+    <div class="fgs-wrap">
+      <div class="fgs-footer-top">
+        <div><img class="fgs-logo " data-logo alt="Farol Hotel logo" width="191" height="60"></div>
+        <div class="fgs-footer-col"><span>Find us</span><p>Avenida Rei Humberto II de Itália 7, 2750-800 Cascais, Portugal</p></div>
+        <div class="fgs-footer-col"><span>Coordinates</span><p>38°41.42′ N<br>9°25.34′ W</p></div>
+        <div class="fgs-footer-col"><span>Write · Follow</span><a href="mailto:farol@farol.com.pt">farol@farol.com.pt</a><br><a href="https://instagram.com/farol_hotel" target="_blank" rel="noopener">@farol_hotel</a></div>
+      </div>
+      <div class="fgs-footer-bottom"><span>© 2026 Farol Hotel</span><span>On the water · Cascais</span></div>
+    </div>
+  </footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/loaders/GLTFLoader.js"></script>
+<script>
+(function(){
+  var root=document.getElementById('fgs-farol-cascais');
+  if(!root) return;
+  var LOGO_SRC='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAC8CAMAAACT8iBTAAADAFBMVEVMaXH////+/v7////////////////////////////+/v7////////////////////////////////////+/v7////+/v7////+/v7////+/v7////////////////////////////////////////////////////////////////////////////////+/v7////////////////////////////////+/v7////////////////////////////////////////////////////+/v7////////////////////+/v7////+/v7////////+/v7////////////////////+/v7////////////////////////////////////+/v7////////////////////+/v7////////////////////////+/v7////////////////////+/v7////////////////////////////+/v7////////////////////////////+/v7////////+/v7////////////////////////////////////////////////////////////////////////////+/v7////////////////////+/v7////////////////////////////////////////////+/v7////////////////+/v7////////////////////////+/v7////////+/v7////////////////////////////////////////////////////+/v7////////////////////+/v7////////////////////////////////////////////////////////////////////////+/v7////////////////////////////+/v7////////////////+/v7////////////////////+/v7////////////////////////////////////Ree1sAAAA/3RSTlMABe7wA/79AQIE/DH6LvvhCvgGMO/5OOt+0wcgH3nqRCqVQVSsLFbUS5cVCAyZve0LCQ/192ktHQ4QEyTHNw2tMxHcF+j0HLPWGonM4LLl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';
+  root.querySelectorAll('img[data-logo]').forEach(function(i){i.src=LOGO_SRC;});
+
+  // header state
+  var header=root.querySelector('[data-header]');
+  function onScroll(){header.classList.toggle('is-solid',window.scrollY>80);}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // lightbox
+  var lb=root.querySelector('[data-lightbox]'),lbImg=lb.querySelector('img'),lbCap=lb.querySelector('p');
+  root.querySelectorAll('.fgs-room-btn').forEach(function(b){b.addEventListener('click',function(){lbImg.src=b.dataset.full;lbImg.alt=b.dataset.caption;lbCap.textContent=b.dataset.caption;lb.classList.add('is-open');});});
+  function closeLb(){lb.classList.remove('is-open');}
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target.hasAttribute('data-close'))closeLb();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+  // split hero tagline into words
+  var tag=root.querySelector('[data-split]');
+  tag.innerHTML=tag.textContent.trim().split(/\s+/).map(function(w){return '<span class="w"><span class="wi">'+w+'</span></span>';}).join(' ');
+
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(window.gsap&&window.ScrollTrigger&&!reduce){
+    gsap.registerPlugin(ScrollTrigger);
+    root.classList.add('is-anim');
+    var heroLogo=root.querySelector('.fgs-hero .fgs-logo-plate')||root.querySelector('.fgs-hero .fgs-logo');
+    gsap.timeline({delay:.2})
+      .to(heroLogo,{opacity:1,duration:1.4,ease:'power2.out'})
+      .to(root.querySelectorAll('.fgs-hero-tag .wi'),{y:0,duration:1.2,stagger:.08,ease:'expo.out'},'-=.9')
+      .to(root.querySelector('.fgs-hero-sub'),{opacity:.85,duration:1},'-=.6');
+    gsap.to(root.querySelector('.fgs-hero-content'),{yPercent:-18,opacity:.2,ease:'none',scrollTrigger:{trigger:root.querySelector('.fgs-hero'),start:'top top',end:'bottom top',scrub:true}});
+
+    root.querySelectorAll('.fgs-mline>span').forEach(function(s,i){
+      gsap.to(s,{y:0,duration:1.3,ease:'expo.out',scrollTrigger:{trigger:s.parentNode,start:'top 88%'}});
+    });
+    root.querySelectorAll('[data-reveal]').forEach(function(el){
+      gsap.to(el,{opacity:1,y:0,duration:1.2,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 90%'}});
+    });
+
+    // horizontal experiences on desktop
+    gsap.matchMedia().add('(min-width:1024px)',function(){
+      var sec=root.querySelector('[data-exp]'),track=root.querySelector('[data-exp-track]');
+      sec.classList.add('is-pinned');
+      var dist=function(){return Math.max(0,track.scrollWidth-window.innerWidth);};
+      gsap.to(track,{x:function(){return -dist();},ease:'none',scrollTrigger:{trigger:sec,start:'top top',end:function(){return '+='+dist();},pin:true,scrub:1,invalidateOnRefresh:true}});
+      return function(){sec.classList.remove('is-pinned');};
+    });
+
+    root.querySelectorAll('[data-parallax]').forEach(function(img){
+      gsap.fromTo(img,{yPercent:-6},{yPercent:6,ease:'none',scrollTrigger:{trigger:img.parentNode,start:'top bottom',end:'bottom top',scrub:true}});
+    });
+    var bg=root.querySelector('[data-bg-parallax]');
+    gsap.fromTo(bg,{yPercent:-8},{yPercent:8,ease:'none',scrollTrigger:{trigger:bg.parentNode,start:'top bottom',end:'bottom top',scrub:true}});
+
+    root.querySelectorAll('.fgs-count').forEach(function(el){
+      var o={v:0},to=parseFloat(el.dataset.to),dec=parseInt(el.dataset.dec,10)||0;
+      gsap.to(o,{v:to,duration:2.2,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 85%'},onUpdate:function(){el.textContent=o.v.toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec,useGrouping:!el.hasAttribute('data-plain')});}});
+    });
+    window.addEventListener('load',function(){ScrollTrigger.refresh();});
+  } else {
+    root.querySelectorAll('.fgs-count').forEach(function(el){el.textContent=parseFloat(el.dataset.to).toLocaleString('en-US',{minimumFractionDigits:+el.dataset.dec||0,useGrouping:!el.hasAttribute('data-plain')});});
+  }
+
+  // 3D object: loaded only when the manifesto approaches the viewport
+  var slot=root.querySelector('.fgs-3d');
+  function init3D(){
+    if(!window.THREE||!THREE.GLTFLoader){slot.classList.add('is-failed');return;}
+    var W=280,H=280,renderer=new THREE.WebGLRenderer({alpha:true,antialias:true});
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));renderer.setSize(W,H);renderer.setClearColor(0x000000,0);
+    renderer.outputEncoding=THREE.sRGBEncoding;
+    slot.appendChild(renderer.domElement);
+    var scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(35,1,.1,100);cam.position.set(0,0,4.2);
+    var key=new THREE.DirectionalLight(0xffd9a8,1.6);key.position.set(3,3,4);scene.add(key);       // warm key
+    var rim=new THREE.DirectionalLight(0x9cc7ff,1.2);rim.position.set(-4,1.5,-3);scene.add(rim);    // cool rim
+    var fill=new THREE.DirectionalLight(0xb9d4ff,.45);fill.position.set(-3,-1,3);scene.add(fill);   // cool fill
+    scene.add(new THREE.AmbientLight(0xffffff,.35));
+    var model=null,paused=false;
+    slot.addEventListener('mouseenter',function(){paused=true;});
+    slot.addEventListener('mouseleave',function(){paused=false;});
+    new THREE.GLTFLoader().load(slot.dataset.glb,function(g){
+      model=g.scene;var box=new THREE.Box3().setFromObject(model),size=box.getSize(new THREE.Vector3()),ctr=box.getCenter(new THREE.Vector3());
+      model.position.sub(ctr);var s=2.2/Math.max(size.x,size.y,size.z);var pivot=new THREE.Group();pivot.add(model);pivot.scale.setScalar(s);scene.add(pivot);model=pivot;
+    },undefined,function(){slot.classList.add('is-failed');});
+    (function loop(){requestAnimationFrame(loop);if(model&&!paused)model.rotation.y+=0.002;renderer.render(scene,cam);})();
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();init3D();}},{rootMargin:'400px'});io.observe(slot);
+  } else init3D();
+})();
+</script>
+<!--
+CUSTOMIZATION GUIDE — Farol Hotel
+=====================================================
+Every SWAP marker in this file, in page order:
+ 1. [ ] SWAP:IMG → experience card 1: Junior Suites | ratio: 4:5 (source 16:9)
+ 2. [ ] SWAP:IMG → experience card 2: Deck on the Rocks | ratio: 4:5 (source 4:3)
+ 3. [ ] SWAP:IMG → experience card 3: Element6 | ratio: 4:5 (source 16:9)
+ 4. [ ] SWAP:IMG → experience card 4: O’Mast | ratio: 4:5 (source 16:9)
+ 5. [ ] SWAP:IMG → experience card 5: Sala Farol | ratio: 4:5 (source 16:9)
+ 6. [ ] SWAP:IMG → experience card 6: Guincho | ratio: 4:5 (source 16:9)
+ 7. [ ] SWAP:IMG → room/interior 1: Junior Suite | ratio: 3:2 (source 16:9)
+ 8. [ ] SWAP:IMG → room/interior 2: Superior Room | ratio: 3:2 (source 16:9)
+ 9. [ ] SWAP:IMG → room/interior 3: Sea View Room | ratio: 3:2 (source 16:9)
+10. [ ] SWAP:IMG → room/interior 4: Garden View Room | ratio: 3:2 (source 16:9)
+11. [ ] SWAP:IMG → room/interior 5: Deck on the Rocks | ratio: 3:2 (source 16:9)
+12. [ ] SWAP:IMG → room/interior 6: Private 6 Room | ratio: 3:2 (source 16:9)
+13. [ ] SWAP:LOGO
+14. [ ] SWAP:VIDEO → hero background | hero section
+15. [ ] SWAP:LOGO
+16. [ ] SWAP:COPY → hero tagline
+17. [ ] SWAP:COPY → manifesto
+18. [ ] SWAP:3D → coral | Coastal — a mansion on the Atlantic rocks (coastal + cliffside)
+19. [ ] SWAP:COPY → signature experiences
+20. [ ] SWAP:IMG → the place | ratio: 3:2 (source 16:9)
+21. [ ] SWAP:COPY → the place
+22. [ ] SWAP:COPY → transformation stats 1–3
+23. [ ] SWAP:COPY → wellness rituals 1–6
+24. [ ] SWAP:IMG → rituals background texture | ratio: 16:9
+25. [ ] SWAP:VIDEO → rituals texture accent | wellness rituals section
+26. [ ] SWAP:IMG → editorial quote background | ratio: 16:9 (source 16:9)
+27. [ ] SWAP:COPY → editorial quote
+28. [ ] SWAP:VIDEO → booking CTA background (reuses hero) | booking CTA
+29. [ ] SWAP:COPY → booking CTA
+30. [ ] SWAP:LOGO
+
+NO ASSET IN CSV items: none — every image/video slot uses the CSV library.
+
+PRODUCTION FOLLOW-UP
+!! 3D: the GLB host (hotels3ds.s3.eu-north-1.amazonaws.com) sends no CORS
+!!     header, so browsers block GLTFLoader on any other domain. Add a CORS rule
+!!     to the bucket (AllowedOrigins: *, AllowedMethods: GET). Until then the
+!!     3D slot hides itself and the page is unaffected. The coral GLB is
+!!     large; a Draco-compressed export would load much faster.
+!! Library imagery is AI landscape art, not the hotel's own photography —
+!!     swap in real rooms/spa shots before any live use.
+!! Email and Instagram confirmed on the hotel’s own site (checked 27 Oct 2026).
+!! Editorial quote is illustrative — replace with a real press line or verified guest review.
+!! Logo v2 is the white logo from their homepage HTML (none had been scraped).
+!! Room count (33) comes from Apollo — confirm.
+!! Library has no Cascais imagery — sea-window rooms and rocky-shore stand-ins; swap in their suites, deck and lighthouse views first.
+!! Their site leads in Portuguese; this demo is in English.
+!! Webflow: this file is over the 50,000-character Embed limit. Paste the
+!!     pieces in ./webflow/ instead (each under the limit; see
+!!     PASTE-INTO-WEBFLOW.txt there). Regenerate them after any rebuild:
+!!     node webflow_split.js .. <slug>
+=====================================================
+-->
+</body>
+</html>
