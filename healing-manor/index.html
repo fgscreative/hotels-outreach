@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Healing Manor — Healing · North East Lincolnshire</title>
+<!--
+BRAND EXTRACTION REPORT
+========================
+Hotel Name:            Healing Manor
+URL:                   https://www.healingmanorhotel.co.uk
+Primary Color:         #5F6B4E  Healing sage, deepened (logo sage #A2A884 is too light for the hero overlay)
+Secondary Color:       #2B2F38  charcoal (site nav band)
+Accent Color:          #8A6E46  old oak, for highlights
+Background Mood:       Light & warm — cream, Healing sage, charcoal nav band
+Font Pairing (Google): EB Garamond (editorial serif headlines) + Figtree (grotesque body)
+                       Closest free match to the site's Arno Pro Display + Open Sans
+Tone of Voice:         Warm, countryside, celebratory — "Hotel, Dining & Weddings"
+Landscape Archetype:   Forest — Lincolnshire parkland (forest library + rustic interiors)
+Positioning:           A 4-star country house hotel in 36 acres of parkland west of Grimsby, in a village named in the Domesday Book
+Key Experiences:       The Pig & Whistle pub dining / Portman Restaurant / Weddings in The Barn (up to 150) / 37 bedrooms incl. dog-friendly rooms / Afternoon tea & Sunday lunch / 36 acres of grounds
+Coordinates + Elevation: 53°34.89′ N, 0°09.70′ W — 10 m (parkland on the Humber plain, west of Grimsby)
+
+ASSET MAPPING REPORT
+========================
+Source: "contenct links MASTER.csv" is a library grouped by landscape, not a
+SLOT|TYPE|SRC|RATIO|DESCRIPTION sheet. Slots were filled from the
+"forest" group plus the "wine country" group (rustic table, window & stone-room shots).
+Total assets in CSV library: 403 images, 34 videos, 3 GLB models
+Assets successfully mapped to this page: 15 images + 2 videos + 1 GLB + logo
+Slots covered by CSV: hero video, hero poster, experience 1–5, the place, rooms 1–6, rituals texture video + background, editorial quote, booking CTA (reuses hero video)
+Slots falling back to Unsplash: none
+Logo SRC: logos/healingmanorhotel.co.uk.v2.png (scraped JPG on white — background removed, white on dark) — embedded in this file (PNG data URI)
+3D Object SRC: https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb (leaf)
+Video assets:
+  - hero + booking CTA: https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c09a2310d67bcd25c0d_compressed-video.mp4
+  - rituals texture accent: https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c0fe737ad6b6c354b9c_Video%201.mp4
+Image assets:
+  - experience-1: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ff46b5e27717728295d_Image%20200.png  [wine country #13, 16:9]
+  - experience-2: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f5931b223dc54467b_Image%2062.png  [forest #0, 16:9]
+  - experience-3: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ff42e59d41eee7fa2f0_Image%20199.png  [wine country #14, 16:9]
+  - experience-4: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ff6979c818214707b17_Image%20226.png  [wine country #18, 16:9]
+  - experience-5: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2795baeedff7f272_Image%2069.png  [forest #13, 16:9]
+  - the-place: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c3fc86be474e72fa6_Image%2063.png  [forest #11, 16:9]
+  - editorial-quote: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c20859ca462d94b77_Image%2064.png  [forest #14, 16:9]
+  - rituals-background: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2d6f969a6ed97235_Image%2065.png  [forest #9, 4:3]
+  - hero-poster: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c025be27c5b40f2d7_Image%2061.png  [forest #16, 16:9]
+  - room-1: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ff64725bb5df71bb8fb_Image%20217.png  [wine country #23, 1:1]
+  - room-2: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d01b3f8e72daf583f_Image%2074.png  [forest #5, 4:3]
+  - room-3: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ff628c0d15aa2d17ccb_Image%20219.png  [wine country #22, 1:1]
+  - room-4: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ff6fae05cadd81d490e_Image%20227.png  [wine country #25, 16:9]
+  - room-5: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d10aa143cd1856fdf_Image%2075.png  [forest #7, 4:3]
+  - room-6: https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ff6e2a94b279b6c6e4d_Image%20220.png  [wine country #20, 1:1]
+-->
+<!--
+CSS CUSTOM PROPERTIES (scoped to #fgs-healing-manor)
+=====================================================
+--color-primary    #5F6B4E   Healing sage, deepened (logo sage #A2A884 is too light for the hero overlay)
+--color-secondary  #2B2F38   charcoal (site nav band)
+--color-accent     #8A6E46   old oak, for highlights
+--color-bg         #F6F4EE   page background (light mood)
+--color-surface    #ECE9DF   raised panels on the page background
+--color-text       #23272E   body text on --color-bg
+--color-muted      #6E716A   secondary text
+--color-dark       #1E2229   contrast sections (transformation, rituals, footer)
+--color-dark-text  #F2F0E9   text on --color-dark
+--font-serif       'EB Garamond'
+--font-sans        'Figtree'
+--logo-hero-h / --logo-header-h / --logo-footer-h   logo heights
+=====================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Figtree:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+#fgs-healing-manor{--color-primary:#5F6B4E;--color-secondary:#2B2F38;--color-accent:#8A6E46;--color-bg:#F6F4EE;--color-surface:#ECE9DF;--color-text:#23272E;--color-muted:#6E716A;--color-dark:#1E2229;--color-dark-text:#F2F0E9;--font-serif:'EB Garamond',Georgia,serif;--font-sans:'Figtree',system-ui,-apple-system,sans-serif;--logo-hero-h:150px;--logo-header-h:46px;--logo-footer-h:96px;--gutter:clamp(20px,5vw,72px);--ease:cubic-bezier(.2,.7,.1,1)}
+#fgs-healing-manor,#fgs-healing-manor *,#fgs-healing-manor *::before,#fgs-healing-manor *::after{box-sizing:border-box;margin:0;padding:0}
+#fgs-healing-manor{position:relative;background:var(--color-bg);color:var(--color-text);font-family:var(--font-sans);font-weight:300;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip;width:100%}
+#fgs-healing-manor img,#fgs-healing-manor video{display:block;max-width:100%}
+#fgs-healing-manor a{color:inherit;text-decoration:none}
+#fgs-healing-manor button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+#fgs-healing-manor .fgs-eyebrow{font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--color-accent)}
+#fgs-healing-manor .fgs-h2{font-family:var(--font-serif);font-weight:400;font-size:clamp(2.2rem,5.2vw,4.6rem);line-height:1.02;letter-spacing:-.01em}
+#fgs-healing-manor .fgs-h2 em{font-style:italic;color:var(--color-accent)}
+#fgs-healing-manor .fgs-wrap{padding:0 var(--gutter);max-width:1680px;margin:0 auto}
+#fgs-healing-manor .fgs-logo{display:block;height:var(--h);width:auto;color:inherit}
+#fgs-healing-manor .fgs-logo-plate{display:inline-flex;align-items:center;justify-content:center;background:var(--color-bg);border-radius:14px;padding:.55em .8em}
+
+/* header */
+#fgs-healing-manor .fgs-header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px var(--gutter);color:#fff;transition:background .5s var(--ease),padding .5s var(--ease),backdrop-filter .5s}
+#fgs-healing-manor .fgs-header.is-solid{background:color-mix(in srgb,var(--color-dark) 72%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:12px var(--gutter)}
+#fgs-healing-manor .fgs-header .fgs-logo{--h:var(--logo-header-h);filter:brightness(0) invert(1);}
+#fgs-healing-manor .fgs-header-meta{display:none;font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.75}
+#fgs-healing-manor .fgs-btn{display:inline-flex;align-items:center;gap:.7em;padding:14px 26px;border-radius:999px;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;transition:transform .4s var(--ease),background .4s,color .4s,border-color .4s}
+#fgs-healing-manor .fgs-btn:hover{transform:translateY(-2px)}
+#fgs-healing-manor .fgs-btn-primary{background:var(--color-secondary);color:#fff}
+#fgs-healing-manor .fgs-btn-primary:hover{background:var(--color-accent);color:#fff}
+#fgs-healing-manor .fgs-btn-ghost{border:1px solid currentColor}
+#fgs-healing-manor .fgs-btn-ghost:hover{border-color:var(--color-accent);color:var(--color-accent)}
+#fgs-healing-manor .fgs-header .fgs-btn{padding:11px 20px;font-size:11px}
+
+/* 1 hero */
+#fgs-healing-manor .fgs-hero{position:relative;height:100vh;height:100svh;min-height:600px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;background:var(--color-dark)}
+#fgs-healing-manor .fgs-hero-video,#fgs-healing-manor .fgs-cta-video{position:absolute;inset:0;width:100vw;height:100%;object-fit:cover;z-index:0}
+#fgs-healing-manor .fgs-hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,color-mix(in srgb,var(--color-dark) 45%,transparent) 0%,transparent 30%,transparent 60%,color-mix(in srgb,var(--color-dark) 80%,transparent) 100%),color-mix(in srgb,var(--color-primary) 40%,transparent)}
+#fgs-healing-manor .fgs-hero-content{position:relative;z-index:2;padding:0 24px;display:flex;flex-direction:column;align-items:center;gap:clamp(22px,4vh,40px)}
+#fgs-healing-manor .fgs-hero .fgs-logo{--h:var(--logo-hero-h);max-width:min(78vw,520px);filter:brightness(0) invert(1);}
+#fgs-healing-manor .fgs-hero-tag{font-family:var(--font-serif);font-weight:300;font-size:clamp(2.3rem,6.4vw,6rem);line-height:1.02;letter-spacing:-.015em;max-width:15ch}
+#fgs-healing-manor .fgs-hero-tag .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+#fgs-healing-manor .fgs-hero-tag .wi{display:inline-block}
+#fgs-healing-manor .fgs-hero-sub{font-size:13px;letter-spacing:.24em;text-transform:uppercase;opacity:.85}
+#fgs-healing-manor .fgs-hero-data{position:absolute;z-index:2;left:var(--gutter);bottom:32px;display:none;gap:28px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-align:left}
+#fgs-healing-manor .fgs-hero-data span{display:block;opacity:.6;margin-bottom:4px}
+#fgs-healing-manor .fgs-scroll{position:absolute;z-index:2;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;opacity:.8}
+#fgs-healing-manor .fgs-scroll i{display:block;width:1px;height:48px;background:linear-gradient(#fff,transparent);transform-origin:top;animation:fgs-scroll-healing-manor 2.2s var(--ease) infinite}
+@keyframes fgs-scroll-healing-manor{0%{transform:scaleY(0);opacity:1}60%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+
+/* 2 manifesto */
+#fgs-healing-manor .fgs-manifesto{position:relative;padding:clamp(120px,22vh,240px) 0;overflow:hidden}
+#fgs-healing-manor .fgs-manifesto .fgs-eyebrow{margin-bottom:48px}
+#fgs-healing-manor .fgs-mtext{position:relative;z-index:2;font-family:var(--font-serif);font-weight:300;font-size:clamp(2.1rem,6vw,5.6rem);line-height:1.08;letter-spacing:-.012em;pointer-events:none}
+#fgs-healing-manor .fgs-mline{display:block;overflow:hidden}
+#fgs-healing-manor .fgs-mline>span{display:inline-block}
+#fgs-healing-manor .fgs-mline:nth-child(even){padding-left:clamp(0px,9vw,160px);font-style:italic;color:#6E7A5A}
+#fgs-healing-manor .fgs-3d{position:absolute;z-index:1;right:clamp(0px,8vw,180px);top:50%;width:280px;height:280px;transform:translateY(-50%) scale(1.6);opacity:.15;transition:opacity .6s}
+#fgs-healing-manor .fgs-3d canvas{width:280px!important;height:280px!important;display:block}
+#fgs-healing-manor .fgs-3d.is-failed{display:none}
+
+/* 3 experiences */
+#fgs-healing-manor .fgs-exp{position:relative;padding:clamp(80px,12vh,140px) 0;background:var(--color-surface)}
+#fgs-healing-manor .fgs-exp-head{display:flex;flex-direction:column;gap:20px;margin-bottom:56px}
+#fgs-healing-manor .fgs-exp-head p{max-width:42ch;color:var(--color-muted)}
+#fgs-healing-manor .fgs-exp-track{display:grid;grid-template-columns:1fr;gap:28px;padding:0 var(--gutter)}
+#fgs-healing-manor .fgs-exp-card{position:relative;overflow:hidden;border-radius:4px;background:var(--color-dark);color:#fff;aspect-ratio:4/5}
+#fgs-healing-manor .fgs-exp-media{position:absolute;inset:0;overflow:hidden}
+#fgs-healing-manor .fgs-exp-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+#fgs-healing-manor .fgs-exp-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,color-mix(in srgb,var(--color-dark) 85%,transparent));transition:background .8s var(--ease)}
+#fgs-healing-manor .fgs-exp-card:hover .fgs-exp-media img{transform:scale(1.05)}
+#fgs-healing-manor .fgs-exp-card:hover .fgs-exp-media::after{background:linear-gradient(180deg,color-mix(in srgb,var(--color-primary) 25%,transparent) 0%,color-mix(in srgb,var(--color-primary) 88%,transparent))}
+#fgs-healing-manor .fgs-exp-body{position:absolute;left:0;right:0;bottom:0;padding:28px}
+#fgs-healing-manor .fgs-exp-num{font-size:11px;letter-spacing:.2em;opacity:.7}
+#fgs-healing-manor .fgs-exp-label{font-family:var(--font-serif);font-weight:400;font-size:clamp(1.9rem,3vw,2.6rem);line-height:1;margin:10px 0 12px}
+#fgs-healing-manor .fgs-exp-line{font-size:15px;max-width:30ch;opacity:.88}
+
+/* 4 place */
+#fgs-healing-manor .fgs-place{display:grid;grid-template-columns:1fr;gap:48px;padding-top:clamp(90px,14vh,170px);padding-bottom:clamp(90px,14vh,170px)}
+#fgs-healing-manor .fgs-place-media{position:relative;overflow:hidden;aspect-ratio:3/2;border-radius:4px;background:var(--color-dark)}
+#fgs-healing-manor .fgs-place-media img{position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover}
+#fgs-healing-manor .fgs-place-data{position:absolute;inset:0;pointer-events:none;color:#fff;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+#fgs-healing-manor .fgs-place-data .tl,#fgs-healing-manor .fgs-place-data .br{position:absolute;padding:18px 20px;background:color-mix(in srgb,var(--color-dark) 38%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);border-radius:3px}
+#fgs-healing-manor .fgs-place-data .tl{left:16px;top:16px}
+#fgs-healing-manor .fgs-place-data .br{right:16px;bottom:16px;text-align:right}
+#fgs-healing-manor .fgs-place-data b{display:block;font-weight:500;font-size:13px;letter-spacing:.08em;margin-top:2px}
+#fgs-healing-manor .fgs-place-data .ticks{position:absolute;left:50%;top:50%;width:120px;height:120px;transform:translate(-50%,-50%);border:1px solid rgba(255,255,255,.35);border-radius:50%}
+#fgs-healing-manor .fgs-place-data .ticks::before,#fgs-healing-manor .fgs-place-data .ticks::after{content:"";position:absolute;background:rgba(255,255,255,.55)}
+#fgs-healing-manor .fgs-place-data .ticks::before{left:50%;top:-14px;bottom:-14px;width:1px}
+#fgs-healing-manor .fgs-place-data .ticks::after{top:50%;left:-14px;right:-14px;height:1px}
+#fgs-healing-manor .fgs-place-copy{display:flex;flex-direction:column;gap:22px;align-self:center}
+#fgs-healing-manor .fgs-place-copy p{max-width:44ch;color:var(--color-text)}
+#fgs-healing-manor .fgs-place-copy p+p{color:var(--color-muted)}
+#fgs-healing-manor .fgs-eco{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:color-mix(in srgb,var(--color-text) 14%,transparent);border:1px solid color-mix(in srgb,var(--color-text) 14%,transparent);margin-top:10px}
+#fgs-healing-manor .fgs-eco li{background:var(--color-bg);padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+#fgs-healing-manor .fgs-eco span{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--color-muted)}
+#fgs-healing-manor .fgs-eco strong{font-family:var(--font-serif);font-weight:400;font-size:1.5rem;line-height:1.1}
+
+/* 5 transformation */
+#fgs-healing-manor .fgs-dark{background:var(--color-dark);color:var(--color-dark-text)}
+#fgs-healing-manor .fgs-transform{position:relative;padding:clamp(110px,18vh,220px) 0;overflow:hidden}
+#fgs-healing-manor .fgs-transform::before{content:"";position:absolute;inset:0;background-image:linear-gradient(color-mix(in srgb,var(--color-dark-text) 6%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--color-dark-text) 6%,transparent) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 75%)}
+#fgs-healing-manor .fgs-transform .fgs-h2{max-width:16ch;margin:24px 0 80px}
+#fgs-healing-manor .fgs-stats{position:relative;display:grid;grid-template-columns:1fr;gap:56px}
+#fgs-healing-manor .fgs-stat{border-top:1px solid color-mix(in srgb,var(--color-dark-text) 22%,transparent);padding-top:28px}
+#fgs-healing-manor .fgs-stat-num{font-family:var(--font-serif);font-weight:300;font-size:clamp(4.4rem,10vw,9rem);line-height:.9;letter-spacing:-.03em;color:var(--color-accent);display:flex;align-items:baseline;gap:.08em}
+#fgs-healing-manor .fgs-stat-unit{font-size:.36em;letter-spacing:0;color:var(--color-dark-text);opacity:.8}
+#fgs-healing-manor .fgs-stat-claim{font-family:var(--font-serif);font-weight:400;font-size:1.6rem;margin:18px 0 8px}
+#fgs-healing-manor .fgs-stat-copy{max-width:34ch;opacity:.72;font-size:15px}
+
+/* 6 rooms */
+#fgs-healing-manor .fgs-rooms{padding-top:clamp(100px,16vh,180px);padding-bottom:clamp(100px,16vh,180px)}
+#fgs-healing-manor .fgs-rooms-head{display:flex;flex-direction:column;gap:18px;margin-bottom:56px}
+#fgs-healing-manor .fgs-room-grid{display:grid;grid-template-columns:1fr;gap:18px}
+#fgs-healing-manor .fgs-room{position:relative;margin:0}
+#fgs-healing-manor .fgs-room-btn{display:block;width:100%;overflow:hidden;border-radius:3px;background:var(--color-surface)}
+#fgs-healing-manor .fgs-room-btn img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/2;transition:transform 1.1s var(--ease)}
+#fgs-healing-manor .fgs-room-btn:hover img{transform:scale(1.04)}
+#fgs-healing-manor .fgs-room figcaption{margin-top:12px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--color-muted)}
+#fgs-healing-manor .fgs-lightbox{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:5vw;background:color-mix(in srgb,var(--color-dark) 94%,transparent);color:var(--color-dark-text);opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s}
+#fgs-healing-manor .fgs-lightbox.is-open{opacity:1;visibility:visible}
+#fgs-healing-manor .fgs-lightbox img{max-width:min(1400px,100%);max-height:80vh;object-fit:contain;border-radius:3px}
+#fgs-healing-manor .fgs-lightbox p{font-size:11px;letter-spacing:.24em;text-transform:uppercase}
+#fgs-healing-manor .fgs-lightbox button{position:absolute;top:20px;right:24px;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+
+/* 7 rituals */
+#fgs-healing-manor .fgs-rituals{position:relative;padding:clamp(110px,18vh,220px) 0;overflow:hidden}
+#fgs-healing-manor .fgs-rituals-bg{position:absolute;inset:-15% 0;background-size:cover;background-position:center;opacity:.16;filter:saturate(.7)}
+#fgs-healing-manor .fgs-rituals-video{position:absolute;right:var(--gutter);top:clamp(90px,14vh,170px);width:min(400px,34vw);aspect-ratio:3/4;object-fit:cover;border-radius:200px 200px 4px 4px;opacity:.85;display:none}
+#fgs-healing-manor .fgs-rituals .fgs-h2{position:relative;max-width:12ch;margin:24px 0 72px}
+#fgs-healing-manor .fgs-ritual-grid{position:relative;display:grid;grid-template-columns:1fr;gap:18px}
+#fgs-healing-manor .fgs-ritual{padding:32px 28px;border-radius:18px;background:color-mix(in srgb,var(--color-dark-text) 5%,transparent);border:1px solid color-mix(in srgb,var(--color-dark-text) 12%,transparent);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 30px 60px -30px rgba(0,0,0,.6);transition:transform .6s var(--ease),border-color .6s}
+#fgs-healing-manor .fgs-ritual:hover{transform:translateY(-6px);border-color:var(--color-accent)}
+#fgs-healing-manor .fgs-ritual-glyph{width:44px;height:44px;color:var(--color-accent);margin-bottom:26px}
+#fgs-healing-manor .fgs-ritual-glyph svg{width:100%;height:100%}
+#fgs-healing-manor .fgs-ritual-name{font-family:var(--font-serif);font-weight:400;font-size:1.65rem;line-height:1.1;margin-bottom:10px}
+#fgs-healing-manor .fgs-ritual-line{font-size:15px;opacity:.72;max-width:32ch}
+
+/* 8 quote */
+#fgs-healing-manor .fgs-quote{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#fff;text-align:center}
+#fgs-healing-manor .fgs-quote-bg{position:absolute;inset:-10% 0;width:100%;height:120%;object-fit:cover}
+#fgs-healing-manor .fgs-quote::after{content:"";position:absolute;inset:0;background:color-mix(in srgb,var(--color-dark) 58%,transparent)}
+#fgs-healing-manor .fgs-quote blockquote{position:relative;z-index:2;max-width:1100px;padding:0 var(--gutter)}
+#fgs-healing-manor .fgs-quote-mark{display:block;font-family:var(--font-serif);font-size:clamp(9rem,22vw,18rem);line-height:.6;color:var(--color-accent);height:.55em}
+#fgs-healing-manor .fgs-quote p{font-family:var(--font-serif);font-weight:300;font-style:italic;font-size:clamp(2rem,4.6vw,4.3rem);line-height:1.12}
+#fgs-healing-manor .fgs-quote cite{display:block;margin-top:40px;font-style:normal;font-size:12px;letter-spacing:.3em;font-variant:small-caps;text-transform:uppercase;opacity:.85}
+
+/* 9 cta */
+#fgs-healing-manor .fgs-cta{position:relative;min-height:88vh;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#fff;text-align:center}
+#fgs-healing-manor .fgs-cta::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,color-mix(in srgb,var(--color-dark) 70%,transparent),color-mix(in srgb,var(--color-primary) 45%,transparent));z-index:1}
+#fgs-healing-manor .fgs-cta-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:26px;padding:0 24px}
+#fgs-healing-manor .fgs-cta .fgs-h2{max-width:14ch}
+#fgs-healing-manor .fgs-cta .fgs-h2 em{color:color-mix(in srgb,var(--color-accent) 45%,#fff)}
+#fgs-healing-manor .fgs-cta-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:8px}
+#fgs-healing-manor .fgs-urgency{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;opacity:.9}
+#fgs-healing-manor .fgs-urgency i{width:7px;height:7px;border-radius:50%;background:var(--color-accent);box-shadow:0 0 0 0 var(--color-accent);animation:fgs-pulse-healing-manor 2s infinite}
+@keyframes fgs-pulse-healing-manor{70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+
+/* 10 footer */
+#fgs-healing-manor .fgs-footer{padding:90px 0 40px}
+#fgs-healing-manor .fgs-footer-top{display:grid;grid-template-columns:1fr;gap:44px;padding-bottom:64px;border-bottom:1px solid color-mix(in srgb,var(--color-dark-text) 16%,transparent)}
+#fgs-healing-manor .fgs-footer .fgs-logo{--h:var(--logo-footer-h);filter:brightness(0) invert(1);}
+#fgs-healing-manor .fgs-footer-col span{display:block;font-size:10px;letter-spacing:.24em;text-transform:uppercase;opacity:.55;margin-bottom:10px}
+#fgs-healing-manor .fgs-footer-col p,#fgs-healing-manor .fgs-footer-col a{font-family:var(--font-serif);font-size:1.35rem;line-height:1.3}
+#fgs-healing-manor .fgs-footer-col a:hover{color:var(--color-accent)}
+#fgs-healing-manor .fgs-footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:28px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.5}
+
+/* motion states (only when GSAP loaded) */
+#fgs-healing-manor.is-anim [data-reveal]{opacity:0;transform:translateY(40px)}
+#fgs-healing-manor.is-anim .fgs-mline>span{transform:translateY(105%)}
+#fgs-healing-manor.is-anim .fgs-hero-tag .wi{transform:translateY(110%)}
+#fgs-healing-manor.is-anim .fgs-hero-content>.fgs-logo,#fgs-healing-manor.is-anim .fgs-hero-content>.fgs-logo-plate,#fgs-healing-manor.is-anim .fgs-hero-sub{opacity:0}
+
+@media (min-width:768px){
+  #fgs-healing-manor .fgs-exp-track{grid-template-columns:1fr 1fr}
+  #fgs-healing-manor .fgs-stats{grid-template-columns:repeat(3,1fr);gap:40px}
+  #fgs-healing-manor .fgs-room-grid{grid-template-columns:repeat(6,1fr)}
+  #fgs-healing-manor .fgs-room.r-wide{grid-column:span 4}
+  #fgs-healing-manor .fgs-room.r-tall{grid-column:span 2}
+  #fgs-healing-manor .fgs-room.r-tall .fgs-room-btn img{aspect-ratio:3/4.2}
+  #fgs-healing-manor .fgs-room.r-wide .fgs-room-btn img{aspect-ratio:2/1.06}
+  #fgs-healing-manor .fgs-room.r-sq{grid-column:span 3}
+  #fgs-healing-manor .fgs-ritual-grid{grid-template-columns:1fr 1fr}
+  #fgs-healing-manor .fgs-footer-top{grid-template-columns:1.4fr 1fr 1fr 1fr}
+  #fgs-healing-manor .fgs-hero-data{display:flex}
+  #fgs-healing-manor .fgs-exp-card:last-child:nth-child(odd){grid-column:span 2;aspect-ratio:16/10}
+}
+@media (min-width:1024px){
+  #fgs-healing-manor .fgs-exp.is-pinned{height:100vh;padding:0;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+  #fgs-healing-manor .fgs-exp.is-pinned .fgs-exp-head{margin-bottom:40px}
+  #fgs-healing-manor .fgs-exp.is-pinned .fgs-exp-track{display:flex;gap:28px;width:max-content;will-change:transform}
+  #fgs-healing-manor .fgs-exp.is-pinned .fgs-exp-card{width:min(30vw,420px);flex:none;grid-column:auto;aspect-ratio:4/5}
+  #fgs-healing-manor .fgs-exp-head{flex-direction:row;align-items:flex-end;justify-content:space-between}
+  #fgs-healing-manor .fgs-place{grid-template-columns:6fr 4fr;gap:clamp(48px,6vw,110px)}
+  #fgs-healing-manor .fgs-ritual-grid{grid-template-columns:repeat(3,1fr);max-width:calc(100% - min(400px,34vw) - 40px)}
+  #fgs-healing-manor .fgs-ritual-grid>:nth-child(3n+2){transform:translateY(40px)}
+  #fgs-healing-manor .fgs-rituals-video{display:block}
+  #fgs-healing-manor .fgs-header-meta{display:block}
+}
+@media (min-width:1280px){
+  #fgs-healing-manor{font-size:17px}
+  #fgs-healing-manor .fgs-room-grid{gap:24px}
+}
+@media (min-width:1920px){
+  #fgs-healing-manor{font-size:18px}
+  #fgs-healing-manor .fgs-exp.is-pinned .fgs-exp-card{width:440px}
+}
+@media (prefers-reduced-motion:reduce){
+  #fgs-healing-manor *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body style="margin:0;background:#F6F4EE">
+
+<div id="fgs-healing-manor" class="fgs">
+  
+  <!-- SWAP:LOGO --> <!-- header -->
+  <header class="fgs-header" data-header>
+    <a href="#fgs-healing-manor-hero" aria-label="Healing Manor — top"><img class="fgs-logo " data-logo alt="Healing Manor logo" width="47" height="60"></a>
+    <div class="fgs-header-meta">Healing · North East Lincolnshire</div>
+    <a class="fgs-btn fgs-btn-primary" href="#fgs-healing-manor-book">Reserve</a>
+  </header>
+
+  <!-- ═══ 1 · HERO ═══ -->
+  <!-- SWAP:VIDEO → hero background | hero section -->
+  <!-- SWAP:LOGO --> <!-- hero -->
+  <section class="fgs-hero" id="fgs-healing-manor-hero">
+    <video class="fgs-hero-video" autoplay muted loop playsinline preload="metadata" poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c025be27c5b40f2d7_Image%2061.png">
+      <source src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c09a2310d67bcd25c0d_compressed-video.mp4" type="video/mp4">
+    </video>
+    <div class="fgs-hero-overlay"></div>
+    <div class="fgs-hero-content">
+      <img class="fgs-logo " data-logo alt="Healing Manor logo" width="47" height="60">
+      <!-- SWAP:COPY → hero tagline -->
+      <h1 class="fgs-hero-tag" data-split>A manor house since the Domesday Book</h1>
+      <p class="fgs-hero-sub">Healing · Lincolnshire · Hotel, Dining &amp; Weddings</p>
+    </div>
+    <div class="fgs-hero-data">
+      <div><span>Lat</span>53°34.89′ N</div>
+      <div><span>Lon</span>0°09.70′ W</div>
+      <div><span>Elev</span>10 m</div>
+    </div>
+    <div class="fgs-scroll" aria-hidden="true">Scroll<i></i></div>
+  </section>
+
+  <!-- ═══ 2 · MANIFESTO ═══ -->
+  <!-- SWAP:COPY → manifesto -->
+  <!-- SWAP:3D → leaf | Forest — Lincolnshire parkland (forest library + rustic interiors) -->
+  <section class="fgs-manifesto">
+    <div class="fgs-3d" data-glb="https://hotels3ds.s3.eu-north-1.amazonaws.com/Meshy_AI_A_single_mature_oak_l_0411161732_texture.glb" aria-hidden="true"></div>
+    <div class="fgs-wrap">
+      <p class="fgs-eyebrow">The Philosophy</p>
+      <p class="fgs-mtext"><span class="fgs-mline"><span>Healing was written down in 1086.</span></span><span class="fgs-mline"><span>The fields have kept their names.</span></span><span class="fgs-mline"><span>We keep the fires lit</span></span><span class="fgs-mline"><span>and the long table laid.</span></span></p>
+    </div>
+  </section>
+
+  <!-- ═══ 3 · SIGNATURE EXPERIENCES ═══ -->
+  <!-- SWAP:COPY → signature experiences -->
+  <section class="fgs-exp" data-exp>
+    <div class="fgs-wrap fgs-exp-head">
+      <div><p class="fgs-eyebrow">Signature Experiences</p><h2 class="fgs-h2" style="margin-top:18px">Country days, <em>Lincolnshire pace</em></h2></div>
+      <p>Thirty-six acres, a pub that feeds the village and a barn built for the biggest day of your life.</p>
+    </div>
+    <div class="fgs-exp-track" data-exp-track>
+        <!-- SWAP:IMG → experience card 1: Pig & Whistle | ratio: 4:5 (source 16:9) -->
+        <article class="fgs-exp-card" data-reveal>
+          <div class="fgs-exp-media"><img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ff46b5e27717728295d_Image%20200.png" alt="Pig &amp; Whistle — Healing Manor" loading="lazy" decoding="async"></div>
+          <div class="fgs-exp-body">
+            <span class="fgs-exp-num">01</span>
+            <h3 class="fgs-exp-label">Pig &amp; Whistle</h3>
+            <p class="fgs-exp-line">Seasonal plates from Lincolnshire farms, a fire in winter and dogs under the table.</p>
+          </div>
+        </article>
+        <!-- SWAP:IMG → experience card 2: The Grounds | ratio: 4:5 (source 16:9) -->
+        <article class="fgs-exp-card" data-reveal>
+          <div class="fgs-exp-media"><img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755f5931b223dc54467b_Image%2062.png" alt="The Grounds — Healing Manor" loading="lazy" decoding="async"></div>
+          <div class="fgs-exp-body">
+            <span class="fgs-exp-num">02</span>
+            <h3 class="fgs-exp-label">The Grounds</h3>
+            <p class="fgs-exp-line">Thirty-six acres of parkland and old trees, walked in every season.</p>
+          </div>
+        </article>
+        <!-- SWAP:IMG → experience card 3: The Barn | ratio: 4:5 (source 16:9) -->
+        <article class="fgs-exp-card" data-reveal>
+          <div class="fgs-exp-media"><img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ff42e59d41eee7fa2f0_Image%20199.png" alt="The Barn — Healing Manor" loading="lazy" decoding="async"></div>
+          <div class="fgs-exp-body">
+            <span class="fgs-exp-num">03</span>
+            <h3 class="fgs-exp-label">The Barn</h3>
+            <p class="fgs-exp-line">Weddings for up to 150 guests under old timber and candlelight.</p>
+          </div>
+        </article>
+        <!-- SWAP:IMG → experience card 4: Afternoon Tea | ratio: 4:5 (source 16:9) -->
+        <article class="fgs-exp-card" data-reveal>
+          <div class="fgs-exp-media"><img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ff6979c818214707b17_Image%20226.png" alt="Afternoon Tea — Healing Manor" loading="lazy" decoding="async"></div>
+          <div class="fgs-exp-body">
+            <span class="fgs-exp-num">04</span>
+            <h3 class="fgs-exp-label">Afternoon Tea</h3>
+            <p class="fgs-exp-line">Scones, local jam and a long pot by the window.</p>
+          </div>
+        </article>
+        <!-- SWAP:IMG → experience card 5: Garden Plates | ratio: 4:5 (source 16:9) -->
+        <article class="fgs-exp-card" data-reveal>
+          <div class="fgs-exp-media"><img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2795baeedff7f272_Image%2069.png" alt="Garden Plates — Healing Manor" loading="lazy" decoding="async"></div>
+          <div class="fgs-exp-body">
+            <span class="fgs-exp-num">05</span>
+            <h3 class="fgs-exp-label">Garden Plates</h3>
+            <p class="fgs-exp-line">Herbs and flowers picked close to the kitchen door.</p>
+          </div>
+        </article>
+    </div>
+  </section>
+
+  <!-- ═══ 4 · THE PLACE ═══ -->
+  <!-- SWAP:IMG → the place | ratio: 3:2 (source 16:9) -->
+  <!-- SWAP:COPY → the place -->
+  <section class="fgs-wrap fgs-place">
+    <div class="fgs-place-media" data-reveal>
+      <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c3fc86be474e72fa6_Image%2063.png" alt="Sunlight through old parkland trees" loading="lazy" decoding="async" data-parallax>
+      <div class="fgs-place-data">
+        <div class="tl">Coordinates<b>53°34.89′ N</b><b>0°09.70′ W</b></div>
+        <div class="ticks"></div>
+        <div class="br">Grounds<b>36 acres · parkland</b></div>
+      </div>
+    </div>
+    <div class="fgs-place-copy" data-reveal>
+      <p class="fgs-eyebrow">The Place · Healing · North East Lincolnshire</p>
+      <h2 class="fgs-h2">Between the <em>Wolds and the Humber</em></h2>
+      <p>Healing Manor stands in 36 acres of parkland on the edge of a village recorded in the Domesday Book of 1086.</p>
+      <p>To the north runs the wide Humber estuary; to the south-west rise the chalk hills of the Lincolnshire Wolds.</p>
+      <p>Grimsby, once the busiest fishing port in the world, is ten minutes east.</p>
+      <ul class="fgs-eco"><li><span>Grounds</span><strong>36 acres</strong></li><li><span>Estuary</span><strong>Humber</strong></li><li><span>Hills</span><strong>Lincolnshire Wolds</strong></li><li><span>Recorded</span><strong>Domesday · 1086</strong></li></ul>
+    </div>
+  </section>
+
+  <!-- ═══ 5 · TRANSFORMATION PROMISE ═══ -->
+  <!-- SWAP:COPY → transformation stats 1–3 -->
+  <section class="fgs-dark fgs-transform">
+    <div class="fgs-wrap">
+      <p class="fgs-eyebrow">The Transformation</p>
+      <h2 class="fgs-h2" data-reveal>A manor, <em>by numbers</em></h2>
+      <div class="fgs-stats">
+        <div class="fgs-stat" data-reveal>
+          <div class="fgs-stat-num"><span class="fgs-count" data-to="1086" data-dec="0" data-plain>0</span><span class="fgs-stat-unit"></span></div>
+          <h3 class="fgs-stat-claim">Healing in the Domesday Book</h3>
+          <p class="fgs-stat-copy">Nearly a thousand years of the same fields and the same village name.</p>
+        </div>
+        <div class="fgs-stat" data-reveal>
+          <div class="fgs-stat-num"><span class="fgs-count" data-to="36" data-dec="0">0</span><span class="fgs-stat-unit">acres</span></div>
+          <h3 class="fgs-stat-claim">Of parkland and grounds</h3>
+          <p class="fgs-stat-copy">Room for a morning walk, a dog run and a wedding photograph.</p>
+        </div>
+        <div class="fgs-stat" data-reveal>
+          <div class="fgs-stat-num"><span class="fgs-count" data-to="37" data-dec="0">0</span><span class="fgs-stat-unit">rooms</span></div>
+          <h3 class="fgs-stat-claim">Each one different</h3>
+          <p class="fgs-stat-copy">From snug doubles to dog-friendly rooms near the grounds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6 · ROOMS & SPACES ═══ -->
+  <section class="fgs-wrap fgs-rooms">
+    <div class="fgs-rooms-head">
+      <p class="fgs-eyebrow">Rooms &amp; Spaces</p>
+      <h2 class="fgs-h2">Rooms with <em>country calm</em></h2>
+    </div>
+    <div class="fgs-room-grid">
+        <!-- SWAP:IMG → room/interior 1: Manor Suite | ratio: 3:2 (source 1:1) -->
+        <figure class="fgs-room r-wide" data-reveal>
+          <button class="fgs-room-btn" type="button" data-full="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ff64725bb5df71bb8fb_Image%20217.png" data-caption="Manor Suite" aria-label="Open Manor Suite">
+            <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ff64725bb5df71bb8fb_Image%20217.png" alt="Manor Suite — Healing Manor" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Manor Suite</figcaption>
+        </figure>
+        <!-- SWAP:IMG → room/interior 2: Garden Room | ratio: 3:2 (source 4:3) -->
+        <figure class="fgs-room r-tall" data-reveal>
+          <button class="fgs-room-btn" type="button" data-full="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d01b3f8e72daf583f_Image%2074.png" data-caption="Garden Room" aria-label="Open Garden Room">
+            <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d01b3f8e72daf583f_Image%2074.png" alt="Garden Room — Healing Manor" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Garden Room</figcaption>
+        </figure>
+        <!-- SWAP:IMG → room/interior 3: Classic Double | ratio: 3:2 (source 1:1) -->
+        <figure class="fgs-room r-sq" data-reveal>
+          <button class="fgs-room-btn" type="button" data-full="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ff628c0d15aa2d17ccb_Image%20219.png" data-caption="Classic Double" aria-label="Open Classic Double">
+            <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ff628c0d15aa2d17ccb_Image%20219.png" alt="Classic Double — Healing Manor" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Classic Double</figcaption>
+        </figure>
+        <!-- SWAP:IMG → room/interior 4: Window Seat | ratio: 3:2 (source 16:9) -->
+        <figure class="fgs-room r-sq" data-reveal>
+          <button class="fgs-room-btn" type="button" data-full="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ff6fae05cadd81d490e_Image%20227.png" data-caption="Window Seat" aria-label="Open Window Seat">
+            <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ff6fae05cadd81d490e_Image%20227.png" alt="Window Seat — Healing Manor" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Window Seat</figcaption>
+        </figure>
+        <!-- SWAP:IMG → room/interior 5: Dog-Friendly Room | ratio: 3:2 (source 4:3) -->
+        <figure class="fgs-room r-tall" data-reveal>
+          <button class="fgs-room-btn" type="button" data-full="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d10aa143cd1856fdf_Image%2075.png" data-caption="Dog-Friendly Room" aria-label="Open Dog-Friendly Room">
+            <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755d10aa143cd1856fdf_Image%2075.png" alt="Dog-Friendly Room — Healing Manor" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Dog-Friendly Room</figcaption>
+        </figure>
+        <!-- SWAP:IMG → room/interior 6: Feature Room | ratio: 3:2 (source 1:1) -->
+        <figure class="fgs-room r-wide" data-reveal>
+          <button class="fgs-room-btn" type="button" data-full="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ff6e2a94b279b6c6e4d_Image%20220.png" data-caption="Feature Room" aria-label="Open Feature Room">
+            <img src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69db7ff6e2a94b279b6c6e4d_Image%20220.png" alt="Feature Room — Healing Manor" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Feature Room</figcaption>
+        </figure>
+    </div>
+  </section>
+  <div class="fgs-lightbox" data-lightbox role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button type="button" data-close>Close ✕</button>
+    <img alt="">
+    <p></p>
+  </div>
+
+  <!-- ═══ 7 · WELLNESS RITUALS ═══ -->
+  <!-- SWAP:COPY → wellness rituals 1–6 -->
+  <!-- SWAP:IMG → rituals background texture | ratio: 4:3 -->
+  <!-- SWAP:VIDEO → rituals texture accent | wellness rituals section -->
+  <section class="fgs-dark fgs-rituals">
+    <div class="fgs-rituals-bg" data-bg-parallax style="background-image:url('https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2d6f969a6ed97235_Image%2065.png')"></div>
+    <video class="fgs-rituals-video" autoplay muted loop playsinline preload="none" poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c2d6f969a6ed97235_Image%2065.png">
+      <source src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c0fe737ad6b6c354b9c_Video%201.mp4" type="video/mp4">
+    </video>
+    <div class="fgs-wrap" style="position:relative">
+      <p class="fgs-eyebrow">Wellness Rituals</p>
+      <h2 class="fgs-h2" data-reveal>Slow <em>country</em> rituals</h2>
+      <div class="fgs-ritual-grid">
+        <div class="fgs-ritual" data-reveal style="--d:0">
+          <div class="fgs-ritual-glyph"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 36C8 18 18 8 36 8c0 18-10 28-28 28z"/><path d="M8 36 26 18" opacity=".6"/></svg></div>
+          <h3 class="fgs-ritual-name">Parkland Walk</h3>
+          <p class="fgs-ritual-line">A lap of the grounds before breakfast, frost on the grass.</p>
+        </div>
+        <div class="fgs-ritual" data-reveal style="--d:1">
+          <div class="fgs-ritual-glyph"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 6c2 7 9 10 9 18a9 9 0 0 1-18 0c0-5 3-7 4-11 2 3 3 4 5 4-1-4-1-7 0-11z"/></svg></div>
+          <h3 class="fgs-ritual-name">Fireside Hour</h3>
+          <p class="fgs-ritual-line">A pint by the fire in the Pig &amp; Whistle.</p>
+        </div>
+        <div class="fgs-ritual" data-reveal style="--d:2">
+          <div class="fgs-ritual-glyph"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 30V20a10 10 0 0 1 20 0v10l3 3H9z"/><path d="M19 36a3 3 0 0 0 6 0"/></svg></div>
+          <h3 class="fgs-ritual-name">Sunday Lunch</h3>
+          <p class="fgs-ritual-line">A roast, Yorkshire puddings and the whole family at one table.</p>
+        </div>
+        <div class="fgs-ritual" data-reveal style="--d:0">
+          <div class="fgs-ritual-glyph"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="22" cy="22" r="15"/><path d="M27 17l-3 8-8 3 3-8z"/></svg></div>
+          <h3 class="fgs-ritual-name">Wolds Drive</h3>
+          <p class="fgs-ritual-line">Chalk lanes and big skies, twenty minutes inland.</p>
+        </div>
+        <div class="fgs-ritual" data-reveal style="--d:1">
+          <div class="fgs-ritual-glyph"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18h22a5 5 0 1 0-5-5M6 26h28a5 5 0 1 1-5 5"/></svg></div>
+          <h3 class="fgs-ritual-name">Estuary Air</h3>
+          <p class="fgs-ritual-line">Wide skies over the Humber, birds on the mudflats.</p>
+        </div>
+        <div class="fgs-ritual" data-reveal style="--d:2">
+          <div class="fgs-ritual-glyph"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 30A13 13 0 0 1 16 8a13 13 0 1 0 14 22z"/></svg></div>
+          <h3 class="fgs-ritual-name">Dark Skies</h3>
+          <p class="fgs-ritual-line">Stars over the fields once the barn lights go out.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 8 · EDITORIAL QUOTE ═══ -->
+  <!-- SWAP:IMG → editorial quote background | ratio: 16:9 (source 16:9) -->
+  <!-- SWAP:COPY → editorial quote -->
+  <section class="fgs-quote">
+    <img class="fgs-quote-bg" src="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c20859ca462d94b77_Image%2064.png" alt="" loading="lazy" decoding="async" data-parallax>
+    <blockquote data-reveal>
+      <span class="fgs-quote-mark" aria-hidden="true">“</span>
+      <p>We came for a wedding and came back for the Sunday lunch.</p>
+      <cite>A returning guest</cite>
+    </blockquote>
+  </section>
+
+  <!-- ═══ 9 · BOOKING CTA ═══ -->
+  <!-- SWAP:VIDEO → booking CTA background (reuses hero) | booking CTA -->
+  <!-- SWAP:COPY → booking CTA -->
+  <section class="fgs-cta" id="fgs-healing-manor-book">
+    <video class="fgs-cta-video" autoplay muted loop playsinline preload="none" poster="https://cdn.prod.website-files.com/69da67f29a4d920e7b24efcd/69da755c025be27c5b40f2d7_Image%2061.png">
+      <source src="https://s3.amazonaws.com/webflow-prod-assets/69da67f29a4d920e7b24efcd/69da7c09a2310d67bcd25c0d_compressed-video.mp4" type="video/mp4">
+    </video>
+    <div class="fgs-cta-inner" data-reveal>
+      <p class="fgs-urgency"><i></i>Limited availability — Festive season 2026</p>
+      <h2 class="fgs-h2">Your table and room <em>at the manor</em></h2>
+      <p style="max-width:40ch;opacity:.88">Book direct for our best rate, with dogs welcome in selected rooms and the Pig &amp; Whistle downstairs.</p>
+      <div class="fgs-cta-btns">
+        <a class="fgs-btn fgs-btn-primary" href="https://www.healingmanorhotel.co.uk" target="_blank" rel="noopener">Reserve Your Stay</a>
+        <a class="fgs-btn fgs-btn-ghost" href="#">Download the Experience Guide</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 10 · FOOTER ═══ -->
+  <!-- SWAP:LOGO --> <!-- footer -->
+  <footer class="fgs-dark fgs-footer">
+    <div class="fgs-wrap">
+      <div class="fgs-footer-top">
+        <div><img class="fgs-logo " data-logo alt="Healing Manor logo" width="47" height="60"></div>
+        <div class="fgs-footer-col"><span>Find us</span><p>Stallingborough Road, Healing, Grimsby DN41 7QF</p></div>
+        <div class="fgs-footer-col"><span>Coordinates</span><p>53°34.89′ N<br>0°09.70′ W</p></div>
+        <div class="fgs-footer-col"><span>Write · Follow</span><a href="mailto:reception@healingmanorhotel.co.uk">reception@healingmanorhotel.co.uk</a><br><a href="https://instagram.com/healingmanor" target="_blank" rel="noopener">@healingmanor</a></div>
+      </div>
+      <div class="fgs-footer-bottom"><span>© 2026 Healing Manor Hotel</span><span>Hotel · Dining · Weddings · Lincolnshire</span></div>
+    </div>
+  </footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/loaders/GLTFLoader.js"></script>
+<script>
+(function(){
+  var root=document.getElementById('fgs-healing-manor');
+  if(!root) return;
+  var LOGO_SRC='data:image/png;base64,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';
+  root.querySelectorAll('img[data-logo]').forEach(function(i){i.src=LOGO_SRC;});
+
+  // header state
+  var header=root.querySelector('[data-header]');
+  function onScroll(){header.classList.toggle('is-solid',window.scrollY>80);}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // lightbox
+  var lb=root.querySelector('[data-lightbox]'),lbImg=lb.querySelector('img'),lbCap=lb.querySelector('p');
+  root.querySelectorAll('.fgs-room-btn').forEach(function(b){b.addEventListener('click',function(){lbImg.src=b.dataset.full;lbImg.alt=b.dataset.caption;lbCap.textContent=b.dataset.caption;lb.classList.add('is-open');});});
+  function closeLb(){lb.classList.remove('is-open');}
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target.hasAttribute('data-close'))closeLb();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+  // split hero tagline into words
+  var tag=root.querySelector('[data-split]');
+  tag.innerHTML=tag.textContent.trim().split(/\s+/).map(function(w){return '<span class="w"><span class="wi">'+w+'</span></span>';}).join(' ');
+
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(window.gsap&&window.ScrollTrigger&&!reduce){
+    gsap.registerPlugin(ScrollTrigger);
+    root.classList.add('is-anim');
+    var heroLogo=root.querySelector('.fgs-hero .fgs-logo-plate')||root.querySelector('.fgs-hero .fgs-logo');
+    gsap.timeline({delay:.2})
+      .to(heroLogo,{opacity:1,duration:1.4,ease:'power2.out'})
+      .to(root.querySelectorAll('.fgs-hero-tag .wi'),{y:0,duration:1.2,stagger:.08,ease:'expo.out'},'-=.9')
+      .to(root.querySelector('.fgs-hero-sub'),{opacity:.85,duration:1},'-=.6');
+    gsap.to(root.querySelector('.fgs-hero-content'),{yPercent:-18,opacity:.2,ease:'none',scrollTrigger:{trigger:root.querySelector('.fgs-hero'),start:'top top',end:'bottom top',scrub:true}});
+
+    root.querySelectorAll('.fgs-mline>span').forEach(function(s,i){
+      gsap.to(s,{y:0,duration:1.3,ease:'expo.out',scrollTrigger:{trigger:s.parentNode,start:'top 88%'}});
+    });
+    root.querySelectorAll('[data-reveal]').forEach(function(el){
+      gsap.to(el,{opacity:1,y:0,duration:1.2,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 90%'}});
+    });
+
+    // horizontal experiences on desktop
+    gsap.matchMedia().add('(min-width:1024px)',function(){
+      var sec=root.querySelector('[data-exp]'),track=root.querySelector('[data-exp-track]');
+      sec.classList.add('is-pinned');
+      var dist=function(){return Math.max(0,track.scrollWidth-window.innerWidth);};
+      gsap.to(track,{x:function(){return -dist();},ease:'none',scrollTrigger:{trigger:sec,start:'top top',end:function(){return '+='+dist();},pin:true,scrub:1,invalidateOnRefresh:true}});
+      return function(){sec.classList.remove('is-pinned');};
+    });
+
+    root.querySelectorAll('[data-parallax]').forEach(function(img){
+      gsap.fromTo(img,{yPercent:-6},{yPercent:6,ease:'none',scrollTrigger:{trigger:img.parentNode,start:'top bottom',end:'bottom top',scrub:true}});
+    });
+    var bg=root.querySelector('[data-bg-parallax]');
+    gsap.fromTo(bg,{yPercent:-8},{yPercent:8,ease:'none',scrollTrigger:{trigger:bg.parentNode,start:'top bottom',end:'bottom top',scrub:true}});
+
+    root.querySelectorAll('.fgs-count').forEach(function(el){
+      var o={v:0},to=parseFloat(el.dataset.to),dec=parseInt(el.dataset.dec,10)||0;
+      gsap.to(o,{v:to,duration:2.2,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 85%'},onUpdate:function(){el.textContent=o.v.toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec,useGrouping:!el.hasAttribute('data-plain')});}});
+    });
+    window.addEventListener('load',function(){ScrollTrigger.refresh();});
+  } else {
+    root.querySelectorAll('.fgs-count').forEach(function(el){el.textContent=parseFloat(el.dataset.to).toLocaleString('en-US',{minimumFractionDigits:+el.dataset.dec||0,useGrouping:!el.hasAttribute('data-plain')});});
+  }
+
+  // 3D object: loaded only when the manifesto approaches the viewport
+  var slot=root.querySelector('.fgs-3d');
+  function init3D(){
+    if(!window.THREE||!THREE.GLTFLoader){slot.classList.add('is-failed');return;}
+    var W=280,H=280,renderer=new THREE.WebGLRenderer({alpha:true,antialias:true});
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));renderer.setSize(W,H);renderer.setClearColor(0x000000,0);
+    renderer.outputEncoding=THREE.sRGBEncoding;
+    slot.appendChild(renderer.domElement);
+    var scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(35,1,.1,100);cam.position.set(0,0,4.2);
+    var key=new THREE.DirectionalLight(0xffd9a8,1.6);key.position.set(3,3,4);scene.add(key);       // warm key
+    var rim=new THREE.DirectionalLight(0x9cc7ff,1.2);rim.position.set(-4,1.5,-3);scene.add(rim);    // cool rim
+    var fill=new THREE.DirectionalLight(0xb9d4ff,.45);fill.position.set(-3,-1,3);scene.add(fill);   // cool fill
+    scene.add(new THREE.AmbientLight(0xffffff,.35));
+    var model=null,paused=false;
+    slot.addEventListener('mouseenter',function(){paused=true;});
+    slot.addEventListener('mouseleave',function(){paused=false;});
+    new THREE.GLTFLoader().load(slot.dataset.glb,function(g){
+      model=g.scene;var box=new THREE.Box3().setFromObject(model),size=box.getSize(new THREE.Vector3()),ctr=box.getCenter(new THREE.Vector3());
+      model.position.sub(ctr);var s=2.2/Math.max(size.x,size.y,size.z);var pivot=new THREE.Group();pivot.add(model);pivot.scale.setScalar(s);scene.add(pivot);model=pivot;
+    },undefined,function(){slot.classList.add('is-failed');});
+    (function loop(){requestAnimationFrame(loop);if(model&&!paused)model.rotation.y+=0.002;renderer.render(scene,cam);})();
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();init3D();}},{rootMargin:'400px'});io.observe(slot);
+  } else init3D();
+})();
+</script>
+<!--
+CUSTOMIZATION GUIDE — Healing Manor
+=====================================================
+Every SWAP marker in this file, in page order:
+ 1. [ ] SWAP:IMG → experience card 1: Pig & Whistle | ratio: 4:5 (source 16:9)
+ 2. [ ] SWAP:IMG → experience card 2: The Grounds | ratio: 4:5 (source 16:9)
+ 3. [ ] SWAP:IMG → experience card 3: The Barn | ratio: 4:5 (source 16:9)
+ 4. [ ] SWAP:IMG → experience card 4: Afternoon Tea | ratio: 4:5 (source 16:9)
+ 5. [ ] SWAP:IMG → experience card 5: Garden Plates | ratio: 4:5 (source 16:9)
+ 6. [ ] SWAP:IMG → room/interior 1: Manor Suite | ratio: 3:2 (source 1:1)
+ 7. [ ] SWAP:IMG → room/interior 2: Garden Room | ratio: 3:2 (source 4:3)
+ 8. [ ] SWAP:IMG → room/interior 3: Classic Double | ratio: 3:2 (source 1:1)
+ 9. [ ] SWAP:IMG → room/interior 4: Window Seat | ratio: 3:2 (source 16:9)
+10. [ ] SWAP:IMG → room/interior 5: Dog-Friendly Room | ratio: 3:2 (source 4:3)
+11. [ ] SWAP:IMG → room/interior 6: Feature Room | ratio: 3:2 (source 1:1)
+12. [ ] SWAP:LOGO
+13. [ ] SWAP:VIDEO → hero background | hero section
+14. [ ] SWAP:LOGO
+15. [ ] SWAP:COPY → hero tagline
+16. [ ] SWAP:COPY → manifesto
+17. [ ] SWAP:3D → leaf | Forest — Lincolnshire parkland (forest library + rustic interiors)
+18. [ ] SWAP:COPY → signature experiences
+19. [ ] SWAP:IMG → the place | ratio: 3:2 (source 16:9)
+20. [ ] SWAP:COPY → the place
+21. [ ] SWAP:COPY → transformation stats 1–3
+22. [ ] SWAP:COPY → wellness rituals 1–6
+23. [ ] SWAP:IMG → rituals background texture | ratio: 4:3
+24. [ ] SWAP:VIDEO → rituals texture accent | wellness rituals section
+25. [ ] SWAP:IMG → editorial quote background | ratio: 16:9 (source 16:9)
+26. [ ] SWAP:COPY → editorial quote
+27. [ ] SWAP:VIDEO → booking CTA background (reuses hero) | booking CTA
+28. [ ] SWAP:COPY → booking CTA
+29. [ ] SWAP:LOGO
+
+NO ASSET IN CSV items: none — every image/video slot uses the CSV library.
+
+PRODUCTION FOLLOW-UP
+!! 3D: the GLB host (hotels3ds.s3.eu-north-1.amazonaws.com) sends no CORS
+!!     header, so browsers block GLTFLoader on any other domain. Add a CORS rule
+!!     to the bucket (AllowedOrigins: *, AllowedMethods: GET). Until then the
+!!     3D slot hides itself and the page is unaffected. The leaf GLB is
+!!     ~11 MB; a Draco-compressed export would load much faster.
+!! Library imagery is AI landscape art, not the hotel's own photography —
+!!     swap in real rooms/spa shots before any live use.
+!! Email and Instagram confirmed on the hotel’s own site (checked 27 Oct 2026).
+!! Editorial quote is illustrative — replace with a real press line or verified guest review.
+!! Library has no English-countryside imagery — forest and rustic stand-ins; real photos of the manor and grounds would lift this page most.
+!! Webflow: this file is over the 50,000-character Embed limit. Paste the
+!!     pieces in ./webflow/ instead (each under the limit; see
+!!     PASTE-INTO-WEBFLOW.txt there). Regenerate them after any rebuild:
+!!     node webflow_split.js .. <slug>
+=====================================================
+-->
+</body>
+</html>
